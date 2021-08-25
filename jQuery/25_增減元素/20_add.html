@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../_js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+
+    <button id="btnAdd">附加清單</button>
+    <hr>
+    <div>
+        <h4>底下是清單</h4>
+        <ol id="payment">
+            <!-- flower -->
+            <li>LINE Pay</li>
+            <!-- cat -->
+            <li id="applepay">Apple Pay</li>
+            <!-- dog -->
+            <li>信用卡</li>
+            <!-- bee -->
+        </ol>
+    </div>
+
+    <script>
+
+        btnAdd.onclick = function () {
+
+            // 10. 測試 + 比較底下幾種方法的差異:
+            //    $().before(), 
+            //    $().after(),
+            $('#applepay').before('<li>cat</li>');
+            $('#applepay').after('<li>dog</li>');
+
+            //    $().prepend(), 
+            //    $().append(),
+            $('#payment').prepend('<li>flower</li>');
+            $('#payment').append('<li>bee</li>');
+
+            //    $().appendTo(selector)
+            $('<li>陰天</li>').appendTo('#payment');
+
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../_css/bootstrap.min.css">
+    <script src="../_js/jquery.min.js"></script>
+    <script src="../_js/popper.min.js"></script>
+    <script src="../_js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+
+    <div class="container">
+       
+        <h4>官方網站</h4>
+        <h4><a href="https://getbootstrap.com/docs/4.6/components/carousel/">https://getbootstrap.com/docs/4.6/components/carousel/</a></h4>
+        <h4>Bootstrap 4 Carousel</h4>
+        <h4><a href="https://www.w3schools.com/bootstrap4/bootstrap_carousel.asp">https://www.w3schools.com/bootstrap4/bootstrap_carousel.asp</a></h4>
+        <h4><a href="https://www.w3schools.com/bootstrap4/bootstrap_ref_js_carousel.asp">Bootstrap 4 JS Carousel</a></h4>
+
+        <hr>
+        <!-- 10. Carousel 類別結構 -->
+        <!--    .carousel -->
+        <!--    .carousel-inner -->
+        <!--    .carousel-item 和 .active -->
+
+        <!-- 測試圖片： -->
+        <!-- https://dummyimage.com/600x100/00ff5e/ffffff -->
+        <!-- https://dummyimage.com/600x100/ff8400/ffffff -->
+        <!-- https://dummyimage.com/600x100/f057c5/ffffff -->
+
+        <!-- 20. 在最外層的容器，加入 data-ride="carousel" -->
+
+        <!-- 21. 在最外層的容器，加入類別 .slide -->
+
+        <h5>錯誤版本:</h5>
+        <div class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <img class="carousel-item active" src="https://dummyimage.com/600x100/00ff5e/ffffff" alt="">
+            </div>
+            <div class="carousel-inner">
+                <img class="carousel-item" src="https://dummyimage.com/600x100/ff8400/ffffff" alt="">
+            </div>
+            <div class="carousel-inner">
+                <img class="carousel-item" src="https://dummyimage.com/600x100/f057c5/ffffff" alt="">
+            </div>
+        </div>
+        <hr>
+        <h5>修正版本:</h5>
+        <div class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://dummyimage.com/600x100/00ff5e/ffffff" alt="">
+                </div> 
+                <div class="carousel-item">
+                    <img src="https://dummyimage.com/600x100/ff8400/ffffff" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://dummyimage.com/600x100/f057c5/ffffff" alt="">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h5>官方版本:</h5>
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <img src="https://dummyimage.com/600x100/00ff5e/ffffff" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="https://dummyimage.com/600x100/ff8400/ffffff" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="https://dummyimage.com/600x100/f057c5/ffffff" class="d-block w-100" alt="...">
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+
+</html>

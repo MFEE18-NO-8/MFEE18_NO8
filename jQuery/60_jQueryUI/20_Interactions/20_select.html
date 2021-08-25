@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../_jquery-ui-1.12.1/jquery-ui.css">
+    <script src="../../_js/jquery-3.4.1.js"></script>
+    <script src="../../_jquery-ui-1.12.1/jquery-ui.js"></script>
+
+    <style>
+        #feedback {
+            font-size: 1.4em;
+        }
+
+        #selectable .ui-selecting {
+            /* background:  #FECA40; */
+            background-color: hotpink;
+        }
+
+        #selectable .ui-selected {
+            /* background: #F39814; */
+            background-color: lawngreen;
+            color: white;
+        }
+
+        #selectable {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 60%;
+        }
+
+        #selectable li {
+            margin: 3px;
+            padding: 0.4em;
+            font-size: 1.4em;
+            height: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 10. jQuery UI 官網文件所在 -->
+    <!--    API Documentation > (左側) Interactions > Selectable Widget -->
+
+    <!-- 15. 複製官方網站的範例 -->
+    <!--    Demos > Interactions > Selectable > (右側) Examples > serialize -->
+
+    <p id="feedback"> <span>被選取：</span>
+        <span id="select-result"></span>
+        <span id="mySelected"></span> </p>
+
+    <p> <span>沒有被選取：</span>
+        <span id="myUnSelected"></span> </p>
+
+    <ol id="selectable">
+        <li class="ui-widget-content">Item 1</li>
+        <li class="ui-widget-content">Item 2</li>
+        <li class="ui-widget-content">Item 3</li>
+        <li class="ui-widget-content">Item 4</li>
+        <li class="ui-widget-content">Item 5</li>
+        <li class="ui-widget-content">Item 6</li>
+        <li class="ui-widget-content">Item 7</li>
+    </ol>
+
+    <script>
+        $(function () {
+            $("#selectable").selectable({
+                stop: function () {
+
+                    // 被選取的文字內容
+                    var temp = $('#selectable .ui-selected').text(); // 'apple';
+                    $('#mySelected').text(temp);
+
+                    // 沒有被選取的文字內容
+                    var temp2 = 'CAT';
+
+                    // 方法A:
+                    // temp2 = $('#selectable>li:not(.ui-selected)').text(); 
+
+                    // 方法B:
+                    // temp2 = $('#selectable>li').not('.ui-selected').text(); 
+
+                    // // 方法C: 使用陣列的join => 
+                    // var ar = [];
+                    // temp2 = $('#selectable>li').not('.ui-selected').each(function(){
+                    //     ar.push(this.innerText);
+                    // }); 
+                    
+                    // // 方法D: replace (沒有完全成功)
+                    // temp2 = $('#selectable>li').not('.ui-selected').text().replace(' ',','); 
+                    // temp2 = $('#selectable>li').not('.ui-selected').text().replaceAll(' ',','); 
+                    
+                    $('#myUnSelected').text(temp2);
+                    // $('#myUnSelected').text(ar.join(' , '));
+
+                    // // 官方寫法：
+                    // var result = $("#select-result").empty();
+                    // $(".ui-selected", this).each(function () {
+                    //     var index = $("#selectable li").index(this);
+                    //     result.append(" #" + (index + 1));
+                    // });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../_js/jquery-3.4.1.js"></script>
+
+    <!-- 10. 參考結果設定對應 css -->
+    <style>
+        div {
+            float: left;
+        }
+
+        .myHideName {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 20. 設定袋子，裡面裝一張圖片和一段文字 -->
+    <div>
+        <img src="../_img/op_01.jpg" alt="">
+        <p>魯夫</p>
+    </div>
+    <div>
+        <img src="../_img/op_02.jpg" alt="">
+        <p>三刀流</p>
+    </div>
+    <div>
+        <img src="../_img/op_03.jpg" alt="">
+        <p>小偷貓咪大戰六周年</p>
+    </div>
+
+    <script>
+        $(function () {
+
+            // 30. 設定先將文字隱藏起來
+            //      $('p').fadeOut();
+            // $('p').css('visibility', 'hidden');
+            $('p').addClass('myHideName');
+
+            //      滑鼠經過div的時候顯示，離開的時候隱藏
+            //    * mouseenter 和 mouseleave
+
+            // // 方法A:
+            // $('div').on('mouseenter', function () {
+            //     $(this).find('p').css('visibility', 'visible');
+            // })
+
+            // $('div').on('mouseleave', function () {
+            //     $(this).find('p').css('visibility', 'hidden');
+            // })
+
+            // // 方法B: 物件
+            // $('div').on({
+            //     'mouseenter': function () {
+            //         $(this).find('p').css('visibility', 'visible');
+            //     },
+            //     'mouseleave': function () {
+            //         $(this).find('p').css('visibility', 'hidden');
+            //     }
+            // });
+
+            
+            // // 方法C: 
+            // var $d = $('div');
+            // $d.on('mouseenter', function () {
+            //     $(this).find('p').css('visibility', 'visible');
+            // })
+
+            // $d.on('mouseleave', function () {
+            //     $(this).find('p').css('visibility', 'hidden');
+            // })
+
+
+            // 方法d: 
+            $('div').on('mouseenter mouseleave', function () {
+                $(this).find('p').toggleClass('myHideName');
+            })
+        });
+
+    </script>
+</body>
+
+</html>

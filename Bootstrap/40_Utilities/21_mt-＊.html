@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../_css/bootstrap.min.css">
+    <script src="../_js/jquery.min.js"></script>
+    <script src="../_js/popper.min.js"></script>
+    <script src="../_js/bootstrap.min.js"></script>
+
+    <style>
+        .box{
+            background-color: lightcoral;
+            height: 200px;
+            /* 方法A: */
+            /* border: 5px solid black; */
+            /* 方法B: */
+            /* padding: 1px; */
+        }
+        .box>div{
+            width: 100px;
+            height: 100px;
+            background-color: lightseagreen;
+            /* 方法C: */
+            /* display: inline-block; */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <div style="margin-top: 100px; margin-bottom: 100px;">Apple</div>
+    <div style="margin-top: 100px;">Bee</div> -->
+
+    <div class="box">
+        <div class="mt-5">Apple</div>
+    </div>
+
+
+
+
+
+    <!-- 參考資料：8.3.1 Collapsing margins -->
+    <!-- https://www.w3.org/TR/CSS21/box.html#collapsing-margins -->
+   
+</body>
+
+</html>

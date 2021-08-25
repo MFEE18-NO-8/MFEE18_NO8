@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../_css/bootstrap.min.css">
+    <script src="../_js/jquery.min.js"></script>
+    <script src="../_js/popper.min.js"></script>
+    <script src="../_js/bootstrap.min.js"></script>
+
+    <style>
+        .box {
+            height: 25vh;
+            background-color: lightcoral;
+            margin-bottom: 10px;
+        }
+        .box>div {
+            background-color: lightskyblue;
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <h4>官方網站-Spacing</h4>
+        <p><a href="https://getbootstrap.com/docs/4.6/utilities/spacing/">https://getbootstrap.com/docs/4.6/utilities/spacing/</a></p>
+        <h4>官方網站-Sizing</h4>
+        <p><a href='https://getbootstrap.com/docs/4.6/utilities/sizing/'>https://getbootstrap.com/docs/4.6/utilities/sizing/</a></p>
+        <h4>Spacing Utilities</h4>
+        <p><a href="https://www.w3schools.com/bootstrap4/tryit.asp?filename=trybs_util_spacing&stacked=h">https://www.w3schools.com/bootstrap4/tryit.asp?filename=trybs_util_spacing&stacked=h</a></p>
+        <hr>
+
+
+        <!-- 10. 建立巢套的 div 元素
+                 a. 外層 div 使用 .box 類別；在上方 style 區段定義寬度和背景底色等
+                 b. 內層 div 使用 bootstrap 4 提供的 .w-* 類別 -->
+        <div class="box">
+            <div class="w-25">A</div>
+            <div style="width: 25%;">B</div>
+            <div class="w-50">C</div>
+        </div>
+        <!-- 20. 複製步驟 10 ，內層 div 改為使用 bootstrap 4 提供的 .h-* 類別 -->
+        <div class="box">
+            <div class="h-25">A</div>
+            <div class="h-50">C</div>
+        </div>     
+
+        <!-- 30. 同上，測試 bootstrap 4 提供的 .p-* 類別 -->
+        <div class="box">
+            <div class="px-5">Apple</div>
+            <div class="px-5">Bee</div>
+        </div>       
+
+        <!-- 40. 同上，測試 bootstrap 4 提供的 .m-* 類別 -->
+        <div class="box">
+            <div class="m-5">Apple</div>
+            <div class="m-5">Bee</div>
+        </div>       
+        <hr>     
+
+        <!-- 50. 測試 bootstrap 4 提供的 .m-auto 類別 -->
+        <h4>50. 測試 bootstrap 4 提供的 .m-auto 類別</h4>
+        <div class="box">
+            <div class="w-25 h-25 m-auto">Apple</div>
+        </div>       
+        <hr>          
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+
+</html>

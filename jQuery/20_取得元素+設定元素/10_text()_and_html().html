@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../_js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+
+    <p>請點選登入</p>
+    <button id="btnLogin">登入</button>
+
+    <script>
+
+        btnLogin.onclick = function () {
+            
+            // // 10. 取得 p 元素的內容
+            // var temp = $('p').text();
+            // console.log(temp);  // 請點選登入
+
+            // // 20. 設定 p 元素的內容
+            // var temp = $('p').text('cat');
+            // console.log(temp);  // jQuery
+
+            // 30. $().text() 和 $().html() 的差異
+            //  a. 沒差 
+            //  b. 有差 (實驗: $('p').html('<i>cat</i>'))
+            var temp = $('p').html('<i>cat</i>');
+            console.log(temp);  // 請點選登入
+
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../_jquery-ui-1.12.1/jquery-ui.css">
+    <script src="../../_js/jquery-3.4.1.js"></script>
+    <script src="../../_jquery-ui-1.12.1/jquery-ui.js"></script>
+    <style>
+        .toggler {
+            width: 500px;
+            height: 200px;
+        }
+
+        #button {
+            padding: .5em 1em;
+            text-decoration: none;
+        }
+
+        #effect {
+            width: 240px;
+            height: 170px;
+            padding: 0.4em;
+            position: relative;
+        }
+
+        #effect h3 {
+            margin: 0;
+            padding: 0.4em;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 10. jQuery UI 官網文件所在 -->
+    <!--    API Documentation > (左側) Effects > .show() -->
+
+    <!-- 15. 複製官方網站的範例 -->
+    <!--    Demos > Effects > Show > (右側) Examples > Show demo -->
+
+    <div class="toggler">
+        <div id="effect" class="ui-widget-content ui-corner-all">
+            <h3 class="ui-widget-header ui-corner-all">Show</h3>
+            <p>
+                Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede. Nulla lorem metus, adipiscing
+                ut, luctus sed, hendrerit vitae, mi.
+            </p>
+        </div>
+    </div>
+<!-- 
+    <select name="effects" id="effectTypes">
+        <option value="blind">Blind</option>
+        <option value="bounce">Bounce</option>
+        <option value="clip">Clip</option>
+        <option value="drop">Drop</option>
+        <option value="explode">Explode</option>
+        <option value="fade">Fade</option>
+        <option value="fold">Fold</option>
+        <option value="highlight">Highlight</option>
+        <option value="puff">Puff</option>
+        <option value="pulsate">Pulsate</option>
+        <option value="scale">Scale</option>
+        <option value="shake">Shake</option>
+        <option value="size">Size</option>
+        <option value="slide">Slide</option>
+    </select> -->
+
+    <button id="button" class="ui-state-default ui-corner-all">Run Effect</button>
+
+    <!-- 20. 測試 explode 效果 以及 explode 的相關設定 -->
+    <script>
+        $(function () {
+            // run the currently selected effect
+            function runEffect() {
+                // // get effect type from
+                // var selectedEffect = "explode"; //$("#effectTypes").val();
+
+                // // Most effect types need no options passed by default
+                // var options = {};
+                // // some effects have required parameters
+                // if (selectedEffect === "scale") {
+                //     options = { percent: 50 };
+                // } else if (selectedEffect === "size") {
+                //     options = { to: { width: 280, height: 185 } };
+                // }
+
+                // Run the effect
+
+                // 0709-改變 explode 效果，執行後會改為分散為 4 個區塊
+                //      注意數值必須為某數的平方，因為爆炸的效果呈現是正方形
+                // 官方文件：https://api.jqueryui.com/explode-effect/
+                $("#effect").show("explode", {pieces: 4}, 500, callback);
+                
+            };
+
+            //callback function to bring a hidden box back
+            function callback() {
+                setTimeout(function () {
+                    $("#effect:visible").removeAttr("style").fadeOut();
+                }, 3000);
+            };
+
+            // Set effect from select menu value
+            $("#button").on("click", function () {
+                runEffect();
+            });
+
+            $("#effect").hide();
+        });
+    </script>
+</body>
+
+</html>
