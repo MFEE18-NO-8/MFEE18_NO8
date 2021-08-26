@@ -1,6 +1,15 @@
 測試上傳
 
+
+甘特圖 => 
+github上面也有 ＝>https://github.com/frappe/gantt
+vs code 也有   ＝> ganttDown
+大家想用哪個？還是其他？
+
 程式路徑
+
 資料庫連線方式
-命名方式Username ?  userName ?  UserName?
+
+命名方式  Username ?  userName ?  UserName?
+
 程式碼區塊描述(註解)
