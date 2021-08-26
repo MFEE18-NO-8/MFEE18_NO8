@@ -8,7 +8,7 @@ vs code 也有   ＝> ganttDown
 
 程式路徑
 
-資料庫連線方式
+資料庫連線方式  用網路
 
 命名方式  Username ?  userName ?  UserName?
 
