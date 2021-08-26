@@ -1,1 +1,6 @@
 測試上傳
+
+程式路徑
+資料庫連線方式
+命名方式Username ?  userName ?  UserName?
+程式碼區塊描述(註解)
