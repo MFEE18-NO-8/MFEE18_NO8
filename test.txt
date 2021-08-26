@@ -16,9 +16,9 @@ vs code 也有   ＝> ganttDown
 
 新增一段文字
 
-<<<<<<< HEAD
-
 test 02:56
 =======
 旻育新增文字
->>>>>>> a94dc31a2c1762ae8e302c9ca6c8ce913c32c8d8
+
+再次新增 旻育
+
