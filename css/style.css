@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "jf-openhuninn-1.1"; /* 字體使用粉圓體 */
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+:root {
+    --BananaYellow: #f8e4ac; /* 毛孩知識管理的標題色 */
+    --FrosteeGreen: #deedcc; /* 毛孩知識管理的按鈕 */
+    --RomanticOrange: #fdc29a; /* 毛孩知識管理的按鈕 */
+    --red: #ff0202;
+    --white: #fff;
+    --text00: 60px; /*標題 字體大小*/
+    --text01: 22px; /*內容 字體大小*/
+    --zindex00: 30000;
+    --zindex01: 20000;
+    --zindex02: 10000;
+    --zindex03: 9000;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    line-height: 2px; /*行高2px*/
+}
