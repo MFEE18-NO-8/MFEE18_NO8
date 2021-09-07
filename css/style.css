@@ -17,6 +17,7 @@
     --zindex01: 20000;
     --zindex02: 10000;
     --zindex03: 9000;
+    --fontweight:
 }
 body {
     display: flex;
