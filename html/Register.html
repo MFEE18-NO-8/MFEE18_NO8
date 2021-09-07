@@ -7,10 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>浪浪有窩</title>
 
-
-
-
-
     <!-- bootstrap -->
     <!-- 11. 透過CDN方式引用 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -72,38 +68,34 @@
                     <tr>
                         <td> <span>手機</span>
                         </td>
-                        <td> <input type="tel"><button>驗證</button>
+                        <td> <input type="tel"><button class="check">驗證</button>
                         </td>
 
                     </tr>
                     <tr>
                         <td> <span>信箱</span>
                         </td>
-                        <td> <input type="email"><button>驗證</button>
+                        <td> <input type="email"><button class="check">驗證</button>
                         </td>
                     </tr>
                 </table>
 
                 <div class="box3">
-                    <label for="">
-                        checkbox
-                    </label>
-                    <span class="readnotice">
-                        <input type="checkbox">已閱讀注意事項
-                    </span>
+                    <div class="readnotice">
+                        <label for="notice" style="margin-bottom: 0; display:flex;   align-items: center;">
+                            <input type="checkbox" id="notice">已閱讀注意事項
+                        </label>
+                        <br>
+                    </div>
+                    <div>
+                        <button class="rigister">註冊</button>
+                    </div>
+
                 </div>
-                <button>註冊</button>
-
-
-
 
             </div>
         </div>
-
-
     </div>
-
-
 </body>
 
 </html>
