@@ -20,7 +20,7 @@
     --red: #ff0202;
     --white: #fff;
     --TextColor: #1d3124; /* 字體顏色*/
-    --TextTitle: 30px; /*標題 字體大小*/
+    --TextTitle: 30px; /*標題 字體大小 nav_bar*/
     --TextContent: 22px; /*內容 字體大小*/
     --zindex00: 30000;
     --zindex01: 20000;
@@ -31,4 +31,8 @@ body {
     display: flex;
     flex-direction: column;
     line-height: 2px; /*行高2px*/
+}
+.white {
+    color: #fff;
+    background-color: #fff;
 }

@@ -11,10 +11,175 @@
             integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
             crossorigin="anonymous"
         />
+        <link rel="stylesheet" href="../css/style.css" />
 
         <title>浪浪有窩</title>
     </head>
     <body>
+        <nav class="nav justify-content-center">
+            <ul>
+                <li><a href="" class="nav-link">首頁</a></li>
+                <li><a href="" class="nav-link">毛孩領養</a></li>
+                <li><a href="" class="nav-link">刊登送養</a></li>
+                <li><a href="" class="nav-link">毛孩知識</a></li>
+                <li>
+                    <a href=""><img src="" alt="" /></a>
+                </li>
+            </ul>
+        </nav>
+        <article>
+            <!-- hero page -->
+            <div
+                class="col-ms-10"
+                style="
+                    margin-left: auto;
+                    margin-right: auto;
+                    position: relative;
+                    max-width: 800px;
+                "
+            >
+                <img
+                    class="picture img-fluid"
+                    src="../img/animals/cat01.jpg"
+                    alt=""
+                    style="display: none"
+                />
+                <img
+                    class="picture img-fluid"
+                    src="../img/animals/dog04.jpeg"
+                    alt=""
+                    style="display: none"
+                />
+                <img
+                    class="picture img-fluid"
+                    src="../img/animals/dog02.jpeg"
+                    alt=""
+                    style="display: none"
+                />
+                <div
+                    style="
+                        max-width: 80%;
+                        text-align: center;
+                        margin-bottom: 16px;
+                        color: #fff;
+                        position: absolute;
+                        left: 50%;
+                        bottom: 0;
+                        transform: translate(-50%, 0%);
+                        -ms-transform: translate(-50%, 0%);
+                        width: 100%;
+                    "
+                >
+                    <div onclick="plusDivs(-1)" style="float: left">
+                        &#10094;
+                    </div>
+                    <div onclick="plusDivs(1)" style="float: right">
+                        &#10095;
+                    </div>
+                    <span
+                        class="demo"
+                        onclick="currentDiv(1)"
+                        style="
+                            background-color: #000;
+                            color: #fff;
+                            display: inline-block;
+                            padding-left: 8px;
+                            padding-right: 8px;
+                            text-align: center;
+                            border-radius: 50%;
+                            height: 13px;
+                            width: 13px;
+                            padding: 0;
+                        "
+                    ></span>
+                    <span
+                        class="demo"
+                        onclick="currentDiv(2)"
+                        style="
+                            background-color: #000;
+                            color: #fff;
+                            display: inline-block;
+                            padding-left: 8px;
+                            padding-right: 8px;
+                            text-align: center;
+                            border-radius: 50%;
+                            height: 13px;
+                            width: 13px;
+                            padding: 0;
+                        "
+                    ></span>
+                    <span
+                        class="demo"
+                        onclick="currentDiv(3)"
+                        style="
+                            background-color: #000;
+                            color: #fff;
+                            display: inline-block;
+                            padding-left: 8px;
+                            padding-right: 8px;
+                            text-align: center;
+                            border-radius: 50%;
+                            height: 13px;
+                            width: 13px;
+                            padding: 0;
+                        "
+                    ></span>
+                </div>
+            </div>
+            <!-- 最新消息 -->
+            <section>
+                <h3>最新消息</h3>
+                <div>
+                    <p>夏日寵物照護小叮嚀，讓寵物陪您度過熱夏，防疫新生活</p>
+                    <p>2021-07-30</p>
+                </div>
+            </section>
+            <!-- 關於我們 -->
+            <section>
+                <img src="" alt="" />
+                <h3>關於我們</h3>
+                <p>
+                    現今社會越來越有愛護動物的意識，大家更願意領養代替購買，民間也開始用FB社團等平台，張貼領養等資訊，但在這個資訊爆炸的世代，難免資訊雜亂難以查找
+                </p>
+                <br />
+                <p>
+                    我們是一群正在學習軟體工程的學生，期望用我們所學的力量創建本平台改善大環境。希望能藉由這個平台幫助更多毛孩找到一個家。
+                </p>
+            </section>
+        </article>
+        <footer></footer>
+        <script>
+            var slideIndex = 1;
+            showDivs(slideIndex);
+
+            function plusDivs(n) {
+                showDivs((slideIndex += n));
+            }
+
+            function currentDiv(n) {
+                showDivs((slideIndex = n));
+            }
+
+            function showDivs(n) {
+                var i;
+                var x = document.getElementsByClassName("picture");
+                var dots = document.getElementsByClassName("demo");
+                if (n > x.length) {
+                    slideIndex = 1;
+                }
+                if (n < 1) {
+                    slideIndex = x.length;
+                }
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace("white", "");
+                }
+                x[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += "white";
+            }
+        </script>
         <!-- Option 2: Separate Popper and Bootstrap JS -->
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
