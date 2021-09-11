@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jquery -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js' integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==' crossorigin='anonymous'></script>
+    <!-- Bootstrap CSS -->
+    <!-- 連結方式建議使用cdn 嘗試一下未來工作的情況 -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+        crossorigin="anonymous"
+    />
+    <script src="../Bootstrap/js/jquery.min.js"></script>
+    <script src="../Bootstrap/js/popper.min.js"></script>
+    <script src="../Bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/lynnstyle.css">
+    <title>浪浪有窩</title>
+</head>
+<body>
+    <!--navbar-->
+    <div class="container-fulid header">
+      <a href="#" class="logoImg">
+        <img src="./img/Logo/改I2 2.png" alt="" class="logo">
+        <img src="./img/Logo/字.png" alt="" class="logo-text">
+      </a>
+      <div class="nav">
+        <div class="navbar-nav">
+          <ul class="header-nevBar">
+            <li class="nav-item"><a href="#">首頁</a></li>
+            <li class="nav-item"><a href="#">毛孩領養</a></li>
+            <li class="nav-item"><a href="#">刊登送養</a></li>
+            <li class="nav-item"><a href="#">毛孩知識</a></li>                  
+          </ul>
+        </div>
+      <a href="#" class="hamBar"><img src="./img/icon/square.png" class="fas-fa-bars"></img></a>
+      <!-- navbar-user -->
+      <div class="btn-group">
+        <button class="btn  btn-sm " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="./img/icon/user.png" alt="" class="user-icon">
+        </button>
+        <div class="dropdown-menu dropdown-menu-right user-menu">
+          <div class="user-img"></div>
+          <li><a href="#">某某某</a></li>
+          <li><a href="#">會員資料</a></li>
+          <li><a href="#">我的送養文</a></li>
+          <li><a href="#">追蹤的毛孩</a></li>
+          <li><a href="#">通知</a></li>
+          <li><a href="#">登出</a></li>
+        </div>
+      </div>
+  </div>
+    </div>    
+    </div>
+    
+    <!-- carousel -->
+    <div class="container-fulid">
+      <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <img src="./img/dog cat/carousel1.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="./img/dog cat/carousel1.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="./img/dog cat/carousel1.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>     
+    </div>
+    </div>
+    
+    <!-- 最新消息 -->
+    <div class="container news">
+        <div class="news-title">最新消息</div>
+      <div class="row news-block-ground">
+        <div class="col-sm-12 col-md news-block">
+          <div class="row news-text">
+            夏日寵物照護小叮嚀，
+            讓寵物陪您度過熱夏防
+            疫新生活。....
+            <p class="date">2021-07-30</p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md news-block">
+          <div class="row news-text">本服務測試中，預計
+            於2021-10-15正式上
+            線。....
+            <p class="date">2021-07-30</p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md news-block">
+          <div class="row news-text">
+            本服務即日起開放使用
+            為大家帶來更好的體驗
+            本次新增…
+            <p class="date">2021-07-30</p>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-end ">
+        <a href="#">更多消息...</a>
+      </div>
+    </div>
+    </div>
+
+    <!-- 關於我們 -->
+    <div class="container about-block">
+      <div class="row">
+        <div class="col-12 col-md-6 about-logo">
+          <img src="./img/Logo/logomix.png" alt="" class="">
+        </div>
+        <div class="col-12 col-md-6 about-text">
+          <div class="news-title about-title">關於我們</div>
+          現今社會越來越有愛護動物的意識，<br>
+          大家更願意領養代替購買，<br>
+          民間也開始用用FB社團等平台張貼領養<br>
+          等資訊，但在這個資訊爆炸的世代，<br>
+          難免資訊雜亂難以查找。<br><br>
+          
+          我們是一群正在學習軟體工程的學生，
+          期望用我們所學的力量創建本平台改善大環境。<br>
+          希望能藉由這個平台幫助更多毛孩找到一個家。          
+        </div>
+      </div>
+    </div>
+    <!-- 連結區塊 -->
+    <div class="container-fulid">
+      <div class="row">
+        <div class="col-12 col-md-4 block-img">
+          <img src="./img/dog cat/毛孩領養.jpg" alt="">
+          <div class="block-txt">
+            <a href="#"><h1>毛孩領養</h1></a>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 block-img">
+          <img src="./img/dog cat/刊登送養.jpg" alt="">
+          <div class="block-txt">
+            <a href="#"><h1>刊登送養</h1></a>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 block-img">
+          <img src="./img/dog cat/毛孩知識.jpg" alt="">
+          <div class="block-txt">
+            <a href="#"><h1>毛孩知識</h1></a>
+          </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="container-fulid footer mt-0">
+      <div class="row justify-content-center">
+        <div class="col-10 col-md-10 copyright">
+            本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，僅就一般正常情理做審核，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。
+            <br>如有任何建議或合作請與我們聯絡 <br>© 2021 Copyright .tw By MFEE18-No.8
+        </div>
+      </div>
+    </footer>
+    
+
+
+
+
+    
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+    integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+    crossorigin="anonymous"
+    ></script>
+    <script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+    integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+    crossorigin="anonymous"
+    ></script>
+    
+</body>
+</html>
