@@ -99,18 +99,16 @@ a:hover{
     }
 }
 @media screen and (max-width:576px){
-    .logoImg{
-        width: 40%;
-    }
     .logo{
-        width: 80px;
+        height: auto;
+        width: 120px;
+    }
+    .logo-text{
+        height: auto;
+        width: 150px;
     }
     .hamBar{
         margin-right: 5px;
-    }
-    .nav{
-        display: flex;
-        justify-content: space-around;
     }
 }
 /* user-menu */
