@@ -1,31 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- Bootstrap CSS -->
-        <!-- 連結方式建議使用cdn 嘗試一下未來工作的情況 本次大專題 使用bootstrap 4.6 然後因為我們使用第四版 所以不支援ie8,9 -->
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-            crossorigin="anonymous"
-        />
-        <title>浪浪有窩</title>
-    </head>
-    <body>
-        毛小孩種類清單
-        <!-- Option 2: Separate Popper and Bootstrap JS -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
-            integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
-            integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
-            crossorigin="anonymous"
-        ></script>
-    </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- jquery -->
+		<!-- <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
+            integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=="crossorigin="anonymous"
+        ></script> -->
+		<!-- Bootstrap CSS 連結方式建議使用cdn 嘗試一下未來工作的情況-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+		<script src="../Bootstrap/js/jquery.min.js"></script>
+		<script src="../Bootstrap/js/popper.min.js"></script>
+		<script src="../Bootstrap/js/bootstrap.min.js"></script>
+
+		<!-- css -->
+		<link rel="stylesheet" href="../css/lynnstyle.css" />
+		<title>浪浪有窩</title>
+	</head>
+	<body>
+		<!-- navbar_漢堡有正常運作 但是下拉選單不知道怎麼控制在漢堡的左邊(手機瀏覽才會有這個問題) -->
+		<nav class="navbar navbar-expand-lg navbar-light" style="background-image: url(../img/background/header.PNG); background-repeat: no-repeat; background-size: cover; display: flex; justify-content: space-between">
+			<a class="navbar-brand" href="#" style="padding-top: 0; padding-bottom: 0; margin-right: 0">
+				<a href="#" class="navbar-brand" style="padding-top: 0; padding-bottom: 0; margin-right: 0">
+					<img src="../img/Logo/改I2 2.png" alt="" style="width: 150px; height: 130px" />
+					<img src="../img/Logo/字.png" alt="" style="width: 200px; height: 100px" />
+				</a>
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">首頁 <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">毛孩領養</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">刊登送養</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">毛孩知識</a>
+					</li>
+				</ul>
+			</div>
+			<!-- 下拉式會員選單 -->
+			<li class="nav-item dropdown navbar-brand">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img style="width: 30px" src="../img/icon/user.png" alt="" /> </a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="#">某某某</a>
+					<a class="dropdown-item" href="#">會員資料</a>
+					<a class="dropdown-item" href="#">我的送養文</a>
+					<a class="dropdown-item" href="#">追蹤的毛孩</a>
+					<a class="dropdown-item" href="#">通知</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">登出</a>
+				</div>
+			</li>
+		</nav>
+		<!-- 頁籤 -->
+
+		<!-- 圖片輪播 -->
+
+		<!-- 熱門文章 -->
+
+		<!-- 全部文章（右邊要有一個搜尋的功能） -->
+
+		<!-- 左邊圖片（圖片用圓角）右邊標題、日期、內容。一整頁顯示五個文章 -->
+
+		<!-- 最下面有個換頁式的頁籤 -->
+
+		<footer></footer>
+	</body>
 </html>
