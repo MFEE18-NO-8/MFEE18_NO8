@@ -86,7 +86,6 @@ a:hover{
         bottom: 0;
         left: 0;
         right: 0;
-
         flex-direction: column;
         transform: translateY(100%);
         background-color: #f8e4ac;
@@ -97,6 +96,21 @@ a:hover{
     }
     .hamBar{
         display: flex;
+    }
+}
+@media screen and (max-width:576px){
+    .logoImg{
+        width: 40%;
+    }
+    .logo{
+        width: 80px;
+    }
+    .hamBar{
+        margin-right: 5px;
+    }
+    .nav{
+        display: flex;
+        justify-content: space-around;
     }
 }
 /* user-menu */
