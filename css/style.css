@@ -76,17 +76,18 @@ body {
 	border-radius: 50px;
 }
 .btnSm{
-	width: 80px;
+	width: 100px;
+	border-radius:20px;
+}
+.btnMd{
+	width: 100px;
 	height: 50px;
 	border-radius: 10px;
 	font-size: 24px;
 }
-.btnMd{
-	width: 100px;
-	border-radius:20px;
-}
+
 .btnLg{
-	width: 110px;
+	width: 120px;
 	border-radius: 20px;
 }
 .btnXl{
