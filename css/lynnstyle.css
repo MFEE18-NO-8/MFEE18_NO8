@@ -30,6 +30,14 @@ a:hover {
     font-family: open;
     src: url(../jf-openhuninn-1.1/jf-openhuninn-1.1.ttf);
 }
+/* 刪除bootstrap的button按鈕點擊後藍色邊框 */
+.btn:focus,.btn:active:focus,
+.btn.active:focus,.btn.focus,
+.btn:active.focus,.btn.active.focus {  
+ outline: none;   
+ border-color: transparent;   
+ box-shadow:none;
+}
 /* navbar */
 .header {
     background-image: url(../img/background/header.PNG);
@@ -79,9 +87,6 @@ a:hover {
     align-self: center;
     margin: 0 20px;
 }
-.user {
-    align-self: center;
-}
 @media all and (max-width: 992px) {
     .header-nevBar {
         display: none;
@@ -115,18 +120,26 @@ a:hover {
     .hamBar {
         margin-right: 5px;
     }
-    
     /* 最新消息 */
     .more-news{
-        margin-right: 30px;
+        margin-right: 10px;
+    }
+    .news>.news-block-ground{
+        margin-top: 50px;
+    }
+    .news-block-ground>.news-block{
+        height: 250px;
+        margin: 10px;
+    }
+    .news-text,.date{
+        font-size: 20px;
     }
     /* 關於我們 */
     .title.about-title{
-        margin-bottom: 60px;
+        margin-bottom: 50px;
     }
     .about-text {
-        padding-right: 30px;
-        margin-bottom:100px;
+        padding:0px 30px;
     }
     /* 連結區塊 */
     .block-img{
@@ -136,6 +149,9 @@ a:hover {
 }
 
 /* user-menu */
+.user{
+    align-self: center;
+}
 .user-icon {
     width: 30px;
 }
@@ -159,6 +175,9 @@ a:hover {
 .user-menu > li > a:hover {
     color: #1d3124;
     text-decoration: none;
+}
+.dropdown-menu{
+    transform: translate3d(-140px,150px, 0px);
 }
 /* carousel */
 .carousel-item {
