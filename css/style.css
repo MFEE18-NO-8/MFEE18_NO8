@@ -2,6 +2,7 @@
 	margin: 0;
 	padding: 0;
 	font-family: "jf-openhuninn-1.1"; /* 字體使用粉圓體 */
+	font-size: 22px;
 	box-sizing: border-box;
 	scroll-behavior: smooth;
 }
@@ -67,4 +68,52 @@ body {
 .PictureSize {
 	width: 800px;
 	height: 480px;
+}
+
+/* button */
+.btnMd-back{   /* 後台 */
+	width: 80px;
+	border-radius: 50px;
+}
+.btnSm{
+	width: 80px;
+	height: 50px;
+	border-radius: 10px;
+	font-size: 24px;
+}
+.btnMd{
+	width: 100px;
+	border-radius:20px;
+}
+.btnLg{
+	width: 110px;
+	border-radius: 20px;
+}
+.btnXl{
+	width: 130px;
+	border-radius: 10px;
+}
+.btn-green{
+	background-color:var(--FrosteeGreen);
+	border: 0;
+	padding: 5px;
+	font-weight: 600;
+}
+.btn-BananaYellow{
+	background-color:var(--BananaYellow);
+	border: 0;
+	padding: 5px;
+	font-weight: 600;
+}
+.btn-lightRed{
+	background-color:var(--lightRed);
+	border: 0;
+	padding: 5px;
+	font-weight: 600;
+}
+.btn-lightOrange{
+	background-color:var(--RomanticOrange);
+	border: 0;
+	padding: 5px;
+	font-weight: 600;
 }
