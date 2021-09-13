@@ -14,6 +14,11 @@
 		<script src="../Bootstrap/js/jquery.min.js"></script>
 		<script src="../Bootstrap/js/popper.min.js"></script>
 		<script src="../Bootstrap/js/bootstrap.min.js"></script>
+		<style>
+			.carousel-special:hover {
+				background-color: rgba(0, 0, 0, 0.5);
+			}
+		</style>
 
 		<!-- css -->
 		<link rel="stylesheet" href="../css/lynnstyle.css" />
@@ -64,7 +69,6 @@
 			</li>
 		</nav>
 		<!-- 頁籤 breadcrumb -->
-
 		<nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="#">首頁</a></li>
@@ -78,38 +82,129 @@
 			<div class="col-5 col-md-5">
 				<div id="slides" class="carousel slide carousel-vertical" data-ride="carousel" data-interval="3000">
 					<div class="carousel-inner rounded-left">
-						<div class="carousel-item active">
-							<a href="#"><img class="img-fluid" src="../img/animals/dog02.jpeg" alt="幻灯片" /></a>
+						<div class="carousel-item active carousel-special">
+							<img class="img-fluid" src="../img/animals/dog02.jpeg" alt="幻灯片" />
+							<div class="">
+								<a href="#"
+									><p>三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+									<br />
+									<p class="">2021-06-13</p></a
+								>
+							</div>
+						</div>
+						<div class="carousel-item active carousel-special">
+							<img class="img-fluid" src="../img/animals/cat01.jpg" alt="幻灯片" />
+							<div class="">
+								<a href="#"
+									><p>三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+									<br />
+									<p class="">2021-06-13</p></a
+								>
+							</div>
+						</div>
+						<!-- <div class="carousel-item">
+							<a href="#">
+								<img class="img-fluid" src="../img/animals/cat01.jpg" alt="幻灯片" />
+							</a>
 						</div>
 						<div class="carousel-item">
-							<a href="#"><img class="img-fluid" src="../img/animals/cat01.jpg" alt="幻灯片" /></a>
+							<a href="#">
+								<img class="img-fluid" src="../img/animals/dog04.jpeg" alt="幻灯片" />
+							</a>
 						</div>
 						<div class="carousel-item">
-							<a href="#"><img class="img-fluid" src="../img/animals/dog04.jpeg" alt="幻灯片" /></a>
-						</div>
-						<div class="carousel-item">
-							<a href="#"><img class="img-fluid" src="../img/dog cat/pexels-tomas-ryant-2643812.jpg" alt="幻灯片" /></a>
-						</div>
+							<a href="#">
+								<img class="img-fluid" src="../img/dog cat/pexels-tomas-ryant-2643812.jpg" alt="幻灯片" />
+							</a>
+						</div> -->
 					</div>
 				</div>
 			</div>
 			<!-- 熱門文章 -->
-			<div class="col-md-3 rounded-right card" style="background-color: var(--BananaYellow); margin-left: -15px">
+			<div class="col-md-3 rounded-right" style="background-color: var(--BananaYellow); margin-left: -15px">
 				<p class="text-md-center">熱門文章</p>
 				<hr />
-				<nav class="nav flex-column">
-					<a class="nav-link active" aria-current="page" href="#">Active</a>
-					<a class="nav-link" href="#">Link</a>
-					<a class="nav-link" href="#">Link</a>
-				</nav>
+				<ul class="flex-column">
+					<li class="row d-inline-flex">
+						<div class="col-md-4 col-sm-4">
+							<img class="img-fluid" src="../img/animals/dog04.jpeg" alt="" />
+						</div>
+						<div class="col-md-8">
+							<p>三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+							<br />
+							<p class="date">2021-06-13</p>
+						</div>
+					</li>
+					<li class="row d-inline-flex">
+						<div class="col-md-4 col-sm-4">
+							<img class="img-fluid" src="../img/animals/dog04.jpeg" alt="" />
+						</div>
+						<div class="col-md-8">
+							<p>三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+							<br />
+							<p class="date">2021-06-13</p>
+						</div>
+					</li>
+					<li class="row d-inline-flex">
+						<div class="col-md-4 col-sm-4">
+							<img class="img-fluid" src="../img/animals/dog04.jpeg" alt="" />
+						</div>
+						<div class="col-md-8">
+							<p>三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+							<br />
+							<p class="date">2021-06-13</p>
+						</div>
+					</li>
+				</ul>
+
+				<!-- <a class="nav-link active" aria-current="page" href="#">Active</a> -->
+				<!-- <a class="nav-link" href="#">Link</a> -->
+				<!-- <a class="nav-link" href="#">Link</a> -->
 			</div>
 			<div class="col-md-2"></div>
 		</section>
 
 		<!-- 全部文章（右邊要有一個搜尋的功能） -->
 		<p>全部文章</p>
+		<ul class="nav">
+			<li class="nav-item"></li>
+			<li class="nav-item"></li>
+		</ul>
 		<!-- 左邊圖片（圖片用圓角）右邊標題、日期、內容。一整頁顯示五個文章 -->
-
+		<section>
+			<ul class="flex-column">
+				<li class="row d-inline-flex">
+					<div class="col-md-4 col-sm-4">
+						<img class="img-fluid" src="../img/animals/dog04.jpeg" alt="" />
+					</div>
+					<div class="col-md-8">
+						<p>三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+						<br />
+						<p class="date">2021-06-13</p>
+					</div>
+				</li>
+				<li class="row d-inline-flex">
+					<div class="col-md-4 col-sm-4">
+						<img class="img-fluid" src="../img/animals/dog04.jpeg" alt="" />
+					</div>
+					<div class="col-md-8">
+						<p>三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+						<br />
+						<p class="date">2021-06-13</p>
+					</div>
+				</li>
+				<li class="row d-inline-flex">
+					<div class="col-md-4 col-sm-4">
+						<img class="img-fluid" src="../img/animals/dog04.jpeg" alt="" />
+					</div>
+					<div class="col-md-8">
+						<p>三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+						<br />
+						<p class="date">2021-06-13</p>
+					</div>
+				</li>
+		</section>
+		
 		<!-- 最下面有個換頁式的頁籤 -->
 
 		<!-- Footer -->
