@@ -30,7 +30,6 @@
     <link rel="stylesheet" type="text/css" href="../css/annistyle.css">
     <link rel="stylesheet" href="../css/style.css">
 
-
 </head>
 
 <body>
@@ -58,12 +57,13 @@
             <div class="dropdown-menu dropdown-menu-right user-menu" >
               <div class="user-img"></div>
                 <ul>
-                  <li><a href="#">某某某</a></li>
-                  <li><a href="#">會員資料</a></li>
-                  <li><a href="#">我的送養文</a></li>
-                  <li><a href="#">追蹤的毛孩</a></li>
-                  <li><a href="#">通知</a></li>
-                  <li><a href="#">登出</a></li>
+                    <li>某某某</li>
+                    <li><a href="./UserEdit.html">會員資料</a></li>
+                    <li><a href="./UserFoster.html">我的送養文</a></li>
+                    <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
+                    <li><a href="./UserMsg.html">通知</a></li>
+                    <li><a href="./FindMe.html">聯絡我們</a></li>
+                    <li><a href="#">登出</a></li>
                 </ul>
             </div>
           </div>
@@ -81,8 +81,7 @@
 
     <!-- 註冊區塊 -->
 
-    <div class="container">
-
+    <!-- <div class="container">
         <div class="box1">
             <div class=" box2">
 
@@ -97,25 +96,16 @@
 
                     </tr>
                     <tr>
-                        <td> <span>密碼</span>
-                        </td>
-                        <td> <input type="password">
-                        </td>
-
+                        <td>密碼</td>
+                        <td> <input type="password"></td>
                     </tr>
                     <tr>
-                        <td> <span>密碼確認</span>
-                        </td>
-                        <td> <input type="password">
-                        </td>
-
+                        <td>密碼確認</td>
+                        <td> <input type="password"></td>
                     </tr>
                     <tr>
-                        <td> <span>手機</span>
-                        </td>
-                        <td> <input type="tel"><button class="check">驗證</button>
-                        </td>
-
+                        <td>手機</td>
+                        <td> <input type="tel"><button class="check">驗證</button></td>
                     </tr>
                     <tr>
                         <td> <span>信箱</span>
@@ -140,6 +130,48 @@
 
             </div>
         </div>
+    </div> -->
+    <div class="container form-block mx-auto">
+        <h2>加入會員</h2>
+        <form class="Register-block">
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">帳號</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="accountNumber">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">密碼</label>
+              <div class="col-9">
+                <input type="password" class="form-control" id="inputPassword">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">密碼確認</label>
+              <div class="col-9">
+                <input type="password" class="form-control" id="inputPassword">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPhone" class="col-sm-2 col-form-label">手機</label>
+              <div class="col-9">
+                <input type="phoneNumber" class="form-control" id="inputPassword">
+              </div>
+              <div class="col-1"><button class="check check-btn">驗證</button></div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">信箱</label>
+              <div class="col-9">
+                <input type="email" class="form-control" id="staticEmail">
+              </div>
+              <div class="col-1"><button class="check check-btn">驗證</button></div>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">已閱讀注意事項</label>
+            </div>
+            <button class="btnMd btn-green">註冊</button>  
+          </form>
     </div>
     <!-- footer -->
     <footer class="container-fluid footer">
