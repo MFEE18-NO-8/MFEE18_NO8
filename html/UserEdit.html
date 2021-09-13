@@ -7,10 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>浪浪有窩</title>
 
-
-
-
-
     <!-- bootstrap -->
     <!-- 11. 透過CDN方式引用 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -29,8 +25,11 @@
     <script src="../Bootstrap/js/bootstrap.min.js"></script>
     <script src="../Bootstrap/js/jquery.min.js"></script>
     <script src="../Bootstrap/js/popper.min.js"></script>
+
     <!-- 引用style.css -->
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/annistyle.css">
+    <link rel="stylesheet" href="../css/style.css">
+
 </head>
 
 <body>
@@ -58,13 +57,13 @@
             <div class="dropdown-menu dropdown-menu-right user-menu" >
               <div class="user-img"></div>
                 <ul>
-                  <li>某某某</li>
-                  <li><a href="./UserEdit.html">會員資料</a></li>
-                  <li><a href="./UserFoster.html">我的送養文</a></li>
-                  <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
-                  <li><a href="./UserMsg.html">通知</a></li>
-                  <li><a href="./FindMe.html">聯絡我們</a></li>
-                  <li><a href="#">登出</a></li>
+                    <li>某某某</li>
+                    <li><a href="./UserEdit.html">會員資料</a></li>
+                    <li><a href="./UserFoster.html">我的送養文</a></li>
+                    <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
+                    <li><a href="./UserMsg.html">通知</a></li>
+                    <li><a href="./FindMe.html">聯絡我們</a></li>
+                    <li><a href="#">登出</a></li>
                 </ul>
             </div>
           </div>
@@ -74,62 +73,52 @@
     <div class="breadcrumb-block">
         <div class="container-fluid">
             <ol class="breadcrumb pb-0">
-                <li class="breadcrumb-item "><a href="./index.html">首頁</a></li>
-                <li class="breadcrumb-item active" aria-current="page">聯絡我們</li>
+                <li class="breadcrumb-item "><a href="#">首頁</a></li>
+                <li class="breadcrumb-item active" aria-current="page">會員註冊</li>
             </ol>
         </div> 
     </div>
 
-    <!-- <div class="container">
 
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-
-                <h1>通知</h1>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-3 col-sm-12 col-xs-12">
-                <img src="../img/profile.jpg" alt="">
-                <a href="./UserEdit.html">會員管理</a>
-                <a href="./UserFoster.html">我的送養文</a>
-                <a href="./UserFollow.html">我追蹤的毛孩</a>
-                <a href="./UserMsg.html">通知</a>
-                <a href="./FindMe.html">聯絡我們</a>
-                <a href="">登出</a>
-            </div>
-
-            <div class="col-md-8 col-sm-12 col-xs-12">
-
-                有任何問題與建議，歡迎來信：xxx@gmail.com <br>
-                (0900 – 1800 週一到週五)
-
-
-            </div>
-
-        </div>
-    </div> -->
-    <!-- 聯絡我們 -->    
-    <div class="container form-block mx-auto">
-        <h2>聯絡我們</h2>
-        <div class="FindMe-text mx-auto">有任何問題與建議，歡迎來信。<br>服務時間(0900 – 1800 週一到週五)</div>
-        <form class="FindMe-block">
+    <div class="container form-block mx-auto edit-block">
+        <h2>會員資料</h2>
+        <div class="row editText"><img src="../img/icon/edit.png" alt="" class="mr-2">雙擊即可編輯</div>
+        <form class="edit-form">
             <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                <div class="col">
-                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@gmail.com">
-                </div>
+              <label for="staticEmail" class="col-sm-2 col-form-label">帳號</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="accountNumber">
+              </div>
             </div>
-            <div class="form-group row textarea-block">
-                <label for="inputtextarea" class="col-sm-2 col-form-label">內容</label>
-                <div class="col-3">
-                    <textarea name="" id="" cols="35" rows="10"></textarea>
-                </div>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">密碼</label>
+              <div class="col-9">
+                <input type="password" class="form-control" id="inputPassword">
+              </div>
             </div>
-            <button class="btnMd btn-green">送出</button>  
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">密碼確認</label>
+              <div class="col-9">
+                <input type="password" class="form-control" id="inputPassword">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPhone" class="col-sm-2 col-form-label">手機</label>
+              <div class="col-9">
+                <input type="phoneNumber" class="form-control" id="inputPassword">
+              </div>
+              <div class="col-1"><button class="check check-btn">驗證</button></div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">信箱</label>
+              <div class="col-9">
+                <input type="email" class="form-control" id="staticEmail">
+              </div>
+              <div class="col-1"><button class="check check-btn">驗證</button></div>
+            </div>
+            <button class="btnMd btn-green">確定</button>  
           </form>
-    </div>   
+    </div>
     <!-- footer -->
     <footer class="container-fluid footer">
         <div class="row justify-content-center w-100 m-0">
@@ -139,6 +128,7 @@
           </div>
         </div>
     </footer>
+    
 </body>
 
 </html>
