@@ -181,6 +181,21 @@ input.form-control{
 	padding: 5px;
 	font-weight: 600;
 }
+.btn-login{  /*會員登入按鈕*/
+	background-color:transparent;
+    border-radius: 10px;
+    border: 3px #8E8A7E solid;
+    width: 100px;
+    margin: 30px 0px 30px 75px;
+    font-weight:bold;
+}
+.btn-register{ /*會員登入介面-註冊按鈕*/
+    background-color:transparent;
+    border-radius: 10px;
+    border: 3px #8E8A7E solid;
+    width: 180px;
+    font-weight:bold;
+}
 /* header */
 .btn:focus,.btn:active:focus,/* 刪除bootstrap的button按鈕點擊後藍色邊框 */
 .btn.active:focus,.btn.focus,
@@ -416,6 +431,73 @@ textarea{
 }
 .edit-form>.btn-green{
 	margin-top: 40px;
+}
+/* 會員登入介面 */
+.login-block{
+	margin-top: 80px;
+	margin-bottom:150px;
+}
+.login-block-left{
+	background: var(--BananaYellow);
+	height: 800px;
+	text-align: center;
+	border-radius:40px 0px 0px 40px;
+}
+.login-block-left-text{
+	height:85%;
+}
+.login-block-left-text>h2{
+	padding-top: 50px;
+}
+.login-block-right{
+	background: var(--beige);
+	height: 800px;
+	border-radius:0px 40px 40px 0px;
+}
+.login-block-right>form{
+	height: 70%;
+	margin: 0px 30px;
+}
+.login-block-right>form>h2{
+	padding: 50px 0px;
+	margin-left: 5px;
+}
+.login-block-right>form>h2::before{
+	content: "";
+	display: block;
+	position: absolute;
+	left: 25px;
+	top: 10;
+	width: 18px;
+	height: 50px;
+	border-radius: 50px;
+	background-color:var(--RomanticOrange);
+}
+.login-bottom{
+	text-align: center;
+	margin-top: 50px;
+}
+
+.login-bottom>a{
+	padding-left:30px;
+}
+.login-hr{
+	background-color: var(--RomanticOrange);
+    /* color: #FDC6A0; */
+    height: 5px;
+    border-radius: 5px;
+}
+.quickLogin-text{
+	margin-top:20px;
+	padding-right:50px;
+}
+.quickLogin-icon{
+	margin-top:15px;
+	margin-left: 20px;
+}
+.loginImg{
+	margin-right:10px;
+	border-radius: 5px;
 }
 /* 分頁 */
 .pagination{

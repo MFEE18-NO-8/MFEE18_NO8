@@ -150,12 +150,12 @@ button.login{
 
 button.rigister{
     margin-top: 20px;
-    /* background-color:#DEEDCC;
+    background-color:#DEEDCC;
     border: 0px;
     width: 80px;
     border-radius: 10px;
     font-weight:bold;
-    font-size: 20px; */
+    font-size: 20px;
 }
 
 .box3.readnotice label.notice{
