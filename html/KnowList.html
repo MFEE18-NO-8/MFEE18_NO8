@@ -23,13 +23,16 @@
 				width: 100%;
 				height: 100%;
 				background-color: rgba(0, 0, 0, 0.6);
-				color: rgba(255, 255, 255, 1);
+				
 				display: none;			
 			}
 			.pic:hover .carousel-special{
 				display: flex;
+				color: rgba(255, 255, 255, 1);
 			}
-			
+			.pic:hover .carousel-special-back{
+				visibility: hidden;
+			}
 		</style>
 
 		<!-- css -->
@@ -96,37 +99,40 @@
 					<!-- 第一張圖 -->
 				  	<div class="carousel-item active pic ">
 						<img src="../img/animals/dog02.jpeg" class="d-block w-100 img-fluid " alt="...">
-						<div class="carousel-caption d-none d-md-block">
+						<div class="carousel-caption d-none d-md-block carousel-special-back">
 					 		<h5>狗狗飼料必定要知道的5件事，第一次養狗就上手</h5>
 					  		<p>2021-06-13</p>
 						</div>
 						<div class="carousel-special" >
 							<h5>狗狗飼料必定要知道的5件事，第一次養狗就上手</h5>
-							<p>怎麼樣的飼料、飲食策略，才是對狗狗最好的呢?我們經過長時間的累積後，整理出狗狗的飼料選購建議大全，選擇飼料看完本篇就會讓你快速了解如何適合。</p>	
+							<p>怎麼樣的飼料、飲食策略，才是對狗狗最好的呢?我們經過長時間的累積後，整理出狗狗的飼料選購建議大全，選擇飼料看完本篇就會讓你快速了解如何適合。</p>
+							<p class="date">2021-06-13</p>	
 						</div>
 				 	</div>
 					<!-- 第二張圖 -->
 					<div class="carousel-item pic ">
 						<img src="../img/animals/dog04.jpeg" class="d-block w-100 img-fluid" alt="...">
-						<div class="carousel-caption d-none d-md-block">
+						<div class="carousel-caption d-none d-md-block carousel-special-back">
 					 		<h5>三分鐘搞懂如何讓狗狗不再亂咬東西？</h5>
 					  		<p>2021-06-13</p>
 						</div>
 						<div class="carousel-special" >
 							<h5>狗狗飼料必定要知道的5件事，第一次養狗就上手</h5>
-							<p>怎麼樣的飼料、飲食策略，才是對狗狗最好的呢?我們經過長時間的累積後，整理出狗狗的飼料選購建議大全，選擇飼料看完本篇就會讓你快速了解如何適合。</p>	
+							<p>怎麼樣的飼料、飲食策略，才是對狗狗最好的呢?我們經過長時間的累積後，整理出狗狗的飼料選購建議大全，選擇飼料看完本篇就會讓你快速了解如何適合。</p>
+							<p class="date">2021-06-13</p>	
 						</div>
 				  	</div>
 					<!-- 第三張圖 -->
 				 	<div class="carousel-item pic ">
 						<img src="../img/animals/cat01.jpg" class="d-block w-100 img-fluid" alt="...">
-						<div class="carousel-caption d-none d-md-block">
+						<div class="carousel-caption d-none d-md-block carousel-special-back">
 					 		<h5>三分鐘搞懂如何讓狗狗不再亂咬東西？</h5>
 					 		<p>2021-06-13</p>
 						</div>
 						<div class="carousel-special" >
 							<h5>狗狗飼料必定要知道的5件事，第一次養狗就上手</h5>
 							<p>怎麼樣的飼料、飲食策略，才是對狗狗最好的呢?我們經過長時間的累積後，整理出狗狗的飼料選購建議大全，選擇飼料看完本篇就會讓你快速了解如何適合。</p>	
+							<p class="date">2021-06-13</p>
 						</div>
 					</div>
 				</div>	
@@ -171,14 +177,25 @@
 			<div class="col-md-2"></div>
 		</section>
 
-		
+		<section class="row">
+			<div class="col-md-2"  ></div>
+			<div class="col-md-8 row">
+				<h4 class="ml-0">全部文章</h4>
+				<form class="form-inline my-2 my-lg-0 ml-auto">
+					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			 	</form>
+			</div>
+			<div class="col-md-2"  ></div>	
+			  
+		</section>
 		<!-- 左邊圖片（圖片用圓角）右邊標題、日期、內容。一整頁顯示五個文章 -->
 		<section class="row">
 			<div class="col-md-2" ></div>
 			<div class="col-md-8">
-				<ul class="flex-column">
+				<ul class="flex-column ">
 					<!-- 第一篇文 -->
-					<li class="row d-inline-flex">
+					<li class="row d-inline-flex mb-4">
 						<div class="col-md-4 col-sm-4" >
 							<img class="img-fluid rounded" src="../img/animals/dog04.jpeg" alt="" />
 						</div>
@@ -189,7 +206,7 @@
 						</div>
 					</li>
 					<!-- 第二篇文 -->
-					<li class="row d-inline-flex">
+					<li class="row d-inline-flex mb-4">
 						<div class="col-md-4 col-sm-4" >
 							<img class="img-fluid rounded" src="../img/animals/dog04.jpeg" alt="" />
 						</div>
@@ -200,18 +217,18 @@
 						</div>
 					</li>
 					<!-- 第三篇文 -->
-					<li class="row d-inline-flex">
+					<li class="row d-inline-flex mb-4">
 						<div class="col-md-4 col-sm-4" >
 							<img class="img-fluid rounded" src="../img/animals/dog04.jpeg" alt="" />
 						</div>
-						<div class="col-md-8" " >
+						<div class="col-md-8"  >
 							<p>三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
 							<p class="figure-caption">2021-06-13</p>
 							<p>近年來成為貓奴的人口數量大增，然而貓咪是著名忍痛力很高的動物，加上先天不愛亂叫又內斂的特質，有沒有生病或不舒服得由飼主細心觀察方能察覺。以下整理貓咪的10種常見疾病，以及其成因和預防方式，幫助毛小孩預防勝於治療。</p>
 						</div>
 					</li>
 					<!-- 第四篇文 -->
-					<li class="row d-inline-flex">
+					<li class="row d-inline-flex mb-4">
 						<div class="col-md-4 col-sm-4" >
 							<img class="img-fluid rounded" src="../img/animals/dog04.jpeg" alt="" />
 						</div>
@@ -221,7 +238,7 @@
 							<p>近年來成為貓奴的人口數量大增，然而貓咪是著名忍痛力很高的動物，加上先天不愛亂叫又內斂的特質，有沒有生病或不舒服得由飼主細心觀察方能察覺。以下整理貓咪的10種常見疾病，以及其成因和預防方式，幫助毛小孩預防勝於治療。</p>
 						</div>
 					</li>
-					<!-- 第五篇文 -->
+					<!-- 第五篇文 要嗎? -->
 					
 			</div>
 			<div class="col-md-2" ></div>
