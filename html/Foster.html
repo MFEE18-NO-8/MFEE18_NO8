@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浪浪有窩</title>
+
+    <!-- bootstrap -->
+    <!-- 11. 透過CDN方式引用 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <!-- 12. 透過本地檔案方式引用 -->
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css">
+    <script src="../Bootstrap/js/bootstrap.min.js"></script>
+    <script src="../Bootstrap/js/jquery.min.js"></script>
+    <script src="../Bootstrap/js/popper.min.js"></script>
+
+    <!-- 引用style.css -->
+    <link rel="stylesheet" type="text/css" href="../css/annistyle.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+    <!--navbar-->
+    <div class="container-fluid header">
+        <a href="#" class="logoImg navbar-brand">
+          <img src="../img/Logo/改I2 2.png" alt="" class="logo">
+          <img src="../img/Logo/字.png" alt="" class="logo-text">
+        </a>
+        <div class="nav">
+          <div class="navbar-nav">
+            <ul class="header-nevBar open">
+              <li class="nav-item"><a href="#">首頁</a></li>
+              <li class="nav-item"><a href="#">毛孩領養</a></li>
+              <li class="nav-item"><a href="#">刊登送養</a></li>
+              <li class="nav-item"><a href="#">毛孩知識</a></li>                  
+            </ul>
+          </div>
+          <a href="#" class="hamBar"><img src="../img/icon/square.png" class="fas-fa-bars"></img></a>
+          <!-- navbar-user -->
+          <div class="btn-group">
+            <button class="btn  btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="../img/icon/user.png" alt="" class="user-icon">
+            </button>
+            <div class="dropdown-menu dropdown-menu-right user-menu" >
+              <div class="user-img"></div>
+                <ul>
+                    <li>某某某</li>
+                    <li><a href="./UserEdit.html">會員資料</a></li>
+                    <li><a href="./UserFoster.html">我的送養文</a></li>
+                    <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
+                    <li><a href="./UserMsg.html">通知</a></li>
+                    <li><a href="./FindMe.html">聯絡我們</a></li>
+                    <li><a href="#">登出</a></li>
+                </ul>
+            </div>
+          </div>
+        </div>
+    </div> 
+    <!-- 麵包屑 -->
+    <div class="breadcrumb-block">
+        <div class="container-fluid">
+            <ol class="breadcrumb pb-0">
+                <li class="breadcrumb-item "><a href="#">首頁</a></li>
+                <li class="breadcrumb-item active" aria-current="page">刊登送養</li>
+            </ol>
+        </div> 
+    </div>
+
+    <div class="container foster-block mx-auto">
+      <div class="row">
+        <div class="col"><h2>刊登送養</h2></div>
+        <div class="col">
+          <!-- 送養須知 modal -->
+          <button type="button" class="btn btnXl btn-lightOrange btn-modal" data-toggle="modal" data-target="#staticBackdrop">
+            送養須知
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">送養須知</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  刊登人使用由 Wepet 寵物資訊平台(以下簡稱「Wepet」)所提供之送養資訊刊登服務(以下簡稱「本服務」)時，均受到本「刊登條款」規範。<br>
+                  1.Wepet 要求所有刊登送養資訊及查看送養資訊者均須加入會員且強制驗證手機號碼，是為了保證所有查看資訊的人都確實的留下紀錄，請送養人注意<br>
+                  ，如將動物送養後有查覺異常或有任何虐待事項，請立即通報政府單位，我們將配合政府單位之發文要求提供相關紀錄資料。<br>
+                  2.送養資訊不限刊登時間，因此將動物確定送養後請回網站關閉送養資訊，避免造成自身困擾。<br>
+                  3.目前不開放剛出生或尚未開眼之動物送養。<br>
+                  4.Wepet 僅為資訊交流平台，無法保證刊登內容之正確性，刊登人對其刊登內容及送養之行為應負完全之責任，刊登人應提供確實之刊登內容，並自負相關法律責任。<br>
+                  5.Wepet 對刊登資訊保有最終篩選、修改、刪除及決定刊登與否之權利。<br>
+                  6.Wepet 秉持以領養代替購買之精神，禁止以下類型之刊登內容：<br>
+                    a.要求補貼、認養價、營養費、結紮費等一切任何額外費用或有實際販賣行為。<br>
+                    b.捏造不實資訊。<br>
+                    c.特意收集個人資料。<br>
+                  如有違反上述條款之情事，Wepet 可能將其進行會員停權或封鎖之處置。<br>
+                  7.刊登人應確定刊登之內容未使用未經授權之文字、圖片、影音或任何形式之資訊。<br>
+                  8.刊登人同意授權於本服務刊登之資訊內容無償提供第三人分享、轉載或推廣。<br>
+                  9.資訊的審核時間約為 0 - 3 天，請耐心等候。<br>
+                </div>
+                <div class="modal-footer justify-content-center">
+                  <button type="button" class="btn btnMd-back btn-lightOrange" data-dismiss="modal">關閉</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+        <form class="foster-form">
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">寵物暱稱</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="accountNumber">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">種類</label>
+              <div class="col">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <label class="form-check-label" for="inlineRadio1">狗</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <label class="form-check-label" for="inlineRadio2">貓</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <label class="form-check-label" for="inlineRadio2">其他</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">品種</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="accountNumber">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">毛色</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="accountNumber">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">體型</label>
+              <div class="col">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <label class="form-check-label" for="inlineRadio1">小型</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <label class="form-check-label" for="inlineRadio2">中型</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <label class="form-check-label" for="inlineRadio2">大型</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">年紀</label>
+              <div class="col">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <label class="form-check-label" for="inlineRadio1">幼年</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <label class="form-check-label" for="inlineRadio2">成年</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">性別</label>
+              <div class="col">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <label class="form-check-label" for="inlineRadio1">公</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <label class="form-check-label" for="inlineRadio2">母</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">結紮狀況</label>
+              <div class="col">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <label class="form-check-label" for="inlineRadio1">是</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <label class="form-check-label" for="inlineRadio2">否</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">有無晶片</label>
+              <div class="col">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <label class="form-check-label" for="inlineRadio1">是</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <label class="form-check-label" for="inlineRadio2">否</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">區域</label>
+              <div class="col-9">
+                <div class="form-group">
+                  <select class="form-control" id="exampleFormControlSelect1">
+                    <option>台北市</option>
+                    <option>基隆市</option>
+                    <option>新北市</option>
+                    <option>宜蘭縣</option>
+                    <option>桃園市</option>
+                    <option>新竹市</option>
+                    <option>新竹縣</option>
+                    <option>苗栗縣</option>
+                    <option>台中市</option>
+                    <option>彰化縣</option>
+                    <option>南投縣</option>
+                    <option>嘉義市</option>
+                    <option>嘉義縣</option>
+                    <option>雲林縣</option>
+                    <option>台南市</option>
+                    <option>高雄市</option>
+                    <option>澎湖縣</option>
+                    <option>金門縣</option>
+                    <option>屏東縣</option>
+                    <option>台東縣</option>
+                    <option>花蓮縣</option>
+                    <option>連江縣</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">聯絡人</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="accountNumber">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">聯絡電話</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="accountNumber">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">個性描述</label>
+              <div class="col-9">
+                <textarea name="" id="" cols="30" rows="3"></textarea>
+              </div>
+            </div>
+            <!-- 檔案上傳 -->
+            <!-- <div class="form-group row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">照片</label>
+              <div class="col-9">
+                <div class="form-group">
+                  <label for="exampleFormControlFile1">Example file input</label>
+                  <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>              
+              </div>
+            </div> -->
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">照片</label>
+              <div class="col-9">
+                <div class="form-group">
+                  <table class="table">
+                    <small id="emailHelp" class="form-text ">第一張上傳照片為封面照,最多可上傳4張。每張不超過2MB</small>
+                    <thead>
+                      <tr>
+                        <th scope="col">新增</th>
+                        <th scope="col">刪除</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input type="file" class="form-control-file" id="exampleFormControlFile1"></td>
+                        <td><button class="btnLg btn-lightRed">刪除照片</button></td>
+                      </tr>
+                      <tr>
+                        <td><input type="file" class="form-control-file" id="exampleFormControlFile1"></td>
+                        <td><button class="btnLg btn-lightRed">刪除照片</button></td>
+                      </tr>
+                      <tr>
+                        <td><input type="file" class="form-control-file" id="exampleFormControlFile1"></td>
+                        <td><button class="btnLg btn-lightRed">刪除照片</button></td>
+                      </tr>
+                      <tr>
+                        <td><input type="file" class="form-control-file" id="exampleFormControlFile1"></td>
+                        <td><button class="btnLg btn-lightRed">刪除照片</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>              
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="form-group form-check checkbox-foster">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">已閱讀注意事項</label>
+              </div>
+            </div>
+            <div class="row justify-content-center btn-foster">
+              <button class="btnMd btn-BananaYellow">送出</button>
+              <button class="btnMd btn-lightRed">取消</button>
+            </div>
+
+          </form>
+    </div>
+    <!-- footer -->
+    <footer class="container-fluid footer">
+        <div class="row justify-content-center w-100 m-0">
+          <div class="col-10 col-md-10 copyright">
+              本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，僅就一般正常情理做審核，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。
+              <br>如有任何建議或合作請與我們聯絡 <br>© 2021 Copyright .tw By MFEE18-No.8
+          </div>
+        </div>
+    </footer>
+    
+</body>
+
+</html>
