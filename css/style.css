@@ -499,6 +499,60 @@ textarea{
 	margin-right:10px;
 	border-radius: 5px;
 }
+/* 刊登送養 */
+.foster-block{
+	background: var(--cornsilk);
+	border-radius:20px;
+	margin-top: 80px;
+	margin-bottom: 150px;
+}
+.foster-block>.row>.col>.btn-modal{
+	margin: 85px 0px 0px 300px;
+}
+.foster-block>.row>.col>h2{
+	margin: 80px 60px 40px 80px;
+	position: relative;
+}
+.foster-block>.row>.col>h2:before{
+	content: "";
+	display: block;
+	position: absolute;
+	left: -30px;
+	width: 18px;
+	height: 50px;
+	border-radius: 50px;
+	background-color:var(--RomanticOrange);
+}
+.modal-content{
+	line-height:2;
+	color: var(--TextColor);
+	background: var(--lightYellow);
+}
+.foster-form{
+	padding: 40px 30px 20px 70px ;
+}
+.form-text{
+	color: red;
+}
+.btn-foster>button{
+	margin: 20px;
+	margin-bottom: 100px;
+}
+.form-check-input{
+	width: 20px;
+	height: 20px;
+}
+.checkbox-foster{
+	margin-top: 50px;
+}
+.checkbox-foster>input{
+	width: 20px;
+	height: 20px;
+}
+select.form-control{
+	background: var(--pearl);
+	color: var(--TextColor);
+}
 /* 分頁 */
 .pagination{
 	margin: 80px 0px;
