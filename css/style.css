@@ -60,7 +60,29 @@ a:hover {
     text-align: center;
     padding: 10px 0;
     margin-top: 60px;
-    margin-bottom: 30px;
+    margin-bottom: 70px;
+    background-color: #f8e4ac;
+}
+.title-md{
+    width: 200px;
+    font-size: 30px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 60px;
+    margin-bottom: 70px;
+    background-color: #f8e4ac;
+}
+.title-lg{
+    width: 230px;
+    font-size: 30px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 60px;
+    margin-bottom:70px;
     background-color: #f8e4ac;
 }
 /* 圖片輪播 上下模式 */
@@ -276,6 +298,7 @@ a:hover {
 .breadcrumb-block{
 	background-color: var(--cornsilkBreadcrumb);
 	/* height: 100%; */
+	margin-bottom: 80px;
 }
 .breadcrumb{
 	background-color:transparent;
@@ -296,5 +319,27 @@ a:hover {
 table{
 	text-align: center;
 	background-color:var(--beige);
-	
+	margin-top: 30px;
 }
+/* 分頁 */
+.pagination{
+	margin: 80px 0px;
+}
+.pagination > li > a{
+	background:none;
+	border: none;
+	color: var(--TextColor);
+}
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #5a5a5a;
+    background-color:var(--BananaYellow);
+	border-radius: 50px;
+	outline: none;
+	border-color: transparent;   
+	box-shadow:none; 
+}
+
