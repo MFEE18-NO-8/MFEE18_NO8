@@ -157,6 +157,11 @@ input.form-control{
 	border-radius: 10px;
 	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
+.btnXxl{
+	width: 250px;
+	border-radius: 10px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
 .btn-green{
 	background-color:var(--FrosteeGreen);
 	border: 0;
@@ -289,7 +294,18 @@ input.form-control{
     .hamBar {
         margin-right: 5px;
     }
+	/* 毛孩領養 */
+	.adopList-form-group{
+		display: flex;
+		flex-direction: column;
+	}
+	div.adopList-search-txt{
+		transform: translateY(0px);
+		margin-top: 20px;
+	}
 }
+
+
 
 /* user-menu */
 .user{
@@ -549,9 +565,57 @@ textarea{
 	width: 20px;
 	height: 20px;
 }
-select.form-control{
+select.foster-select{
 	background: var(--pearl);
 	color: var(--TextColor);
+}
+/* 毛孩領養 */
+.adopList-form-group{
+	display: flex;
+	margin: 30px 0px;
+}
+.adopList-icon{
+	margin-right: 5px;
+}
+.search-adopList-left{
+	background: url(../img/background/block2.png);
+	border-radius: 30px;
+	box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+.btn-adopList{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.adopList-search-txt{
+	padding: 30px 50px;
+	background: var(--ivory);
+	border-radius: 30px;
+	box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+	transform: translateY(-40px);
+}
+.adopitem-icon{
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+}
+.adop-text-con{
+	font-size: 25px;
+	margin: 10px 0px;
+}
+div.adop-img>img{
+	border-radius: 50%;
+	height: 400px;
+}
+.adop-text{
+	text-align: center;
+	margin-top: 20px;
+}
+.btn-adopitem{
+	margin: 30px auto;
+}
+.adopList-group{
+	justify-content: space-around;
+	margin-top: 60px;
 }
 /* 分頁 */
 .pagination{
