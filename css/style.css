@@ -1,7 +1,11 @@
 @font-face {
-    font-family: open;
+    font-family: "jf-openhuninn";
     src: url(../jf-openhuninn-1.1/jf-openhuninn-1.1.ttf);
 }
+p {
+    font-family: "jf-openhuninn" !important;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -17,16 +21,11 @@
     --RomanticOrange: #fdc29a; /* button-橘、會員登入介面-線條 */
     --lightRed: #ffb8ac; /*button-粉*/
     --lightYellow: #fffde7; /*block-淡黃(領養資訊)*/
-    --nileBlue: rgba(75,100,84,0.7); /*block-土耳其綠(領養資訊)*/
+    --nileBlue: rgba(75, 100, 84, 0.7); /*block-土耳其綠(領養資訊)*/
     --ivory: #f5f5f5; /*block-象牙白(首頁區塊、毛孩領養區塊)*/
     --beige: #f6f4e8; /* block-米白(登入介面、會員中心介面區塊)*/
     --cornsilk: #f4f3ec; /* block-玉米鬚白(刊登送養 、麵包屑(50%半透) )*/
-    --cornsilkBreadcrumb: rgba(
-        244,
-        243,
-        236,
-        0.7
-    ); /* block-玉米鬚白(刊登送養 、麵包屑(50%半透) )*/
+    --cornsilkBreadcrumb: rgba(244, 243, 236, 0.7); /* block-玉米鬚白(刊登送養 、麵包屑(50%半透) )*/
     --pearl: #dedccd; /* input-背景色 */
     --seaFoam: #afc2cb; /*footer-background Color*/
     --red: #ff0202;
@@ -157,47 +156,48 @@ input.form-control {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.btnLg{
-	width: 120px;
-	border-radius: 20px;
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+.btnLg {
+    width: 120px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
-.btnXl{
-	width: 130px;
-	border-radius: 10px;
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+.btnXl {
+    width: 130px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
-.btnXxl{
-	width: 250px;
-	border-radius: 10px;
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+.btnXxl {
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
-.btn-green{
-	background-color:var(--FrosteeGreen);
-	border: 0;
-	padding: 5px;
-	font-weight: 600;
+.btn-green {
+    background-color: var(--FrosteeGreen);
+    border: 0;
+    padding: 5px;
+    font-weight: 600;
 }
-.btn-BananaYellow{
-	background-color:var(--BananaYellow);
-	border: 0;
-	padding: 5px;
-	font-weight: 600;
+.btn-BananaYellow {
+    background-color: var(--BananaYellow);
+    border: 0;
+    padding: 5px;
+    font-weight: 600;
 }
-.btn-lightRed{
-	background-color:var(--lightRed);
-	border: 0;
-	padding: 5px;
-	font-weight: 600;
+.btn-lightRed {
+    background-color: var(--lightRed);
+    border: 0;
+    padding: 5px;
+    font-weight: 600;
 }
-.btn-lightOrange{
-	background-color:var(--RomanticOrange);
-	border: 0;
-	padding: 5px;
-	font-weight: 600;
+.btn-lightOrange {
+    background-color: var(--RomanticOrange);
+    border: 0;
+    padding: 5px;
+    font-weight: 600;
 }
-.btn-login{  /*會員登入按鈕*/
-	background-color:transparent;
+.btn-login {
+    /*會員登入按鈕*/
+    background-color: transparent;
 }
 .btnLg {
     width: 120px;
@@ -343,18 +343,16 @@ input.form-control {
     .hamBar {
         margin-right: 5px;
     }
-	/* 毛孩領養 */
-	.adopList-form-group{
-		display: flex;
-		flex-direction: column;
-	}
-	div.adopList-search-txt{
-		transform: translateY(0px);
-		margin-top: 20px;
-	}
+    /* 毛孩領養 */
+    .adopList-form-group {
+        display: flex;
+        flex-direction: column;
+    }
+    div.adopList-search-txt {
+        transform: translateY(0px);
+        margin-top: 20px;
+    }
 }
-
-
 
 /* user-menu */
 .user {
@@ -412,7 +410,9 @@ table {
     margin-top: 30px;
 }
 /* 會員資訊 -表格*/
-.UserFollow-thead,.UserFoster-thead,.UserMsg-thead{
+.UserFollow-thead,
+.UserFoster-thead,
+.UserMsg-thead {
     background: var(--BananaYellow);
 }
 /* 會員資訊-註冊 */
@@ -486,7 +486,7 @@ textarea {
     border-radius: 50px;
     background-color: var(--BananaYellow);
 }
-.editText{
+.editText {
     font-size: 22px;
     margin-top: 60px;
     background: var(--lightRed);
@@ -494,7 +494,7 @@ textarea {
     padding: 15px 20px;
     border-radius: 50px;
 }
-.editText>img{
+.editText > img {
     width: 30px;
     height: 30px;
 }
@@ -573,186 +573,187 @@ textarea {
     border-radius: 5px;
 }
 /* 刊登送養 */
-.foster-block{
-	background: var(--cornsilk);
-	border-radius:20px;
-	margin-top: 80px;
-	margin-bottom: 150px;
-}
-.foster-block>.row>.col>.btn-modal{
-	margin: 85px 0px 0px 300px;
-}
-.foster-block>.row>.col>h2{
-	margin: 80px 60px 40px 80px;
-	position: relative;
-}
-.foster-block>.row>.col>h2:before{
-	content: "";
-	display: block;
-	position: absolute;
-	left: -30px;
-	width: 18px;
-	height: 50px;
-	border-radius: 50px;
-	background-color:var(--RomanticOrange);
-}
-.modal-content{
-	line-height:2;
-	color: var(--TextColor);
-	background: var(--lightYellow);
-}
-.foster-form{
-	padding: 40px 30px 20px 70px ;
-}
-.form-text{
-	color: red;
-}
-.btn-foster>button{
-	margin: 20px;
-	margin-bottom: 100px;
-}
-.form-check-input{
-	width: 20px;
-	height: 20px;
-}
-.checkbox-foster{
-	margin-top: 50px;
-}
-.checkbox-foster>input{
-	width: 20px;
-	height: 20px;
-}
-select.foster-select{
-	background: var(--pearl);
-	color: var(--TextColor);
-}
-/* 毛孩領養 */
-.adopList-form-group{
-	display: flex;
-	margin: 30px 0px;
-}
-.adopList-icon{
-	margin-right: 5px;
-}
-.search-adopList-left{
-	background: url(../img/background/block2.png);
-	border-radius: 30px;
-	box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-}
-.btn-adopList{
-	margin-top: 30px;
-	margin-bottom: 30px;
-}
-.adopList-search-txt{
-	padding: 30px 50px;
-	background: var(--ivory);
-	border-radius: 30px;
-	box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-	transform: translateY(-40px);
-}
-.adopitem-icon{
-	width: 40px;
-	height: 40px;
-	margin-right: 10px;
-}
-.adop-text-con{
-	font-size: 25px;
-	margin: 10px 0px;
-}
-div.adop-img>img{
-	border-radius: 50%;
-	height: 400px;
-}
-.adop-text{
-	text-align: center;
-	margin-top: 20px;
-}
-.btn-adopitem{
-	margin: 30px auto;
-}
-.adopList-group{
-	justify-content: space-around;
-	margin-top: 60px;
-}
-/* 毛孩資訊 */
-.AdoptContent-block{
+.foster-block {
+    background: var(--cornsilk);
+    border-radius: 20px;
     margin-top: 80px;
     margin-bottom: 150px;
 }
-.AdoptContent-left{
+.foster-block > .row > .col > .btn-modal {
+    margin: 85px 0px 0px 300px;
+}
+.foster-block > .row > .col > h2 {
+    margin: 80px 60px 40px 80px;
+    position: relative;
+}
+.foster-block > .row > .col > h2:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -30px;
+    width: 18px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: var(--RomanticOrange);
+}
+.modal-content {
+    line-height: 2;
+    color: var(--TextColor);
+    background: var(--lightYellow);
+}
+.foster-form {
+    padding: 40px 30px 20px 70px;
+}
+.form-text {
+    color: red;
+}
+.btn-foster > button {
+    margin: 20px;
+    margin-bottom: 100px;
+}
+.form-check-input {
+    width: 20px;
+    height: 20px;
+}
+.checkbox-foster {
+    margin-top: 50px;
+}
+.checkbox-foster > input {
+    width: 20px;
+    height: 20px;
+}
+select.foster-select {
+    background: var(--pearl);
+    color: var(--TextColor);
+}
+/* 毛孩領養 */
+.adopList-form-group {
+    display: flex;
+    margin: 30px 0px;
+}
+.adopList-icon {
+    margin-right: 5px;
+}
+.search-adopList-left {
+    background: url(../img/background/block2.png);
+    border-radius: 30px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+.btn-adopList {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.adopList-search-txt {
+    padding: 30px 50px;
+    background: var(--ivory);
+    border-radius: 30px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    transform: translateY(-40px);
+}
+.adopitem-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.adop-text-con {
+    font-size: 25px;
+    margin: 10px 0px;
+}
+div.adop-img > img {
+    border-radius: 50%;
+    height: 400px;
+}
+.adop-text {
+    text-align: center;
+    margin-top: 20px;
+}
+.btn-adopitem {
+    margin: 30px auto;
+}
+.adopList-group {
+    justify-content: space-around;
+    margin-top: 60px;
+}
+/* 毛孩資訊 */
+.AdoptContent-block {
+    margin-top: 80px;
+    margin-bottom: 150px;
+}
+.AdoptContent-left {
     height: 700px;
     background: var(--nileBlue);
 }
-.AdoptContent-right{
+.AdoptContent-right {
     height: 700px;
     background: var(--lightYellow);
 }
 /* 領養資訊-文字 */
-.AdoptContent-text{
+.AdoptContent-text {
     height: 550px;
     display: flex;
     flex-direction: column;
     padding: 20px 40px 20px 60px;
 }
-.AdoptName{
-    margin:10px 0px 10px 0px;
+.AdoptName {
+    margin: 10px 0px 10px 0px;
 }
-.AdoptContent-text>ul{
+.AdoptContent-text > ul {
     margin: 20px 0px 30px 0px;
 }
-.AdoptContent-text>ul>li{
+.AdoptContent-text > ul > li {
     font-size: 25px;
 }
-.AdoptContent-pic{
+.AdoptContent-pic {
     margin-top: 60px;
 }
-.AdoptContent-carousel-item{
+.AdoptContent-carousel-item {
     height: 400px;
     padding: 0 20px;
 }
-.AdoptContent-img{
+.AdoptContent-img {
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
 }
 /* 領養資訊-聯絡人 */
-.AdoptContent-connection{
+.AdoptContent-connection {
     height: 150px;
     background: var(--BananaYellow);
     padding: 20px 40px 20px 60px;
 }
-.AdoptContent-connection>ul>li{
+.AdoptContent-connection > ul > li {
     font-size: 25px;
 }
-.AdoptContent-title{
+.AdoptContent-title {
     background: var(--BananaYellow);
     padding: 20px 5px;
     width: 200px;
     margin-bottom: 0;
     text-align: center;
 }
-.share{
+.share {
     margin-top: 80px;
 }
-.share-item{
-    display:flex;
-    background: rgba(255, 255, 255,.5);
+.share-item {
+    display: flex;
+    background: rgba(255, 255, 255, 0.5);
     padding: 20px 30px;
-    border-radius: 30px;  
+    border-radius: 30px;
 }
-.share-left,.share-right{
+.share-left,
+.share-right {
     display: flex;
 }
-.share-left{
+.share-left {
     margin-right: 20px;
 }
-.share-img{
+.share-img {
     margin: 5px;
     border-radius: 10px;
     width: 40px;
     height: 40px;
 }
-.share>.share-item>div>h4{
+.share > .share-item > div > h4 {
     margin: auto 10px;
 }
 /* 分頁 */
