@@ -9,7 +9,7 @@
 .box2{
     border-radius: 15px;
     background-color: #F8E4AC;
-    padding: 40px;
+    padding: 25px;
     width: 500px;
     margin: 0 auto;
 }
@@ -141,6 +141,41 @@ button.login{
     width: 100px;
     margin: 30px 0px 30px 75px;
     font-weight:bold;
+
+}
+button.foster{
+    background-color:#FDC29A;
+    border-radius: 15px;
+    padding:5px 10px 5px 10px;
+    border: 0px;
+    margin: 10px;
+    font-weight:bold;
+
+}
+.profileImg{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+
+}
+.userAdmin{
+    background-color: #F8E4AC;
+    width: 300px;
+    display: flex;
+    flex-direction: column
+    ;
+}
+.fosterList th ,.fosterList td{
+border: 1px #9F9D94 solid;;
+}
+.fosterList th,.fosterList td{
+    padding: 1rem;
+    text-align: center;
+
+}
+.fosterList th {
+    background-color:#F8E4AC;
+    padding: 1rem;
 
 }
 .quicklogin{

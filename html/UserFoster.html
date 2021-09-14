@@ -30,8 +30,13 @@
     <script src="../Bootstrap/js/jquery.min.js"></script>
     <script src="../Bootstrap/js/popper.min.js"></script>
 
+    <!-- 引用style.css -->
+    <link rel="stylesheet" type="text/css" href="../css/annistyle.css">
+
 
 </head>
+
+
 
 <body>
 
@@ -46,8 +51,8 @@
         </div>
 
         <div class="row">
-            <div class="col-md-3 col-sm-12 col-xs-12">
-                <img src="../img/profile.jpg" alt="">
+            <div class="col-md-4 col-sm-12 col-xs-12 userAdmin">
+                <img class="profileImg" src="../img/profile.jpg" alt="">
                 <a href="./UserEdit.html">會員管理</a>
                 <a href="./UserFoster.html">我的送養文</a>
                 <a href="./UserFollow.html">我追蹤的毛孩</a>
@@ -57,8 +62,8 @@
             </div>
 
             <div class="col-md-8 col-sm-12 col-xs-12">
-                <button>我要送養</button>
-                <table>
+                <button class="foster">我要送養</button>
+                <table class="fosterList">
                     <tr>
                         <th>編號</th>
                         <th>寵物暱稱</th>
