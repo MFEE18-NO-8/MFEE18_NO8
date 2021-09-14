@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserManageView</title>
+
+    <!-- jquery -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
+        integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=='
+        crossorigin='anonymous'></script>
+    <!-- Bootstrap CSS -->
+    <!-- 連結方式建議使用cdn 嘗試一下未來工作的情況 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+    <script src="../Bootstrap/js/jquery.min.js"></script>
+    <script src="../Bootstrap/js/popper.min.js"></script>
+    <script src="../Bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/minyustyle.css">
+    <title>浪浪有窩</title>
+
+
+</head>
+
+<body>
+
+    <body>
+        <!--navbar-->
+        <div class="container-fluid header">
+            <a href="#" class="logoImg navbar-brand">
+                <img src="../img/Logo/改I2 2.png" alt="" class="logo">
+                <img src="../img/Logo/字.png" alt="" class="logo-text">
+            </a>
+            <div class="nav">
+                <div class="navbar-nav">
+                    <ul class="header-nevBar open">
+                        <li class="nav-item"><a href="#">首頁</a></li>
+                        <li class="nav-item"><a href="#">毛孩領養</a></li>
+                        <li class="nav-item"><a href="#">刊登送養</a></li>
+                        <li class="nav-item"><a href="#">毛孩知識</a></li>
+                    </ul>
+                </div>
+                <a href="#" class="hamBar"><img src="../img/icon/square.png" class="fas-fa-bars"></img></a>
+                <!-- navbar-user -->
+                <div class="btn-group">
+                    <button class="btn  btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <img src="../img/icon/user.png" alt="" class="user-icon">
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right user-menu">
+                        <div class="user-img"></div>
+                        <ul>
+                            <li>某某某</li>
+                            <li><a href="./UserEdit.html">會員資料</a></li>
+                            <li><a href="./UserFoster.html">我的送養文</a></li>
+                            <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
+                            <li><a href="./UserMsg.html">通知</a></li>
+                            <li><a href="./FindMe.html">登出</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="breadcrumb-block">
+            <div class="container-fluid ">
+                <ol class="breadcrumb pb-0 ">
+                    <li class="breadcrumb-item "><a href="#">首頁</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">後臺管理</li>
+                    <li class="breadcrumb-item active" aria-current="page">會員資料管理</li>
+                    <li class="breadcrumb-item active" aria-current="page">檢視</li>
+                </ol>
+            </div>
+        </div>
+
+
+        <div id="MyDivTitle" class="container">
+            <h2 class="title-lg">會員資料管理</h2>
+        </div>
+
+
+        <div id="MyDivView" class="container">
+            <table>
+                <tr>
+                    <td class="ViewTitle">會員名稱
+                    </td>
+                    <td class="ContentView"><label for="html" id="MyLabel">大明</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ViewTitle">會員編號
+                    </td>
+                    <td class="ContentView"><label for="html" id="MyLabel">0001</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ViewTitle">會員申請日期
+                    </td>
+                    <td class="ContentView"><label for="html" id="MyLabel">2021-09-13</label></td>
+                </tr>
+                <tr>
+                    <td class="ViewTitle">內容</td>
+                    <td class="ContentView">
+                        <table id="FosterTable" border="1">
+                            <tr>
+                                <td class="FosterTd">帳號</td>
+                                <td class="FosterTd">123456789</td>
+                            </tr>
+                            <tr class="FosterTr">
+                                <td class="FosterTd">密碼</td>
+                                <td class="FosterTd">987654321</td>
+                            </tr>
+                            <tr>
+                                <td class="FosterTd">姓名</td>
+                                <td class="FosterTd">王大明</td>
+                            </tr>
+                            <tr>
+                                <td class="FosterTd">手機</td>
+                                <td class="FosterTd">0966-666-666</td>
+                            </tr>
+                            <tr>
+                                <td class="FosterTd">電子信箱</td>
+                                <td class="FosterTd">123456789@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td class="FosterTd">出生日期</td>
+                                <td class="FosterTd">87-08-07</td>
+                            </tr>
+
+
+                        </table>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="ViewTitle">照片</td>
+                    <td class="ContentView">
+                        <img class="ImgEdit" src="../img/dog cat/pexels-tomas-ryant-2643812.jpg">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ViewTitle">狀態</td>
+                    <td class="ContentView">
+                        <label for="html" id="MyLabel">已通過</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" class="MySubmitView" value="修改">
+                        <input type="submit" class="MySubmitView" value="取消">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- footer -->
+        <footer class="container-fluid footer">
+            <div class="row justify-content-center w-100 m-0">
+                <div class="col-10 col-md-10 copyright">
+                    本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，僅就一般正常情理做審核，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。
+                    <br>如有任何建議或合作請與我們聯絡 <br>© 2021 Copyright .tw By MFEE18-No.8
+                </div>
+            </div>
+        </footer>
+
+
+
+
+    </body>
+
+</html>
