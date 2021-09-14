@@ -99,12 +99,14 @@
 			</li>
 		</nav>
 		<!-- 頁籤 breadcrumb -->
-		<nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="#">首頁</a></li>
-				<li class="breadcrumb-item active" aria-current="page">毛孩知識</li>
-			</ol>
-		</nav>
+		<div class="breadcrumb-block">
+			<div class="container-fluid">
+				<ol class="breadcrumb pb-0">
+					<li class="breadcrumb-item "><a href="#">首頁</a></li>
+					<li class="breadcrumb-item active" aria-current="page">毛孩知識</li>
+				</ol>
+			</div> 
+		</div>
 		<!-- 輪播+文章選單 2+5+3+2=12 -->
 		<section class="row">
 			<div class="col-md-2"></div>
@@ -200,9 +202,9 @@
 			<div class="col-md-2"></div>
 		</section>
 		<!-- 搜尋欄 -->
-		<section class="row">
+		<section class="row" style="margin-top: 80px;">
 			<div class="col-md-2"  ></div>
-			<div class="col-md-8 row">
+			<div class="col-md-8 row ">
 				<h4 class="ml-0">全部文章</h4>
 				<form class="form-inline my-2 my-lg-0 ml-auto ">
 					<input class=" " type="search" placeholder="   輸入關鍵字..." aria-label="Search through site content" size="8" style="border: 1px solid black;border-radius: 40px;">
@@ -220,7 +222,7 @@
 			<div class="col-md-2"></div>
 		</div>
 		<!-- （圖片用圓角）一整頁顯示五個文章 -->
-		<section class="row">
+		<section class="row" style="margin-top: 80px;">
 			<div class="col-md-2" ></div>
 			<div class="col-md-8">
 				<ul class="flex-column ">
