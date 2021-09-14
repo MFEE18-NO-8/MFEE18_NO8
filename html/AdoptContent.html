@@ -73,46 +73,94 @@
         <div class="container-fluid">
             <ol class="breadcrumb pb-0">
                 <li class="breadcrumb-item "><a href="#">首頁</a></li>
-                <li class="breadcrumb-item active" aria-current="page">會員登入</li>
+                <li class="breadcrumb-item active" aria-current="page">毛孩資訊</li>
             </ol>
         </div> 
     </div>
-
-    <!-- 登入/註冊區塊 -->
-    <div class="container login-block">
+    <!-- 毛孩資訊 -->
+    <div class="container AdoptContent-block">
         <div class="row">
-            <div class="col-5 login-block-left">
-                    <div class="col login-block-left-text"><h2>新會員</h2></div>
-                    <div class="col login-block-left-button"><button class="btn-register">註冊</button></div>
+            <div class="col">
+                <h3 class="AdoptContent-title">毛孩資訊</h3>
             </div>
-            <div class="col-7 login-block-right">
-                <form>
-                    <h2>登入</h2>
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">E-MAIL</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="請輸入E-MAIL">
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6 AdoptContent-left">
+                <!-- carousel圖面輪撥 -->
+                <div class="AdoptContent-pic">
+                    <div class="container-fluid p-0">
+                        <div id = carouselExampleIndicators class="carousel slide carousel-fade"data-ride="carousel"data-interval="3000">
+                        <!-- 圖片 -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item AdoptContent-carousel-item active" data-bs-interval="10000">
+                                <img src="../img/dog cat/pexels-ellie-burgin-4777025.jpg" class="d-block w-100 AdoptContent-img" alt="...">
+                            </div>
+                            <div class="carousel-item AdoptContent-carousel-item">
+                                <img src="../img/dog cat/pexels-anel-rossouw-2558605.jpg" class="d-block w-100 AdoptContent-img" alt="...">
+                            </div>
+                            <div class="carousel-item AdoptContent-carousel-item">
+                                <img src="../img/dog cat/pexels-josh-hild-2820134.jpg" class="d-block w-100 AdoptContent-img" alt="...">
+                            </div>
+                        </div>
+                        <!-- 上一頁 下一頁 -->
+                        <a  class="carousel-control-prev"href="#carouselExampleIndicators"role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon"aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span></a>
+                        <a  class="carousel-control-next"href="#carouselExampleIndicators"role="button"data-slide="next">
+                            <span class="carousel-control-next-icon"aria-hidden="true"></span>
+                            <span class="sr-only">Next</span></a>
+                        </div> 
+                    </div>  
+                </div>
+                <div class="row share justify-content-center">
+                    <div class="share-item">
+                        <div class="share-left">
+                            <img src="../img/icon/heart.png" alt="" class="share-img">
+                            <h4>追蹤</h4>
+                        </div>
+                        <div class="share-right">
+                            <img src="../img/icon/facebook.png" alt="" class="share-img">
+                            <img src="../img/icon/line.png" alt="" class="share-img">
+                            <h4>分享</h4>
+                        </div>
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">密碼</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="請輸入密碼">
-                    </div>
-                    <div class="login-bottom">
-                        <button class="btn-login">登入</button>
-                        <a href="">忘記密碼</a>
-                    </div>
-                </form>
-                <hr class="login-hr">
-                <div class="row quickLogin justify-content-center">
-                    <div class="quickLogin-text"><h3>快速登入</h3></div>
-                    <div class="quickLogin-icon">
-                        <a href=""><img class="loginImg" src="../img/icon/google.png"alt=""></a>
-                        <a href=""><img class="loginImg" src="../img/icon/facebook.png" alt=""></a>
-                        <a href=""><img class="loginImg" src="../img/icon/line.png" alt=""></a>
-                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 AdoptContent-right">
+                <div class="row AdoptContent-text">
+                        <h2 class="AdoptName">嚕嚕</h2>
+                        <ul>
+                            <li>品種：牧羊犬</li>
+                            <li>種類：狗</li>
+                            <li>性別：公</li>
+                            <li>毛色：白色混黑</li>
+                            <li>年紀：幼年</li>
+                            <li>結紮：否</li>
+                            <li>地區：台中市</li>
+                        </ul>
+                    <span>
+                        <h5>寵物介紹：</h5>
+                        <p>因為搬家房東不同意飼養寵物,故送養</p>
+                    </span>
+                </div>
+                <div class="row AdoptContent-connection">
+                    <ul>
+                        <li>聯絡人：小宋</li>
+                        <li>聯絡電話：0980976266</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
     <!-- footer -->
     <footer class="container-fluid footer">
         <div class="row justify-content-center w-100 m-0">
@@ -125,4 +173,4 @@
 
 </body>
 
-</html>
+</html>    
