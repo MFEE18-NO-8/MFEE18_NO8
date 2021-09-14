@@ -14,6 +14,7 @@
 		<script src="../Bootstrap/js/jquery.min.js"></script>
 		<script src="../Bootstrap/js/popper.min.js"></script>
 		<script src="../Bootstrap/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 		<style>
 			.pic .carousel-special {
 				position: absolute;
@@ -151,12 +152,12 @@
 			<div class="col-md-3 rounded-right pb-0" style="background-color: var(--BananaYellow); margin-left: -15px;height: 500px; ">
 				<p class="text-md-center h1">熱門文章</p>
 				<hr />
-				<ul class="flex-column">
-					<li class="row d-inline-flex mb-4">
-						<div class="col-md-4 col-sm-4">
+				<ul class=" d-flex flex-column justify-content-between" style="border: solid red;" >
+					<li class="row d-inline-flex mb-4  d-flex align-items-center">
+						<div class="col-md-4 col-sm-4 ">
 							<img class="img-fluid" src="../img/animals/dog04.jpeg" alt="" />
 						</div>
-						<div class="col-md-7">
+						<div class="col-md-7 " style="border: 1px solid red;">
 							<p class="text-truncate">三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
 							<br />
 							<p class="date">2021-06-13</p>
@@ -190,10 +191,11 @@
 		<section class="row">
 			<div class="col-md-2"  ></div>
 			<div class="col-md-8 row">
-				<h4 class="ml-0">全部文章mr-sm-2</h4>
-				<form class="form-inline my-2 my-lg-0 ml-auto">
+				<h4 class="ml-0">全部文章</h4>
+				<form class="form-inline my-2 my-lg-0 ml-auto ">
 					<input class="form-control " type="search" placeholder="輸入關鍵字..." aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+					<button class="btn  my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+					
 			 	</form>
 			</div>
 			<div class="col-md-2"  ></div>	
