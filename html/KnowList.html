@@ -43,13 +43,11 @@
 			.pic:hover .carousel-special-back{
 				visibility: hidden;
 			}
-			#line{
-				
+			.line{
 				height: 0.6px;
 				width: 65%;
 				border: 2px solid black;
-				
-			}
+				}
 		</style>
 
 		<!-- css -->
@@ -157,7 +155,12 @@
 			<!-- 熱門文章 占比3等分 -->
 			<div class="col-md-3 rounded-right pb-0" style="background-color: var(--BananaYellow); margin-left: -15px;height: 500px; ">
 				<p class="text-md-center h1 mt-2">熱門文章</p>
-				<hr />
+				<!-- 分界線 -->
+				<div class="row">
+					<div class="col-md-2"></div>
+					<div class="my-3 line" style="border: 3px solid #fff;" ></div>
+					<div class="col-md-2"></div>
+				</div>
 				<ul class=" d-flex flex-column justify-content-between"  >
 					<li class="row d-inline-flex mb-4 mt-2 d-flex align-items-center">
 						<div class="col-md-4 col-sm-4 ">
@@ -210,7 +213,7 @@
 		<!-- 分界線 -->
 		<div class="row">
 			<div class="col-md-2"></div>
-			<div id="line" class="my-3 " ></div>
+			<div class="mb-3 line" ></div>
 			<div class="col-md-2"></div>
 		</div>
 		<!-- （圖片用圓角）一整頁顯示五個文章 -->
