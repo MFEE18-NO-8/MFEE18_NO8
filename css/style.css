@@ -411,6 +411,10 @@ table {
     background-color: var(--beige);
     margin-top: 30px;
 }
+/* 會員資訊 -表格*/
+.UserFollow-thead,.UserFoster-thead,.UserMsg-thead{
+    background: var(--BananaYellow);
+}
 /* 會員資訊-註冊 */
 .form-block {
     background-color: var(--BananaYellow);
@@ -482,13 +486,17 @@ textarea {
     border-radius: 50px;
     background-color: var(--BananaYellow);
 }
-.editText {
-    font-size: 25px;
+.editText{
+    font-size: 22px;
     margin-top: 60px;
     background: var(--lightRed);
-    width: 240px;
-    padding: 15px;
+    width: 220px;
+    padding: 15px 20px;
     border-radius: 50px;
+}
+.editText>img{
+    width: 30px;
+    height: 30px;
 }
 .edit-form {
     margin-top: 80px;
