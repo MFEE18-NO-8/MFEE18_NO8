@@ -30,21 +30,24 @@
         <img src="../img/Logo/字.png" alt="" class="logo-text">
       </a>
       <div class="nav">
-        <div class="navbar-nav">
-          <ul class="header-nevBar open">
-            <li class="nav-item"><a href="#">首頁</a></li>
-            <li class="nav-item"><a href="#">毛孩領養</a></li>
-            <li class="nav-item"><a href="#">刊登送養</a></li>
-            <li class="nav-item"><a href="#">毛孩知識</a></li>                  
-          </ul>
-        </div>
-        <a href="#" class="hamBar"><img src="../img/icon/square.png" class="fas-fa-bars"></img></a>
+        <!-- 漢堡選單 -->
+        <ul class="menu burgar-menu">
+          <li><a href="./X_index.html">首頁</a></li>
+          <li><a href="./AdopList.html">毛孩領養</a></li>
+          <li><a href="./Foster.html">刊登送養</a></li>
+          <li><a href="./KnowList.html">毛孩知識</a></li>
+        </ul>
+        <a href="#" class="hamBar burgar-menu">
+          <i>
+            <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
+          </i>
+        </a>        
         <!-- navbar-user -->
         <div class="btn-group">
           <button class="btn  btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <img src="../img/icon/user.png" alt="" class="user-icon">
           </button>
-          <div class="dropdown-menu dropdown-menu-right user-menu " >
+          <div class="dropdown-menu  user-menu dropdown-menu-right" >
               <ul>
                 <li><a href="./UserEdit.html">會員資料</a></li>
                 <li><a href="./UserFoster.html">我的送養文</a></li>
@@ -121,7 +124,7 @@
     <div class="container about-block">
       <div class="row">
         <div class="col-12 col-md-6 about-logo">
-          <img src="../img/Logo/logomix.png" alt="" class="">
+          <img src="../img/Logo/logomix.png" alt="" class="img-fluid">
         </div>
         <div class="col col-md-6 about-text">
           <div class="title about-title mt-0">關於我們</div>
@@ -143,19 +146,19 @@
         <div class="col-10 col-md-4 block-img">
           <img src="../img/dog cat/毛孩領養.jpg" alt="">
           <div class="block-txt">
-            <a href="#"><h1>毛孩領養</h1></a>
+            <a href="./AdopList.html"><h1>毛孩領養</h1></a>
           </div>
         </div>
         <div class="col-10 col-md-4 block-img">
           <img src="../img/dog cat/刊登送養.jpg" alt="">
           <div class="block-txt">
-            <a href="#"><h1>刊登送養</h1></a>
+            <a href="./Foster.html"><h1>刊登送養</h1></a>
           </div>
         </div>
         <div class="col-10 col-md-4 block-img">
           <img src="../img/dog cat/毛孩知識.jpg" alt="">
           <div class="block-txt">
-            <a href="#"><h1>毛孩知識</h1></a>
+            <a href="./KnowList.html"><h1>毛孩知識</h1></a>
           </div>
         </div>
       </div>
@@ -171,6 +174,14 @@
     </footer>
     
 
+    <script>
+      // 漢堡選單
+      $(document).ready(function () {
+      $('.burgar-menu').on('click', function (e) {
+        $('body').toggleClass('burgar-menu-show');       
+      });
+    });
+    </script>
 
 
 

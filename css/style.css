@@ -280,54 +280,37 @@ input.form-control {
     height: 100px;
     width: 200px;
 }
-.navbar-nav {
-    /* display: flex; */
-    line-height: 30px;
-    justify-content: center;
-}
-.header-nevBar {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0;
-}
-.header-nevBar > li {
-    text-align: center;
-}
-.nav-item {
-    font-size: 30px;
-    padding: 0 15px;
-    align-items: center;
-}
-.nav-item > a {
-    font-size: 30px;
-    transition: 0.5s;
-}
-.nav-item > a:hover {
-    border-bottom: 5px solid #1d3124;
-}
+/* 桌機版樣式-導覽列樣式 */
 .hamBar {
     display: none;
     align-self: center;
     margin: 0 20px;
 }
-@media all and (max-width: 992px) {
-    .header-nevBar {
-        display: none;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        transform: translateY(100%);
-        background-color: #f8e4ac;
-    }
-    .nav-item {
-        width: 100%;
-        border-bottom: 1px solid #ccc;
-    }
-    .hamBar {
-        display: flex;
-    }
+.menu {
+    float: right;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+.menu>li {
+    float: left;
+}
+.menu>li>a {
+    padding: 20px;
+    color: #1d3124;
+    font-size: 30px;
+}
+.menu>li>a:hover {
+    border-radius: 50px;
+    background-color: #afc2cb;
+    color: #fff;
+}
+/* 漢堡點擊後 */
+.burgar-menu-show .burgar-menu {
+    max-height: 500px;
+}
+.hamBar-icon {
+  display: none;
 }
 /* 平板狀態 */
 @media screen and (max-width: 768px) {
@@ -343,6 +326,43 @@ input.form-control {
         height: 60px;
         width: 100px;
     }
+    /* 漢堡盒展開樣式 */
+    .menu{
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 1s;
+        position: absolute;
+        z-index: 100;
+        top: 103px;
+        left:0;
+        right:-22px;
+        background: #e3f2fd;
+    }
+    .menu>li{
+        float: none; /*漢堡盒展開樣式直向*/
+        border-bottom: 1px solid #aaa;
+    }
+    .menu>li>a{
+        display: block;
+        transition: all 0.3s;
+        text-align: center;
+        font-size: 30px;
+    }
+    .menu>li>a:hover{
+        background: #afc2cb;
+        border-radius: 0;
+        color: #fff;
+    }
+    .burgar-menu {
+        display: block;
+        float: right;
+        margin-right: 1em;
+        line-height: 50px;
+    }
+    .ham {
+        display: block;
+        line-height: 50px;
+    }    
     .hamBar {
         margin-right: 5px;
     }
