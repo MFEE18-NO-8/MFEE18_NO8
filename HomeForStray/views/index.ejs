@@ -92,18 +92,19 @@
   <div class="container news">
     <div class="title">最新消息</div>
     <div class="row news-block-ground">
-      <div class="col-sm-12 col-md news-block">
-        <% for(var i=0; i<data.length; i++) { %>
+      <!-- 待修改:最多顯示3筆 -->
+      <% for(var i=0; i<data.length; i++) { %>
+        <div class="col-sm-12 col-md news-block">
           <div class="row news-text">
             <a href="#">
-              <%= data[0].NewsTitle %>
+              <%= data[i].NewsTitle %>
                 <p class="date">
                   <%= (data[i].ShowStartDate).toLocaleDateString() %>
                 </p>
           </div>
-          <% } %>
-      </div>
-      <!-- <div class="col-sm-12 col-md news-block">
+        </div>
+        <% } %>
+          <!-- <div class="col-sm-12 col-md news-block">
         <div class="row news-text">
           夏日寵物照護小叮嚀，讓寵物陪您度過熱夏防疫新生活。....
           <p class="date">2021-07-30</p>
