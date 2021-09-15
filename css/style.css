@@ -352,6 +352,19 @@ input.form-control {
         transform: translateY(0px);
         margin-top: 20px;
     }
+    /* 毛孩領養資訊 */
+    .share-left{
+        margin-right:0px;
+    }
+    div.share-item{
+        display: flex;
+        padding: 5px 15px;
+        margin-bottom: 30px; 
+    }
+    div.AdoptContent-connection{
+        padding:10px;
+        margin-top: 10px;
+    }
 }
 
 /* user-menu */
@@ -682,7 +695,7 @@ select.foster-select {
     transform: translateY(-40px);
 }
 .adopitem-icon {
-    width: 40px;
+    width: 20px;
     height: 40px;
     margin-right: 10px;
 }
@@ -690,9 +703,17 @@ select.foster-select {
     font-size: 25px;
     margin: 10px 0px;
 }
-div.adop-img > img {
+.adop-img{
+    display: inline-block;
     border-radius: 50%;
-    height: 400px;
+    overflow: hidden;
+    width: 300px;
+    height: 300px;
+}
+div.adop-img > img {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
 }
 .adop-text {
     text-align: center;
@@ -713,14 +734,16 @@ div.adop-img > img {
 .AdoptContent-left {
     height: 700px;
     background: var(--nileBlue);
+    border-radius: 20px 0px 0px 20px;
 }
 .AdoptContent-right {
     height: 700px;
     background: var(--lightYellow);
+    border-radius: 0px 20px 20px 0px;
 }
 /* 領養資訊-文字 */
 .AdoptContent-text {
-    height: 550px;
+    /* height: 550px; */
     display: flex;
     flex-direction: column;
     padding: 20px 40px 20px 60px;
@@ -729,13 +752,13 @@ div.adop-img > img {
     margin: 10px 0px 10px 0px;
 }
 .AdoptContent-text > ul {
-    margin: 20px 0px 30px 0px;
+    margin: 20px 0px 40px 0px;
 }
 .AdoptContent-text > ul > li {
     font-size: 25px;
 }
 .AdoptContent-pic {
-    margin-top: 60px;
+    margin-top: 30px;
 }
 .AdoptContent-carousel-item {
     height: 400px;
@@ -748,9 +771,13 @@ div.adop-img > img {
 }
 /* 領養資訊-聯絡人 */
 .AdoptContent-connection {
-    height: 150px;
     background: var(--BananaYellow);
-    padding: 20px 40px 20px 60px;
+    padding: 20px 10px;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+.AdoptContent-connection>ul{
+    margin:auto 30px;
 }
 .AdoptContent-connection > ul > li {
     font-size: 25px;
@@ -761,31 +788,30 @@ div.adop-img > img {
     width: 200px;
     margin-bottom: 0;
     text-align: center;
+    border-radius: 10px 10px 0px 0px;
 }
 .share {
-    margin-top: 80px;
+    margin-top: 40px;
 }
 .share-item {
     display: flex;
     background: rgba(255, 255, 255, 0.5);
-    padding: 20px 30px;
+    padding: 5px 30px;
     border-radius: 30px;
 }
 .share-left,
 .share-right {
     display: flex;
+    margin-top: 5px;
 }
 .share-left {
     margin-right: 20px;
 }
-.share-img {
-    margin: 5px;
+.share-img{
+    margin: auto 5px;
     border-radius: 10px;
     width: 40px;
     height: 40px;
-}
-.share > .share-item > div > h4 {
-    margin: auto 10px;
 }
 /* 分頁 */
 .pagination {
