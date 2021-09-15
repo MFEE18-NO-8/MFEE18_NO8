@@ -361,8 +361,8 @@ input.form-control {
 .user-icon {
     width: 30px;
 }
-.user-menu {
-    background-color: #f8e4ac;
+div.user-menu {
+    background-color: var(--ivory);
     border-radius: 20px;
 }
 .user-img {
