@@ -5,27 +5,160 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- Bootstrap CSS -->
-        <!-- 連結方式建議使用cdn 嘗試一下未來工作的情況 本次大專題 使用bootstrap 4.6 然後因為我們使用第四版 所以不支援ie8,9 -->
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
             integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
             crossorigin="anonymous"
         />
+        <script src="../Bootstrap/js/jquery.min.js"></script>
+        <script src="../Bootstrap/js/popper.min.js"></script>
+        <script src="../Bootstrap/js/bootstrap.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+            crossorigin="anonymous"
+        />
+        <!-- css -->
+        <link rel="stylesheet" href="../css/lynnstyle.css" />
+        <link rel="stylesheet" href="../css/style.css" />
         <title>浪浪有窩</title>
     </head>
     <body>
-        照顧方式、相處方式介紹
+        <!-- navbar_漢堡有正常運作 但是下拉選單不知道怎麼控制在漢堡的左邊(手機瀏覽才會有這個問題) -->
+        <nav
+            class="navbar navbar-expand-lg navbar-light"
+            style="background-image: url(../img/background/header.PNG); background-repeat: no-repeat; background-size: cover; display: flex; justify-content: space-between"
+        >
+            <a class="navbar-brand" href="#" style="padding-top: 0; padding-bottom: 0; margin-right: 0">
+                <a href="#" class="navbar-brand" style="padding-top: 0; padding-bottom: 0; margin-right: 0">
+                    <img src="../img/Logo/改I2 2.png" alt="" style="width: 150px; height: 130px" />
+                    <img src="../img/Logo/字.png" alt="" style="width: 200px; height: 100px" />
+                </a>
+            </a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">首頁 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">毛孩領養</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">刊登送養</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">毛孩知識</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 下拉式會員選單 -->
+            <li class="nav-item dropdown navbar-brand">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img style="width: 30px" src="../img/icon/user.png" alt="" />
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">某某某</a>
+                    <a class="dropdown-item" href="#">會員資料</a>
+                    <a class="dropdown-item" href="#">我的送養文</a>
+                    <a class="dropdown-item" href="#">追蹤的毛孩</a>
+                    <a class="dropdown-item" href="#">通知</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">登出</a>
+                </div>
+            </li>
+        </nav>
+        <!-- 頁籤 breadcrumb -->
+        <div class="breadcrumb-block">
+            <div class="container-fluid">
+                <ol class="breadcrumb pb-0">
+                    <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                    <li class="breadcrumb-item" aria-current="page">毛孩知識</li>
+                    <li class="breadcrumb-item active" aria-current="page">狗狗飼料必定要知道的5件事，第一次養狗就上手</li>
+                </ol>
+            </div>
+        </div>
+        <!-- 主要內容 -->
+        <div class="row col-12">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <img class="img-fluid" src="../img/animals/dog04.jpeg" alt="" />
+                <h4>狗狗飼料必定要知道的5件事，第一次養狗就上手</h4>
+                <p>
+                    愛狗狗的主人們，不論新手或老手，一定都有搜尋「狗狗飼料挑選推薦」的經驗，網路上資訊爆炸多，怎麼樣的飼料、飲食策略，才是對狗狗最好的呢？
+                    寵聊療經過長時間的經驗累積過後，彙整身邊專業人士意見，整理出狗狗飼料選購建議大全。選擇飼料看完本篇就會讓你快速了解如何找到適合自己家中寶貝的飼料。 飼料是什麼？ 狗狗只吃飼料可以嗎？
+                    AAFCO跟WDJ是什麼？大家為何都在意？ 最好的飼料？最適合的飼料？ 全肉(Meat)與肉粉(MeatMeal)的不同？副產品是什麼？ 快速上手飼料挑選法則？ 總結
+                    狗狗飼料必定要知道的5件事，第一次養狗就上手 內文開始 飼料是什麼？
+                    飼料是一種加工品，不是原型食物。是主人使用的飲食種類，原因無他，最方便的就是飼料了，無論是保存、取得、餵食處理，無疑都是最方便的選擇。
+                </p>
+            </div>
+            <div class="col-md-4">
+                <div class="pb-0" style="background-color: var(--BananaYellow); width: auto; height: 500px; border-radius: 40px 40px 40px 40px">
+                    <p class="text-md-center h1 mt-2">熱門文章</p>
+                    <!-- 分界線 -->
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="my-3 line" style="border: 3px solid #fff"></div>
+                        <div class="col-md-2"></div>
+                    </div>
+                    <ul class="d-flex flex-column justify-content-between">
+                        <li class="row d-inline-flex mb-4 mt-2 d-flex align-items-center">
+                            <div class="col-md-4 col-sm-4">
+                                <a href=""><img class="img-fluid" src="../img/animals/dog04.jpeg" alt="" /></a>
+                            </div>
+                            <div class="col-md-7">
+                                <a href=""
+                                    ><p class="text-truncate">三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+                                    <br />
+                                    <p class="date">2021-06-13</p></a
+                                >
+                            </div>
+                        </li>
+                        <li class="row d-inline-flex mb-4">
+                            <div class="col-md-4 col-sm-4">
+                                <a href=""><img class="img-fluid" src="../img/animals/dog04.jpeg" alt="" /></a>
+                            </div>
+                            <div class="col-md-7">
+                                <a href="">
+                                    <p class="text-truncate">三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+                                    <br />
+                                    <p class="date">2021-06-13</p>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="row d-inline-flex mb-4">
+                            <div class="col-md-4 col-sm-4">
+                                <a href="">
+                                    <img class="img-fluid" src="../img/animals/dog04.jpeg" alt="" />
+                                </a>
+                            </div>
+                            <div class="col-md-7">
+                                <a href="">
+                                    <p class="text-truncate">三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+                                    <br />
+                                    <p class="date">2021-06-13</p>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
         <!-- Option 2: Separate Popper and Bootstrap JS -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
-            integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
-            integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
-            crossorigin="anonymous"
-        ></script>
     </body>
 </html>

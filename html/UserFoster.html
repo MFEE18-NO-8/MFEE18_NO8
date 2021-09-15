@@ -29,27 +29,72 @@
     <script src="../Bootstrap/js/bootstrap.min.js"></script>
     <script src="../Bootstrap/js/jquery.min.js"></script>
     <script src="../Bootstrap/js/popper.min.js"></script>
+<<<<<<< HEAD
 
     <!-- 引用style.css -->
     <link rel="stylesheet" type="text/css" href="../css/annistyle.css">
 
+=======
+    <!-- css -->
+    <link rel="stylesheet" href="../css/style.css">
+>>>>>>> b1760cf9a0426107f81e81561f250efc0ff04bd0
 
 </head>
 
 
 
 <body>
-
-
-    <div class="container">
-
+    <!--navbar-->
+    <div class="container-fluid header">
+        <a href="#" class="logoImg navbar-brand">
+          <img src="../img/Logo/改I2 2.png" alt="" class="logo">
+          <img src="../img/Logo/字.png" alt="" class="logo-text">
+        </a>
+        <div class="nav">
+          <div class="navbar-nav">
+            <ul class="header-nevBar open">
+              <li class="nav-item"><a href="#">首頁</a></li>
+              <li class="nav-item"><a href="#">毛孩領養</a></li>
+              <li class="nav-item"><a href="#">刊登送養</a></li>
+              <li class="nav-item"><a href="#">毛孩知識</a></li>                  
+            </ul>
+          </div>
+          <a href="#" class="hamBar"><img src="../img/icon/square.png" class="fas-fa-bars"></img></a>
+          <!-- navbar-user -->
+          <div class="btn-group">
+            <button class="btn  btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="../img/icon/user.png" alt="" class="user-icon">
+            </button>
+            <div class="dropdown-menu dropdown-menu-right user-menu" >
+              <div class="user-img"></div>
+                <ul>
+                  <li>某某某</li>
+                  <li><a href="./UserEdit.html">會員資料</a></li>
+                  <li><a href="./UserFoster.html">我的送養文</a></li>
+                  <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
+                  <li><a href="./UserMsg.html">通知</a></li>
+                  <li><a href="./FindMe.html">聯絡我們</a></li>
+                  <li><a href="#">登出</a></li>
+                </ul>
+            </div>
+          </div>
+        </div>
+    </div> 
+    <!-- 麵包屑 -->
+    <div class="breadcrumb-block">
+      <div class="container-fluid ">
+          <ol class="breadcrumb pb-0 ">
+              <li class="breadcrumb-item "><a href="#">首頁</a></li>
+              <li class="breadcrumb-item active" aria-current="page">我的送養文</li>
+          </ol>
+      </div> 
+    </div>
+    <!-- <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-
                 <h1>我的送養文</h1>
             </div>
         </div>
-
         <div class="row">
             <div class="col-md-4 col-sm-12 col-xs-12 userAdmin">
                 <img class="profileImg" src="../img/profile.jpg" alt="">
@@ -60,7 +105,6 @@
                 <a href="./FindMe.html">聯絡我們</a>
                 <a href="">登出</a>
             </div>
-
             <div class="col-md-8 col-sm-12 col-xs-12">
                 <button class="foster">我要送養</button>
                 <table class="fosterList">
@@ -104,11 +148,97 @@
                     </tr>
                 </table>
             </div>
-
         </div>
+    </div> -->
+
+    <div class="container UserFoster-title"><h2>我的送養文</h2></div>
+    <div class="container">
+        <button class="btnLg btn-lightOrange">我想送養</button>
+      <table class="table table-hover">
+          <thead>
+            <tr class="UserFoster-thead">
+              <th scope="col">編號</th>
+              <th scope="col">寵物暱稱</th>
+              <th scope="col">刊登日期</th>
+              <th scope="col">狀態</th >
+              <th scope="col">認養狀態</th >
+              <th scope="col">功能</th >
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>白白</td>
+              <td>2021-10-16</td>
+              <td>待審核</td>
+              <td>開放認養</td>
+              <td><button class="btnMd-back btn-green">編輯</button></td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>樂樂</td>
+              <td>2021-10-16</td>
+              <td>已批准</td>
+              <td>開放認養</td>
+              <td><button class="btnMd-back btn-green">編輯</button></td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>momo</td>
+              <td>2021-10-16</td>
+              <td>待審核</td>
+              <td>開放認養</td>
+              <td><button class="btnMd-back btn-green">編輯</button></td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>momo</td>
+              <td>2021-10-16</td>
+              <td>待審核</td>
+              <td>開放認養</td>
+              <td><button class="btnMd-back btn-green">編輯</button></td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td>momo</td>
+              <td>2021-10-16</td>
+              <td>待審核</td>
+              <td>開放認養</td>
+              <td><button class="btnMd-back btn-green">編輯</button></td>
+            </tr>
+          </tbody>
+      </table>
     </div>
 
-
+    <!-- 分頁 -->
+    <nav aria-label="Page navigation example ">
+        <ul class="pagination justify-content-center">
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+        </ul>
+    </nav>
+    <!-- footer -->
+    <footer class="container-fluid footer">
+        <div class="row justify-content-center w-100 m-0">
+            <div class="col-10 col-md-10 copyright">
+            本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，僅就一般正常情理做審核，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。
+            <br>如有任何建議或合作請與我們聯絡 <br>© 2021 Copyright .tw By MFEE18-No.8
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

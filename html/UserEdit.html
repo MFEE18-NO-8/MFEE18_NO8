@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浪浪有窩</title>
+
+    <!-- bootstrap -->
+    <!-- 11. 透過CDN方式引用 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <!-- 12. 透過本地檔案方式引用 -->
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css">
+    <script src="../Bootstrap/js/bootstrap.min.js"></script>
+    <script src="../Bootstrap/js/jquery.min.js"></script>
+    <script src="../Bootstrap/js/popper.min.js"></script>
+
+    <!-- 引用style.css -->
+    <link rel="stylesheet" type="text/css" href="../css/annistyle.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+    <!--navbar-->
+    <div class="container-fluid header">
+        <a href="#" class="logoImg navbar-brand">
+          <img src="../img/Logo/改I2 2.png" alt="" class="logo">
+          <img src="../img/Logo/字.png" alt="" class="logo-text">
+        </a>
+        <div class="nav">
+          <div class="navbar-nav">
+            <ul class="header-nevBar open">
+              <li class="nav-item"><a href="#">首頁</a></li>
+              <li class="nav-item"><a href="#">毛孩領養</a></li>
+              <li class="nav-item"><a href="#">刊登送養</a></li>
+              <li class="nav-item"><a href="#">毛孩知識</a></li>                  
+            </ul>
+          </div>
+          <a href="#" class="hamBar"><img src="../img/icon/square.png" class="fas-fa-bars"></img></a>
+          <!-- navbar-user -->
+          <div class="btn-group">
+            <button class="btn  btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="../img/icon/user.png" alt="" class="user-icon">
+            </button>
+            <div class="dropdown-menu dropdown-menu-right user-menu" >
+              <div class="user-img"></div>
+                <ul>
+                    <li>某某某</li>
+                    <li><a href="./UserEdit.html">會員資料</a></li>
+                    <li><a href="./UserFoster.html">我的送養文</a></li>
+                    <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
+                    <li><a href="./UserMsg.html">通知</a></li>
+                    <li><a href="./FindMe.html">聯絡我們</a></li>
+                    <li><a href="#">登出</a></li>
+                </ul>
+            </div>
+          </div>
+        </div>
+    </div> 
+    <!-- 麵包屑 -->
+    <div class="breadcrumb-block">
+        <div class="container-fluid">
+            <ol class="breadcrumb pb-0">
+                <li class="breadcrumb-item "><a href="#">首頁</a></li>
+                <li class="breadcrumb-item active" aria-current="page">會員資料</li>
+            </ol>
+        </div> 
+    </div>
+
+
+    <div class="container form-block mx-auto edit-block">
+        <h2>會員資料</h2>
+        <div class="row editText"><img src="../img/icon/edit.png" alt="" class="mr-2">雙擊即可編輯</div>
+        <form class="edit-form">
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">帳號</label>
+              <div class="col-9">
+                <!-- <input type="text" class="form-control" id="accountNumber"> -->
+                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="sand3422">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">密碼</label>
+              <div class="col-9">
+                <!-- <input type="password" class="form-control" id="inputPassword"> -->
+                <input type="password" readonly class="form-control-plaintext" id="staticEmail" value="*******">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">密碼確認</label>
+              <div class="col-9">
+                <!-- <input type="password" class="form-control" id="inputPassword"> -->
+                <input type="password" readonly class="form-control-plaintext" id="staticEmail" value="*******">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPhone" class="col-sm-2 col-form-label">手機</label>
+              <div class="col-9">
+                <!-- <input type="phoneNumber" class="form-control" id="inputPassword"> -->
+                <input type="number" readonly class="form-control-plaintext" id="staticEmail" value="0909123456">
+              </div>
+              <div class="col-1"><button class="check check-btn">驗證</button></div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">信箱</label>
+              <div class="col-9">
+                <!-- <input type="email" class="form-control" id="staticEmail"> -->
+                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+              </div>
+              <div class="col-1"><button class="check check-btn">驗證</button></div>
+            </div>
+            <button class="btnMd btn-green">確定</button>  
+          </form>
+    </div>
+    <!-- footer -->
+    <footer class="container-fluid footer">
+        <div class="row justify-content-center w-100 m-0">
+          <div class="col-10 col-md-10 copyright">
+              本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，僅就一般正常情理做審核，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。
+              <br>如有任何建議或合作請與我們聯絡 <br>© 2021 Copyright .tw By MFEE18-No.8
+          </div>
+        </div>
+    </footer>
+    
+</body>
+
+</html>

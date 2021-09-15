@@ -1,31 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- Bootstrap CSS -->
-        <!-- 連結方式建議使用cdn 嘗試一下未來工作的情況 本次大專題 使用bootstrap 4.6 然後因為我們使用第四版 所以不支援ie8,9 -->
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-            crossorigin="anonymous"
-        />
-        <title>浪浪有窩</title>
-    </head>
-    <body>
-        毛小孩種類清單
-        <!-- Option 2: Separate Popper and Bootstrap JS -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
-            integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
-            integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
-            crossorigin="anonymous"
-        ></script>
-    </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- jquery -->
+		<!-- <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
+            integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=="crossorigin="anonymous"
+        ></script> -->
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+		<script src="../Bootstrap/js/jquery.min.js"></script>
+		<script src="../Bootstrap/js/popper.min.js"></script>
+		<script src="../Bootstrap/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+		<style>
+			.pic .carousel-special {
+				position: absolute;
+				top: 0;
+				left: 0;
+				padding: 150px 15px;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.6);
+				display: none;
+				align-content: center;
+							
+			}
+			.pic:hover .carousel-special{
+				display: block;
+				
+				
+			}
+			.pic .carousel-special-back{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				padding: 15px;
+				width: 100%;
+				height: 30%;
+				background-color: rgba(0, 0, 0, 0.6);
+				display: flex;
+			}
+			.pic:hover .carousel-special-back{
+				visibility: hidden;
+			}
+			.line{
+				height: 0.6px;
+				width: 65%;
+				border: 2px solid black;
+				}
+		</style>
+
+		<!-- css -->
+		<link rel="stylesheet" href="../css/lynnstyle.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<title>浪浪有窩</title>
+	</head>
+	<body>
+		<!-- navbar_漢堡有正常運作 但是下拉選單不知道怎麼控制在漢堡的左邊(手機瀏覽才會有這個問題) -->
+		<nav class="navbar navbar-expand-lg navbar-light" style="background-image: url(../img/background/header.PNG); background-repeat: no-repeat; background-size: cover; display: flex; justify-content: space-between">
+			<a class="navbar-brand" href="#" style="padding-top: 0; padding-bottom: 0; margin-right: 0">
+				<a href="#" class="navbar-brand" style="padding-top: 0; padding-bottom: 0; margin-right: 0">
+					<img src="../img/Logo/改I2 2.png" alt="" style="width: 150px; height: 130px" />
+					<img src="../img/Logo/字.png" alt="" style="width: 200px; height: 100px" />
+				</a>
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#">首頁 <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">毛孩領養</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">刊登送養</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">毛孩知識</a>
+					</li>
+				</ul>
+			</div>
+			<!-- 下拉式會員選單 -->
+			<li class=" dropdown navbar-brand">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img style="width: 30px" src="../img/icon/user.png" alt="" /> </a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="#">某某某</a>
+					<a class="dropdown-item" href="#">會員資料</a>
+					<a class="dropdown-item" href="#">我的送養文</a>
+					<a class="dropdown-item" href="#">追蹤的毛孩</a>
+					<a class="dropdown-item" href="#">通知</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">登出</a>
+				</div>
+			</li>
+		</nav>
+		<!-- 頁籤 breadcrumb -->
+		<div class="breadcrumb-block">
+			<div class="container-fluid">
+				<ol class="breadcrumb pb-0">
+					<li class="breadcrumb-item "><a href="#">首頁</a></li>
+					<li class="breadcrumb-item active" aria-current="page">毛孩知識</li>
+				</ol>
+			</div> 
+		</div>
+		<!-- 輪播+文章選單 2+5+3+2=12 -->
+		<section class="row">
+			<div class="col-md-2"></div>
+			<!-- carousel 占比5等分 -->
+			<div id="slides" class="carousel slide  col-md-5  carousel-vertical "  data-ride="carousel" data-interval="3000" style="height: 500px;">
+				<div class="carousel-inner" style="border-radius: 40px 0px 0px 40px;">
+					<!-- 第一張圖 -->
+				  	<div class="carousel-item active pic ">
+						<img src="../img/animals/dog02.jpeg" class="d-block w-100 img-fluid " alt="...">
+						<div class="carousel-caption d-none d-md-block carousel-special-back">
+					 		<h5 class="text-white">狗狗飼料必定要知道的5件事，第一次養狗就上手</h5>
+							<br>
+					  		<p class="text-white">2021-06-13</p>
+						</div>
+						<div class=" carousel-special  " >
+							<h4 class="text-white text-center">狗狗飼料必定要知道的5件事，第一次養狗就上手</h4>
+							<br>
+							<p class="text-white text-center ">怎麼樣的飼料、飲食策略，才是對狗狗最好的呢?我們經過長時間的累積後，整理出狗狗的飼料選購建議大全，選擇飼料看完本篇就會讓你快速了解如何適合。</p>
+							<p class="date text-white">2021-06-13</p>	
+						</div>
+				 	</div>
+					<!-- 第二張圖 -->
+					<div class="carousel-item pic ">
+						<img src="../img/animals/dog04.jpeg" class="d-block w-100 img-fluid" alt="...">
+						<div class="carousel-caption d-none d-md-block carousel-special-back">
+					 		<h5 class="text-white">三分鐘搞懂如何讓狗狗不再亂咬東西？</h5>
+							<br>
+					  		<p class="text-white">2021-06-13</p>
+						</div>
+						<div class="carousel-special" >
+							<h4 class="text-white text-center">狗狗飼料必定要知道的5件事，第一次養狗就上手</h4>
+							<br>
+							<p class="text-white text-center">怎麼樣的飼料、飲食策略，才是對狗狗最好的呢?我們經過長時間的累積後，整理出狗狗的飼料選購建議大全，選擇飼料看完本篇就會讓你快速了解如何適合。</p>
+							<p class="date text-white">2021-06-13</p>	
+						</div>
+				  	</div>
+					<!-- 第三張圖 -->
+				 	<div class="carousel-item pic ">
+						<img src="../img/animals/cat01.jpg" class="d-block w-100 img-fluid" alt="...">
+						<div class="carousel-caption d-none d-md-block carousel-special-back">
+					 		<h5 class="text-white">三分鐘搞懂如何讓貓貓不再亂抓東西？</h5>
+							<br>
+					 		<p class="text-white">2021-06-13</p>
+						</div>
+						<div class="carousel-special" >
+							<h4 class="text-white text-center">狗狗飼料必定要知道的5件事，第一次養狗就上手</h4>
+							<br>
+							<p class="text-white text-center">怎麼樣的飼料、飲食策略，才是對狗狗最好的呢?我們經過長時間的累積後，整理出狗狗的飼料選購建議大全，選擇飼料看完本篇就會讓你快速了解如何適合。</p>	
+							<p class="date text-white">2021-06-13</p>
+						</div>
+					</div>
+				</div>	
+			</div>
+			<!-- 熱門文章 占比3等分 -->
+			<div class="col-md-3  pb-0" style="background-color: var(--BananaYellow); margin-left: -15px;height: 500px;border-radius: 0px 40px 40px 0px; ">
+				<p class="text-md-center h1 mt-2">熱門文章</p>
+				<!-- 分界線 -->
+				<div class="row">
+					<div class="col-md-2"></div>
+					<div class="my-3 line" style="border: 3px solid #fff;" ></div>
+					<div class="col-md-2"></div>
+				</div>
+				<ul class=" d-flex flex-column justify-content-between"  >
+					<li class="row d-inline-flex mb-4 mt-2 d-flex align-items-center">
+						
+						<div class="col-md-4 col-sm-4 ">
+								<a href=""><img class="img-fluid" src="../img/animals/dog04.jpeg" alt="" /></a>
+							</div>
+							<div class="col-md-7 " >
+								<a href=""><p class="text-truncate">三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+								<br />
+								<p class="date">2021-06-13</p></a>
+							</div>
+					</li>
+					<li class="row d-inline-flex mb-4">
+						<div class="col-md-4 col-sm-4">
+							<a href=""><img class="img-fluid" src="../img/animals/dog04.jpeg" alt="" /></a>
+						</div>
+						<div class="col-md-7">
+							<a href="">
+								<p class="text-truncate">三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+								<br />
+								<p class="date">2021-06-13</p>
+							</a>
+							
+						</div>
+					</li>
+					<li class="row d-inline-flex mb-4">
+						<div class="col-md-4 col-sm-4">
+							<a href="">
+								<img class="img-fluid" src="../img/animals/dog04.jpeg" alt="" />
+							</a>
+						</div>
+						<div class="col-md-7">
+							<a href="">
+								<p class="text-truncate">三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+								<br />
+								<p class="date">2021-06-13</p>
+							</a>
+						</div>
+					</li>
+				</ul>				
+			</div>
+			<div class="col-md-2"></div>
+		</section>
+		<!-- 搜尋欄 -->
+		<section class="row" style="margin-top: 80px;">
+			<div class="col-md-2"  ></div>
+			<div class="col-md-8 row ">
+				<h4 class="ml-0">全部文章</h4>
+				<form class="form-inline my-2 my-lg-0 ml-auto ">
+					<input class=" " type="search" placeholder="   輸入關鍵字..." aria-label="Search through site content" size="8" style="border: 1px solid black;border-radius: 40px;">
+					<button class="btn  my-2 my-sm-0 b" type="submit"><i class="fas fa-search"></i></button>
+					
+			 	</form>
+			</div>
+			<div class="col-md-2"  ></div>	
+			  
+		</section>
+		<!-- 分界線 -->
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="mb-3 line" ></div>
+			<div class="col-md-2"></div>
+		</div>
+		<!-- （圖片用圓角）一整頁顯示五個文章 -->
+		<section class="row" style="margin-top: 80px;">
+			<div class="col-md-2" ></div>
+			<div class="col-md-8">
+				<ul class="flex-column ">
+					<!-- 第一篇文 -->
+					<li class="row d-inline-flex mb-4">
+						<div class="col-md-4 col-sm-4" >
+							<img class="img-fluid rounded" src="../img/animals/dog04.jpeg" alt="" />
+						</div>
+						<div class="col-md-8"  >
+							<p>三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+							<p class="figure-caption">2021-06-13</p>
+							<p class="">近年來成為貓奴的人口數量大增，然而貓咪是著名忍痛力很高的動物，加上先天不愛亂叫又內斂的特質，有沒有生病或不舒服得由飼主細心觀察方能察覺。以下整理貓咪的10種常見疾病，以及其成因和預防方式，幫助毛小孩預防勝於治療。</p>
+						</div>
+					</li>
+					<!-- 第二篇文 -->
+					<li class="row d-inline-flex mb-4">
+						<div class="col-md-4 col-sm-4" >
+							<img class="img-fluid rounded" src="../img/animals/dog04.jpeg" alt="" />
+						</div>
+						<div class="col-md-8"  >
+							<p>三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+							<p class="figure-caption">2021-06-13</p>
+							<p class="">近年來成為貓奴的人口數量大增，然而貓咪是著名忍痛力很高的動物，加上先天不愛亂叫又內斂的特質，有沒有生病或不舒服得由飼主細心觀察方能察覺。以下整理貓咪的10種常見疾病，以及其成因和預防方式，幫助毛小孩預防勝於治療。</p>
+						</div>
+					</li>
+					<!-- 第三篇文 -->
+					<li class="row d-inline-flex mb-4">
+						<div class="col-md-4 col-sm-4" >
+							<img class="img-fluid rounded" src="../img/animals/dog04.jpeg" alt="" />
+						</div>
+						<div class="col-md-8"  >
+							<p>三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+							<p class="figure-caption">2021-06-13</p>
+							<p class="">近年來成為貓奴的人口數量大增，然而貓咪是著名忍痛力很高的動物，加上先天不愛亂叫又內斂的特質，有沒有生病或不舒服得由飼主細心觀察方能察覺。以下整理貓咪的10種常見疾病，以及其成因和預防方式，幫助毛小孩預防勝於治療。</p>
+						</div>
+					</li>
+					<!-- 第四篇文 -->
+					<li class="row d-inline-flex mb-4">
+						<div class="col-md-4 col-sm-4" >
+							<img class="img-fluid rounded" src="../img/animals/dog04.jpeg" alt="" />
+						</div>
+						<div class="col-md-8 "style=" width: 500px;"  >
+							<p>三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+							<p class="figure-caption">2021-06-13</p>
+							<p class="text-truncate" >近年來成為貓奴的人口數量大增，然而貓咪是著名忍痛力很高的動物，加上先天不愛亂叫又內斂的特質，有沒有生病或不舒服得由飼主細心觀察方能察覺。以下整理貓咪的10種常見疾病，以及其成因和預防方式，幫助毛小孩預防勝於治療。</p>
+						</div>
+					</li>
+					<!-- 第五篇文 要嗎? -->
+					
+			</div>
+			<div class="col-md-2" ></div>
+			
+		</section>
+		
+		<!-- 分頁 -->
+		<nav aria-label="Page navigation example ">
+			<ul class="pagination justify-content-center">
+			  <li class="page-item">
+				<a class="page-link" href="#" aria-label="Previous">
+				  <span aria-hidden="true">&laquo;</span>
+				</a>
+			  </li>
+			  <li class="page-item"><a class="page-link" href="#">1</a></li>
+			  <li class="page-item"><a class="page-link" href="#">2</a></li>
+			  <li class="page-item"><a class="page-link" href="#">3</a></li>
+			  <li class="page-item"><a class="page-link" href="#">4</a></li>
+			  <li class="page-item"><a class="page-link" href="#">5</a></li>
+			  <li class="page-item">
+				<a class="page-link" href="#" aria-label="Next">
+				  <span aria-hidden="true">&raquo;</span>
+				</a>
+			  </li>
+			</ul>
+		  </nav>
+		<!-- Footer -->
+		<footer class="text-center text-lg-start bg-light text-muted">
+			<!-- Section: Links  -->
+			<section class="">
+				<div class="container text-center text-md-start mt-0">
+					<!-- Grid row -->
+					<div class="row mt-0">
+						<!-- Grid column -->
+						<div class="col-md-10 mx-auto mb-0">
+							<!-- Content -->
+							<!-- <h6 class="text-uppercase fw-bold mb-4"><i class="fas fa-gem me-3"></i>Company name</h6> -->
+							<p>本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，僅就一般正常情理做審核，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。如有任何建議或合作請與我們聯絡</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- Section: Links  -->
+
+			<!-- Copyright -->
+			<div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05)">© 2021 Copyright .tw By MFEE18-No.8</div>
+			<!-- Copyright -->
+		</footer>
+		<!-- Footer -->
+	</body>
 </html>
