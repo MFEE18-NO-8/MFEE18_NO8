@@ -15,12 +15,12 @@
 		<script src="../Bootstrap/js/popper.min.js"></script>
 		<script src="../Bootstrap/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-		<style>
+		<style>			
 			.pic .carousel-special {
 				position: absolute;
 				top: 0;
 				left: 0;
-				padding: 150px 15px;
+				padding: 150px;
 				width: 100%;
 				height: 100%;
 				background-color: rgba(0, 0, 0, 0.6);
@@ -37,7 +37,6 @@
 				position: absolute;
 				bottom: 0;
 				left: 0;
-				padding: 15px;
 				width: 100%;
 				height: 30%;
 				background-color: rgba(0, 0, 0, 0.6);
@@ -114,13 +113,13 @@
 		<section class="row">
 			<div class="col-md-2"></div>
 			<!-- carousel 占比5等分 -->
-			<div id="slides" class="carousel slide  col-md-5  carousel-vertical "  data-ride="carousel" data-interval="3000" style="height: 500px;">
-				<div class="carousel-inner" style="border-radius: 40px 0px 0px 40px;">
+			<div id="slides" class="carousel slide  col-md-5  carousel-vertical "  data-ride="carousel" data-interval="30000" style="padding:0px; " >
+				<div class="carousel-inner" style="border-radius: 40px 0px 0px 40px;height:100%;width: 100%;">
 					<!-- 第一張圖 -->
-				  	<div class="carousel-item active pic ">
-						<img src="../img/animals/dog02.jpeg" class="d-block w-100 img-fluid " alt="...">
+				  	<div class="carousel-item active pic"style="height:100%">
+						<img src="../img/animals/dog02.jpeg" class="d-block w-100 h-100  " alt="...">
 						<div class="carousel-caption d-none d-md-block carousel-special-back">
-					 		<h5 class="text-white">狗狗飼料必定要知道的5件事，第一次養狗就上手</h5>
+					 		<h5 class="text-white">狗狗飼料的5件事，第一次養狗就上手</h5>
 							<br>
 					  		<p class="text-white">2021-06-13</p>
 						</div>
@@ -135,7 +134,8 @@
 					<div class="carousel-item pic ">
 						<img src="../img/animals/dog04.jpeg" class="d-block w-100 img-fluid" alt="...">
 						<div class="carousel-caption d-none d-md-block carousel-special-back">
-					 		<h5 class="text-white">三分鐘搞懂如何讓狗狗不再亂咬東西？</h5>
+					 		<h5 class="text-white">三分鐘搞懂如何讓狗狗不再亂咬東西？？？？</h5>
+							 <!-- 標題字數需要小於20個全形字元 -->
 							<br>
 					  		<p class="text-white">2021-06-13</p>
 						</div>
@@ -164,46 +164,22 @@
 				</div>	
 			</div>
 			<!-- 熱門文章 占比3等分 -->
-			<div class="col-md-3  pb-0" style="background-color: var(--BananaYellow); margin-left: -15px;height: 500px;border-radius: 0px 40px 40px 0px; ">
-				<p class="text-md-center h1 mt-2">熱門文章</p>
-				<!-- 分界線 -->
-				<div class="row">
-					<div class="col-md-2"></div>
-					<div class="my-3 line" style="border: 3px solid #fff;" ></div>
-					<div class="col-md-2"></div>
+			<div class="col-md-3  " style="background-color: var(--BananaYellow); height: auto;border-radius: 0px 40px 40px 0px ">
+				<div style="height: 20%; display: flex; flex-direction: column;align-items: center; padding-top: 20px ;">
+					<p class=" h3 ">熱門文章</p>
+					<!-- 分界線 -->	
+					<div class="" style="background-color:#fff; padding:0.15rem ;border-radius: 40px ; width: 65%;" ></div>
 				</div>
-				<ul class=" d-flex flex-column justify-content-between"  >
-					<li class="row d-inline-flex mb-4 mt-2 d-flex align-items-center">
-						
-						<div class="col-md-4 col-sm-4 ">
-								<a href=""><img class="img-fluid" src="../img/animals/dog04.jpeg" alt="" /></a>
-							</div>
-							<div class="col-md-7 " >
-								<a href=""><p class="text-truncate">三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
-								<br />
-								<p class="date">2021-06-13</p></a>
-							</div>
-					</li>
-					<li class="row d-inline-flex mb-4">
-						<div class="col-md-4 col-sm-4">
-							<a href=""><img class="img-fluid" src="../img/animals/dog04.jpeg" alt="" /></a>
-						</div>
-						<div class="col-md-7">
+								
+				
+				<ul class="  " style="width: auto;height: 80%;padding: 20px; ; display: flex;flex-direction: column; justify-content: space-between;  "  >
+					<li class=" row " style=" width: auto; margin-left: 10px; margin-right: 10px;  ">
+						<div class="col-5 " style="padding: 0;display: flex;align-items: center;justify-content: center;">
 							<a href="">
-								<p class="text-truncate">三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
-								<br />
-								<p class="date">2021-06-13</p>
-							</a>
-							
-						</div>
-					</li>
-					<li class="row d-inline-flex mb-4">
-						<div class="col-md-4 col-sm-4">
-							<a href="">
-								<img class="img-fluid" src="../img/animals/dog04.jpeg" alt="" />
+								<img class="" src="../img/animals/dog04.jpeg" alt="" style="max-width: 100%; height: auto;border-radius: 40px;" />
 							</a>
 						</div>
-						<div class="col-md-7">
+						<div class="col-7 "style=" width: auto;" >
 							<a href="">
 								<p class="text-truncate">三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
 								<br />
@@ -211,6 +187,35 @@
 							</a>
 						</div>
 					</li>
+					<li class=" row " style=" width: auto; margin-left: 10px; margin-right: 10px;  ">
+						<div class="col-5 " style=" padding: 0; display: flex;align-items: center;justify-content: center;">
+							<a href="">
+								<img class="" src="../img/animals/cat01.jpg" alt="" style="max-width: 100%; height: auto;border-radius: 40px;" />
+							</a>
+						</div>
+						<div class="col-7 "style=" width: auto" >
+							<a href="">
+								<p class="text-truncate">三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+								<br />
+								<p class="date">2021-06-13</p>
+							</a>
+						</div>
+					</li>
+					<li class=" row " style=" width: auto; margin-left: 10px; margin-right: 10px;  ">
+						<div class="col-5 " style=" padding: 0;display: flex;align-items: center;justify-content: center;">
+							<a href="">
+								<img class="" src="../img/animals/dog02.jpeg" alt="" style="max-width: 100%; height: auto;border-radius: 40px;"/>
+							</a>
+						</div>
+						<div class="col-7 "style=" width: auto" >
+							<a href="">
+								<p class="text-truncate">三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+								<br />
+								<p class="date">2021-06-13</p>
+							</a>
+						</div>
+					</li>
+					
 				</ul>				
 			</div>
 			<div class="col-md-2"></div>
@@ -278,10 +283,10 @@
 						<div class="col-md-4 col-sm-4" >
 							<img class="img-fluid rounded" src="../img/animals/dog04.jpeg" alt="" />
 						</div>
-						<div class="col-md-8 "style=" width: 500px;"  >
+						<div class="col-md-8 "  >
 							<p>三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
 							<p class="figure-caption">2021-06-13</p>
-							<p class="text-truncate" >近年來成為貓奴的人口數量大增，然而貓咪是著名忍痛力很高的動物，加上先天不愛亂叫又內斂的特質，有沒有生病或不舒服得由飼主細心觀察方能察覺。以下整理貓咪的10種常見疾病，以及其成因和預防方式，幫助毛小孩預防勝於治療。</p>
+							<p class="" >近年來成為貓奴的人口數量大增，然而貓咪是著名忍痛力很高的動物，加上先天不愛亂叫又內斂的特質，有沒有生病或不舒服得由飼主細心觀察方能察覺。以下整理貓咪的10種常見疾病，以及其成因和預防方式，幫助毛小孩預防勝於治療。</p>
 						</div>
 					</li>
 					<!-- 第五篇文 要嗎? -->
