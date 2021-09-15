@@ -2,7 +2,10 @@
     font-family: "jf-openhuninn";
     src: url(../jf-openhuninn-1.1/jf-openhuninn-1.1.ttf);
 }
-p {
+p,
+a,
+button,
+input {
     font-family: "jf-openhuninn" !important;
 }
 
@@ -415,11 +418,11 @@ table {
 .UserMsg-thead {
     background: var(--BananaYellow);
 }
-.UserFollow-title> h2 {
+.UserFollow-title > h2 {
     text-align: left;
     position: relative;
-} 
-.UserFollow-title>h2:before {
+}
+.UserFollow-title > h2:before {
     content: "";
     display: block;
     position: absolute;
@@ -430,12 +433,12 @@ table {
     border-radius: 50px;
     background-color: var(--BananaYellow);
 }
-.UserFoster-title> h2{
+.UserFoster-title > h2 {
     text-align: left;
     position: relative;
     margin: 80px 0px;
 }
-.UserFoster-title>h2:before {
+.UserFoster-title > h2:before {
     content: "";
     display: block;
     position: absolute;
