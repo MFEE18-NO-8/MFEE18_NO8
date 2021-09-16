@@ -304,19 +304,39 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td><input type="file" class="form-control-file" id="exampleFormControlFile1"></td>
+                        <td>
+                          <button type="submit" class="btn btn-profile btnLg btn-green" onclick="uploadImg()">
+                            新增照片
+                          </button>
+                          <input id="profile-img" accept="image/jpeg,image/png" onchange="importImg()" type="file" hidden />
+                        </td>
                         <td><button class="btnLg btn-lightRed">刪除照片</button></td>
                       </tr>
                       <tr>
-                        <td><input type="file" class="form-control-file" id="exampleFormControlFile1"></td>
+                        <td>
+                          <button class="btn  btnLg btn-green" onclick="uploadImg()">
+                            新增照片
+                          </button>
+                          <input id="profile-img" accept="image/jpeg,image/png" onchange="importImg()" type="file" hidden />
+                        </td>
                         <td><button class="btnLg btn-lightRed">刪除照片</button></td>
                       </tr>
                       <tr>
-                        <td><input type="file" class="form-control-file" id="exampleFormControlFile1"></td>
+                        <td>
+                          <button class="btn  btnLg btn-green" onclick="uploadImg()">
+                            新增照片
+                          </button>
+                          <input id="profile-img" accept="image/jpeg,image/png" onchange="importImg()" type="file" hidden />
+                        </td>
                         <td><button class="btnLg btn-lightRed">刪除照片</button></td>
                       </tr>
                       <tr>
-                        <td><input type="file" class="form-control-file" id="exampleFormControlFile1"></td>
+                        <td>
+                          <button class="btn  btnLg btn-green" onclick="uploadImg()">
+                            新增照片
+                          </button>
+                          <input id="profile-img" accept="image/jpeg,image/png" onchange="importImg()" type="file" hidden />
+                        </td>
                         <td><button class="btnLg btn-lightRed">刪除照片</button></td>
                       </tr>
                     </tbody>
@@ -353,7 +373,40 @@
       $('.burgar-menu').on('click', function (e) {
         $('body').toggleClass('burgar-menu-show');       
       });
-    });
+      });
+      // 照片上傳
+      const inputFile = document.getElementById("profile-img");
+      function uploadImg(e) {
+        inputFile.click();
+      }
+      $('.btn-profile').click(function(e){
+        e.stopPropagation();
+        return false;
+
+      });
+
+      function importImg(e) {
+        const files = inputFile.files;
+        if (files.length > 0) {
+          const file = files[0];
+
+          const size = (file.size / 1024).toFixed(0);
+
+          // 確認檔案大小在200K以下,檔案格式為'image/jpeg'或'image/png'
+          if (
+            parseInt(size, 10) > 200 ||
+            (file.type !== "image/jpeg" && file.type !== "image/png")
+          ) {
+            alert("請上傳200KB以下，JPG/PNG圖檔");
+
+            console.log(`file size: ${size}KB`);
+          } else {
+            console.log("valid file", file);
+            console.log("Filename: " + file.name);
+            console.log("Type: " + file.type);
+          }
+        }
+      }
     </script>
 </body>
 
