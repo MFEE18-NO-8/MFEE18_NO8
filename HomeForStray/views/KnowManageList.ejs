@@ -45,7 +45,7 @@
                 </ul>
                 <a href="#" class="hamBar burgar-menu">
                     <i>
-                    <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
+                        <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
                     </i>
                 </a>
                 <!-- navbar-user -->
@@ -121,6 +121,7 @@
         </div>
 
         <div id="MyblueTable" class="container">
+            <button class="btnLg btn-lightOrange btnAdd">新增</button>
             <table class="blueTable">
                 <thead>
                     <tr>
@@ -135,25 +136,36 @@
                     <% for(var i=0; i<data.length; i++) { %>
                         <tr>
                             <!-- 是否不要抓資料庫序號? -->
-                        <td><%= data[i].ArticleId %></td>
-                        <td><%= data[i].ArticleTitle %></td>
-                        <td><%= (data[i].ArticleDate).toLocaleDateString() %></td>
-                        <td><%= data[i].ArticleSwitch %></td>
-                        <td>
-                           <a href="/KnowManageAdd?pageNo=<%= pageNo %>"><input type="button" class="ListButtonEdit" value="編輯"></a>
-                           <input type="button" class="ListButtonDele" value="刪除">
-                       </td>
-                    </tr>
-                    <% } %>
+                            <td>
+                                <%= data[i].ArticleId %>
+                            </td>
+                            <td>
+                                <%= data[i].ArticleTitle %>
+                            </td>
+                            <td>
+                                <%= (data[i].ArticleDate).toLocaleDateString() %>
+                            </td>
+                            <td>
+                                <%= data[i].ArticleSwitch %>
+                            </td>
+                            <td>
+                                <a href="/KnowManageAdd?pageNo=<%= pageNo %>"><input type="button"
+                                        class="ListButtonEdit" value="編輯"></a>
+                                <input type="button" class="ListButtonDele" value="刪除">
+                            </td>
+                        </tr>
+                        <% } %>
                 </tbody>
                 </tr>
             </table>
         </div>
         <div>
             <p>
-                <% for(var i = 1; i <= totalPage; i++) { %>
-                    <span ><a href="/<%= i%>"><%= i%></a></span>
-                <% } %>
+                <% for(var i=1; i <=totalPage; i++) { %>
+                    <span><a href="/<%= i%>">
+                            <%= i%>
+                        </a></span>
+                    <% } %>
             </p>
             <p>總數 <%= totalLine %> 筆，共 <%= pageNo %>/<%= totalPage %> 頁</p>
         </div>
@@ -170,10 +182,10 @@
         <script>
             // 漢堡選單
             $(document).ready(function () {
-            $('.burgar-menu').on('click', function (e) {
-              $('body').toggleClass('burgar-menu-show');       
+                $('.burgar-menu').on('click', function (e) {
+                    $('body').toggleClass('burgar-menu-show');
+                });
             });
-          });
         </script>
 
 

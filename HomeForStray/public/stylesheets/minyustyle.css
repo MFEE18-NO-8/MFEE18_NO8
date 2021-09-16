@@ -643,3 +643,18 @@
         border-color: transparent;   
         box-shadow:none; 
     }
+
+
+    /* 新增 按鈕樣式 */
+    .btnLg {
+        width: 120px;
+        border-radius: 20px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    .btn-lightOrange {
+        background-color: var(--RomanticOrange);
+        border: 0;
+        padding: 5px;
+        font-weight: 600;
+    }
+    /* 新增 按鈕樣式 end */
