@@ -22,6 +22,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+
+// 引入 毛孩知識管理清單
+var KnowManageList = require('./routes/KnowManageList');
+app.use('/KnowManageList', KnowManageList);
+
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
