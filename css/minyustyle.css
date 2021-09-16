@@ -1,52 +1,58 @@
+        @font-face {
+        font-family: open;
+        src:url(../jf-openhuninn-1.1/jf-openhuninn-1.1.ttf);
+        }
+
         * {
         margin: 0;
         padding: 0;
         list-style: none;
         font-family: "jf-openhuninn-1.1"; /* 字體使用粉圓體 */
-        font-size: 18px;
+        font-size: 22px;
         box-sizing: border-box;
         scroll-behavior: smooth;
         }
 
         .ViewTitle {
             background-color: #F8E4AC;
-            padding: 20px 10px;
+            padding: 20px 50px;
             border: 1px black solid;
         }
 
         .Title {
             background-color: #F8E4AC;
-            padding: 20px 10px;
+            padding: 10px 20px;
             border: 1px black solid;
         }
 
         .Content {
             background-color: #F6F4E8;
-            padding: 10px 10px;
+            padding: 20px 10px;
             border: 1px black solid;
         }
         
         .ContentView {
             background-color: #F6F4E8;
-            padding: 10px 10px;
+            padding: 20px 60px;
             border: 1px black solid;
         }
-
+         
         #MyLabel {
             margin: auto;
             padding: 5px;
         }
 
         #MyTable {
-            width: 550px;
+            width: 700px;
             height: 500px;
             border-collapse: collapse;
+
         }
 
         #MyDivView {
             text-align: center;
-            background-color: #F6F4E8;
-            width: 600px;
+            /* background-color: #F6F4E8; */
+           width: 1000px;
             height: 1000px;
             border-radius: 20px;
             margin-bottom: 100px;
@@ -56,8 +62,8 @@
         }
         #MyDivAdd {
             text-align: center;
-            background-color: #F6F4E8;
-            width: 600px;
+            /* background-color: #F6F4E8; */
+            
             height: 1200px;
             border-radius: 20px;
             margin-bottom: 100px;
@@ -69,8 +75,8 @@
         #MyDiv {
             text-align: center;
 
-            background-color: #F6F4E8;
-            width: 600px;
+            /* background-color: #F6F4E8; */
+          
             height: 800px;
             border-radius: 20px;
 
@@ -83,20 +89,33 @@
         }
 
         .MySubmitView {
+            background-color: var(--RomanticOrange);
+            border: 0;
+            padding: 10px;
+            margin-top: 10px;
+            font-weight: 600;
+            width: 80px;
             border-radius: 50px;
-            border: 0px;
-            background-color: #FDC29A;
-            width: 100px;
-            height: 30px;
-            margin: 20px;
+            box-shadow: 2px 2px 5px rgb(0 0 0 / 30%);
         }
 
-        .MySubmit {
+        .MySubmitSent {
+            background-color: var(--FrosteeGreen);
+            border: 0;
+            padding: 5px;
+            font-weight: 600;
+            width: 80px;
             border-radius: 50px;
-            border: 0px;
-            background-color: #FDC29A;
-            width: 100px;
-            height: 30px;
+            box-shadow: 2px 2px 5px rgb(0 0 0 / 30%);
+        }
+        .MySubmitCancel {
+            background-color: var(--RomanticOrange);
+            border: 0;
+            padding: 5px;
+            font-weight: 600;
+            width: 80px;
+            border-radius: 50px;
+            box-shadow: 2px 2px 5px rgb(0 0 0 / 30%);
         }
 
         #MySubmitId {
@@ -110,8 +129,8 @@
         }
 
         #ListDiv {
-            background-color: white;
-            width: 900px;
+            background-color: var(--cornsilkBreadcrumb);
+            width: 1000px;
             border: 5px #ED7D32 solid;
             border-radius: 20px;
         }
@@ -123,22 +142,21 @@
 
         
         .TitleButton {
-            background-color: #DFEECD;
-            border-radius: 50px;
-            border: 0px;
-            width: 60px;
-            height:20px;
-            font-size: 12px;
-            margin-top: 60px;
+            background-color: var(--FrosteeGreen);
+            border: 0;
+            padding: 5px;
+            font-weight: 600;
+            width: 120px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 5px rgb(0 0 0 / 30%);
+            
         }
  
         #FosterTable {
             margin: auto;
         }
 
-        .FosterTd {
-            font-size: 18px;
-        }
+       
         
         #TitleButtonDiv {
             height: 80px;
@@ -151,7 +169,7 @@
         } */
 
         #TitleText {
-            width: 400px;
+            width: 450px;
             height: 40px;
         }
 
@@ -174,17 +192,20 @@
         }
 
         table.blueTable {
-            border: 2px solid #C1C1C1;
-            background-color: #FFFFFF;
+            /* border: 2px solid #C1C1C1; */
             width: 100%;
-            text-align: left;
             border-collapse: collapse;
+            text-align: left;
+            background-color: var(--beige);
+            margin-top: 30px
+            
         }
 
         table.blueTable td,
         table.blueTable th {
-            border: 2px solid #C4C4C4;
-            padding: 3px 2px;
+            /* border: 2px solid #C4C4C4; */
+            padding: 5px 20px;
+            border-bottom: 2px solid #cccecf;
         }
 
         /*         
@@ -193,22 +214,20 @@
         } */
 
         table.blueTable tr:nth-child(even) {
-            background: #ECECEC;
+            background-color: var(--beige);
+            border-bottom: 2px solid #cccecf;
         }
 
         table.blueTable thead {
-            background: #595959;
-            background: -moz-linear-gradient(top, #F8E4AC 0%, #F8E4AC 66%, #F8E4AC 100%);
-            background: -webkit-linear-gradient(top, #F8E4AC 0%, #F8E4AC 66%, #F8E4AC 100%);
-            background: linear-gradient(to bottom, #F8E4AC 0%, #F8E4AC 66%, #F8E4AC 100%);
-            border-bottom: 2px solid #444444;
-        }
+            background: var(--BananaYellow);
+            border-bottom: 2px solid #cccecf;        }
 
         table.blueTable thead th {
             /* font-size: 22px; */
             /* font-weight: bold; */
-            color: #35383b;
-            border-left: 2px solid #D0E4F5;
+            /* color: #35383b; */
+            border-top: 2px solid #cccecf;
+            border-bottom: 2px solid #cccecf;
         }
 
         table.blueTable thead th:first-child {
@@ -216,22 +235,41 @@
         }
 
         #MyblueTable {
-            width: 900px;
+            width: 1000px;
             padding: 0px;
             margin-top: 40px;
             margin-bottom : 80px ;
         }
 
-        .ListButton {
-            background-color: #ee9052;
+      
+
+        .ListButtonEdit {
+            background-color: var(--FrosteeGreen);
             border: 0;
-            border-radius: 5px;
+            padding: 5px;
+            font-weight: 600;
+            width: 80px;
+            border-radius: 50px;
+            box-shadow: 2px 2px 5px rgb(0 0 0 / 30%);
+        }
+        .ListButtonDele {
+            background-color: var(--RomanticOrange);
+            border: 0;
+            padding: 5px;
+            font-weight: 600;
+            width: 80px;
+            border-radius: 50px;
+            box-shadow: 2px 2px 5px rgb(0 0 0 / 30%);
         }
 
         .ListSubmit {
-            background-color: #ee9052;
+            background-color: var(--FrosteeGreen);
             border: 0;
-            border-radius: 5px;
+            padding: 5px;
+            font-weight: 600;
+            width: 80px;
+            border-radius: 50px;
+            box-shadow: 2px 2px 5px rgb(0 0 0 / 30%);
         }
 
         #MyDivTitle {
@@ -240,7 +278,7 @@
         }
         #MyDivTitleList{
             padding: 0;
-            width: 900px;
+            width: 1000px;
         }
 
 
@@ -253,7 +291,7 @@
             --lightYellow: #fffde7; /*block-淡黃(領養資訊)*/
             --nileBlue: #4b6454; /*block-土耳其綠(領養資訊)*/
             --ivory: #f5f5f5; /*block-象牙白(首頁區塊、毛孩領養區塊)*/
-            --beige: #f6f4e8; /* block-米白(登入介面、會員中心介面區塊)*/
+            /* --beige: #f6f4e8; block-米白(登入介面、會員中心介面區塊) */
             --cornsilk: #f4f3ec; /* block-玉米鬚白(刊登送養 、麵包屑(50%半透) )*/
             --cornsilkBreadcrumb: rgba(244,243,236,0.7); /* block-玉米鬚白(刊登送養 、麵包屑(50%半透) )*/
             --pearl: #dedccd; /* input-背景色 */
@@ -441,54 +479,37 @@
             height: 100px;
             width: 200px;
         }
-        .navbar-nav {
-            /* display: flex; */
-            line-height: 30px;
-            justify-content: center;
-        }
-        .header-nevBar {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0;
-        }
-        .header-nevBar > li {
-            text-align: center;
-        }
-        .nav-item {
-            font-size: 30px;
-            padding: 0 15px;
-            align-items: center;
-        }
-        .nav-item > a {
-            font-size: 30px;
-            transition: 0.5s;
-        }
-        .nav-item > a:hover {
-            border-bottom: 5px solid #1d3124;
-        }
+        /* 桌機版樣式-導覽列樣式 */
         .hamBar {
             display: none;
             align-self: center;
             margin: 0 20px;
         }
-        @media all and (max-width: 992px) {
-            .header-nevBar{
-                display: none;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                transform: translateY(100%);
-                background-color: #f8e4ac;
-            }
-            .nav-item {
-                width: 100%;
-                border-bottom: 1px solid #ccc;
-            }
-            .hamBar {
-                display: flex;
-            }
+        .menu {
+            float: right;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0;
+        }
+        .menu>li {
+            float: left;
+        }
+        .menu>li>a {
+            padding: 20px;
+            color: #1d3124;
+            font-size: 30px;
+        }
+        .menu>li>a:hover {
+            border-radius: 50px;
+            background-color: #afc2cb;
+            color: #fff;
+        }
+        /* 漢堡點擊後 */
+        .burgar-menu-show .burgar-menu {
+            max-height: 500px;
+        }
+        .hamBar-icon {
+        display: none;
         }
         /* 平板狀態 */
         @media screen and (max-width: 768px) {
@@ -504,9 +525,46 @@
                 height: 60px;
                 width: 100px;
             }
-            .hamBar {
-                margin-right: 5px;
-            }
+    /* 漢堡盒展開樣式 */
+    .menu{
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 1s;
+        position: absolute;
+        z-index: 100;
+        top: 103px;
+        left:0;
+        right:-22px;
+        background: #e3f2fd;
+        }
+        .menu>li{
+            float: none; /*漢堡盒展開樣式直向*/
+            border-bottom: 1px solid #aaa;
+        }
+        .menu>li>a{
+            display: block;
+            transition: all 0.3s;
+            text-align: center;
+            font-size: 30px;
+        }
+        .menu>li>a:hover{
+            background: #afc2cb;
+            border-radius: 0;
+            color: #fff;
+        }
+        .burgar-menu {
+            display: block;
+            float: right;
+            margin-right: 1em;
+            line-height: 50px;
+        }
+        .ham {
+            display: block;
+            line-height: 50px;
+        }    
+        .hamBar {
+            margin-right: 5px;
+        }
         }
         
         /* user-menu */
