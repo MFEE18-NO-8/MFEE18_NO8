@@ -45,7 +45,7 @@
             </ul>
             <a href="#" class="hamBar burgar-menu">
                 <i>
-                <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
+                    <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
                 </i>
             </a>
             <!-- navbar-user -->
@@ -92,12 +92,12 @@
         <table id="MyTable">
             <tr>
                 <td class="Title">標題</td>
-                <td colspan="5" class="Content"><input type="text" id="TitleText" value=""></td>
+                <td colspan="5" class="Content"><input type="text" id="TitleText" class="inputNotOutline" value=""></td>
             </tr>
 
             <tr>
                 <td class="Title">發布日期</td>
-                <td class="Content"><input type="date"></td>
+                <td class="Content"><input type="date" class="inputNotOutline"></td>
 
                 <td class="Title">狀態</td>
                 <td class="Content">
@@ -112,7 +112,7 @@
             <tr>
                 <td class="Title">內容</td>
                 <td colspan="5" class="Content">
-                    <textarea rows="10" cols="35"></textarea>
+                    <textarea name="" id="textArea" class="inputNotOutline" cols="40" rows="10"></textarea>
                 </td>
             </tr>
 
@@ -120,8 +120,18 @@
                 <td class="Title">照片</td>
                 <td colspan="5" class="Content">
                     <div id="TitleButtonDiv">
-                        <input type="button" class="TitleButton" value="加入檔案">
-                        <input type="button" class="TitleButton" value="刪除檔案">
+
+                        <!-- 隱藏img -->
+                        <img src="" alt="" id="outputImg" height="100" style="display:none">
+                        <!-- 隱藏img end -->
+
+
+                        <label for="uploadImg" class="TitleButton uploadImg">
+                            <input type="file" style="display:none;" accept=".jpg, .jpeg, .png" id="uploadImg"
+                                name="uploadImg" onchange="openFile(event)">上傳圖片
+                        </label>
+                        <input type="button" class="TitleButton" value="刪除圖片" id="deleteImg">
+
                     </div>
                 </td>
             </tr>
@@ -150,10 +160,25 @@
     <script>
         // 漢堡選單
         $(document).ready(function () {
-        $('.burgar-menu').on('click', function (e) {
-          $('body').toggleClass('burgar-menu-show');       
+            $('.burgar-menu').on('click', function (e) {
+                $('body').toggleClass('burgar-menu-show');
+            });
         });
-      });
+
+        function openFile(event) {
+            var input = event.target; //取得上傳檔案
+            var reader = new FileReader(); //建立FileReader物件
+
+            reader.readAsDataURL(input.files[0]); //以.readAsDataURL將上傳檔案轉換為base64字串
+
+            reader.onload = function () { //FileReader取得上傳檔案後執行以下內容
+                var dataURL = reader.result; //設定變數dataURL為上傳圖檔的base64字串
+                $('#outputImg').attr('src', dataURL).show(); //將img的src設定為dataURL並顯示
+            };
+        }
+
+
+
     </script>
 
 

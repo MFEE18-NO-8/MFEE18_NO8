@@ -92,17 +92,17 @@
             <table id="MyTable">
                 <tr>
                     <td class="Title">標題</td>
-                    <td colspan="5" class="Content"><input type="text" id="TitleText" value=""></td>
+                    <td colspan="5" class="Content"><input type="text" id="TitleText" class="inputNotOutline" value=""></td>
                 </tr>
 
                 <tr>
                     <td class="Title">發布日期</td>
                     <td class="Content">
-                        <input type="date">
+                        <input type="date" class="inputNotOutline">
                         <br>
                         ~
                         <br>
-                        <input type="date">
+                        <input type="date" class="inputNotOutline">
                     </td>
 
                     <td class="Title">狀態</td>
@@ -118,7 +118,7 @@
                 <tr>
                     <td class="Title">內容</td>
                     <td colspan="5" class="Content">
-                        <textarea rows="10" cols="35"></textarea>
+                        <textarea name="" id="textArea" class="inputNotOutline" cols="40" rows="10"></textarea>
                     </td>
                 </tr>
 
@@ -126,7 +126,9 @@
                     <td class="Title">照片</td>
                     <td colspan="5" class="Content">
                         <div id="TitleButtonDiv">
-                            <input type="button" class="TitleButton" value="加入檔案">
+                            <label for="uploadFile" class="TitleButton">
+                                <input type="file" style="display:none;" id="uploadFile" name="" >上傳檔案
+                            </label>
                             <input type="button" class="TitleButton" value="刪除檔案">
                         </div>
                     </td>
@@ -135,8 +137,8 @@
 
                 <tr>
                     <td colspan="5" id="MySubmitId">
-                        <input type="submit" class="MySubmit" value="送出">
-                        <input type="submit" class="MySubmit" value="取消">
+                        <input type="submit" class="MySubmitSent" value="送出">
+                        <input type="submit" class="MySubmitCancel" value="取消">
                     </td>
                 </tr>
 

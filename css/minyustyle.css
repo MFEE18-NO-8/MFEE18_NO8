@@ -656,3 +656,22 @@
         font-weight: 600;
     }
     /* 新增 按鈕樣式 end */
+
+    /* 上傳圖片 按鈕 */
+    .uploadImg{
+        cursor: pointer;
+    }
+    /* 輸入內容方塊 */
+    #textArea{
+        resize : none;
+        border : 0;
+    }
+    /* 輸入標題方塊 */
+    #TitleText{
+        border : 0;
+    }
+
+    /* 輸入 去除邊框 */
+    .inputNotOutline:focus{
+        outline : 0; 
+    }
