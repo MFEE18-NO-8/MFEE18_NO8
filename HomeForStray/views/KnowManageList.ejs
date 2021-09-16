@@ -140,8 +140,8 @@
                         <td><%= (data[i].ArticleDate).toLocaleDateString() %></td>
                         <td><%= data[i].ArticleSwitch %></td>
                         <td>
-                           <a href="/KnowManageAdd?pageNo=<%= pageNo %>"><input type="button" class="ListButton" value="編輯"></a>
-                           <input type="button" class="ListButton" value="刪除">
+                           <a href="/KnowManageAdd?pageNo=<%= pageNo %>"><input type="button" class="ListButtonEdit" value="編輯"></a>
+                           <input type="button" class="ListButtonDele" value="刪除">
                        </td>
                     </tr>
                     <% } %>
