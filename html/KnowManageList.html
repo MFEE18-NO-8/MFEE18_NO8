@@ -36,15 +36,18 @@
                 <img src="../img/Logo/字.png" alt="" class="logo-text">
             </a>
             <div class="nav">
-                <div class="navbar-nav">
-                    <ul class="header-nevBar open">
-                        <li class="nav-item"><a href="#">首頁</a></li>
-                        <li class="nav-item"><a href="#">毛孩領養</a></li>
-                        <li class="nav-item"><a href="#">刊登送養</a></li>
-                        <li class="nav-item"><a href="#">毛孩知識</a></li>
-                    </ul>
-                </div>
-                <a href="#" class="hamBar"><img src="../img/icon/square.png" class="fas-fa-bars"></img></a>
+                <!-- 漢堡選單 -->
+                <ul class="menu burgar-menu">
+                    <li><a href="./X_index.html">首頁</a></li>
+                    <li><a href="./AdopList.html">毛孩領養</a></li>
+                    <li><a href="./Foster.html">刊登送養</a></li>
+                    <li><a href="./KnowList.html">毛孩知識</a></li>
+                </ul>
+                <a href="#" class="hamBar burgar-menu">
+                    <i>
+                    <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
+                    </i>
+                </a>
                 <!-- navbar-user -->
                 <div class="btn-group">
                     <button class="btn  btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true"
@@ -183,7 +186,14 @@
                 </div>
             </div>
         </footer>
-
+        <script>
+            // 漢堡選單
+            $(document).ready(function () {
+            $('.burgar-menu').on('click', function (e) {
+              $('body').toggleClass('burgar-menu-show');       
+            });
+          });
+        </script>
 
 
 

@@ -194,7 +194,25 @@ a:hover {
         margin-bottom: 50px;
     }
 }
-
+/* 手機版本 */
+@media screen and (max-width: 576px){
+    /* header */
+    .header {
+        padding: 0;
+    }
+    .logo {
+        height: auto;
+        width: 70px;
+    }
+    .logo-text {
+        height:auto;
+        width: 80px;
+    }
+    .hamBar-icon {
+        width: 30px;
+        height: 30px;
+    }
+}
 /* user-menu */
 .user{
     align-self: center;
