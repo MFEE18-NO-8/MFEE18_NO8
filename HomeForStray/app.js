@@ -41,6 +41,9 @@ app.use('/AdopList',AdopList)
 //引入 我追蹤的毛孩
 var UserFollow =require('./routes/UserFollow');
 app.use('/UserFollow',UserFollow)
+//引入 通知訊息
+var UserFollow =require('./routes/UserFollow');
+app.use('/UserFollow',UserMsg)
 
 
 // catch 404 and forward to error handler
