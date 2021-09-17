@@ -16,7 +16,6 @@ router.post('/', function (req, res, next) {
     var displayStatus = req.body['displayStatus'];
     var articleContent = req.body['articleContent'];
 
-
     pool.query('insert into articlenews set ?', [{  //新增資料
         ArticleTitle: articleTitle,
         ArticleDate: new Date(),
