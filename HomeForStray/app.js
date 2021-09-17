@@ -38,9 +38,15 @@ app.use('/NewsList', NewsList);
 //引入 毛孩領養清單
 var AdopList =require('./routes/AdopList');
 app.use('/AdopList',AdopList)
+//引入 毛孩領養內容
+var AdoptContent =require('./routes/AdoptContent');
+app.use('/AdoptContent',AdoptContent)
 //引入 我追蹤的毛孩
 var UserFollow =require('./routes/UserFollow');
 app.use('/UserFollow',UserFollow)
+//引入 刊登送養
+var Foster =require('./routes/Foster');
+app.use('/Foster',Foster)
 
 
 // catch 404 and forward to error handler
