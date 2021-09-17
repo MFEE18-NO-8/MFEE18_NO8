@@ -47,16 +47,16 @@ app.use('/AdoptContent',AdoptContent)
 //引入 我追蹤的毛孩
 var UserFollow =require('./routes/UserFollow');
 app.use('/UserFollow',UserFollow)
-<<<<<<< HEAD
+
 //引入 通知訊息
 var UserFollow =require('./routes/UserMsg');
 app.use('/UserFollow',UserMsg)
 
-=======
+
 //引入 刊登送養
 var Foster =require('./routes/Foster');
 app.use('/Foster',Foster)
->>>>>>> 9b530e26d7014792227e3f1df8d6e1882811b721
+
 
 
 // catch 404 and forward to error handler
