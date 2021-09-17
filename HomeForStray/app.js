@@ -29,6 +29,9 @@ app.use('/KnowManageList', KnowManageList);
 // 引入 最新消息管理清單
 var NewsManageList = require('./routes/NewsManageList');
 app.use('/NewsManageList', NewsManageList);
+// 引入 最新消息清單(前台)
+var NewsList = require('./routes/NewsList');
+app.use('/NewsList', NewsList);
 
 
 // catch 404 and forward to error handler
