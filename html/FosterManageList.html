@@ -21,6 +21,7 @@
 
     <!-- css -->
     <link rel="stylesheet" href="../css/minyustyle.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>浪浪有窩</title>
 
 </head>
@@ -88,20 +89,20 @@
 
 
         <div id="ListDiv" class="container">
-            <table id="MyListTable" style="border-collapse:separate; border-spacing:10px 10px;">
+            <table id="MyListTable"  style="border-collapse:separate; border-spacing:10px 10px;">
                 <tr class="MyListTr">
                     <td>寵物暱稱：</td>
-                    <td colspan="3"><input type="text" id="ListText" value="">
+                    <td colspan="3"><input type="text" id="ListText" class="inputNotOutline" value="">
                     </td>
                 </tr>
 
                 <tr class="MyListTr">
                     <td>送審日期：</td>
-                    <td><input type="date"></td>
+                    <td><input type="date" class="inputNotOutline"></td>
                 </tr>
                 <tr class="MyListTr">
                     <td>審核通過日期：</td>
-                    <td><input type="date"></td>
+                    <td><input type="date" class="inputNotOutline"></td>
                 </tr>
 
                 <tr class="MyListTr">
@@ -126,9 +127,9 @@
 
         <div id="MyblueTable" class="container">
             <button class="btnLg btn-lightOrange btnAdd">新增</button>
-            <table class="blueTable">
+            <table class="table table-hover">
                 <thead>
-                    <tr>
+                    <tr class="UserFoster-thead">
                         <th>序號</th>
                         <th>寵物暱稱</th>
                         <th>送審日期</th>
@@ -139,7 +140,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>01</td>
+                        <th scope="row">01</th>
                         <td>樂樂</td>
                         <td>2021-10-16</td>
                         <td>2021-10-17</td>
