@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KnowManageList</title>
+    <title>KnowManageView</title>
 
     <!-- jquery -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
@@ -20,8 +20,7 @@
     <script src="../Bootstrap/js/bootstrap.min.js"></script>
 
     <!-- css -->
-    <link rel="stylesheet" href="stylesheets/minyustyle.css">
-    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/minyustyle.css">
     <title>浪浪有窩</title>
 
 
@@ -32,7 +31,7 @@
     <body>
         <!--navbar-->
         <div class="container-fluid header">
-            <a href="#" class="logoImg navbar-brand">
+            <a href="./X_index.html" class="logoImg navbar-brand">
                 <img src="../img/Logo/改I2 2.png" alt="" class="logo">
                 <img src="../img/Logo/字.png" alt="" class="logo-text">
             </a>
@@ -74,117 +73,71 @@
         <div class="breadcrumb-block">
             <div class="container-fluid ">
                 <ol class="breadcrumb pb-0 ">
-                    <li class="breadcrumb-item "><a href="#">首頁</a></li>
+                    <li class="breadcrumb-item "><a href="./X_index.html">首頁</a></li>
                     <li class="breadcrumb-item active" aria-current="page">後臺管理</li>
                     <li class="breadcrumb-item active" aria-current="page">毛孩知識管理</li>
-                    <li class="breadcrumb-item active" aria-current="page">查詢</li>
+                    <li class="breadcrumb-item active" aria-current="page">編輯</li>
                 </ol>
             </div>
         </div>
 
 
-        <div id="MyDivTitleList" class="container">
+        <div id="MyDivTitle" class="container">
             <h2 class="title-lg">毛孩知識管理</h2>
         </div>
 
 
+        <div id="MyDiv" class="container">
 
-        <div id="ListDiv" class="container">
-            <table id="MyListTable" style="border-collapse:separate; border-spacing:10px 10px;">
-                <tr class="MyListTr">
-                    <td>標題：</td>
-                    <td colspan="3"><input type="text" id="ListText" class="inputNotOutline" value="">
+            <table id="MyTable">
+                <tr>
+                    <td class="Title">標題</td>
+                    <td colspan="5" class="Content"><input type="text" id="TitleText" name="articleTitle" class="inputNotOutline" value="<%= data[0].ArticleTitle %>" >
                     </td>
                 </tr>
 
-                <tr class="MyListTr">
-                    <td>發布日期：</td>
-                    <td><input type="date" class="inputNotOutline"></td>
-                </tr>
+                <tr>
+                    <td class="Title">發布日期</td>
+                    <td class="Content"><input type="date" value="<%= data[0].ArticleDate %>" class="inputNotOutline" name="articleDate"></td>
 
-                <tr class="MyListTr">
-                    <td>狀態：</td>
-                    <td><input type="radio" name="Listdisplay">
-                        <label for="html" class="MyListLabel">顯示</label>
-                        <input type="radio" name="Listdisplay">
-                        <label for="html" class="MyListLabel">隱藏
-                        </label>
+                    <td class="Title">狀態</td>
+                    <td class="Content">
+                        <input type="radio" name="displayStatus"  value="1" <%=(data[0].ArticleStatus=1) ? 'checked' :'' %>>
+                        <label for="">顯示</label>
+                        <br>
+                        <input type="radio" name="displayStatus"  value="0" <%=(data[0].ArticleStatus=0) ? 'checked' :'' %>>
+                        <label for="">隱藏</label>
                     </td>
                 </tr>
 
-                <tr class="MyListTr">
-                    <td colspan="4">
-                        <input type="submit" class="ListSubmit" value="查詢">
-                        <input type="submit" class="ListSubmit" value="清除">
+                <tr>
+                    <td class="Title">內容</td>
+                    <td colspan="5" class="Content">
+                        <textarea rows="10" cols="40" class="inputNotOutline" id="textArea" name="articleContent" value=""><%= data[0].ArticleCont %></textarea>
                     </td>
                 </tr>
+
+                <tr>
+                    <td class="Title">照片</td>
+                    <td colspan="5" class="Content">
+                        <img src="">
+                        <div id="TitleButtonDiv">
+                            <input type="button" class="TitleButton" value="加入檔案">
+                            <input type="button" class="TitleButton" value="刪除檔案">
+                        </div>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td colspan="5" id="MySubmitId">
+                        <input type="submit" class="MySubmitSent" value="送出">
+                        <a href="./X_KnowManageList.html"><input type="submit" class="MySubmitCancel" value="返回"></a>
+                    </td>
+                </tr>
+
             </table>
         </div>
-
-        <div id="MyblueTable" class="container">
-            <a href="/KnowManageAdd %>"><button class="btnLg btn-lightOrange btnAdd">新增</button></a>
-            <table class="table table-hover">
-                <thead>
-                    <tr class="UserFoster-thead">
-                        <th class="ThPadding">序號</th>
-                        <th>標題</th>
-                        <th>發布日期</th>
-                        <th>狀態</th>
-                        <th>管理</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                    <% for(var i=0; i<data.length; i++) { %>
-                        <tr>
-                            <!-- 是否不要抓資料庫序號? -->
-                            <th scope="row">
-                                <%= i+1 %>
-                            </th>
-                            <td>
-                                <%= data[i].ArticleTitle %>
-                            </td>
-                            <td>
-                                <%= (data[i].ArticleDate).toLocaleDateString() %>
-                            </td>
-                            <td>
-                                <% var statusStr='' ; %>
-                                <% var status=data[i].ArticleStatus; //宣告status=1或0 %>
-                                <% (status=1) ? statusStr='顯示' : statusStr='隱藏' //判斷status=1，則statusStr為顯示，反之為隱藏 ; %>
-                                <%= statusStr %>
-                            </td>
-                            <td>
-                                <a href="/KnowManageEdit?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>" > <input type="button"
-                                        class="ListButtonEdit" value="編輯"></a>
-                                <input type="button" class="ListButtonDele" value="刪除">
-                            </td>
-                        </tr>
-                    <% } %>
-                </tbody>
-                </tr>
-            </table>
-        </div>
-
-        <nav aria-label="Page navigation example ">
-            <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <% for(var i=1; i <=totalPage; i++) { %>
-                    <li class="page-item"><a class="page-link" href="/<%= i%>">
-                            <%= i%>
-                        </a></li>
-                    <% } %>
-
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-            </ul>
-        </nav>
 
         <!-- footer -->
         <footer class="container-fluid footer">
@@ -196,7 +149,6 @@
             </div>
         </footer>
 
-
         <script>
             // 漢堡選單
             $(document).ready(function () {
@@ -204,8 +156,6 @@
                     $('body').toggleClass('burgar-menu-show');
                 });
             });
-
-
         </script>
 
 
