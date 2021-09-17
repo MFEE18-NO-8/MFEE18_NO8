@@ -49,8 +49,8 @@ var UserFollow =require('./routes/UserFollow');
 app.use('/UserFollow',UserFollow)
 
 //引入 通知訊息
-var UserFollow =require('./routes/UserMsg');
-app.use('/UserFollow',UserMsg)
+var UserMsg =require('./routes/UserMsg');
+app.use('/UserMsg',UserMsg)
 
 
 //引入 刊登送養
