@@ -20,7 +20,7 @@
     <script src="../Bootstrap/js/bootstrap.min.js"></script>
 
     <!-- css -->
-    <link rel="stylesheet" href="../css/minyustyle.css">
+    <link rel="stylesheet" href="stylesheets/minyustyle.css">
     <title>浪浪有窩</title>
 
 </head>
@@ -88,62 +88,65 @@
 
 
     <div id="MyDiv" class="container">
+        <form action="" id="artileForm" name="artileForm" method="POST">
+            <table id="MyTable">
+                <tr>
+                    <td class="Title">標題</td>
+                    <td colspan="5" class="Content"><input type="text" id="TitleText" name="articleTitle"
+                            class="inputNotOutline" value="" required></td>
+                </tr>
 
-        <table id="MyTable">
-            <tr>
-                <td class="Title">標題</td>
-                <td colspan="5" class="Content"><input type="text" id="TitleText" class="inputNotOutline" value=""></td>
-            </tr>
+                <tr>
+                    <td class="Title">發布日期</td>
+                    <td class="Content"><input type="date" class="inputNotOutline" name="articleDate" required></td>
 
-            <tr>
-                <td class="Title">發布日期</td>
-                <td class="Content"><input type="date" class="inputNotOutline"></td>
+                    <td class="Title">狀態</td>
+                    <td class="Content">
+                        <input type="radio" name="displayStatus" value="1" required>
+                        <label for="html">顯示</label>
+                        <br>
+                        <input type="radio" name="displayStatus" value="0">
+                        <label for="html">隱藏</label>
+                    </td>
+                </tr>
 
-                <td class="Title">狀態</td>
-                <td class="Content">
-                    <input type="radio" name="display" value="display">
-                    <label for="html">顯示</label>
-                    <br>
-                    <input type="radio" name="display" value="display">
-                    <label for="html">隱藏</label>
-                </td>
-            </tr>
+                <tr>
+                    <td class="Title">內容</td>
+                    <td colspan="5" class="Content">
+                        <textarea name="" id="textArea" name="articleContent" class="inputNotOutline" cols="40"
+                            rows="10" required></textarea>
+                    </td>
+                </tr>
 
-            <tr>
-                <td class="Title">內容</td>
-                <td colspan="5" class="Content">
-                    <textarea name="" id="textArea" class="inputNotOutline" cols="40" rows="10"></textarea>
-                </td>
-            </tr>
+                <tr>
+                    <td class="Title">照片</td>
+                    <td colspan="5" class="Content">
+                        <div id="TitleButtonDiv">
 
-            <tr>
-                <td class="Title">照片</td>
-                <td colspan="5" class="Content">
-                    <div id="TitleButtonDiv">
-
-                        <!-- 隱藏img -->
-                        <img src="" alt="" id="outputImg" height="100" style="display:none">
-                        <!-- 隱藏img end -->
+                            <!-- 隱藏img -->
+                            <img src="" alt="" id="outputImg" height="100" style="display:none">
+                            <!-- 隱藏img end -->
 
 
-                        <label for="uploadImg" class="TitleButton uploadImg">
-                            <input type="file" style="display:none;" accept=".jpg, .jpeg, .png" id="uploadImg"
-                                name="uploadImg" onchange="openFile(event)">上傳圖片
-                        </label>
-                        <input type="button" class="TitleButton" value="刪除圖片" id="deleteImg">
+                            <label for="uploadImg" class="TitleButton uploadImg">
+                                <input type="file" style="display:none;" accept=".jpg, .jpeg, .png" id="uploadImg"
+                                    name="uploadImg" onchange="openFile(event)">上傳圖片
+                            </label>
+                            <input type="button" class="TitleButton" value="刪除圖片" id="deleteImg">
 
-                    </div>
-                </td>
-            </tr>
+                        </div>
+                    </td>
+                </tr>
 
-            <tr>
-                <td colspan="5" id="MySubmitId">
-                    <input type="submit" class="MySubmitSent" value="送出">
-                    <input type="submit" class="MySubmitCancel" value="取消">
-                </td>
-            </tr>
+                <tr>
+                    <td colspan="5" id="MySubmitId">
+                        <input type="submit" class="MySubmitSent" value="送出">
+                        <input type="submit" class="MySubmitCancel" value="取消">
+                    </td>
+                </tr>
 
-        </table>
+            </table>
+        </form>
     </div>
 
 
@@ -165,6 +168,7 @@
             });
         });
 
+        // 顯示 outputImg
         function openFile(event) {
             var input = event.target; //取得上傳檔案
             var reader = new FileReader(); //建立FileReader物件

@@ -121,7 +121,7 @@
         </div>
 
         <div id="MyblueTable" class="container">
-            <button class="btnLg btn-lightOrange btnAdd">新增</button>
+            <a href="/KnowManageAdd %>"><button class="btnLg btn-lightOrange btnAdd">新增</button></a>
             <table class="blueTable">
                 <thead>
                     <tr>
@@ -133,11 +133,12 @@
                     </tr>
                 </thead>
                 <tbody>
+                    
                     <% for(var i=0; i<data.length; i++) { %>
                         <tr>
                             <!-- 是否不要抓資料庫序號? -->
                             <td>
-                                <%= data[i].ArticleId %>
+                                <%= i+1 %>
                             </td>
                             <td>
                                 <%= data[i].ArticleTitle %>
@@ -146,7 +147,10 @@
                                 <%= (data[i].ArticleDate).toLocaleDateString() %>
                             </td>
                             <td>
-                                <%= data[i].ArticleSwitch %>
+                                <% var statusStr='' ; %>
+                                <% var status=data[i].ArticleStatus; //宣告status=1或0 %>
+                                <% (status=1) ? statusStr='顯示' : statusStr='隱藏' //判斷status=1，則statusStr為顯示，反之為隱藏 ; %>
+                                <%= statusStr %>
                             </td>
                             <td>
                                 <a href="/KnowManageAdd?pageNo=<%= pageNo %>"><input type="button"
@@ -154,21 +158,32 @@
                                 <input type="button" class="ListButtonDele" value="刪除">
                             </td>
                         </tr>
-                        <% } %>
+                    <% } %>
                 </tbody>
                 </tr>
             </table>
         </div>
-        <div>
-            <p>
+
+        <nav aria-label="Page navigation example ">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
                 <% for(var i=1; i <=totalPage; i++) { %>
-                    <span><a href="/<%= i%>">
+                    <li class="page-item"><a class="page-link" href="/<%= i%>">
                             <%= i%>
-                        </a></span>
+                        </a></li>
                     <% } %>
-            </p>
-            <p>總數 <%= totalLine %> 筆，共 <%= pageNo %>/<%= totalPage %> 頁</p>
-        </div>
+
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+            </ul>
+        </nav>
 
         <!-- footer -->
         <footer class="container-fluid footer">
@@ -179,6 +194,8 @@
                 </div>
             </div>
         </footer>
+
+
         <script>
             // 漢堡選單
             $(document).ready(function () {
@@ -186,6 +203,8 @@
                     $('body').toggleClass('burgar-menu-show');
                 });
             });
+
+
         </script>
 
 

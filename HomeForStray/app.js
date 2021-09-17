@@ -26,6 +26,9 @@ app.use('/users', usersRouter);
 // 引入 毛孩知識管理清單
 var KnowManageList = require('./routes/KnowManageList');
 app.use('/KnowManageList', KnowManageList);
+// 引入 毛孩知識管理新增
+var KnowManageAdd = require('./routes/KnowManageAdd');
+app.use('/KnowManageAdd', KnowManageAdd);
 // 引入 最新消息管理清單
 var NewsManageList = require('./routes/NewsManageList');
 app.use('/NewsManageList', NewsManageList);
@@ -36,6 +39,12 @@ app.use('/NewsList', NewsList);
 var NewsContent = require('./routes/NewsContent');
 app.use('/NewsContent', NewsContent);
 
+//引入 毛孩領養清單
+var AdopList = require('./routes/AdopList');
+app.use('/AdopList', AdopList)
+//引入 我追蹤的毛孩
+var UserFollow = require('./routes/UserFollow');
+app.use('/UserFollow', UserFollow)
 
 
 // catch 404 and forward to error handler
