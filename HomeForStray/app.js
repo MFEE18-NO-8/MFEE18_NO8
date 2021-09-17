@@ -35,15 +35,20 @@ app.use('/NewsManageList', NewsManageList);
 // 引入 最新消息清單(前台)
 var NewsList = require('./routes/NewsList');
 app.use('/NewsList', NewsList);
+// 引入 最新消息清單(前台)
+var NewsContent = require('./routes/NewsContent');
+app.use('/NewsContent', NewsContent);
+
 //引入 毛孩領養清單
-var AdopList =require('./routes/AdopList');
-app.use('/AdopList',AdopList)
+var AdopList = require('./routes/AdopList');
+app.use('/AdopList', AdopList)
 //引入 我追蹤的毛孩
 var UserFollow =require('./routes/UserFollow');
 app.use('/UserFollow',UserFollow)
 //引入 通知訊息
-var UserFollow =require('./routes/UserFollow');
+var UserFollow =require('./routes/UserMsg');
 app.use('/UserFollow',UserMsg)
+
 
 
 // catch 404 and forward to error handler

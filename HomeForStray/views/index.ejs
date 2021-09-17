@@ -32,7 +32,7 @@
     <div class="nav">
       <div class="navbar-nav">
         <ul class="header-nevBar open">
-          <li class="nav-item"><a href="#">首頁</a></li>
+          <li class="nav-item"><a href="/">首頁</a></li>
           <li class="nav-item"><a href="#">毛孩領養</a></li>
           <li class="nav-item"><a href="#">刊登送養</a></li>
           <li class="nav-item"><a href="#">毛孩知識</a></li>
@@ -92,39 +92,23 @@
   <div class="container news">
     <div class="title">最新消息</div>
     <div class="row news-block-ground">
-      <!-- 待修改:最多顯示3筆 -->
-      <% for(var i=0; i<data.length; i++) { %>
-        <div class="col-sm-12 col-md news-block">
-          <div class="row news-text">
-            <a href="#">
+      <!-- Anni待修改:最多顯示3筆 -->
+      <% for(var i=0; i< data.length; i++) { %>
+        <div class="col-sm-4 col-md news-block">
+          <a href="/NewsContent?id=<%= data[i].NewsId %>">
+            <div class="row news-text">
               <%= data[i].NewsTitle %>
                 <p class="date">
                   <%= (data[i].ShowStartDate).toLocaleDateString() %>
                 </p>
-          </div>
+            </div>
+          </a>
         </div>
         <% } %>
-          <!-- <div class="col-sm-12 col-md news-block">
-        <div class="row news-text">
-          夏日寵物照護小叮嚀，讓寵物陪您度過熱夏防疫新生活。....
-          <p class="date">2021-07-30</p>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md news-block">
-        <div class="row news-text">
-          本服務測試中，預計於2021-10-15正式上線。....
-          <p class="date">2021-07-30</p>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md news-block">
-        <div class="row news-text">
-          本服務即日起開放使用為大家帶來更好的體驗本次新增…
-          <p class="date">2021-07-30</p>
-        </div>
-      </div> -->
+
     </div>
     <div class="row justify-content-end more-news">
-      <a href="#">更多消息...</a>
+      <a href="/NewsList">更多消息...</a>
     </div>
   </div>
 
