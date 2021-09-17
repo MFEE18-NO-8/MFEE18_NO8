@@ -35,6 +35,9 @@ app.use('/NewsManageList', NewsManageList);
 // 引入 最新消息清單(前台)
 var NewsList = require('./routes/NewsList');
 app.use('/NewsList', NewsList);
+//引入 我追蹤的毛孩
+var UserFollow =require('./routes/UserFollow');
+app.use('/UserFollow',UserFollow)
 
 
 // catch 404 and forward to error handler
