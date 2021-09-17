@@ -27,9 +27,8 @@
   <script src="../Bootstrap/js/popper.min.js"></script>
 
   <!-- 引用style.css -->
-  <link rel="stylesheet" type="text/css" href="../css/annistyle.css">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/annistyle.css">
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <link rel="stylesheet" href="stylesheets/annistyle.css">
 
 
 </head>
@@ -44,7 +43,7 @@
     <div class="nav">
       <!-- 漢堡選單 -->
       <ul class="menu burgar-menu">
-        <li><a href="./X_index.html">首頁</a></li>
+        <li><a href="/">首頁</a></li>
         <li><a href="./AdopList.html">毛孩領養</a></li>
         <li><a href="./Foster.html">刊登送養</a></li>
         <li><a href="./KnowList.html">毛孩知識</a></li>
@@ -78,7 +77,7 @@
   <div class="breadcrumb-block">
     <div class="container-fluid">
       <ol class="breadcrumb pb-0">
-        <li class="breadcrumb-item "><a href="#">首頁</a></li>
+        <li class="breadcrumb-item "><a href="/">首頁</a></li>
         <li class="breadcrumb-item active" aria-current="page">最新消息</li>
       </ol>
     </div>
@@ -89,24 +88,25 @@
     <div class="UserFoster-title">
       <h2>最新消息</h2>
     </div>
-    <button class="btnLg btn-lightOrange btnAdd"> <a href="NewsList.html">回上一頁</a> </button>
+    <button class="btnLg btn-lightOrange btnAdd">
+      <a href="/NewsList?pageNo=<%= pageNo %>" title="回上一頁">回上一頁</a>
+    </button>
     <div class="col-sm-12 col-md-12 ">
       <div class="row NewsContent">
         <div class="col-sm-12 col-md-12 NewsContentSubTitle">
-          夏日寵物照護小叮嚀，讓寵物陪您度過熱夏防疫新生活。
+          <%= data[0].NewsTitle %>
         </div>
       </div>
       <div class="row NewsContentDate">
         <div class="col-sm-12 col-md-12　 ">
-          發佈日期：2021-10-15
+          發佈日期：
+          <%= (data[0].ShowStartDate).toLocaleDateString() %>
         </div>
       </div>
       <div class="row NewsContentText ">
         <div class="col-sm-12 col-md-12  ">
-          以下文章轉至臺中市動物保護防疫處。
-          炎炎夏日，戶外熱情的太陽讓人無法招架，披著毛茸茸外衣的寵物們更需要通風舒適的環境度過漫漫夏日，因此除了自己抗暑，千萬不要忘記家中毛孩也需要消暑一夏！
-          疫情期間，家中寵物仍需要出外散步運動，但若長時間處於酷暑高溫，很容易就會有中暑的危險，因此外出活動時應攜帶乾淨飲水及適時提供遮蔽，讓寵物能隨時補充水分並能休息散熱。近年流行的法國鬥牛犬、巴哥等短吻犬種，因為呼吸道先天結構異常，更容易造成呼吸困難及運動不耐等症狀，應盡量避免夏日烈陽時段外出，以及劇烈活動和過度興奮。另外提醒飼主千萬不可將寵物獨留於車內，酷暑曝曬下車內溫度極高，不僅會使寵物悶熱而中暑，甚至導致脫水或死亡，一時疏忽不但可能失去心愛的毛家人，飼主也會因為違反動物保護法規定受罰。
-          最後再次呼籲所有飼主，疫情期間帶寵物出外散步玩耍，最基本也最重要的便是依規定繫好牽繩，管控好自家毛孩，繫上牽繩才能輕鬆與他人維持社交距離，保障寵物安全也維護大眾的平安健康。責任與愛並重，做個有責任感的好主人才能讓毛孩平平安安地陪伴度過熱夏防疫新生活。
+          <%= data[0].NewsContent %>
+
         </div>
       </div>
     </div>
