@@ -227,3 +227,35 @@ button.rigister{
     /* background-color: #f8e4ac; */
 
 }
+
+.UserFollow-title > h2 {
+    text-align: left;
+    position: relative;
+}
+.UserFollow-title > h2:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -25px;
+    top: 0;
+    width: 18px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: var(--BananaYellow);
+}
+.UserFoster-title > h2 {
+    text-align: left;
+    position: relative;
+    margin: 80px 0px;
+}
+.UserFoster-title > h2:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -25px;
+    top: 0;
+    width: 18px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: var(--BananaYellow);
+}
