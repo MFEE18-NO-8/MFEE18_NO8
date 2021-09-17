@@ -45,7 +45,7 @@
                 </ul>
                 <a href="#" class="hamBar burgar-menu">
                     <i>
-                    <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
+                        <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
                     </i>
                 </a>
                 <!-- navbar-user -->
@@ -92,7 +92,8 @@
             <table id="MyTable">
                 <tr>
                     <td class="Title">標題</td>
-                    <td colspan="5" class="Content"><input type="text" id="TitleText" class="inputNotOutline" value=""></td>
+                    <td colspan="5" class="Content"><input type="text" id="TitleText" class="inputNotOutline" value="">
+                    </td>
                 </tr>
 
                 <tr>
@@ -127,7 +128,7 @@
                     <td colspan="5" class="Content">
                         <div id="TitleButtonDiv">
                             <label for="uploadFile" class="TitleButton">
-                                <input type="file" style="display:none;" id="uploadFile" name="" >上傳檔案
+                                <input type="file" style="display:none;" id="uploadFile" name="">上傳檔案
                             </label>
                             <input type="button" class="TitleButton" value="刪除檔案">
                         </div>
@@ -138,7 +139,7 @@
                 <tr>
                     <td colspan="5" id="MySubmitId">
                         <input type="submit" class="MySubmitSent" value="送出">
-                        <input type="submit" class="MySubmitCancel" value="取消">
+                        <a href="./X_NewsManageList.html"><input type="submit" class="MySubmitCancel" value="返回"></a>
                     </td>
                 </tr>
 
@@ -158,10 +159,10 @@
         <script>
             // 漢堡選單
             $(document).ready(function () {
-            $('.burgar-menu').on('click', function (e) {
-              $('body').toggleClass('burgar-menu-show');       
+                $('.burgar-menu').on('click', function (e) {
+                    $('body').toggleClass('burgar-menu-show');
+                });
             });
-          });
         </script>
 
 
