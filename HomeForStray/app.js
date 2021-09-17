@@ -29,18 +29,27 @@ app.use('/KnowManageList', KnowManageList);
 // 引入 毛孩知識管理新增
 var KnowManageAdd = require('./routes/KnowManageAdd');
 app.use('/KnowManageAdd', KnowManageAdd);
-// 引入 最新消息管理新增
-var NewsManageAdd = require('./routes/NewsManageAdd');
-app.use('/NewsManageAdd', NewsManageAdd);
-// 引入 最新消息管理清單
-var NewsManageList = require('./routes/NewsManageList');
-app.use('/NewsManageList', NewsManageList);
+
 // 引入 最新消息清單(前台)
 var NewsList = require('./routes/NewsList');
 app.use('/NewsList', NewsList);
 // 引入 最新消息清單(前台)
 var NewsContent = require('./routes/NewsContent');
 app.use('/NewsContent', NewsContent);
+
+
+
+// 引入 最新消息管理清單
+var NewsManageList = require('./routes/NewsManageList');
+app.use('/NewsManageList', NewsManageList);
+// 引入 最新消息管理新增
+var NewsManageAdd = require('./routes/NewsManageAdd');
+app.use('/NewsManageAdd', NewsManageAdd);
+// 引入 最新消息管理編輯
+var NewsManageEdit = require('./routes/NewsManageEdit');
+app.use('/NewsManageEdit', NewsManageEdit);
+
+
 //引入 毛孩領養清單
 var AdopList = require('./routes/AdopList');
 app.use('/AdopList', AdopList)

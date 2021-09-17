@@ -92,35 +92,41 @@
           <tr>
             <td class="Title">標題</td>
             <td colspan="5" class="Content">
-              <input type="text" id="TitleText" class="inputNotOutline" value="" name="NewsTitle" required>
+              <input type="text" id="TitleText" class="inputNotOutline" value="<%= data[0].NewsTitle %>"
+                name="NewsTitle" required>
             </td>
           </tr>
 
           <tr>
-            <td class="Title">發布日期</td>
+            <td class="Title">發佈日期</td>
             <td class="Content">
-              <input type="date" class="inputNotOutline" name="ShowStartDate" required>
+              <input type="date" class="inputNotOutline" name="ShowStartDate"
+                value="<%= (data[0].ShowStartDate).toLocaleDateString() %>" required>
               <br>
               ~
               <br>
-              <input type="date" class="inputNotOutline" name="ShowEndDate" required>
+              <input type="date" class="inputNotOutline" name="ShowEndDate"
+                value="<%= (data[0].ShowEndDate).toLocaleDateString() %>" required>
+              <input type="date" value="2021/9/17">
             </td>
 
             <td class=" Title">狀態</td>
             <td class="Content">
-              <input type="radio" name="NewsState" value="1">
+              <input type="radio" name="NewsState" value="1" <%=(data[0].NewsState=1) ? 'checked' :'' %>>
               <label for="NewsState">顯示</label>
               <br>
-              <input type="radio" name="NewsState" value="0">
-              <label for="NewsState">隱藏</label>
+              <input type="radio" name="NewsState" value="0" <%=(data[0].NewsState=0) ? 'checked' :'' %>>
+              <label for=" NewsState">隱藏</label>
             </td>
           </tr>
 
           <tr>
             <td class="Title">內容</td>
             <td colspan="5" class="Content">
-              <textarea name="NewsContent" id="textArea" class="inputNotOutline" cols="40" rows="10"
-                required></textarea>
+              <textarea name="NewsContent" id="textArea" class="inputNotOutline" cols="40" rows="10" required>
+                <%= data[0].NewsContent %>
+              </textarea>
+
             </td>
           </tr>
 
@@ -139,7 +145,7 @@
 
           <tr>
             <td colspan="5" id="MySubmitId">
-              <input type="submit" class="MySubmitSent" value="送出">
+              <input type="submit" class="MySubmitSent" value="確認修改">
               <a href="NewsManageList">
                 <input type="submit" class="MySubmitCancel" value="返回">
               </a>

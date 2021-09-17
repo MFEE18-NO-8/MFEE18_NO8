@@ -39,7 +39,7 @@
       <div class="nav">
         <!-- 漢堡選單 -->
         <ul class="menu burgar-menu">
-          <li><a href="./X_index.html">首頁</a></li>
+          <li><a href="/">首頁</a></li>
           <li><a href="./AdopList.html">毛孩領養</a></li>
           <li><a href="./Foster.html">刊登送養</a></li>
           <li><a href="./KnowList.html">毛孩知識</a></li>
@@ -131,7 +131,8 @@
         <thead>
           <tr class="UserFoster-thead">
             <th scope="col">編號</th>
-            <th scope="col">最新消息</th>
+            <th scope="col">標題</th>
+            <th scope="col">修改日期</th>
             <th scope="col">發佈日期</th>
             <th scope="col">狀態</th>
             <th scope="col">管理</th>
@@ -146,12 +147,21 @@
                 <th scope="row">
                   <%=sn %>
                 </th>
-                <td> <a href="NewsContent.html">
-                    <%= data[i].NewsTitle %>
-                  </a> </td>
+                <!-- 標題 -->
+                <td>
+                  <%= data[i].NewsTitle %>
+                    </a>
+                </td>
+                <!-- 修改日期 -->
+                <td>
+                  <%= (data[i].ModifyDate).toLocaleDateString() %>
+                </td>
+                <!-- 發佈日期 -->
                 <td>
                   <%= (data[i].ShowStartDate).toLocaleDateString() %>
-
+                    </br> ~
+                    </br>
+                    <%= (data[i].ShowEndDate).toLocaleDateString() %>
                 </td>
                 <!-- 狀態 -->
                 <td>
@@ -160,7 +170,14 @@
                       <% (status=1) ? statusStr='顯示' : statusStr='隱藏' //判斷status=1，則statusStr為顯示，反之為隱藏 ; %>
                         <%= statusStr %>
                 </td>
-                <td><input type="button" class="ListButtonEdit" value="編輯">
+                <!-- 功能 -->
+                <td>
+
+
+                  <a href="/NewsManageEdit?id=<%= data[i].NewsId %>&pageNo=<%= pageNo %>">
+
+                    <input type="button" class="ListButtonEdit" value="編輯">
+                  </a>
                   <input type="button" class="ListButtonDele" value="刪除">
               </tr>
 
