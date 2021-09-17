@@ -50,7 +50,7 @@
     <div class="nav">
       <!-- 漢堡選單 -->
       <ul class="menu burgar-menu">
-        <li><a href="./X_index.html">首頁</a></li>
+        <li><a href="./">首頁</a></li>
         <li><a href="./AdopList.html">毛孩領養</a></li>
         <li><a href="./Foster.html">刊登送養</a></li>
         <li><a href="./KnowList.html">毛孩知識</a></li>
@@ -111,18 +111,22 @@
             <tr>
               <!-- 編號 -->
               <th scope="row">
-                <%=sn %>
+                <a href="/NewsContent?id=<%= data[i].NewsId %>&pageNo=<%= pageNo %>">
+                  <%=sn %>
+                </a>
               </th>
-              <td> <a href="NewsContent.html">
-                  <%= data[i].NewsTitle %>
-                </a> </td>
               <td>
-                <%= (data[i].ShowStartDate).toLocaleDateString() %>
-
+                <a href="/NewsContent?id=<%= data[i].NewsId %>&pageNo=<%= pageNo %>">
+                  <%= data[i].NewsTitle %>
+                </a>
               </td>
-
-
+              <td>
+                <a href="/NewsContent?id=<%= data[i].NewsId %>&pageNo=<%= pageNo %>">
+                  <%= (data[i].ShowStartDate).toLocaleDateString() %>
+                </a>
+              </td>
             </tr>
+
 
             <% sn++; %>
               <% } %>
