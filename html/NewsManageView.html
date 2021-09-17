@@ -45,7 +45,7 @@
                 </ul>
                 <a href="#" class="hamBar burgar-menu">
                     <i>
-                    <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
+                        <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
                     </i>
                 </a>
                 <!-- navbar-user -->
@@ -144,7 +144,7 @@
                 <tr>
                     <td colspan="5" id="MySubmitId">
                         <input type="submit" class="MySubmitSent" value="送出">
-                        <input type="submit" class="MySubmitCancel" value="取消">
+                        <a href="./X_NewsManageList.html"><input type="submit" class="MySubmitCancel" value="返回"></a>
                     </td>
                 </tr>
 
@@ -163,10 +163,10 @@
         <script>
             // 漢堡選單
             $(document).ready(function () {
-            $('.burgar-menu').on('click', function (e) {
-              $('body').toggleClass('burgar-menu-show');       
+                $('.burgar-menu').on('click', function (e) {
+                    $('body').toggleClass('burgar-menu-show');
+                });
             });
-          });
         </script>
 
     </body>

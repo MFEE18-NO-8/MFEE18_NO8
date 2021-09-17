@@ -31,23 +31,23 @@
     <body>
         <!--navbar-->
         <div class="container-fluid header">
-            <a href="#" class="logoImg navbar-brand">
+            <a href="./X_index.html" class="logoImg navbar-brand">
                 <img src="../img/Logo/改I2 2.png" alt="" class="logo">
                 <img src="../img/Logo/字.png" alt="" class="logo-text">
             </a>
             <div class="nav">
-            <!-- 漢堡選單 -->
-            <ul class="menu burgar-menu">
-                <li><a href="./X_index.html">首頁</a></li>
-                <li><a href="./AdopList.html">毛孩領養</a></li>
-                <li><a href="./Foster.html">刊登送養</a></li>
-                <li><a href="./KnowList.html">毛孩知識</a></li>
-            </ul>
-            <a href="#" class="hamBar burgar-menu">
-                <i>
-                <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
-                </i>
-            </a> 
+                <!-- 漢堡選單 -->
+                <ul class="menu burgar-menu">
+                    <li><a href="./X_index.html">首頁</a></li>
+                    <li><a href="./AdopList.html">毛孩領養</a></li>
+                    <li><a href="./Foster.html">刊登送養</a></li>
+                    <li><a href="./KnowList.html">毛孩知識</a></li>
+                </ul>
+                <a href="#" class="hamBar burgar-menu">
+                    <i>
+                        <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
+                    </i>
+                </a>
                 <!-- navbar-user -->
                 <div class="btn-group">
                     <button class="btn  btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true"
@@ -73,7 +73,7 @@
         <div class="breadcrumb-block">
             <div class="container-fluid ">
                 <ol class="breadcrumb pb-0 ">
-                    <li class="breadcrumb-item "><a href="#">首頁</a></li>
+                    <li class="breadcrumb-item "><a href="./X_index.html">首頁</a></li>
                     <li class="breadcrumb-item active" aria-current="page">後臺管理</li>
                     <li class="breadcrumb-item active" aria-current="page">刊登送養審核</li>
                     <li class="breadcrumb-item active" aria-current="page">審核</li>
@@ -191,7 +191,7 @@
                 <tr>
                     <td colspan="2" id="MySubmitId">
                         <input type="submit" class="MySubmitSent " value="送出">
-                        <input type="submit" class="MySubmitCancel " value="取消">
+                        <a href="./FosterManageList.html"><input type="submit" class="MySubmitCancel " value="返回"></a>
                     </td>
                 </tr>
             </table>
@@ -206,15 +206,15 @@
                 </div>
             </div>
         </footer>
-        
+
         <script>
             // 漢堡選單
             $(document).ready(function () {
-            $('.burgar-menu').on('click', function (e) {
-              $('body').toggleClass('burgar-menu-show');       
+                $('.burgar-menu').on('click', function (e) {
+                    $('body').toggleClass('burgar-menu-show');
+                });
             });
-          });
-          </script>
+        </script>
 
 
     </body>
