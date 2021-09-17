@@ -26,6 +26,9 @@ app.use('/users', usersRouter);
 // 引入 毛孩知識管理清單
 var KnowManageList = require('./routes/KnowManageList');
 app.use('/KnowManageList', KnowManageList);
+// 引入 最新消息管理清單
+var NewsManageList = require('./routes/NewsManageList');
+app.use('/NewsManageList', NewsManageList);
 
 
 // catch 404 and forward to error handler
