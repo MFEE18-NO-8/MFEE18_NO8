@@ -68,8 +68,8 @@
     <div class="breadcrumb-block">
         <div class="container-fluid">
             <ol class="breadcrumb pb-0">
-                <li class="breadcrumb-item "><a href="./X_index.html">首頁</a></li>
-                <li class="breadcrumb-item active" aria-current="page">刊登送養</li>
+                <li class="breadcrumb-item "><a href="/">首頁</a></li>
+                <li class="breadcrumb-item active" aria-current="page">毛孩領養</li>
             </ol>
         </div> 
     </div>
@@ -142,16 +142,16 @@
     <!-- 清單列表 -->
     <div class="container">
       <div class="row adopList-group">
-        <% for(var i=0; i<Pet.length; i++) { %>
+        <% for(var i=0; i<data.length; i++) { %>
           <div class="col-12 col-md-5">
               <div class="row adop-img justify-content-center"><img src="../img/dog cat/pexels-ellie-burgin-4777025.jpg" class="img-fluid"></div>
                 <div class="row adop-text">
-                    <div class="col-12 adop-text-con adop-name"><%= Pet[i].PetName %></div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/paw.png" alt="" class="adopitem-icon"><%= Pet[i].PetSpecies %></div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/品種.png" alt="" class="adopitem-icon"><%= Pet[i].PetBreed %></div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/sex1.png" alt="" class="adopitem-icon"><%= Pet[i].PetGender %></div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/地區.png" alt="" class="adopitem-icon"><%= Pet[i].CityId%></div>
-                    <button class="btnXxl btn-BananaYellow btn-adopitem" onclick="location.href='./AdoptContent.html'">詳細</button>    
+                    <div class="col-12 adop-text-con adop-name"><%= data[i].PetName %></div>
+                    <div class="col-6 adop-text-con"><img src="../img/icon/paw.png" alt="" class="adopitem-icon"><%= data[i].PetSpecies %></div>
+                    <div class="col-6 adop-text-con"><img src="../img/icon/品種.png" alt="" class="adopitem-icon"><%= data[i].PetBreed %></div>
+                    <div class="col-6 adop-text-con"><img src="../img/icon/sex1.png" alt="" class="adopitem-icon"><%= data[i].PetGender %></div>
+                    <div class="col-6 adop-text-con"><img src="../img/icon/地區.png" alt="" class="adopitem-icon"><%= data[i].CityId%></div>
+                    <button class="btnXxl btn-BananaYellow btn-adopitem" ><a href="/AdoptContent?id=<%= data[i].PetId%>&pageNo=<%= pageNo %>">詳細</a></button>    
                 </div>
           </div>       
             <% } %>

@@ -57,8 +57,8 @@ app.use('/NewsManageDel', NewsManageDel);
 
 
 //引入 毛孩領養清單
-var AdopList = require('./routes/AdopList');
-app.use('/AdopList', AdopList)
+var AdoptList = require('./routes/AdoptList');
+app.use('/AdoptList', AdoptList)
 //引入 毛孩領養內容
 var AdoptContent = require('./routes/AdoptContent');
 app.use('/AdoptContent', AdoptContent)
