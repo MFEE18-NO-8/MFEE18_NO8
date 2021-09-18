@@ -3,10 +3,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+//上述列 含入套件
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+//上述列 含入controller檔案
 var app = express();
 
 // view engine setup
