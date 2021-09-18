@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NewsManageView</title>
+    <title>KnowManageView</title>
 
     <!-- jquery -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
@@ -20,7 +20,7 @@
     <script src="../Bootstrap/js/bootstrap.min.js"></script>
 
     <!-- css -->
-    <link rel="stylesheet" href="../css/minyustyle.css">
+    <link rel="stylesheet" href="/stylesheets/minyustyle.css">
     <title>浪浪有窩</title>
 
 
@@ -31,7 +31,7 @@
     <body>
         <!--navbar-->
         <div class="container-fluid header">
-            <a href="#" class="logoImg navbar-brand">
+            <a href="./X_index.html" class="logoImg navbar-brand">
                 <img src="../img/Logo/改I2 2.png" alt="" class="logo">
                 <img src="../img/Logo/字.png" alt="" class="logo-text">
             </a>
@@ -73,17 +73,17 @@
         <div class="breadcrumb-block">
             <div class="container-fluid ">
                 <ol class="breadcrumb pb-0 ">
-                    <li class="breadcrumb-item "><a href="#">首頁</a></li>
+                    <li class="breadcrumb-item "><a href="./X_index.html">首頁</a></li>
                     <li class="breadcrumb-item active" aria-current="page">後臺管理</li>
-                    <li class="breadcrumb-item active" aria-current="page">最新消息管理</li>
-                    <li class="breadcrumb-item active" aria-current="page">檢視</li>
+                    <li class="breadcrumb-item active" aria-current="page">毛孩知識管理</li>
+                    <li class="breadcrumb-item active" aria-current="page">編輯</li>
                 </ol>
             </div>
         </div>
 
 
         <div id="MyDivTitle" class="container">
-            <h2 class="title-lg">最新消息管理</h2>
+            <h2 class="title-lg">毛孩知識管理</h2>
         </div>
 
 
@@ -92,59 +92,47 @@
             <table id="MyTable">
                 <tr>
                     <td class="Title">標題</td>
-                    <td colspan="5" class="Content"><input type="text" id="TitleText" value="夏日寵物照護小叮嚀，讓寵物陪您度過熱夏防疫新生活。">
+                    <td colspan="5" class="Content"><input type="text" id="TitleText" name="articleTitle" class="inputNotOutline" value="<%= data[0].ArticleTitle %>" >
                     </td>
                 </tr>
 
                 <tr>
                     <td class="Title">發布日期</td>
-                    <td class="Content">
-                        <input type="date" value="2021-09-13">
-                        <br>
-                        ~
-                        <br>
-                        <input type="date" value="2021-10-13">
-                    </td>
+                    <td class="Content"><input type="date" value="<%= data[0].ArticleDate %>" class="inputNotOutline" name="articleDate"></td>
 
                     <td class="Title">狀態</td>
                     <td class="Content">
-                        <input type="radio" name="display" value="display" checked>
-                        <label for="html" id="MyLabel">顯示</label>
+                        <input type="radio" name="displayStatus"  value="1" <%=(data[0].ArticleStatus=1) ? 'checked' :'' %>>
+                        <label for="">顯示</label>
                         <br>
-                        <input type="radio" name="display" value="display">
-                        <label for="html" id="MyLabel">隱藏</label>
+                        <input type="radio" name="displayStatus"  value="0" <%=(data[0].ArticleStatus=0) ? 'checked' :'' %>>
+                        <label for="">隱藏</label>
                     </td>
                 </tr>
 
                 <tr>
                     <td class="Title">內容</td>
                     <td colspan="5" class="Content">
-                        <textarea rows="10" cols="40">以下文章轉至臺中市動物保護防疫處。夏日寵物照護小叮嚀，讓寵物陪您度過熱夏防疫新生活。夏日寵物照護小叮嚀，讓寵物陪您度過熱夏防疫新生活。
-                        </textarea>
+                        <textarea rows="10" cols="40" class="inputNotOutline" id="textArea" name="articleContent" value=""><%= data[0].ArticleCont %></textarea>
                     </td>
                 </tr>
 
                 <tr>
                     <td class="Title">照片</td>
                     <td colspan="5" class="Content">
-                        <div>
-                            <!-- <div id="TitleImgDiv"> -->
-                            <img class="ImgEdit" src="../img/dog cat/pexels-anel-rossouw-2558605.jpg">
-                            <!-- </div> -->
-                            <div id="TitleButtonDiv">
-                                <input type="button" class="TitleButton" value="加入檔案">
-                                <input type="button" class="TitleButton" value="刪除檔案">
-                            </div>
+                        <img src="">
+                        <div id="TitleButtonDiv">
+                            <input type="button" class="TitleButton" value="加入檔案">
+                            <input type="button" class="TitleButton" value="刪除檔案">
                         </div>
                     </td>
-
 
                 </tr>
 
                 <tr>
                     <td colspan="5" id="MySubmitId">
                         <input type="submit" class="MySubmitSent" value="送出">
-                        <a href="./X_NewsManageList.html"><input type="submit" class="MySubmitCancel" value="返回"></a>
+                        <a href="./X_KnowManageList.html"><input type="submit" class="MySubmitCancel" value="返回"></a>
                     </td>
                 </tr>
 
@@ -160,6 +148,7 @@
                 </div>
             </div>
         </footer>
+
         <script>
             // 漢堡選單
             $(document).ready(function () {
@@ -168,6 +157,8 @@
                 });
             });
         </script>
+
+
 
     </body>
 
