@@ -112,13 +112,17 @@
 
             <td class=" Title">狀態</td>
             <td class="Content">
-              <label for="NewsState">
-                <input type="radio" name="NewsState" value="1" <%=( data[0].NewsState==1 ) ? 'checked' :'' %> >
+              <label for="NewsState_1">
+                <input type="radio" id="NewsState_1" name="NewsState" value="1" <%=( data[0].NewsState==1 ) ? 'checked'
+                  :'' %> >
                 顯示
               </label>
               <br>
-              <input type="radio" name="NewsState" value="0" <%=( data[0].NewsState==0 ) ? 'checked' :'' %> >
-              <label for=" NewsState">隱藏</label>
+              <label for="NewsState_0">
+                <input type="radio" id="NewsState_0" name="NewsState" value="0" <%=( data[0].NewsState==0 ) ? 'checked'
+                  :'' %> >
+
+                隱藏</label>
             </td>
           </tr>
 
