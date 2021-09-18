@@ -32,7 +32,7 @@ router.post('/', function (req, res, next) {
         ModifyDate: new Date(),
         NewsState: NewsState,
         NewsContent: NewsContent,
-    }], function (err, results) {
+    }, id], function (err, results) {
         if (err) throw err;
         res.redirect('/NewsManageList?pageNo=' + pageNo);  //回到原來頁數的管理頁面    });
     });

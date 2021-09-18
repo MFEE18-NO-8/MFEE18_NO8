@@ -167,18 +167,17 @@
                 <td>
                   <% var statusStr='' ; %>
                     <% var status=data[i].NewsState; //宣告status=1或0 %>
-                      <% (status=1) ? statusStr='顯示' : statusStr='隱藏' //判斷status=1，則statusStr為顯示，反之為隱藏 ; %>
+                      <% (status==1) ? statusStr='顯示' : statusStr='隱藏' ; //判斷status=1，則statusStr為顯示，反之為隱藏 ; %>
                         <%= statusStr %>
                 </td>
                 <!-- 功能 -->
                 <td>
-
-
                   <a href="/NewsManageEdit?id=<%= data[i].NewsId %>&pageNo=<%= pageNo %>">
-
                     <input type="button" class="ListButtonEdit" value="編輯">
                   </a>
-                  <input type="button" class="ListButtonDele" value="刪除">
+                  <a href="/NewsManageDel?id=<%= data[i].NewsId %>&pageNo=<%= pageNo %>" title="刪除">
+                    <input type="button" class="ListButtonDele" value="刪除">
+                  </a>
               </tr>
 
               <% sn++; %>
@@ -187,90 +186,6 @@
       </table>
 
 
-      <!-- <table class="blueTable">
-        <thead>
-          <tr>
-            <th>序號</th>
-            <th>標題</th>
-            <th>發布日期</th>
-            <th>狀態</th>
-            <th>管理</th>
-          </tr>
-        </thead>
-        <tbody>
-
-           <table class="table table-hover">
-      <thead>
-        <tr class="UserFoster-thead">
-          <th scope="col">編號</th>
-          <th scope="col">最新消息</th>
-          <th scope="col">發佈日期</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td> <a href="NewsContent.html">夏日寵物照護小叮嚀，讓寵物陪您度過熱夏防疫新生活。</a> </td>
-          <td>2021-10-15</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td> <a href="NewsContent.html">本服務即日起開放使用。</a> </td>
-          <td>2021-10-01</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td> <a href="NewsContent.html">本服務測試中，預計於2021-10-15正式上線。</a> </td>
-          <td>2021-09-15</td>
-        </tr>
-
-      </tbody>
-    </table> -->
-
-
-      <!-- <tr>
-        <td>01</td>
-        <td>夏日寵物照護小叮嚀</td>
-        <td>2021-10-16
-        </td>
-        <td>顯示</td>
-        <td><input type="button" class="ListButtonEdit" value="編輯">
-          <input type="button" class="ListButtonDele" value="刪除">
-        </td>
-      </tr>
-      <tr>
-        <td>02</td>
-        <td>本服務即日起開放使用。
-        </td>
-        <td>2021-10-16
-        </td>
-        <td>顯示</td>
-        <td><input type="button" class="ListButtonEdit" value="編輯">
-          <input type="button" class="ListButtonDele" value="刪除">
-        </td>
-      </tr>
-      <tr>
-        <td>03</td>
-        <td>預計於2021-10-15正式上線。</td>
-        <td>2021-10-16
-        </td>
-        <td>顯示</td>
-        <td><input type="button" class="ListButtonEdit" value="編輯">
-          <input type="button" class="ListButtonDele" value="刪除">
-        </td>
-      </tr>
-      <tr>
-        <td>04</td>
-        <td>本服務即日起開放使用。</td>
-        <td>2021-10-16 </td>
-        <td>隱藏</td>
-        <td><input type="button" class="ListButtonEdit" value="編輯">
-          <input type="button" class="ListButtonDele" value="刪除">
-        </td>
-      </tr>
-      </tbody>
-      </tr>
-      </table> -->
     </div>
 
     <!-- footer -->

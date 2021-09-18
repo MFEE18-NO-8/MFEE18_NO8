@@ -4,7 +4,15 @@
     align-items: center;
     height: 100vh;
 
+    
 }
+
+.confirmDelete{
+    color: red;
+    font-size: 30px;
+    font-weight: bold;
+}
+
 
 .box2{
     border-radius: 15px;

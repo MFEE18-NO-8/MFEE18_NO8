@@ -48,6 +48,9 @@ app.use('/NewsManageAdd', NewsManageAdd);
 // 引入 最新消息管理編輯
 var NewsManageEdit = require('./routes/NewsManageEdit');
 app.use('/NewsManageEdit', NewsManageEdit);
+// 引入 最新消息管理刪除
+var NewsManageDel = require('./routes/NewsManageDel');
+app.use('/NewsManageDel', NewsManageDel);
 
 
 //引入 毛孩領養清單

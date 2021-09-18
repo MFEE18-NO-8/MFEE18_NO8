@@ -101,20 +101,23 @@
             <td class="Title">發佈日期</td>
             <td class="Content">
               <input type="date" class="inputNotOutline" name="ShowStartDate"
-                value="<%= (data[0].ShowStartDate).toLocaleDateString() %>" required>
-              <br>
-              ~
+                value="<%= (data[0].ShowStartDate).toISOString().slice(0, 10) %>" required>
+
+              <br>~
+
               <br>
               <input type="date" class="inputNotOutline" name="ShowEndDate"
-                value="<%= (data[0].ShowEndDate).toLocaleDateString() %>" required>
+                value="<%= (data[0].ShowEndDate).toISOString().slice(0, 10) %>" required>
             </td>
 
             <td class=" Title">狀態</td>
             <td class="Content">
-              <input type="radio" name="NewsState" value="1" <%=(data[0].NewsState=1) ? 'checked' :'' %>>
-              <label for="NewsState">顯示</label>
+              <label for="NewsState">
+                <input type="radio" name="NewsState" value="1" <%=( data[0].NewsState==1 ) ? 'checked' :'' %> >
+                顯示
+              </label>
               <br>
-              <input type="radio" name="NewsState" value="0" <%=(data[0].NewsState=0) ? 'checked' :'' %>>
+              <input type="radio" name="NewsState" value="0" <%=( data[0].NewsState==0 ) ? 'checked' :'' %> >
               <label for=" NewsState">隱藏</label>
             </td>
           </tr>
@@ -139,12 +142,11 @@
                 <input type="button" class="TitleButton" value="刪除檔案">
               </div>
             </td>
-
           </tr>
 
           <tr>
             <td colspan="5" id="MySubmitId">
-              <input type="submit" class="MySubmitSent" value="確認修改">
+              <input type="submit" class="MySubmitSent" value="確認修改" style="width: 120px;">
               <a href="NewsManageList">
                 <input type="submit" class="MySubmitCancel" value="返回">
               </a>
