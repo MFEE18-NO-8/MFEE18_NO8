@@ -3,7 +3,6 @@ var router = express.Router();
 var mysql = require('mysql');
 var pool = require('./lib/db.js');
 
-
 var message = '';
 
 router.get('/', function (req, res, next) {
@@ -17,12 +16,16 @@ router.post('/', function (req, res, next) {
     var articleContent = req.body['articleContent'];
     var articleDate = req.body['articleDate'];
     var displayStatus = req.body['displayStatus'];
+    var uploadImg = req.body['uploadImg']
+
+
 
     pool.query('insert into articlenews set ?', [{  //新增資料
         ArticleTitle: articleTitle,
         ArticleCont: articleContent,
         ArticleDate: articleDate,
         ArticleStatus: displayStatus,
+        ArticleImgId: uploadImg,
     }], function (err, results) {
         if (err) throw err;
         res.redirect('/KnowManageList');
