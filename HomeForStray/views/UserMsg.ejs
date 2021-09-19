@@ -129,13 +129,14 @@
             </tr>
           </thead>
           <tbody>
+            <% for(var i=0; i<data.length; i++) { %>
             <tr>
-                <td><%= (data[0].MsgDate) %></td>
+                <td><%= (data[i].MsgDate).toLocaleDateString() %></td>
                 <td>
-                    <%= (data[0].Msg) %>
+                    <%= (data[i].Msg) %>
                 </td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td><%= (data[1].MsgDate) %> </td>
                 <td>
                     <%= (data[1].Msg) %>
@@ -152,8 +153,8 @@
                 <td>
                     <%= (data[3].Msg) %> 
                 </td>
-            </tr>
-            
+            </tr> -->
+            <% } %>
           </tbody>
       </table>
     </div>
