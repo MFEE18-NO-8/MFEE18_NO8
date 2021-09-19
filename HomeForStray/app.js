@@ -58,10 +58,10 @@ app.use('/NewsManageDel', NewsManageDel);
 
 //引入 毛孩領養清單
 var AdoptList = require('./routes/AdoptList');
-app.use('/AdoptList', AdoptList)
+app.use('/AdoptList', AdoptList);
 //引入 毛孩領養內容
 var AdoptContent = require('./routes/AdoptContent');
-app.use('/AdoptContent', AdoptContent)
+app.use('/AdoptContent', AdoptContent);
 //引入 我追蹤的毛孩
 var UserFollow = require('./routes/UserFollow');
 app.use('/UserFollow', UserFollow)

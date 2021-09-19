@@ -3,7 +3,7 @@ var router =express.Router();
 var mysql =require('mysql'); //含入mysql套件
 var pool=require('./lib/db.js') //含入資料庫連線
 
-var linePerPage = 10;  // 每頁資料筆數
+var linePerPage = 6;  // 每頁資料筆數
 
 
 router.get('/', function (req, res, next) {
