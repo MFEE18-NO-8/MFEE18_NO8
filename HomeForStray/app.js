@@ -29,6 +29,9 @@ app.use('/KnowManageList', KnowManageList);
 // 引入 毛孩知識管理新增
 var KnowManageAdd = require('./routes/KnowManageAdd');
 app.use('/KnowManageAdd', KnowManageAdd);
+// 引入 毛孩知識管理刪除
+var KnowManageDel = require('./routes/KnowManageDel');
+app.use('/KnowManageDel', KnowManageDel);
 // 引入 毛孩知識管理編輯
 var KnowManageEdit = require('./routes/KnowManageEdit');
 app.use('/KnowManageEdit', KnowManageEdit);

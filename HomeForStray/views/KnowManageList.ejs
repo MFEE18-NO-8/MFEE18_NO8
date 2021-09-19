@@ -137,7 +137,6 @@
                     
                     <% for(var i=0; i<data.length; i++) { %>
                         <tr>
-                            <!-- 是否不要抓資料庫序號? -->
                             <th scope="row">
                                 <%= i+1 %>
                             </th>
@@ -156,7 +155,7 @@
                             <td>
                                 <a href="/KnowManageEdit?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>" > <input type="button"
                                         class="ListButtonEdit" value="編輯"></a>
-                                <input type="button" class="ListButtonDele" value="刪除">
+                                <a href="/KnowManageDel?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>"><input type="button" class="ListButtonDele" value="刪除"></a>
                             </td>
                         </tr>
                     <% } %>

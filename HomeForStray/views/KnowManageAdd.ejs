@@ -92,8 +92,8 @@
             <table id="MyTable">
                 <tr>
                     <td class="Title">標題</td>
-                    <td colspan="5" class="Content"><input type="text" id="TitleText" name="articleTitle"
-                            class="inputNotOutline" value="" required></td>
+                    <td colspan="5" class="Content">
+                        <input type="text" id="TitleText" class="inputNotOutline" value="" name="articleTitle" required></td>
                 </tr>
 
                 <tr>
@@ -140,7 +140,7 @@
                 <tr>
                     <td colspan="5" id="MySubmitId">
                         <input type="submit" class="MySubmitSent" value="送出">
-                        <input type="submit" class="MySubmitCancel" value="取消">
+                        <a href="KnowManageList?pageNo=<%=pageNo%> "><input type="submit" class="MySubmitCancel" value="返回"></a>
                     </td>
                 </tr>
 

@@ -3,6 +3,7 @@ var router = express.Router();
 var mysql = require('mysql');
 var pool = require('./lib/db.js');
 
+
 var message = '';
 
 router.get('/', function (req, res, next) {
@@ -27,5 +28,11 @@ router.post('/', function (req, res, next) {
         res.redirect('/KnowManageList');
     });
 });
+
+
+
+
+
+
 
 module.exports = router;
