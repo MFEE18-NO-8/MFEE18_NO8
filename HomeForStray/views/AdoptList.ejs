@@ -68,8 +68,8 @@
     <div class="breadcrumb-block">
         <div class="container-fluid">
             <ol class="breadcrumb pb-0">
-                <li class="breadcrumb-item "><a href="./X_index.html">首頁</a></li>
-                <li class="breadcrumb-item active" aria-current="page">刊登送養</li>
+                <li class="breadcrumb-item "><a href="/">首頁</a></li>
+                <li class="breadcrumb-item active" aria-current="page">毛孩領養</li>
             </ol>
         </div> 
     </div>
@@ -141,94 +141,37 @@
     </div>
     <!-- 清單列表 -->
     <div class="container">
-        <div class="row adopList-group">
-            <div class="col-12 col-md-5">
-                <div class="row adop-img justify-content-center"><img src="../img/dog cat/pexels-ellie-burgin-4777025.jpg" class="img-fluid"></div>
+      <div class="row adopList-group">
+        <% for(var i=0; i<data.length; i++) { %>
+          <div class="col-12 col-md-5">
+              <div class="row adop-img justify-content-center"><img src="../img/dog cat/pexels-ellie-burgin-4777025.jpg" class="img-fluid"></div>
                 <div class="row adop-text">
-                    <div class="col-12 adop-text-con adop-name">嚕嚕</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/paw.png" alt="" class="adopitem-icon">貓</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/品種.png" alt="" class="adopitem-icon">米克斯</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/sex1.png" alt="" class="adopitem-icon">母</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/地區.png" alt="" class="adopitem-icon">台中市</div>
-                    <button class="btnXxl btn-BananaYellow btn-adopitem" onclick="location.href='./AdoptContent.html'">詳細</button>    
+                    <div class="col-12 adop-text-con adop-name"><%= data[i].PetName %></div>
+                    <div class="col-6 adop-text-con"><img src="../img/icon/paw.png" alt="" class="adopitem-icon"><%= data[i].PetSpecies %></div>
+                    <div class="col-6 adop-text-con"><img src="../img/icon/品種.png" alt="" class="adopitem-icon"><%= data[i].PetBreed %></div>
+                    <div class="col-6 adop-text-con"><img src="../img/icon/sex1.png" alt="" class="adopitem-icon"><%= data[i].PetGender %></div>
+                    <div class="col-6 adop-text-con"><img src="../img/icon/地區.png" alt="" class="adopitem-icon"><%= data[i].CityId%></div>
+                    <button class="btnXxl btn-BananaYellow btn-adopitem" ><a href="/AdoptContent?id=<%= data[i].PetId%>&pageNo=<%= pageNo %>">詳細</a></button>    
                 </div>
-            </div>
-            <div class="col-12 col-md-5">
-                <div class="row adop-img justify-content-center"><img src="../img/dog cat/pexels-josh-hild-2820134.jpg" class="img-fluid"></div>
-                <div class="row adop-text">
-                    <div class="col-12 adop-text-con adop-name">嚕嚕</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/paw.png" alt="" class="adopitem-icon">貓</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/品種.png" alt="" class="adopitem-icon">米克斯</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/sex1.png" alt="" class="adopitem-icon">母</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/地區.png" alt="" class="adopitem-icon">台中市</div>
-                    <button class="btnXxl btn-BananaYellow btn-adopitem" onclick="location.href='./AdoptContent.html'">詳細</button>    
-                </div>
-            </div>
-        </div>
-        <div class="row adopList-group">
-            <div class="col-12 col-md-5">
-                <div class="row adop-img justify-content-center"><img src="https://picsum.photos/300/200/?random=1" class="img-fluid"></div>
-                <div class="row adop-text">
-                    <div class="col-12 adop-text-con adop-name">嚕嚕</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/paw.png" alt="" class="adopitem-icon">貓</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/品種.png" alt="" class="adopitem-icon">米克斯</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/sex1.png" alt="" class="adopitem-icon">母</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/地區.png" alt="" class="adopitem-icon">台中市</div>
-                    <button class="btnXxl btn-BananaYellow btn-adopitem" onclick="location.href='./AdoptContent.html'">詳細</button>    
-                </div>
-            </div>
-            <div class="col-12 col-md-5">
-                <div class="row adop-img justify-content-center"><img src="https://picsum.photos/300/200/?random=1" class="img-fluid"></div>
-                <div class="row adop-text">
-                    <div class="col-12 adop-text-con adop-name">嚕嚕</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/paw.png" alt="" class="adopitem-icon">貓</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/品種.png" alt="" class="adopitem-icon">米克斯</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/sex1.png" alt="" class="adopitem-icon">母</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/地區.png" alt="" class="adopitem-icon">台中市</div>
-                    <button class="btnXxl btn-BananaYellow btn-adopitem" onclick="location.href='./AdoptContent.html'">詳細</button>    
-                </div>
-            </div>
-        </div>
-        <div class="row adopList-group">
-            <div class="col-12 col-md-5">
-                <div class="row adop-img justify-content-center"><img src="https://picsum.photos/300/200/?random=1" class="img-fluid"></div>
-                <div class="row adop-text">
-                    <div class="col-12 adop-text-con adop-name">嚕嚕</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/paw.png" alt="" class="adopitem-icon">貓</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/品種.png" alt="" class="adopitem-icon">米克斯</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/sex1.png" alt="" class="adopitem-icon">母</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/地區.png" alt="" class="adopitem-icon">台中市</div>
-                    <button class="btnXxl btn-BananaYellow btn-adopitem" onclick="location.href='./AdoptContent.html'">詳細</button>    
-                </div>
-            </div>
-            <div class="col-12 col-md-5 ">
-                <div class="row adop-img justify-content-center"><img src="https://picsum.photos/300/200/?random=1" class="img-fluid"></div>
-                <div class="row adop-text">
-                    <div class="col-12 adop-text-con adop-name">嚕嚕</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/paw.png" alt="" class="adopitem-icon">貓</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/品種.png" alt="" class="adopitem-icon">米克斯</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/sex1.png" alt="" class="adopitem-icon">母</div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/地區.png" alt="" class="adopitem-icon">台中市</div>
-                    <button class="btnXxl btn-BananaYellow btn-adopitem" onclick="location.href='./AdoptContent.html'">詳細</button>    
-                </div>
-            </div>
-        </div>
+          </div>       
+            <% } %>
+      </div>
     </div>
       <!-- 分頁 -->
   <nav aria-label="Page navigation example ">
     <ul class="pagination justify-content-center">
       <li class="page-item">
-        <a class="page-link" href="#" aria-label="Previous">
+        <a class="page-link" href="/AdoptList?pageNo=<%= (pageNo-1) %>" aria-label="Previous">
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">4</a></li>
-      <li class="page-item"><a class="page-link" href="#">5</a></li>
+      <li class="page-item"><a class="page-link" href="/AdoptList?pageNo=1">1</a></li>
+      <li class="page-item"><a class="page-link" href="/AdoptList?pageNo=2">2</a></li>
+      <li class="page-item"><a class="page-link" href="/AdoptList?pageNo=3">3</a></li>
+      <li class="page-item"><a class="page-link" href="/AdoptList?pageNo=4">4</a></li>
+      <li class="page-item"><a class="page-link" href="/AdoptList?pageNo=5">5</a></li>
       <li class="page-item">
-        <a class="page-link" href="#" aria-label="Next">
+        <a class="page-link" href="/AdoptList?pageNo=<%= (pageNo+1) %>" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
         </a>
       </li>

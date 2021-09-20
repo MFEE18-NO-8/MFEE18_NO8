@@ -65,7 +65,8 @@
         <div class="container-fluid">
             <ol class="breadcrumb pb-0">
                 <li class="breadcrumb-item "><a href="./X_index.html">首頁</a></li>
-                <li class="breadcrumb-item active" aria-current="page">毛孩資訊</li>
+                <li class="breadcrumb-item "><a href="/AdoptList?pageNo=<%= pageNo %>">毛孩領養</a></li>
+                <li class="breadcrumb-item active" aria-current="page">毛孩資訊-<%= data[0].PetName %></li>
             </ol>
         </div> 
     </div>
@@ -118,27 +119,27 @@
                     </div>
                     <div class="row AdoptContent-connection justify-content-left">
                         <ul>
-                            <li>聯絡人：小宋</li>
-                            <li>聯絡電話：0980976266</li>
+                            <li>聯絡人：<%= data[0].ContactPerson %></li>
+                            <li>聯絡電話：<%= data[0].ContactPhone %></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 AdoptContent-right">
                 <div class="row AdoptContent-text">
-                        <h2 class="AdoptName">嚕嚕</h2>
+                        <h2 class="AdoptName"><%= data[0].PetName %></h2>
                         <ul>
-                            <li>品種：牧羊犬</li>
-                            <li>種類：狗</li>
-                            <li>性別：公</li>
-                            <li>毛色：白色混黑</li>
-                            <li>年紀：幼年</li>
-                            <li>結紮：否</li>
+                            <li>品種：<%= data[0].PetBreed %></li>
+                            <li>種類：<%= data[0].PetSpecies %></li>
+                            <li>性別：<%= data[0].PetGender %></li>
+                            <li>毛色：<%= data[0].PetFur %></li>
+                            <li>年紀：<%= data[0].PetAge %></li>
+                            <li>結紮：<%= data[0].Neuter %></li>
                             <li>地區：台中市</li>
                         </ul>
                     <span>
                         <h5>寵物介紹：</h5>
-                        <p>因為搬家房東不同意飼養寵物,故送養</p>
+                        <p><%= data[0].PetDes%></p>
                     </span>
                 </div>
             </div>

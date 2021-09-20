@@ -129,36 +129,32 @@
             </tr>
           </thead>
           <tbody>
+            <% for(var i=0; i<data.length; i++) { %>
             <tr>
-                <td>2021-10-16</td>
+                <td><%= (data[i].MsgDate).toLocaleDateString() %></td>
                 <td>
-                  【刊登送養通知】寵物白白，刊登送養文已送出，待小幫手審核通過後，系統即..
+                    <%= (data[i].Msg) %>
+                </td>
+            </tr>
+            <!-- <tr>
+                <td><%= (data[1].MsgDate) %> </td>
+                <td>
+                    <%= (data[1].Msg) %>
                 </td>
             </tr>
             <tr>
-                <td>2021-09-15 </td>
+                <td><%= (data[2].MsgDate) %> </td>
                 <td>
-                    【系統通知】您已成功完成信箱認證！
+                    <%= (data[2].Msg) %>
                 </td>
             </tr>
             <tr>
-                <td>2021-09-15 </td>
+                <td><%= (data[3].MsgDate) %> </td>
                 <td>
-                    【系統通知】註冊完成通知，歡迎您加入「浪浪有窩」。
+                    <%= (data[3].Msg) %> 
                 </td>
-            </tr>
-            <tr>
-                <td>2021-09-15 </td>
-                <td>
-                    【系統通知】註冊完成通知，歡迎您加入「浪浪有窩」。
-                </td>
-            </tr>
-            <tr>
-                <td>2021-09-15 </td>
-                <td>
-                    【系統通知】註冊完成通知，歡迎您加入「浪浪有窩」。
-                </td>
-            </tr>
+            </tr> -->
+            <% } %>
           </tbody>
       </table>
     </div>

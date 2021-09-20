@@ -88,55 +88,71 @@
 
 
         <div id="MyDiv" class="container">
+            <form action="" id="artileForm" name="artileForm" method="POST" >
+                <table id="MyTable">
+                    <tr>
+                        <td class="Title">標題</td>
+                        <td colspan="5" class="Content"><input type="text" id="TitleText" name="articleTitle"
+                                class="inputNotOutline" value="<%= data[0].ArticleTitle %>">
+                        </td>
+                    </tr>
 
-            <table id="MyTable">
-                <tr>
-                    <td class="Title">標題</td>
-                    <td colspan="5" class="Content"><input type="text" id="TitleText" name="articleTitle" class="inputNotOutline" value="<%= data[0].ArticleTitle %>" >
-                    </td>
-                </tr>
+                    <tr>
+                        <td class="Title">發布日期</td>
+                        <td class="Content"><input type="date"
+                                value="<%= (data[0].ArticleDate).toISOString().slice(0, 10) %>" class="inputNotOutline"
+                                name="articleDate"></td>
 
-                <tr>
-                    <td class="Title">發布日期</td>
-                    <td class="Content"><input type="date" value="<%= data[0].ArticleDate %>" class="inputNotOutline" name="articleDate"></td>
+                        <td class="Title">狀態</td>
+                        <td class="Content">
+                            <input type="radio" name="displayStatus" value="1" <%=(data[0].ArticleStatus=1) ? 'checked'
+                                :'' %>>
+                            <label for="">顯示</label>
+                            <br>
+                            <input type="radio" name="displayStatus" value="0" <%=(data[0].ArticleStatus=0) ? 'checked'
+                                :'' %>>
+                            <label for="">隱藏</label>
+                        </td>
+                    </tr>
 
-                    <td class="Title">狀態</td>
-                    <td class="Content">
-                        <input type="radio" name="displayStatus"  value="1" <%=(data[0].ArticleStatus=1) ? 'checked' :'' %>>
-                        <label for="">顯示</label>
-                        <br>
-                        <input type="radio" name="displayStatus"  value="0" <%=(data[0].ArticleStatus=0) ? 'checked' :'' %>>
-                        <label for="">隱藏</label>
-                    </td>
-                </tr>
+                    <tr>
+                        <td class="Title">內容</td>
+                        <td colspan="5" class="Content">
+                            <textarea rows="10" cols="40" class="inputNotOutline" id="textArea" name="articleContent"
+                                value=""><%= data[0].ArticleCont %></textarea>
+                        </td>
+                    </tr>
 
-                <tr>
-                    <td class="Title">內容</td>
-                    <td colspan="5" class="Content">
-                        <textarea rows="10" cols="40" class="inputNotOutline" id="textArea" name="articleContent" value=""><%= data[0].ArticleCont %></textarea>
-                    </td>
-                </tr>
+                    <tr>
+                        <td class="Title">照片</td>
+                        <td colspan="5" class="Content">
+                            <img src="">
+                            <div id="TitleButtonDiv">
+                                <!-- 隱藏img -->
+                                <img src="" alt="" id="outputImg" height="100" style="display:none">
+                                <!-- 隱藏img end -->
 
-                <tr>
-                    <td class="Title">照片</td>
-                    <td colspan="5" class="Content">
-                        <img src="">
-                        <div id="TitleButtonDiv">
-                            <input type="button" class="TitleButton" value="加入檔案">
-                            <input type="button" class="TitleButton" value="刪除檔案">
-                        </div>
-                    </td>
 
-                </tr>
+                                <label for="uploadImg" class="TitleButton uploadImg">
+                                    <input type="file" style="display:none;" accept=".jpg, .jpeg, .png" id="uploadImg"
+                                        name="uploadImg" onchange="openFile(event)">上傳圖片
+                                </label>
+                                <input type="button" class="TitleButton" value="刪除圖片" id="deleteImg">
+                            </div>
+                        </td>
 
-                <tr>
-                    <td colspan="5" id="MySubmitId">
-                        <input type="submit" class="MySubmitSent" value="送出">
-                        <a href="./X_KnowManageList.html"><input type="submit" class="MySubmitCancel" value="返回"></a>
-                    </td>
-                </tr>
+                    </tr>
 
-            </table>
+                    <tr>
+                        <td colspan="5" id="MySubmitId">
+                            <input type="submit" class="MySubmitSent" value="送出">
+                            <a href="KnowManageList?pageNo=<%=pageNo%> "><input type="submit" class="MySubmitCancel"
+                                    value="返回"></a>
+                        </td>
+                    </tr>
+
+                </table>
+            </form>
         </div>
 
         <!-- footer -->

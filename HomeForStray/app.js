@@ -3,10 +3,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+//上述列 含入套件
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+//上述列 含入controller檔案
 var app = express();
 
 // view engine setup
@@ -29,6 +29,9 @@ app.use('/KnowManageList', KnowManageList);
 // 引入 毛孩知識管理新增
 var KnowManageAdd = require('./routes/KnowManageAdd');
 app.use('/KnowManageAdd', KnowManageAdd);
+// 引入 毛孩知識管理刪除
+var KnowManageDel = require('./routes/KnowManageDel');
+app.use('/KnowManageDel', KnowManageDel);
 // 引入 毛孩知識管理編輯
 var KnowManageEdit = require('./routes/KnowManageEdit');
 app.use('/KnowManageEdit', KnowManageEdit);
@@ -59,11 +62,11 @@ app.use('/NewsManageDel', NewsManageDel);
 
 
 //引入 毛孩領養清單
-var AdopList = require('./routes/AdopList');
-app.use('/AdopList', AdopList)
+var AdoptList = require('./routes/AdoptList');
+app.use('/AdoptList', AdoptList);
 //引入 毛孩領養內容
 var AdoptContent = require('./routes/AdoptContent');
-app.use('/AdoptContent', AdoptContent)
+app.use('/AdoptContent', AdoptContent);
 //引入 我追蹤的毛孩
 var UserFollow = require('./routes/UserFollow');
 app.use('/UserFollow', UserFollow)
