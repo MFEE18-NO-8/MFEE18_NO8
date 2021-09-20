@@ -89,37 +89,41 @@
 
 
     <div id="ListDiv" class="container">
-      <table id="MyListTable" style="border-collapse:separate; border-spacing:10px 10px;">
-        <tr class="MyListTr">
-          <td>標題：</td>
-          <td colspan="3"><input type="text" id="ListText" class="inputNotOutline" value="">
-          </td>
-        </tr>
+      <form action="/S" method="post">
+        <table id="MyListTable" style="border-collapse:separate; border-spacing:10px 10px;">
+          <tr class="MyListTr">
+            <td>標題：</td>
+            <td colspan="3">
+              <input type="text" id="ListText" class="inputNotOutline" name="NewsTitle" value="">
+            </td>
+          </tr>
 
-        <tr class="MyListTr">
-          <td>發布日期：</td>
-          <td><input type="date" class="inputNotOutline"></td>
-          <td id="tilde">~</td>
-          <td><input type="date" class="inputNotOutline"></td>
-        </tr>
+          <tr class="MyListTr">
+            <td>發布日期：</td>
+            <td><input type="date" class="inputNotOutline"></td>
+            <td id="tilde">~</td>
+            <td><input type="date" class="inputNotOutline"></td>
+          </tr>
 
-        <tr class="MyListTr">
-          <td>狀態：</td>
-          <td><input type="radio" name="Listdisplay">
-            <label for="html" class="MyListLabel">顯示</label>
-            <input type="radio" name="Listdisplay">
-            <label for="html" class="MyListLabel">隱藏
-            </label>
-          </td>
-        </tr>
+          <tr class="MyListTr">
+            <td>狀態：</td>
+            <td><input type="radio" name="Listdisplay">
+              <label for="html" class="MyListLabel">顯示</label>
+              <input type="radio" name="Listdisplay">
+              <label for="html" class="MyListLabel">隱藏
+              </label>
+            </td>
+          </tr>
 
-        <tr class="MyListTr">
-          <td colspan="4">
-            <input type="submit" class="ListSubmit" value="查詢">
-            <input type="submit" class="ListSubmit" value="清除">
-          </td>
-        </tr>
-      </table>
+          <tr class="MyListTr">
+            <td colspan="4">
+              <a href="/s">
+                <input type="submit" class="ListSubmit" value="查詢"></a>
+              <input type="reset" class="ListSubmit" value="清除">
+            </td>
+          </tr>
+        </table>
+      </form>
     </div>
 
     <div id="MyblueTable" class="container">

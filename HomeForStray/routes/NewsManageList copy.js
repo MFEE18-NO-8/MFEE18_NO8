@@ -5,8 +5,10 @@ var pool = require('./lib/db.js');   //含入資料庫連線
 
 var linePerPage = 10;  // 每頁資料筆數
 
-/* GET home page. */
+/* 按照条件查询 */
 router.get('/', function (req, res, next) {
+
+
     var pageNo = parseInt(req.query.pageNo);  //取得傳送的目前頁數
     if (isNaN(pageNo) || pageNo < 1) {  //如果沒有傳送參數,設目前頁數為第1頁
         pageNo = 1;
@@ -23,10 +25,10 @@ router.get('/', function (req, res, next) {
         });
     });
 });
-// 
-// 查詢
-// 
-router.post('/s', function (req, res) {
+
+
+
+router.post('/search', function (req, res) {
     var NewsTitle = req.body.NewsTitle;
     var age = req.body.s_age;
 
@@ -34,16 +36,16 @@ router.post('/s', function (req, res) {
 
     if (NewsTitle) {
         sql += " where NewsTitle like '%" + NewsTitle + "%' ";
-        //     if (age) {
-        //         sql += " and Age=" + age + " ";
-        //     }
-        // } else {
-        //     if (age) {
-        //         sql += " where Age=" + age + " ";
-        //     }
+        if (age) {
+            sql += " and Age=" + age + " ";
+        }
+    } else {
+        if (age) {
+            sql += " where Age=" + age + " ";
+        }
     }
     // sql = sql.replace("and","where");
-    pool.query(sql, function (err, rows) {
+    db.query(sql, function (err, rows) {
         console.log(rows);
         if (err) {
             res.end("查詢失敗：", err)
@@ -52,7 +54,6 @@ router.post('/s', function (req, res) {
         }
     });
 });
-
 module.exports = router;
 
 
