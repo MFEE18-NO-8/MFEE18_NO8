@@ -80,6 +80,12 @@ app.use('/UserMsg', UserMsg)
 var Foster = require('./routes/Foster');
 app.use('/Foster', Foster)
 
+//引入 刊登送養審核 檢視
+var FosterManageEdit = require('./routes/FosterManageEdit');
+app.use('/FosterManageEdit', FosterManageEdit);
+//引入 刊登送養審核 查詢
+var FosterManageList = require('./routes/FosterManageList');
+app.use('/FosterManageList', FosterManageList);
 
 
 // catch 404 and forward to error handler
