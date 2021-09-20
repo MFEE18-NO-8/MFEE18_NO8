@@ -13,11 +13,13 @@ router.get('/', function (req, res, next) {
         pageNo = 1;
     }
 
+    
     pool.query('select count(*) as cnt from PostForAdopt', function (err, results) {  //讀取資料總筆數
         if (err) throw err;
         var totalLine = results[0].cnt;  //資料總筆數
         var totalPage = Math.ceil(totalLine / linePerPage);  //總頁數
-        pool.query('select * from PostForAdopt order by PetId desc limit ?, ?', [(pageNo - 1) * linePerPage, linePerPage], function (err, results) {  //根據目前頁數讀取資料
+        
+        pool.query('select * from PostForAdopt,CityDatas,PetImgDatas where  PostForAdopt.CityId=CityDatas.CityId and PostForAdopt.PetId=PetImgDatas.PetId order by PostForAdopt.PetId asc limit ?, ?', [(pageNo - 1) * linePerPage, linePerPage], function (err, results) {  //根據目前頁數讀取資料
             if (err) throw err;
             res.render('AdoptList', { data: results, pageNo: pageNo, totalLine: totalLine, totalPage: totalPage, linePerPage: linePerPage });
         });     

@@ -83,28 +83,28 @@
                             <span class="adopList-icon"><img src="../img/icon/placeholder.png" alt=""></span>
                             <select class="form-control" id="exampleFormControlSelect1">
                                 <option>地區</option>
-                                <option>台北市</option>
-                                <option>基隆市</option>
-                                <option>新北市</option>
-                                <option>宜蘭縣</option>
-                                <option>桃園市</option>
-                                <option>新竹市</option>
-                                <option>新竹縣</option>
-                                <option>苗栗縣</option>
-                                <option>台中市</option>
-                                <option>彰化縣</option>
-                                <option>南投縣</option>
-                                <option>嘉義市</option>
-                                <option>嘉義縣</option>
-                                <option>雲林縣</option>
-                                <option>台南市</option>
-                                <option>高雄市</option>
-                                <option>澎湖縣</option>
-                                <option>金門縣</option>
-                                <option>屏東縣</option>
-                                <option>台東縣</option>
-                                <option>花蓮縣</option>
-                                <option>連江縣</option>
+                                <option name="">台北市</option>
+                                <option name="">基隆市</option>
+                                <option name="">新北市</option>
+                                <option name="">宜蘭縣</option>
+                                <option name="">桃園市</option>
+                                <option name="">新竹市</option>
+                                <option name="">新竹縣</option>
+                                <option name="">苗栗縣</option>
+                                <option name="">台中市</option>
+                                <option name="">彰化縣</option>
+                                <option name="">南投縣</option>
+                                <option name="">嘉義市</option>
+                                <option name="">嘉義縣</option>
+                                <option name="">雲林縣</option>
+                                <option name="">台南市</option>
+                                <option name="">高雄市</option>
+                                <option name="">澎湖縣</option>
+                                <option name="">金門縣</option>
+                                <option name="">屏東縣</option>
+                                <option name="">台東縣</option>
+                                <option name="">花蓮縣</option>
+                                <option name="">連江縣</option>
                             </select>
                         </div>
                     </div>
@@ -144,13 +144,13 @@
       <div class="row adopList-group">
         <% for(var i=0; i<data.length; i++) { %>
           <div class="col-12 col-md-5">
-              <div class="row adop-img justify-content-center"><img src="../img/dog cat/pexels-ellie-burgin-4777025.jpg" class="img-fluid"></div>
+              <div class="row adop-img justify-content-center"><img src="<%=data[i].PetImgURL%>" class="img-fluid"></div>
                 <div class="row adop-text">
                     <div class="col-12 adop-text-con adop-name"><%= data[i].PetName %></div>
                     <div class="col-6 adop-text-con"><img src="../img/icon/paw.png" alt="" class="adopitem-icon"><%= data[i].PetSpecies %></div>
                     <div class="col-6 adop-text-con"><img src="../img/icon/品種.png" alt="" class="adopitem-icon"><%= data[i].PetBreed %></div>
                     <div class="col-6 adop-text-con"><img src="../img/icon/sex1.png" alt="" class="adopitem-icon"><%= data[i].PetGender %></div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/地區.png" alt="" class="adopitem-icon"><%= data[i].CityId%></div>
+                    <div class="col-6 adop-text-con"><img src="../img/icon/地區.png" alt="" class="adopitem-icon"><%= data[i].CityName%></div>
                     <button class="btnXxl btn-BananaYellow btn-adopitem" ><a href="/AdoptContent?id=<%= data[i].PetId%>&pageNo=<%= pageNo %>">詳細</a></button>    
                 </div>
           </div>       
