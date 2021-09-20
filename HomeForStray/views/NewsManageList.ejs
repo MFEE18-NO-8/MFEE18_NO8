@@ -191,7 +191,29 @@
 
 
     </div>
-
+    <!-- 分頁 -->
+    <nav aria-label="Page navigation example ">
+      <ul class="pagination justify-content-center">
+        <!-- 上一頁 -->
+        <li class="page-item">
+          <a class="page-link" href="/NewsManageList?pageNo=<%= (pageNo-1) %>" title="上一頁"" aria-label=" Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <% for(var i=1; i <=totalPage; i++) { %>
+          <li class="page-item"><a class="page-link" href="/NewsManageList?pageNo=<%= i%>">
+              <%= i%>
+            </a>
+          </li>
+          <% } %>
+            <!-- 下一頁 -->
+            <li class="page-item">
+              <a class="page-link" href="/NewsManageList?pageNo=<%= (pageNo+1) %>" title="下一頁" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+      </ul>
+    </nav>
     <!-- footer -->
     <footer class="container-fluid footer">
       <div class="row justify-content-center w-100 m-0">
