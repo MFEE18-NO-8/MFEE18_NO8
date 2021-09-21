@@ -22,7 +22,6 @@ router.get('/', function (req, res, next) {
             [(pageNo - 1) * linePerPage, linePerPage],
             function (err, results) {  //根據目前頁數讀取資料
                 if (err) throw err;
-                
                 res.render('KnowManageList', {
                     data: results,
                     pageNo: pageNo,
@@ -30,8 +29,6 @@ router.get('/', function (req, res, next) {
                     totalPage: totalPage,
                     linePerPage: linePerPage
                 });
-
-
             });
     });
 });
