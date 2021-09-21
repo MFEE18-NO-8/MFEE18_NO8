@@ -27,4 +27,34 @@ router.get('/', function (req, res, next) {
 
 });
 
+router.post('/', function (req, res) {  // app.js 已掛好路徑 post & get 會成對 >>
+
+    // 1. 取出傳入的參數 
+
+    // 2. 把參數丟到資料庫查詢
+    pool.query("select * from PostForAdopt,CityDatas,PetImgDatas WHERE (CityId=? OR ?='') AND (PetGender=? OR ?='' ) AND (PetSpecies=? OR ?='' ) ",
+        // MySQL 能單個欄位查詢
+
+        [
+            req.body.CityId,
+            req.body.CityId,
+            req.body.PetGender,
+            req.body.PetGender,
+            req.body.PetSpecies,
+            req.body.PetSpecies,
+        ],
+
+        function (err, results) {
+            if (err) throw err;
+
+
+            // 3. 把查詢結果作為參數傳給render
+            res.render('AdoptList', { data: results, });
+
+        })
+
+    // res.render('FosterManageList', { PetName: req.body.PetName }); // req.params找網址 req.query 找?後面參數 req.body 表單
+
+});
+
 module.exports = router;
