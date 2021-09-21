@@ -90,35 +90,38 @@
 
 
         <div id="ListDiv" class="container">
-            <table id="MyListTable" style="border-collapse:separate; border-spacing:10px 10px;">
-                <tr class="MyListTr">
-                    <td>標題：</td>
-                    <td colspan="3"><input type="text" id="ListText" class="inputNotOutline" value="">
-                    </td>
-                </tr>
+            <form action="" method="POST">
+                <table id="MyListTable" style="border-collapse:separate; border-spacing:10px 10px;">
+                    <tr class="MyListTr">
+                        <td>標題：</td>
+                        <td colspan="3"><input type="text" id="ListText" class="inputNotOutline" value=""
+                                name="ListText">
+                        </td>
+                    </tr>
 
-                <tr class="MyListTr">
-                    <td>發布日期：</td>
-                    <td><input type="date" class="inputNotOutline"></td>
-                </tr>
+                    <tr class="MyListTr">
+                        <td>發布日期：</td>
+                        <td><input type="date" class="inputNotOutline" name="ListDate"></td>
+                    </tr>
 
-                <tr class="MyListTr">
-                    <td>狀態：</td>
-                    <td><input type="radio" name="Listdisplay">
-                        <label for="html" class="MyListLabel">顯示</label>
-                        <input type="radio" name="Listdisplay">
-                        <label for="html" class="MyListLabel">隱藏
-                        </label>
-                    </td>
-                </tr>
+                    <tr class="MyListTr">
+                        <td>狀態：</td>
+                        <td><input type="radio" name="ListDisplay" value="1">
+                            <label for="html" class="MyListLabel">顯示</label>
+                            <input type="radio" name="ListDisplay" value="0">
+                            <label for="html" class="MyListLabel">隱藏
+                            </label>
+                        </td>
+                    </tr>
 
-                <tr class="MyListTr">
-                    <td colspan="4">
-                        <input type="submit" class="ListSubmit" value="查詢">
-                        <input type="submit" class="ListSubmit" value="清除">
-                    </td>
-                </tr>
-            </table>
+                    <tr class="MyListTr">
+                        <td colspan="4">
+                            <input type="submit" class="ListSubmit" value="查詢">
+                            <input type="submit" class="ListSubmit" value="清除">
+                        </td>
+                    </tr>
+                </table>
+            </form>
         </div>
 
         <div id="MyblueTable" class="container">
@@ -134,7 +137,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     <% for(var i=0; i<data.length; i++) { %>
                         <tr>
                             <th scope="row">
@@ -148,22 +151,24 @@
                             </td>
                             <td>
                                 <% var statusStr='' ; %>
-                                <% var status=data[i].ArticleStatus; //宣告status=1或0 %>
-                                <% (status=1) ? statusStr='顯示' : statusStr='隱藏' //判斷status=1，則statusStr為顯示，反之為隱藏 ; %>
-                                <%= statusStr %>
+                                    <% var status=data[i].ArticleStatus; //宣告status=1或0 %>
+                                        <% (status=1) ? statusStr='顯示' : statusStr='隱藏' //判斷status=1，則statusStr為顯示，反之為隱藏
+                                            ; %>
+                                            <%= statusStr %>
                             </td>
                             <td>
-                                <a href="/KnowManageEdit?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>" > <input type="button"
-                                        class="ListButtonEdit" value="編輯"></a>
-                                <a href="/KnowManageDel?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>"><input type="button" class="ListButtonDele" value="刪除"></a>
+                                <a href="/KnowManageEdit?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>"> <input
+                                        type="button" class="ListButtonEdit" value="編輯"></a>
+                                <a href="/KnowManageDel?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>"><input
+                                        type="button" class="ListButtonDele" value="刪除"></a>
                             </td>
                         </tr>
-                    <% } %>
+                        <% } %>
                 </tbody>
                 </tr>
             </table>
         </div>
-
+        <!-- 分頁 -->
         <nav aria-label="Page navigation example ">
             <ul class="pagination justify-content-center">
                 <li class="page-item">
@@ -172,7 +177,7 @@
                     </a>
                 </li>
                 <% for(var i=1; i <=totalPage; i++) { %>
-                    <li class="page-item"><a class="page-link" href="/<%= i%>">
+                    <li class="page-item"><a class="page-link" href="/KnowManageList?pageNo=<%= i %>">
                             <%= i%>
                         </a></li>
                     <% } %>

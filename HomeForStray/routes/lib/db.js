@@ -6,6 +6,7 @@ var pool = mysql.createPool({
     host: 'localhost',
     database: 'HomeForStray',
     waitForConnections: true,
-    connectionLimit: 10
+    connectionLimit: 10,
+    multipleStatements:true //同時執行兩個語句
 });
 module.exports = pool;
