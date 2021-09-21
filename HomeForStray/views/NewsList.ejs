@@ -50,7 +50,7 @@
     <div class="nav">
       <!-- 漢堡選單 -->
       <ul class="menu burgar-menu">
-        <li><a href="./X_index.html">首頁</a></li>
+        <li><a href="./">首頁</a></li>
         <li><a href="./AdopList.html">毛孩領養</a></li>
         <li><a href="./Foster.html">刊登送養</a></li>
         <li><a href="./KnowList.html">毛孩知識</a></li>
@@ -111,18 +111,22 @@
             <tr>
               <!-- 編號 -->
               <th scope="row">
-                <%=sn %>
+                <a href="/NewsContent?id=<%= data[i].NewsId %>&pageNo=<%= pageNo %>">
+                  <%=sn %>
+                </a>
               </th>
-              <td> <a href="NewsContent.html">
-                  <%= data[i].NewsTitle %>
-                </a> </td>
               <td>
-                <%= (data[i].ShowStartDate).toLocaleDateString() %>
-
+                <a href="/NewsContent?id=<%= data[i].NewsId %>&pageNo=<%= pageNo %>">
+                  <%= data[i].NewsTitle %>
+                </a>
               </td>
-
-
+              <td>
+                <a href="/NewsContent?id=<%= data[i].NewsId %>&pageNo=<%= pageNo %>">
+                  <%= (data[i].ShowStartDate).toLocaleDateString() %>
+                </a>
+              </td>
             </tr>
+
 
             <% sn++; %>
               <% } %>
@@ -130,25 +134,27 @@
       </tbody>
     </table>
   </div>
-
   <!-- 分頁 -->
   <nav aria-label="Page navigation example ">
     <ul class="pagination justify-content-center">
+      <!-- 上一頁 -->
       <li class="page-item">
-        <a class="page-link" href="#" aria-label="Previous">
+        <a class="page-link" href="/NewsList?pageNo=<%= (pageNo-1) %>" title="上一頁"" aria-label=" Previous">
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">4</a></li>
-      <li class="page-item"><a class="page-link" href="#">5</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
+      <% for(var i=1; i <=totalPage; i++) { %>
+        <li class="page-item"><a class="page-link" href="/NewsList?pageNo=<%= i%>">
+            <%= i%>
+          </a>
+        </li>
+        <% } %>
+          <!-- 下一頁 -->
+          <li class="page-item">
+            <a class="page-link" href="/NewsList?pageNo=<%= (pageNo+1) %>" title="下一頁" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
     </ul>
   </nav>
   <!-- footer -->

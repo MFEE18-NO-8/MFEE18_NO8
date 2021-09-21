@@ -23,6 +23,35 @@ router.get('/', function (req, res, next) {
         });
     });
 });
+// 
+// 查詢
+// 
+router.post('/s', function (req, res) {
+    var NewsTitle = req.body.NewsTitle;
+    var age = req.body.s_age;
+
+    var sql = "select * from News ";
+
+    if (NewsTitle) {
+        sql += " where NewsTitle like '%" + NewsTitle + "%' ";
+        //     if (age) {
+        //         sql += " and Age=" + age + " ";
+        //     }
+        // } else {
+        //     if (age) {
+        //         sql += " where Age=" + age + " ";
+        //     }
+    }
+    // sql = sql.replace("and","where");
+    pool.query(sql, function (err, rows) {
+        console.log(rows);
+        if (err) {
+            res.end("查詢失敗：", err)
+        } else {
+            res.render("NewsManageList", { title: 'Express', datas: rows, NewsTitle: NewsTitle, s_age: age });
+        }
+    });
+});
 
 module.exports = router;
 

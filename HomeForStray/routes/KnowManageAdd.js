@@ -13,19 +13,29 @@ router.get('/', function (req, res, next) {
 router.post('/', function (req, res, next) {
     var pageNo = parseInt(req.query.pageNo);
     var articleTitle = req.body['articleTitle'];  //取得輸入的類型
-    var displayStatus = req.body['displayStatus'];
     var articleContent = req.body['articleContent'];
+    var articleDate = req.body['articleDate'];
+    var displayStatus = req.body['displayStatus'];
+    var uploadImg = req.body['uploadImg']
+
 
 
     pool.query('insert into articlenews set ?', [{  //新增資料
         ArticleTitle: articleTitle,
-        ArticleDate: new Date(),
-        ArticleStatus: displayStatus,
         ArticleCont: articleContent,
+        ArticleDate: articleDate,
+        ArticleStatus: displayStatus,
+        ArticleImgId: uploadImg,
     }], function (err, results) {
         if (err) throw err;
         res.redirect('/KnowManageList');
     });
 });
+
+
+
+
+
+
 
 module.exports = router;

@@ -281,7 +281,10 @@
         width: 1000px;
     }
 
-
+    .FosterTd {
+       padding-left: 10px;
+       padding-right: 10px;
+    }
 
     :root {
         --BananaYellow: #f8e4ac; /*標題的標籤色、button-黃、前台分頁箭頭鈕、block-黃(註冊介面、領養資訊、毛孩知識)*/
@@ -609,6 +612,8 @@
         background-color: var(--seaFoam);
         margin-top: 0px;
         box-sizing: border-box;
+        /* position: absolute;
+        bottom: 0; */
     }
     .copyright {
         text-align: center;
