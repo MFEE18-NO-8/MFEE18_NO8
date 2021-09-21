@@ -612,9 +612,9 @@
         background-color: var(--seaFoam);
         margin-top: 0px;
         box-sizing: border-box;
-        position: absolute;
+        /* position: absolute;
         bottom: 0;
-    }
+    } */
     .copyright {
         text-align: center;
         height: 100%;
