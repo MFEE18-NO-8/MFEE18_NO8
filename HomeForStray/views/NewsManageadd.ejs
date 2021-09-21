@@ -127,28 +127,37 @@
           </tr>
 
           <tr>
-            <td class="Title">照片</td>
+            <td class="Title">附件</td>
             <td colspan="5" class="Content">
               <div id="TitleButtonDiv">
-                <label for="uploadFile" class="TitleButton">
-                  <input type="file" style="display:none;" id="uploadFile" name="">上傳檔案
-                </label>
-                <input type="button" class="TitleButton" value="刪除檔案">
+
+                <form action="/uploadFile" method="POST" enctype="multipart/form-data">
+                  <!-- 隱藏img -->
+                  <!-- <img src="" alt="" id="outputImg" height="100" style="display:none"> -->
+                  <!-- 隱藏img end -->
+                  <label for="uploadFile" class="TitleButton uploadImg">
+                    <input type="file" style="display:none;" accept="" id="uploadFile" name="uploadFile">選擇檔案
+                  </label>
+                  <br>
+                  <input type="file" name="uploadFile2">
+                  <br>
+                  <input type="submit" class="TitleButton" value="上傳檔案">
+
               </div>
             </td>
+      </form>
+      </tr>
 
-          </tr>
+      <tr>
+        <td colspan="5" id="MySubmitId">
+          <input type="submit" class="MySubmitSent" value="送出">
+          <a href="NewsManageList">
+            <input type="submit" class="MySubmitCancel" value="返回">
+          </a>
+        </td>
+      </tr>
 
-          <tr>
-            <td colspan="5" id="MySubmitId">
-              <input type="submit" class="MySubmitSent" value="送出">
-              <a href="NewsManageList">
-                <input type="submit" class="MySubmitCancel" value="返回">
-              </a>
-            </td>
-          </tr>
-
-        </table>
+      </table>
       </form>
     </div>
 
@@ -169,6 +178,24 @@
           $('body').toggleClass('burgar-menu-show');
         });
       });
+
+
+      // 顯示 outputImg
+      function openFile(event) {
+        var input = event.target; //取得上傳檔案
+        var reader = new FileReader(); //建立FileReader物件
+
+        reader.readAsDataURL(input.files[0]); //以.readAsDataURL將上傳檔案轉換為base64字串
+
+        reader.onload = function () { //FileReader取得上傳檔案後執行以下內容
+          var dataURL = reader.result; //設定變數dataURL為上傳圖檔的base64字串
+          $('#outputImg').attr('src', dataURL).show(); //將img的src設定為dataURL並顯示
+        };
+      }
+
+
+
+
     </script>
 
 
