@@ -17,7 +17,7 @@ router.get('/', function (req, res, next) {
         var totalLine = results[0].cnt;  //資料總筆數
         var totalPage = Math.ceil(totalLine / linePerPage);  //總頁數
 
-        pool.query('select * from articlenews order by ArticleId desc limit ?, ?;',
+        pool.query('select * from articlenews order by ArticleId desc limit ?, ?',
          [(pageNo - 1) * linePerPage, linePerPage],
           function (err, results) {  //根據目前頁數讀取資料
             if (err) throw err;
@@ -31,13 +31,5 @@ router.get('/', function (req, res, next) {
     });
 });
 
-
 module.exports = router;
 
-
-
-
-
-
-
-module.exports = router;
