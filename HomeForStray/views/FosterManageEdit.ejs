@@ -202,12 +202,21 @@
             </tr>
 
 
-            <tr>
-                <td class="ViewTitle">照片</td>
-                <td class="ContentView">
-                    <img class="ImgEdit" src="../img/dog cat/pexels-anel-rossouw-2558605.jpg">
-                </td>
-            </tr>
+            <td class="Title">照片</td>
+            <td colspan="5" class="Content">
+                <img src="">
+                <div id="TitleButtonDiv">
+                    <!-- 隱藏img -->
+                    <img src="" alt="" id="outputImg" height="100" style="display:none">
+                    <!-- 隱藏img end -->
+
+                    <label for="uploadImg" class="TitleButton uploadImg">
+                        <input type="file" style="display:none;" accept=".jpg, .jpeg, .png" id="uploadImg"
+                            name="uploadImg" onchange="openFile(event)">上傳圖片
+                    </label>
+                    <input type="button" class="TitleButton" value="刪除圖片" id="deleteImg">
+                </div>
+            </td>
             <tr>
                 <td class="ViewTitle">狀態</td>
                 <td class="ContentView">

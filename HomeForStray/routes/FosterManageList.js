@@ -6,7 +6,7 @@ var pool = require('./lib/db.js') //含入資料庫連線
 
 router.get('/', function (req, res) {  //網頁剛進入 走GET路由 "為了顯示空的頁面"
 
-    res.render('FosterManageList', { data: [] }); // 給data空陣列才不會把下表格讀不到length屬性壞掉
+    res.render('FosterManageList', { data: [] }); // 給data空陣列才不會把讀不到length屬性導致壞掉
 
 });
 
