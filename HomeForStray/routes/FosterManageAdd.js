@@ -13,7 +13,6 @@ router.get('/', function (req, res) {  //網頁剛進入 走GET路由 "為了顯
 router.post('/', function (req, res) {
 
     pool.query('INSERT INTO `postforadopt` ' + //js語法 >> "單引號" 加 "+"" 換行再用 "單引號" << 可縮排程式碼 原理:字串+字串  '12' = '1''2' = '1' + '2'
-
         ' (`PetName`,`MemberId`,`AdoptDate`,`PetSpecies`,`PetBreed`,`BodyType`,`PetFur`,`PetAge`,`PetGender`,`Neuter`,`Microchip`,`CityId`,`ContactPerson`,`ContactPhone`,`PetDes`,`AdoptState`) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?)',
 
         [  // 新增資料

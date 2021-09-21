@@ -32,7 +32,6 @@ router.post('/', function (req, res) {  // app.js 已掛好路徑 post & get 會
     // 2. 把參數丟到資料庫查詢
     pool.query("select * from postforadopt WHERE (PetName=? OR ?='') AND (AdoptDate>=? OR ?='' ) AND (AdoptDate<=? OR ?='' ) AND (AdoptState=? OR ?='' ) ",
         // MySQL 能單個欄位查詢
-
         [
             req.body.PetName,
             req.body.PetName,
@@ -58,6 +57,29 @@ router.post('/', function (req, res) {  // app.js 已掛好路徑 post & get 會
 
     // console.log(req.body.FosterDateStart)
     // console.log(req.body.FosterDateEnd)
+});
+
+
+//刪除資料
+router.post('/', function (req, res) {
+
+    // DELETE statment
+    let sql = 'DELETE FROM `postforadopt` WHERE `postforadopt`.`PetId` = ?';
+
+    // delete a row with PetId 
+    pool.query(sql, PetId,
+
+        function (err, results) {
+
+            onsole.log(req.body.PetId)
+            if (err) throw err;
+            console.log(results)
+
+            // res.redirect('/FosterManageList');
+
+        });
+
+    // console.log(req.body.PetId)
 });
 
 

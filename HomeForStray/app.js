@@ -88,7 +88,6 @@ var FosterManageList = require('./routes/FosterManageList');
 app.use('/FosterManageList', FosterManageList);
 //引入 刊登送養審核 新增
 var FosterManageAdd = require('./routes/FosterManageAdd');
-const router = require('./routes/FosterManageAdd');
 app.use('/FosterManageAdd', FosterManageAdd);
 
 

@@ -120,7 +120,7 @@
                     <tr class="MyListTr">
                         <td colspan="4">
                             <input type="submit" class="ListSubmit" value="查詢">
-                            <input type="submit" class="ListSubmit" value="清除">
+                            <button type="submit" class="ListSubmit" value="">清除</button>
                         </td>
                     </tr>
                 </table>
@@ -143,27 +143,30 @@
                 </thead>
                 <tbody>
                     <% for(var i=0; i < data.length ; i++) { %>
-                        <tr>
-                            <th scope="row">
-                                <%= i+1 %>
-                            </th>
-                            <td>
-                                <%= data[i].PetName %>
-                            </td>
-                            <td>
-                                <%= (data[i].AdoptDate).toLocaleDateString() %>
-                            </td>
+                        <form action="" method="POST">
+                            <tr>
+                                <th scope="row">
+                                    <%= i+1 %>
+                                </th>
+                                <td>
+                                    <%= data[i].PetName %>
+                                </td>
+                                <td>
+                                    <%= (data[i].AdoptDate).toLocaleDateString() %>
+                                </td>
 
-                            <!-- <td>
+                                <!-- <td>
                                
                             </td> -->
-                            <td>
-                                <%= data[i].AdoptState %>
-                            </td>
-                            <td><input type="button" class="ListButtonEdit" value="編輯">
-                                <input type="button" class="ListButtonDele" value="刪除">
-                            </td>
-                        </tr>
+                                <td>
+                                    <%= data[i].AdoptState %>
+                                </td>
+
+                                <td><input type="button" class="ListButtonEdit" name="EditAdopt" value="編輯">
+                                    <input type="submit" class="ListButtonDele" name="DeleAdopt" value="刪除">
+                                </td>
+                            </tr>
+                        </form>
                         <% } %>
 
                             <!-- <tr>
