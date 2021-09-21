@@ -6,7 +6,7 @@ var pool = require('./lib/db.js') //含入資料庫連線
 
 router.get('/', function (req, res) {  //網頁剛進入 走GET路由 "為了顯示空的頁面"
 
-    res.render('FosterManageAdd', { data: [] }); // 給data空陣列
+    res.render('FosterManageAdd');
 
 });
 
@@ -33,13 +33,14 @@ router.post('/', function (req, res) {
             req.body.ContactPhone,
             req.body.PetDes,
             req.body.AdoptState,
-
         ],
 
         function (err, results) {
-            console.log(results);
+
+            // console.log(results);
 
             if (err) throw err;
+
             res.redirect('/FosterManageList');
         });
 
