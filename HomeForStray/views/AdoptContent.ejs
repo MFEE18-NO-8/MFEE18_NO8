@@ -86,13 +86,13 @@
                         <!-- 圖片 -->
                         <div class="carousel-inner">
                             <div class="carousel-item AdoptContent-carousel-item active" data-bs-interval="10000">
-                                <img src="../img/dog cat/pexels-ellie-burgin-4777025.jpg" class="d-block w-100 AdoptContent-img" alt="...">
+                                <img src="<%=data[0].PetImgURL%>" class="d-block w-100 AdoptContent-img" alt="...">
                             </div>
                             <div class="carousel-item AdoptContent-carousel-item">
-                                <img src="../img/dog cat/pexels-anel-rossouw-2558605.jpg" class="d-block w-100 AdoptContent-img" alt="...">
+                                <img src="<%=data[0].PetImgURL%>" class="d-block w-100 AdoptContent-img" alt="...">
                             </div>
                             <div class="carousel-item AdoptContent-carousel-item">
-                                <img src="../img/dog cat/pexels-josh-hild-2820134.jpg" class="d-block w-100 AdoptContent-img" alt="...">
+                                <img src="<%=data[0].PetImgURL%>" class="d-block w-100 AdoptContent-img" alt="...">
                             </div>
                         </div>
                         <!-- 上一頁 下一頁 -->
@@ -135,7 +135,7 @@
                             <li>毛色：<%= data[0].PetFur %></li>
                             <li>年紀：<%= data[0].PetAge %></li>
                             <li>結紮：<%= data[0].Neuter %></li>
-                            <li>地區：台中市</li>
+                            <li>地區：<%= data[0].CityName %></li>
                         </ul>
                     <span>
                         <h5>寵物介紹：</h5>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KnowManageList</title>
+    <title>FosterManageList</title>
 
     <!-- jquery -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="stylesheets/style.css">
     <title>浪浪有窩</title>
 
-
 </head>
 
 <body>
@@ -32,7 +31,7 @@
     <body>
         <!--navbar-->
         <div class="container-fluid header">
-            <a href="#" class="logoImg navbar-brand">
+            <a href="./X_index.html" class="logoImg navbar-brand">
                 <img src="../img/Logo/改I2 2.png" alt="" class="logo">
                 <img src="../img/Logo/字.png" alt="" class="logo-text">
             </a>
@@ -74,9 +73,9 @@
         <div class="breadcrumb-block">
             <div class="container-fluid ">
                 <ol class="breadcrumb pb-0 ">
-                    <li class="breadcrumb-item "><a href="#">首頁</a></li>
+                    <li class="breadcrumb-item "><a href="./X_index.html">首頁</a></li>
                     <li class="breadcrumb-item active" aria-current="page">後臺管理</li>
-                    <li class="breadcrumb-item active" aria-current="page">毛孩知識管理</li>
+                    <li class="breadcrumb-item active" aria-current="page">刊登送養審核</li>
                     <li class="breadcrumb-item active" aria-current="page">查詢</li>
                 </ol>
             </div>
@@ -84,32 +83,36 @@
 
 
         <div id="MyDivTitleList" class="container">
-            <h2 class="title-lg">毛孩知識管理</h2>
+            <h2 class="title-lg">刊登送養審核</h2>
         </div>
 
-
-
         <div id="ListDiv" class="container">
-            <form action="" method="POST">
+
+            <form action="/FosterManageList" method="POST">
                 <table id="MyListTable" style="border-collapse:separate; border-spacing:10px 10px;">
                     <tr class="MyListTr">
-                        <td>標題：</td>
-                        <td colspan="3"><input type="text" id="ListText" class="inputNotOutline" value=""
-                                name="ListText">
+                        <td>寵物暱稱：</td>
+                        <td colspan="3"><input type="text" id="ListText" class="inputNotOutline" name="PetName"
+                                value="">
                         </td>
                     </tr>
 
                     <tr class="MyListTr">
-                        <td>發布日期：</td>
-                        <td><input type="date" class="inputNotOutline" name="ListDate"></td>
+                        <td>送審日期(起)：</td>
+                        <td><input type="date" name="FosterDateStart" class="inputNotOutline"></td>
+                    </tr>
+                    <tr class="MyListTr">
+                        <td>送審日期(迄)：</td>
+                        <td><input type="date" name="FosterDateEnd" class="inputNotOutline"></td>
                     </tr>
 
                     <tr class="MyListTr">
                         <td>狀態：</td>
-                        <td><input type="radio" name="ListDisplay" value="1">
-                            <label for="html" class="MyListLabel">顯示</label>
-                            <input type="radio" name="ListDisplay" value="0">
-                            <label for="html" class="MyListLabel">隱藏
+                        <td>
+                            <input type="radio" name="AdoptState" value="1" checked>
+                            <label for="html" class="MyListLabel">已批准</label>
+                            <input type="radio" name="AdoptState" value="0">
+                            <label for="html" class="MyListLabel">未批准
                             </label>
                         </td>
                     </tr>
@@ -117,7 +120,7 @@
                     <tr class="MyListTr">
                         <td colspan="4">
                             <input type="submit" class="ListSubmit" value="查詢">
-                            <input type="submit" class="ListSubmit" value="清除">
+                            <button type="submit" class="ListSubmit" value="">清除</button>
                         </td>
                     </tr>
                 </table>
@@ -125,70 +128,81 @@
         </div>
 
         <div id="MyblueTable" class="container">
-            <a href="/KnowManageAdd %>"><button class="btnLg btn-lightOrange btnAdd">新增</button></a>
+            <a href="/FosterManageAdd"><button class="btnLg btn-lightOrange btnAdd">新增</button></a>
+
             <table class="table table-hover">
                 <thead>
                     <tr class="UserFoster-thead">
-                        <th class="ThPadding">序號</th>
-                        <th>標題</th>
-                        <th>發布日期</th>
+                        <th>序號</th>
+                        <th>寵物暱稱</th>
+                        <th>送審日期</th>
+                        <!-- <th>審核通過時間</th> -->
                         <th>狀態</th>
                         <th>管理</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <% for(var i=0; i < data.length ; i++) { %>
+                        <form action="" method="POST">
+                            <tr>
+                                <th scope="row">
+                                    <%= i+1 %>
+                                </th>
+                                <td>
+                                    <%= data[i].PetName %>
+                                </td>
+                                <td>
+                                    <%= (data[i].AdoptDate).toLocaleDateString() %>
+                                </td>
 
-                    <% for(var i=0; i<data.length; i++) { %>
-                        <tr>
-                            <th scope="row">
-                                <%= i+1 %>
-                            </th>
-                            <td>
-                                <%= data[i].ArticleTitle %>
-                            </td>
-                            <td>
-                                <%= (data[i].ArticleDate).toLocaleDateString() %>
-                            </td>
-                            <td>
-                                <% var statusStr='' ; %>
-                                    <% var status=data[i].ArticleStatus; //宣告status=1或0 %>
-                                        <% (status=1) ? statusStr='顯示' : statusStr='隱藏' //判斷status=1，則statusStr為顯示，反之為隱藏
-                                            ; %>
-                                            <%= statusStr %>
-                            </td>
-                            <td>
-                                <a href="/KnowManageEdit?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>"> <input
-                                        type="button" class="ListButtonEdit" value="編輯"></a>
-                                <a href="/KnowManageDel?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>"><input
-                                        type="button" class="ListButtonDele" value="刪除"></a>
-                            </td>
-                        </tr>
+                                <!-- <td>
+                               
+                            </td> -->
+                                <td>
+                                    <%= data[i].AdoptState %>
+                                </td>
+
+                                <td><input type="button" class="ListButtonEdit" name="EditAdopt" value="編輯">
+                                    <input type="submit" class="ListButtonDele" name="DeleAdopt" value="刪除">
+                                </td>
+                            </tr>
+                        </form>
                         <% } %>
+
+                            <!-- <tr>
+                        <td>02</td>
+                        <td>可可</td>
+                        <td>2021-10-18</td>
+                        <td>2021-10-19</td>
+                        <td>已批准</td>
+                        <td><input type="button" class="ListButtonEdit" value="編輯">
+                            <input type="button" class="ListButtonDele" value="刪除">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>03</td>
+                        <td>黑黑</td>
+                        <td>2021-10-19</td>
+                        <td>2021-10-20</td>
+                        <td>已批准</td>
+                        <td><input type="button" class="ListButtonEdit" value="編輯">
+                            <input type="button" class="ListButtonDele" value="刪除">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>04</td>
+                        <td>白白</td>
+                        <td>2021-10-21 </td>
+                        <td></td>
+                        <td>未批准</td>
+                        <td><input type="button" class="ListButtonEdit" value="編輯">
+                            <input type="button" class="ListButtonDele" value="刪除">
+                        </td>
+                    </tr> -->
                 </tbody>
                 </tr>
             </table>
         </div>
-        <!-- 分頁 -->
-        <nav aria-label="Page navigation example ">
-            <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <% for(var i=1; i <=totalPage; i++) { %>
-                    <li class="page-item"><a class="page-link" href="/KnowManageList?pageNo=<%= i %>">
-                            <%= i%>
-                        </a></li>
-                    <% } %>
-
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-            </ul>
-        </nav>
 
         <!-- footer -->
         <footer class="container-fluid footer">
@@ -200,7 +214,6 @@
             </div>
         </footer>
 
-
         <script>
             // 漢堡選單
             $(document).ready(function () {
@@ -208,10 +221,7 @@
                     $('body').toggleClass('burgar-menu-show');
                 });
             });
-
-
         </script>
-
 
 
     </body>

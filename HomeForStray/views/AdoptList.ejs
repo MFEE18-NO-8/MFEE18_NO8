@@ -50,7 +50,6 @@
                 <img src="../img/icon/user.png" alt="" class="user-icon">
             </button>
             <div class="dropdown-menu dropdown-menu-right user-menu" >
-              <div class="user-img"></div>
                 <ul>
                   <li>某某某</li>
                   <li><a href="./UserEdit.html">會員資料</a></li>
@@ -77,63 +76,75 @@
     <div class="container">
         <div class="row">
             <div class="col col-md-8 search-adopList-left">
+              <form action="/AdoptList" method="post">
                 <div class="row">
                     <div class="col">
                         <div class="form-group adopList-form-group">
                             <span class="adopList-icon"><img src="../img/icon/placeholder.png" alt=""></span>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select class="form-control" id="exampleFormControlSelect1" name="CityId">
                                 <option>地區</option>
-                                <option>台北市</option>
-                                <option>基隆市</option>
-                                <option>新北市</option>
-                                <option>宜蘭縣</option>
-                                <option>桃園市</option>
-                                <option>新竹市</option>
-                                <option>新竹縣</option>
-                                <option>苗栗縣</option>
-                                <option>台中市</option>
-                                <option>彰化縣</option>
-                                <option>南投縣</option>
-                                <option>嘉義市</option>
-                                <option>嘉義縣</option>
-                                <option>雲林縣</option>
-                                <option>台南市</option>
-                                <option>高雄市</option>
-                                <option>澎湖縣</option>
-                                <option>金門縣</option>
-                                <option>屏東縣</option>
-                                <option>台東縣</option>
-                                <option>花蓮縣</option>
-                                <option>連江縣</option>
+                                <option value="1">台北市</option>
+                                <option value="2">基隆市</option>
+                                <option value="3">新北市</option>
+                                <option value="4">宜蘭縣</option>
+                                <option value="5">宜蘭市</option>
+                                <option value="6">桃園市</option>
+                                <option value="7">新竹縣</option>
+                                <option value="8">新竹市</option>
+                                <option value="9">苗栗縣</option>
+                                <option value="10">苗栗市</option>
+                                <option value="11">台中市</option>
+                                <option value="12">彰化縣</option>
+                                <option value="13">彰化市</option>
+                                <option value="14">南投縣</option>
+                                <option value="15">南投市</option>
+                                <option value="16">雲林縣</option>
+                                <option value="17">嘉義縣</option>
+                                <option value="18">嘉義市</option>
+                                <option value="19">台南市</option>
+                                <option value="20">高雄市</option>
+                                <option value="21">屏東縣</option>
+                                <option value="22">屏東市</option>
+                                <option value="23">台東縣</option>
+                                <option value="24">台東市</option>
+                                <option value="25">花蓮縣</option>
+                                <option value="26">花蓮市</option>
+                                <option value="27">澎湖縣</option>
+                                <option value="28">金門縣</option>
+                                <option value="29">連江縣</option>
+                                <option value="30">蘭嶼</option>
+                                <option value="31">馬祖</option>
+                                <option value="32">綠島</option>
                             </select>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group adopList-form-group">
                             <span class="adopList-icon"><img src="../img/icon/gender.png" alt=""></span>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select class="form-control" id="exampleFormControlSelect1" name="PetGender">
                               <option>性別</option>
-                              <option>男</option>
-                              <option>女</option>
+                              <option value="公">公</option>
+                              <option value="母">母</option>
                             </select>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group adopList-form-group">
                             <span class="adopList-icon"><img src="../img/icon/paw.png" alt=""></span>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select class="form-control" id="exampleFormControlSelect1" name="PetSpecies">
                               <option>種類</option>
-                              <option>狗</option>
-                              <option>貓</option>
-                              <option>其他</option>
+                              <option value="狗">狗</option>
+                              <option value="貓">貓</option>
+                              <option value="其他">其他</option>
                             </select>
                         </div>
                     </div>
+                  </div>
+                  <div class="row justify-content-center">
+                    <input type="submit" class="btnSm btn-BananaYellow btn-adopList" value="搜尋"></input>
+                  </div>
                 </div>
-                <div class="row justify-content-center">
-                    <button class="btnSm btn-BananaYellow btn-adopList">搜尋</button>
-                </div>
-            </div>
+              </form>
         </div>
         <div class="row justify-content-end">
             <div class="col col-md-7 adopList-search-txt">此區的送養動物均由送養人刊登，所有送養人電話均經過簡訊驗證，如有任何領養問題請直接與送養人聯繫。領養前請謹慎考慮，不隨意棄養。</div>
@@ -144,13 +155,13 @@
       <div class="row adopList-group">
         <% for(var i=0; i<data.length; i++) { %>
           <div class="col-12 col-md-5">
-              <div class="row adop-img justify-content-center"><img src="../img/dog cat/pexels-ellie-burgin-4777025.jpg" class="img-fluid"></div>
+              <div class="row adop-img justify-content-center"><img src="<%=data[i].PetImgURL%>" class="img-fluid"></div>
                 <div class="row adop-text">
                     <div class="col-12 adop-text-con adop-name"><%= data[i].PetName %></div>
                     <div class="col-6 adop-text-con"><img src="../img/icon/paw.png" alt="" class="adopitem-icon"><%= data[i].PetSpecies %></div>
                     <div class="col-6 adop-text-con"><img src="../img/icon/品種.png" alt="" class="adopitem-icon"><%= data[i].PetBreed %></div>
                     <div class="col-6 adop-text-con"><img src="../img/icon/sex1.png" alt="" class="adopitem-icon"><%= data[i].PetGender %></div>
-                    <div class="col-6 adop-text-con"><img src="../img/icon/地區.png" alt="" class="adopitem-icon"><%= data[i].CityId%></div>
+                    <div class="col-6 adop-text-con"><img src="../img/icon/地區.png" alt="" class="adopitem-icon"><%= data[i].CityName%></div>
                     <button class="btnXxl btn-BananaYellow btn-adopitem" ><a href="/AdoptContent?id=<%= data[i].PetId%>&pageNo=<%= pageNo %>">詳細</a></button>    
                 </div>
           </div>       
