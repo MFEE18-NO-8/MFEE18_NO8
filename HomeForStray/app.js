@@ -71,20 +71,28 @@ app.use('/NewsManageDel', NewsManageDel);
 
 
 
-
 //引入 毛孩領養清單
 var AdoptList = require('./routes/AdoptList');
 app.use('/AdoptList', AdoptList);
 //引入 毛孩領養內容
 var AdoptContent = require('./routes/AdoptContent');
 app.use('/AdoptContent', AdoptContent);
+
+
+
+//引入 我的送養文
+var UserFoster = require('./routes/UserFoster');
+app.use('/UserFoster', UserFoster)
 //引入 我追蹤的毛孩
 var UserFollow = require('./routes/UserFollow');
 app.use('/UserFollow', UserFollow)
-
-//引入 通知訊息
+//引入 我的通知訊息
 var UserMsg = require('./routes/UserMsg');
 app.use('/UserMsg', UserMsg)
+//引入 我的會員資料編輯
+var UserEdit = require('./routes/UserEdit');
+app.use('/UserEdit', UserEdit)
+
 
 
 //引入 刊登送養
