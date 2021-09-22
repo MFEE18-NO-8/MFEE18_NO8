@@ -26,150 +26,176 @@
 </head>
 
 
-  <body>
-    <!--navbar-->
-    <div class="container-fluid header">
-      <a href="#" class="logoImg navbar-brand">
-        <img src="../img/Logo/改I2 2.png" alt="" class="logo">
-        <img src="../img/Logo/字.png" alt="" class="logo-text">
+<body>
+  <!--navbar-->
+  <div class="container-fluid header">
+    <a href="#" class="logoImg navbar-brand">
+      <img src="../img/Logo/改I2 2.png" alt="" class="logo">
+      <img src="../img/Logo/字.png" alt="" class="logo-text">
+    </a>
+    <div class="nav">
+      <!-- 漢堡選單 -->
+      <ul class="menu burgar-menu">
+        <li><a href="/">首頁</a></li>
+        <li><a href="./AdopList.html">毛孩領養</a></li>
+        <li><a href="./Foster.html">刊登送養</a></li>
+        <li><a href="./KnowList.html">毛孩知識</a></li>
+      </ul>
+      <a href="#" class="hamBar burgar-menu">
+        <i>
+          <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
+        </i>
       </a>
-      <div class="nav">
-        <!-- 漢堡選單 -->
-        <ul class="menu burgar-menu">
-          <li><a href="/">首頁</a></li>
-          <li><a href="./AdopList.html">毛孩領養</a></li>
-          <li><a href="./Foster.html">刊登送養</a></li>
-          <li><a href="./KnowList.html">毛孩知識</a></li>
-        </ul>
-        <a href="#" class="hamBar burgar-menu">
-          <i>
-            <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
-          </i>
-        </a>
-        <!-- navbar-user -->
-        <div class="btn-group">
-          <button class="btn  btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="../img/icon/user.png" alt="" class="user-icon">
-          </button>
-          <div class="dropdown-menu dropdown-menu-right user-menu">
-            <div class="user-img"></div>
-            <ul>
-              <li>某某某</li>
-              <li><a href="./UserEdit.html">會員資料</a></li>
-              <li><a href="./UserFoster.html">我的送養文</a></li>
-              <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
-              <li><a href="./UserMsg.html">通知</a></li>
-              <li><a href="./FindMe.html">登出</a></li>
-            </ul>
-          </div>
+      <!-- navbar-user -->
+      <div class="btn-group">
+        <button class="btn  btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="../img/icon/user.png" alt="" class="user-icon">
+        </button>
+        <div class="dropdown-menu dropdown-menu-right user-menu">
+          <div class="user-img"></div>
+          <ul>
+            <li>某某某</li>
+            <li><a href="./UserEdit.html">會員資料</a></li>
+            <li><a href="./UserFoster.html">我的送養文</a></li>
+            <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
+            <li><a href="./UserMsg.html">通知</a></li>
+            <li><a href="./FindMe.html">登出</a></li>
+          </ul>
         </div>
-
       </div>
+
     </div>
+  </div>
 
-    <div class="breadcrumb-block">
-      <div class="container-fluid ">
-        <ol class="breadcrumb pb-0 ">
-          <li class="breadcrumb-item "><a href="#">首頁</a></li>
-          <li class="breadcrumb-item active" aria-current="page">後臺管理</li>
-          <li class="breadcrumb-item active" aria-current="page">最新消息管理</li>
-          <li class="breadcrumb-item active" aria-current="page">新增</li>
-        </ol>
-      </div>
+  <div class="breadcrumb-block">
+    <div class="container-fluid ">
+      <ol class="breadcrumb pb-0 ">
+        <li class="breadcrumb-item "><a href="#">首頁</a></li>
+        <li class="breadcrumb-item active" aria-current="page">後臺管理</li>
+        <li class="breadcrumb-item active" aria-current="page">最新消息管理</li>
+        <li class="breadcrumb-item active" aria-current="page">新增</li>
+      </ol>
     </div>
+  </div>
 
 
-    <div id="MyDivTitle" class="container">
-      <h2 class="title-lg">最新消息管理</h2>
-    </div>
+  <div id="MyDivTitle" class="container">
+    <h2 class="title-lg">最新消息管理</h2>
+  </div>
 
 
-    <div id="MyDiv" class="container">
-      <form action="" id="News" name="News" method="POST">
-        <table id="MyTable">
-          <tr>
-            <td class="Title">標題</td>
-            <td colspan="5" class="Content">
-              <input type="text" id="TitleText" class="inputNotOutline" value="" name="NewsTitle" required>
-            </td>
-          </tr>
+  <div id="MyDiv" class="container">
+    <form action="" id="News" name="News" method="POST">
+      <table id="MyTable">
+        <tr>
+          <td class="Title">標題</td>
+          <td colspan="5" class="Content">
+            <input type="text" id="TitleText" class="inputNotOutline" value="" name="NewsTitle" required>
+          </td>
+        </tr>
 
-          <tr>
-            <td class="Title">發布日期</td>
-            <td class="Content">
-              <input type="date" class="inputNotOutline" name="ShowStartDate" required>
-              <br>
-              ~
-              <br>
-              <input type="date" class="inputNotOutline" name="ShowEndDate" required>
-            </td>
+        <tr>
+          <td class="Title">發布日期</td>
+          <td class="Content">
+            <input type="date" class="inputNotOutline" name="ShowStartDate" required>
+            <br>
+            ~
+            <br>
+            <input type="date" class="inputNotOutline" name="ShowEndDate" required>
+          </td>
 
-            <td class=" Title">狀態</td>
-            <td class="Content">
-              <label for="NewsState_1">
-                <input type="radio" id="NewsState_1" name="NewsState" value="1">
-                顯示</label>
-              <br>
-              <label for="NewsState_0">
-                <input type="radio" id="NewsState_0" name="NewsState" value="0">
-                隱藏</label>
-            </td>
-          </tr>
+          <td class=" Title">狀態</td>
+          <td class="Content">
+            <label for="NewsState_1">
+              <input type="radio" id="NewsState_1" name="NewsState" value="1">
+              顯示</label>
+            <br>
+            <label for="NewsState_0">
+              <input type="radio" id="NewsState_0" name="NewsState" value="0">
+              隱藏</label>
+          </td>
+        </tr>
 
-          <tr>
-            <td class="Title">內容</td>
-            <td colspan="5" class="Content">
-              <textarea name="NewsContent" id="textArea" class="inputNotOutline" cols="40" rows="10"
-                required></textarea>
-            </td>
-          </tr>
+        <tr>
+          <td class="Title">內容</td>
+          <td colspan="5" class="Content">
+            <textarea name="NewsContent" id="textArea" class="inputNotOutline" cols="40" rows="10" required></textarea>
+          </td>
+        </tr>
 
-          <tr>
-            <td class="Title">照片</td>
-            <td colspan="5" class="Content">
-              <div id="TitleButtonDiv">
-                <label for="uploadFile" class="TitleButton">
-                  <input type="file" style="display:none;" id="uploadFile" name="">上傳檔案
+        <tr>
+          <td class="Title">附件</td>
+          <td colspan="5" class="Content">
+            <div id="TitleButtonDiv">
+
+              <form action="/uploadFile" method="POST" enctype="multipart/form-data">
+                <!-- 隱藏img -->
+                <!-- <img src="" alt="" id="outputImg" height="100" style="display:none"> -->
+                <!-- 隱藏img end -->
+                <label for="uploadFile" class="TitleButton uploadImg">
+                  <input type="file" style="display:none;" accept="" id="uploadFile" name="uploadFile">選擇檔案
                 </label>
-                <input type="button" class="TitleButton" value="刪除檔案">
-              </div>
-            </td>
+                <!-- <br>
+                  <input type="file" name="uploadFile2">
+                  <br> -->
+                <input type="submit" class="TitleButton" value="上傳檔案">
 
-          </tr>
+            </div>
+          </td>
+    </form>
+    </tr>
 
-          <tr>
-            <td colspan="5" id="MySubmitId">
-              <input type="submit" class="MySubmitSent" value="送出">
-              <a href="NewsManageList">
-                <input type="submit" class="MySubmitCancel" value="返回">
-              </a>
-            </td>
-          </tr>
+    <tr>
+      <td colspan="5" id="MySubmitId">
+        <input type="submit" class="MySubmitSent" value="送出">
+        <a href="NewsManageList">
+          <input type="submit" class="MySubmitCancel" value="返回">
+        </a>
+      </td>
+    </tr>
 
-        </table>
-      </form>
-    </div>
+    </table>
+    </form>
+  </div>
 
-    <!-- footer -->
-    <footer class="container-fluid footer">
-      <div class="row justify-content-center w-100 m-0">
-        <div class="col-10 col-md-10 copyright">
-          本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，僅就一般正常情理做審核，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。
-          <br>如有任何建議或合作請與我們聯絡 <br>© 2021 Copyright .tw By MFEE18-No.8
-        </div>
+  <!-- footer -->
+  <footer class="container-fluid footer">
+    <div class="row justify-content-center w-100 m-0">
+      <div class="col-10 col-md-10 copyright">
+        本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，僅就一般正常情理做審核，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。
+        <br>如有任何建議或合作請與我們聯絡 <br>© 2021 Copyright .tw By MFEE18-No.8
       </div>
-    </footer>
+    </div>
+  </footer>
 
-    <script>
-      // 漢堡選單
-      $(document).ready(function () {
-        $('.burgar-menu').on('click', function (e) {
-          $('body').toggleClass('burgar-menu-show');
-        });
+  <script>
+    // 漢堡選單
+    $(document).ready(function () {
+      $('.burgar-menu').on('click', function (e) {
+        $('body').toggleClass('burgar-menu-show');
       });
-    </script>
+    });
 
 
-  </body>
+    // 顯示 outputImg
+    function openFile(event) {
+      var input = event.target; //取得上傳檔案
+      var reader = new FileReader(); //建立FileReader物件
+
+      reader.readAsDataURL(input.files[0]); //以.readAsDataURL將上傳檔案轉換為base64字串
+
+      reader.onload = function () { //FileReader取得上傳檔案後執行以下內容
+        var dataURL = reader.result; //設定變數dataURL為上傳圖檔的base64字串
+        $('#outputImg').attr('src', dataURL).show(); //將img的src設定為dataURL並顯示
+      };
+    }
+
+
+
+
+  </script>
+
+
+</body>
 
 </html>

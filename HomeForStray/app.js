@@ -22,6 +22,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+//引入multer
+const multer = require('multer');
+
 
 // 引入 毛孩知識管理清單
 var KnowManageList = require('./routes/KnowManageList');
@@ -68,26 +71,46 @@ app.use('/NewsManageDel', NewsManageDel);
 
 
 
-
 //引入 毛孩領養清單
 var AdoptList = require('./routes/AdoptList');
 app.use('/AdoptList', AdoptList);
 //引入 毛孩領養內容
 var AdoptContent = require('./routes/AdoptContent');
 app.use('/AdoptContent', AdoptContent);
+
+
+
+//引入 我的送養文
+var UserFoster = require('./routes/UserFoster');
+app.use('/UserFoster', UserFoster)
 //引入 我追蹤的毛孩
 var UserFollow = require('./routes/UserFollow');
 app.use('/UserFollow', UserFollow)
-
-//引入 通知訊息
+//引入 我的通知訊息
 var UserMsg = require('./routes/UserMsg');
 app.use('/UserMsg', UserMsg)
+//引入 我的會員資料編輯
+var UserEdit = require('./routes/UserEdit');
+app.use('/UserEdit', UserEdit)
+
 
 
 //引入 刊登送養
 var Foster = require('./routes/Foster');
+//const multer = require('multer');
 app.use('/Foster', Foster)
 
+//上傳檔案
+
+var upload = multer({ dest: 'upload/' });//設置檔案存放路徑
+app.post('/uploadFile', upload.single('uploadFile'), function (req, res) {
+  res.send("上傳成功");
+})
+app.get("/", function (req, res) {
+  res.sendfile(__dirname + 'NewsManageList.html', function (err) {
+    if (err) res.send(404);
+  })
+})
 //引入 刊登送養審核 檢視
 var FosterManageEdit = require('./routes/FosterManageEdit');
 app.use('/FosterManageEdit', FosterManageEdit);

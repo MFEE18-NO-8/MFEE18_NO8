@@ -17,6 +17,7 @@ router.post('/', function (req, res, next) {
     var ShowEndDate = req.body['ShowEndDate'];
     var NewsState = req.body['NewsState'];
     var NewsContent = req.body['NewsContent'];
+    var NewsFileName = req.body['NewsFileName'];
 
 
     pool.query('insert into News set ?', [{  //新增資料
@@ -26,10 +27,14 @@ router.post('/', function (req, res, next) {
         ModifyDate: new Date(),
         NewsState: NewsState,
         NewsContent: NewsContent,
-    }], function (err, results) {
-        if (err) throw err;
-        res.redirect('/NewsManageList');
-    });
+    }]
+        // , pool.query('insert into NewsFileName set ?', [{  //新增資料
+        //     NewsFileName: NewsFileName,
+        // }]
+        , function (err, results) {
+            if (err) throw err;
+            res.redirect('/NewsManageList');
+        });
 });
 
 module.exports = router;
