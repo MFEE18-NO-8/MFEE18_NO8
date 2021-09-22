@@ -89,10 +89,13 @@
                                 <img src="<%=data[0].PetImgURL%>" class="d-block w-100 AdoptContent-img" alt="...">
                             </div>
                             <div class="carousel-item AdoptContent-carousel-item">
-                                <img src="<%=data[0].PetImgURL%>" class="d-block w-100 AdoptContent-img" alt="...">
+                                <img src="<%=data[1].PetImgURL%>" class="d-block w-100 AdoptContent-img" alt="...">
                             </div>
                             <div class="carousel-item AdoptContent-carousel-item">
-                                <img src="<%=data[0].PetImgURL%>" class="d-block w-100 AdoptContent-img" alt="...">
+                                <img src="<%=data[2].PetImgURL%>" class="d-block w-100 AdoptContent-img" alt="...">
+                            </div>
+                            <div class="carousel-item AdoptContent-carousel-item">
+                                <img src="<%=data[3].PetImgURL%>" class="d-block w-100 AdoptContent-img" alt="...">
                             </div>
                         </div>
                         <!-- 上一頁 下一頁 -->
@@ -134,7 +137,12 @@
                             <li>性別：<%= data[0].PetGender %></li>
                             <li>毛色：<%= data[0].PetFur %></li>
                             <li>年紀：<%= data[0].PetAge %></li>
-                            <li>結紮：<%= data[0].Neuter %></li>
+                            <!-- 結紮判斷未完成 -->
+                            <%if(data[0].Neuter=0){%>
+                                <li>結紮：未結紮</li>                        
+                            <%}else if(data[0].Neuter=1){%>
+                                <li>結紮：已結紮</li>                        
+                            <%}%>
                             <li>地區：<%= data[0].CityName %></li>
                         </ul>
                     <span>
