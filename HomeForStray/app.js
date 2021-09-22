@@ -81,12 +81,9 @@ app.use('/AdoptContent', AdoptContent);
 //引入 我追蹤的毛孩
 var UserFollow = require('./routes/UserFollow');
 app.use('/UserFollow', UserFollow)
-
 //引入 通知訊息
 var UserMsg = require('./routes/UserMsg');
 app.use('/UserMsg', UserMsg)
-
-
 //引入 刊登送養
 var Foster = require('./routes/Foster');
 //const multer = require('multer');
@@ -114,16 +111,14 @@ var FosterManageAdd = require('./routes/FosterManageAdd');
 app.use('/FosterManageAdd', FosterManageAdd);
 
 //引入 會員註冊資料 新增
-var Register = require('./routes/Register');
-const router = require('./routes/Register');
-app.use('/Register', Register)
-
+// var Register = require('./routes/Register');
+// app.use('/Register', Register)
 // 引入 會員註冊資料編輯
-var Register = require('./routes/Register');
-app.use('/Register', Register);
+// var Register = require('./routes/Register');
+// app.use('/Register', Register);
 // 引入 會員註冊資料刪除
-var Register = require('./routes/Register');
-app.use('/Register', Register);
+// var Register = require('./routes/Register');
+// app.use('/Register', Register);
 
 
 
@@ -142,5 +137,8 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+app.use(express.static(__dirname + '/public'));
 
 module.exports = app;
