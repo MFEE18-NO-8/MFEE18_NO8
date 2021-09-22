@@ -31,10 +31,10 @@
         <div class="nav">
         <!-- 漢堡選單 -->
         <ul class="menu burgar-menu">
-          <li><a href="./X_index.html">首頁</a></li>
-          <li><a href="./AdopList.html">毛孩領養</a></li>
-          <li><a href="./Foster.html">刊登送養</a></li>
-          <li><a href="./KnowList.html">毛孩知識</a></li>
+          <li><a href="/index">首頁</a></li>
+          <li><a href="/AdoptList">毛孩領養</a></li>
+          <li><a href="/Foster">刊登送養</a></li>
+          <li><a href="/KnowList">毛孩知識</a></li>
         </ul>
         <a href="#" class="hamBar burgar-menu">
           <i>
@@ -47,14 +47,13 @@
                 <img src="../img/icon/user.png" alt="" class="user-icon">
             </button>
             <div class="dropdown-menu dropdown-menu-right user-menu" >
-              <div class="user-img"></div>
                 <ul>
-                  <li><a href="#">某某某</a></li>
-                  <li><a href="#">會員資料</a></li>
-                  <li><a href="#">我的送養文</a></li>
-                  <li><a href="#">追蹤的毛孩</a></li>
-                  <li><a href="#">通知</a></li>
-                  <li><a href="#">登出</a></li>
+                    <li>某某某</li>
+                    <li><a href="/UserEdit">會員資料</a></li>
+                    <li><a href="/UserFoster">我的送養文</a></li>
+                    <li><a href="/UserFollow">追蹤的毛孩</a></li>
+                    <li><a href="/UserMsg">通知</a></li>
+                    <li><a href="#">登出</a></li>
                 </ul>
             </div>
           </div>
@@ -89,10 +88,13 @@
                                 <img src="<%=data[0].PetImgURL%>" class="d-block w-100 AdoptContent-img" alt="...">
                             </div>
                             <div class="carousel-item AdoptContent-carousel-item">
-                                <img src="<%=data[0].PetImgURL%>" class="d-block w-100 AdoptContent-img" alt="...">
+                                <img src="<%=data[1].PetImgURL%>" class="d-block w-100 AdoptContent-img" alt="...">
                             </div>
                             <div class="carousel-item AdoptContent-carousel-item">
-                                <img src="<%=data[0].PetImgURL%>" class="d-block w-100 AdoptContent-img" alt="...">
+                                <img src="<%=data[2].PetImgURL%>" class="d-block w-100 AdoptContent-img" alt="...">
+                            </div>
+                            <div class="carousel-item AdoptContent-carousel-item">
+                                <img src="<%=data[3].PetImgURL%>" class="d-block w-100 AdoptContent-img" alt="...">
                             </div>
                         </div>
                         <!-- 上一頁 下一頁 -->
@@ -134,7 +136,12 @@
                             <li>性別：<%= data[0].PetGender %></li>
                             <li>毛色：<%= data[0].PetFur %></li>
                             <li>年紀：<%= data[0].PetAge %></li>
-                            <li>結紮：<%= data[0].Neuter %></li>
+                            <!-- 結紮判斷未完成 -->
+                            <%if(data[0].Neuter=0){%>
+                                <li>結紮：未結紮</li>                        
+                            <%}else if(data[0].Neuter=1){%>
+                                <li>結紮：已結紮</li>                        
+                            <%}%>
                             <li>地區：<%= data[0].CityName %></li>
                         </ul>
                     <span>

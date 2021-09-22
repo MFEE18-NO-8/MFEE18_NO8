@@ -26,9 +26,7 @@
 </head>
 
 
-
 <body>
-
     <!--navbar-->
     <div class="container-fluid header">
         <a href="#" class="logoImg navbar-brand">
@@ -81,19 +79,19 @@
         </div>
     </div>
 
-
     <div id="MyDivTitle" class="container">
         <h2 class="title-lg">毛孩知識管理</h2>
     </div>
 
 
     <div id="MyDiv" class="container">
-        <form action="" id="artileForm" name="artileForm" method="POST" enctype="multipart/form-data">
+        <form action="" id="artileForm" method="POST">
             <table id="MyTable">
                 <tr>
                     <td class="Title">標題</td>
                     <td colspan="5" class="Content">
-                        <input type="text" id="TitleText" class="inputNotOutline" value="" name="articleTitle" required></td>
+                        <input type="text" id="TitleText" class="inputNotOutline" name="articleTitle" required>
+                    </td>
                 </tr>
 
                 <tr>
@@ -102,7 +100,7 @@
 
                     <td class="Title">狀態</td>
                     <td class="Content">
-                        <input type="radio" name="displayStatus" value="1" required>
+                        <input type="radio" name="displayStatus" value="1" >
                         <label for="html">顯示</label>
                         <br>
                         <input type="radio" name="displayStatus" value="0">
@@ -126,7 +124,6 @@
                             <img src="" alt="" id="outputImg" height="100" style="display:none">
                             <!-- 隱藏img end -->
 
-
                             <label for="uploadImg" class="TitleButton uploadImg">
                                 <input type="file" style="display:none;" accept=".jpg, .jpeg, .png" id="uploadImg"
                                     name="uploadImg" onchange="openFile(event)">上傳圖片
@@ -140,7 +137,9 @@
                 <tr>
                     <td colspan="5" id="MySubmitId">
                         <input type="submit" class="MySubmitSent" value="送出">
-                        <a href="KnowManageList?pageNo=<%=pageNo%> "><input type="submit" class="MySubmitCancel" value="返回"></a>
+                        <a href="KnowManageList">
+                            <input type="button" class="MySubmitCancel" value="返回">
+                        </a>
                     </td>
                 </tr>
 
