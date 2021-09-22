@@ -98,17 +98,15 @@ app.use('/FosterManageList', FosterManageList);
 var FosterManageAdd = require('./routes/FosterManageAdd');
 app.use('/FosterManageAdd', FosterManageAdd);
 
-//引入 會員註冊資料 新增
-var Register = require('./routes/Register');
-const router = require('./routes/Register');
-app.use('/Register', Register)
-
-// 引入 會員註冊資料編輯
-var Register = require('./routes/Register');
-app.use('/Register', Register);
-// 引入 會員註冊資料刪除
-var Register = require('./routes/Register');
-app.use('/Register', Register);
+// //引入 會員註冊資料 新增
+// var Register = require('./routes/Register');
+// app.use('/Register', Register)
+// // 引入 會員註冊資料編輯
+// var Register = require('./routes/Register');
+// app.use('/Register', Register);
+// // 引入 會員註冊資料刪除
+// var Register = require('./routes/Register');
+// app.use('/Register', Register);
 
 
 
