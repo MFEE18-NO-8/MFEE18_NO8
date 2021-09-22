@@ -78,16 +78,12 @@ app.use('/AdoptContent', AdoptContent);
 //引入 我追蹤的毛孩
 var UserFollow = require('./routes/UserFollow');
 app.use('/UserFollow', UserFollow)
-
 //引入 通知訊息
 var UserMsg = require('./routes/UserMsg');
 app.use('/UserMsg', UserMsg)
-
-
 //引入 刊登送養
 var Foster = require('./routes/Foster');
 app.use('/Foster', Foster)
-
 //引入 刊登送養審核 檢視
 var FosterManageEdit = require('./routes/FosterManageEdit');
 app.use('/FosterManageEdit', FosterManageEdit);
@@ -97,6 +93,17 @@ app.use('/FosterManageList', FosterManageList);
 //引入 刊登送養審核 新增
 var FosterManageAdd = require('./routes/FosterManageAdd');
 app.use('/FosterManageAdd', FosterManageAdd);
+
+//引入 會員註冊資料 新增
+// var Register = require('./routes/Register');
+// app.use('/Register', Register)
+// 引入 會員註冊資料編輯
+// var Register = require('./routes/Register');
+// app.use('/Register', Register);
+// 引入 會員註冊資料刪除
+// var Register = require('./routes/Register');
+// app.use('/Register', Register);
+
 
 
 // catch 404 and forward to error handler
