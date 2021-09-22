@@ -34,10 +34,10 @@
         <div class="nav">
         <!-- 漢堡選單 -->
         <ul class="menu burgar-menu">
-          <li><a href="./X_index.html">首頁</a></li>
-          <li><a href="./AdopList.html">毛孩領養</a></li>
-          <li><a href="./Foster.html">刊登送養</a></li>
-          <li><a href="./KnowList.html">毛孩知識</a></li>
+          <li><a href="/index">首頁</a></li>
+          <li><a href="/AdoptList">毛孩領養</a></li>
+          <li><a href="/Foster">刊登送養</a></li>
+          <li><a href="/KnowList">毛孩知識</a></li>
         </ul>
         <a href="#" class="hamBar burgar-menu">
           <i>
@@ -50,14 +50,12 @@
                 <img src="../img/icon/user.png" alt="" class="user-icon">
             </button>
             <div class="dropdown-menu dropdown-menu-right user-menu" >
-              <div class="user-img"></div>
                 <ul>
                   <li>某某某</li>
-                  <li><a href="./UserEdit.html">會員資料</a></li>
-                  <li><a href="./UserFoster.html">我的送養文</a></li>
-                  <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
-                  <li><a href="./UserMsg.html">通知</a></li>
-                  <li><a href="./FindMe.html">聯絡我們</a></li>
+                  <li><a href="/UserEdit">會員資料</a></li>
+                  <li><a href="/UserFoster">我的送養文</a></li>
+                  <li><a href="/UserFollow">追蹤的毛孩</a></li>
+                  <li><a href="/UserMsg">通知</a></li>
                   <li><a href="#">登出</a></li>
                 </ul>
             </div>
@@ -77,63 +75,75 @@
     <div class="container">
         <div class="row">
             <div class="col col-md-8 search-adopList-left">
+              <form action="/AdoptList" method="post">
                 <div class="row">
                     <div class="col">
                         <div class="form-group adopList-form-group">
                             <span class="adopList-icon"><img src="../img/icon/placeholder.png" alt=""></span>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select class="form-control" id="exampleFormControlSelect1" name="CityName">
                                 <option>地區</option>
-                                <option name="">台北市</option>
-                                <option name="">基隆市</option>
-                                <option name="">新北市</option>
-                                <option name="">宜蘭縣</option>
-                                <option name="">桃園市</option>
-                                <option name="">新竹市</option>
-                                <option name="">新竹縣</option>
-                                <option name="">苗栗縣</option>
-                                <option name="">台中市</option>
-                                <option name="">彰化縣</option>
-                                <option name="">南投縣</option>
-                                <option name="">嘉義市</option>
-                                <option name="">嘉義縣</option>
-                                <option name="">雲林縣</option>
-                                <option name="">台南市</option>
-                                <option name="">高雄市</option>
-                                <option name="">澎湖縣</option>
-                                <option name="">金門縣</option>
-                                <option name="">屏東縣</option>
-                                <option name="">台東縣</option>
-                                <option name="">花蓮縣</option>
-                                <option name="">連江縣</option>
+                                <option value="1">台北市</option>
+                                <option value="基隆市">基隆市</option>
+                                <option value="3">新北市</option>
+                                <option value="4">宜蘭縣</option>
+                                <option value="5">宜蘭市</option>
+                                <option value="6">桃園市</option>
+                                <option value="7">新竹縣</option>
+                                <option value="8">新竹市</option>
+                                <option value="9">苗栗縣</option>
+                                <option value="10">苗栗市</option>
+                                <option value="11">台中市</option>
+                                <option value="12">彰化縣</option>
+                                <option value="13">彰化市</option>
+                                <option value="14">南投縣</option>
+                                <option value="15">南投市</option>
+                                <option value="16">雲林縣</option>
+                                <option value="17">嘉義縣</option>
+                                <option value="18">嘉義市</option>
+                                <option value="19">台南市</option>
+                                <option value="20">高雄市</option>
+                                <option value="21">屏東縣</option>
+                                <option value="22">屏東市</option>
+                                <option value="23">台東縣</option>
+                                <option value="24">台東市</option>
+                                <option value="25">花蓮縣</option>
+                                <option value="26">花蓮市</option>
+                                <option value="27">澎湖縣</option>
+                                <option value="28">金門縣</option>
+                                <option value="29">連江縣</option>
+                                <option value="30">蘭嶼</option>
+                                <option value="31">馬祖</option>
+                                <option value="32">綠島</option>
                             </select>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group adopList-form-group">
                             <span class="adopList-icon"><img src="../img/icon/gender.png" alt=""></span>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                              <option>性別</option>
-                              <option>男</option>
-                              <option>女</option>
+                            <select class="form-control" id="exampleFormControlSelect1" name="PetGender">
+                              <option >性別</option>
+                              <option value="公">公</option>
+                              <option value="母">母</option>
                             </select>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group adopList-form-group">
                             <span class="adopList-icon"><img src="../img/icon/paw.png" alt=""></span>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select class="form-control" id="exampleFormControlSelect1" name="PetSpecies">
                               <option>種類</option>
-                              <option>狗</option>
-                              <option>貓</option>
-                              <option>其他</option>
+                              <option value="狗">狗</option>
+                              <option value="貓">貓</option>
+                              <option value="其他">其他</option>
                             </select>
                         </div>
                     </div>
+                  </div>
+                  <div class="row justify-content-center">
+                    <button type="submit" class="btnSm btn-BananaYellow btn-adopList" value="">查詢</button>
+                  </div>
                 </div>
-                <div class="row justify-content-center">
-                    <button class="btnSm btn-BananaYellow btn-adopList">搜尋</button>
-                </div>
-            </div>
+              </form>
         </div>
         <div class="row justify-content-end">
             <div class="col col-md-7 adopList-search-txt">此區的送養動物均由送養人刊登，所有送養人電話均經過簡訊驗證，如有任何領養問題請直接與送養人聯繫。領養前請謹慎考慮，不隨意棄養。</div>

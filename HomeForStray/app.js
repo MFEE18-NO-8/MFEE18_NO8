@@ -35,6 +35,14 @@ app.use('/KnowManageDel', KnowManageDel);
 // 引入 毛孩知識管理編輯
 var KnowManageEdit = require('./routes/KnowManageEdit');
 app.use('/KnowManageEdit', KnowManageEdit);
+// 引入 毛孩知識清單(前台)
+var KnowList = require('./routes/KnowList');
+app.use('/KnowList', KnowList);
+// 引入 毛孩知識內容(前台)
+var KnowConent = require('./routes/KnowConent');
+app.use('/KnowConent', KnowConent);
+
+
 
 // 引入 最新消息清單(前台)
 var NewsList = require('./routes/NewsList');
@@ -88,8 +96,20 @@ var FosterManageList = require('./routes/FosterManageList');
 app.use('/FosterManageList', FosterManageList);
 //引入 刊登送養審核 新增
 var FosterManageAdd = require('./routes/FosterManageAdd');
-const router = require('./routes/FosterManageAdd');
 app.use('/FosterManageAdd', FosterManageAdd);
+
+//引入 會員註冊資料 新增
+var Register = require('./routes/Register');
+const router = require('./routes/Register');
+app.use('/Register', Register)
+
+// 引入 會員註冊資料編輯
+var Register = require('./routes/Register');
+app.use('/Register', Register);
+// 引入 會員註冊資料刪除
+var Register = require('./routes/Register');
+app.use('/Register', Register);
+
 
 
 // catch 404 and forward to error handler
@@ -107,8 +127,5 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-
-app.use(express.static(__dirname + '/public'));
 
 module.exports = app;

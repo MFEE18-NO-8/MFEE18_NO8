@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- jquery -->
+	<!-- <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
+            integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=="crossorigin="anonymous"
+        ></script> -->
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+	<script src="../Bootstrap/js/jquery.min.js"></script>
+	<script src="../Bootstrap/js/popper.min.js"></script>
+	<script src="../Bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+	<style>
+		.pic .carousel-special {
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding: 150px;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.6);
+			display: none;
+			align-content: center;
+
+		}
+
+		.pic:hover .carousel-special {
+			display: block;
+
+
+		}
+
+		.pic .carousel-special-back {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 30%;
+			background-color: rgba(0, 0, 0, 0.6);
+			display: flex;
+		}
+
+		.pic:hover .carousel-special-back {
+			visibility: hidden;
+		}
+
+		.line {
+			height: 0.6px;
+			width: 65%;
+			border: 2px solid black;
+		}
+
+		/* 輸入 去除邊框 */
+		.inputNotOutline:focus {
+			outline: 0;
+		}
+	</style>
+
+	<!-- css -->
+	<link rel="stylesheet" href="../css/lynnstyle.css" />
+	<link rel="stylesheet" href="../css/style.css" />
+	<title>浪浪有窩</title>
+</head>
+
+<body>
+	<!--navbar-->
+	<div class="container-fluid header">
+		<a href="#" class="logoImg navbar-brand">
+			<img src="../img/Logo/改I2 2.png" alt="" class="logo">
+			<img src="../img/Logo/字.png" alt="" class="logo-text">
+		</a>
+		<div class="nav">
+			<!-- 漢堡選單 -->
+			<ul class="menu burgar-menu">
+				<li><a href="./X_index.html">首頁</a></li>
+				<li><a href="./AdopList.html">毛孩領養</a></li>
+				<li><a href="./Foster.html">刊登送養</a></li>
+				<li><a href="./KnowList.html">毛孩知識</a></li>
+			</ul>
+			<a href="#" class="hamBar burgar-menu">
+				<i>
+					<img src="../img/icon/square.png" class="ham hamBar-icon"></img>
+				</i>
+			</a>
+			<!-- navbar-user -->
+			<div class="btn-group">
+				<button class="btn  btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">
+					<img src="../img/icon/user.png" alt="" class="user-icon">
+				</button>
+				<div class="dropdown-menu  user-menu dropdown-menu-right">
+					<ul>
+						<li><a href="./UserEdit.html">會員資料</a></li>
+						<li><a href="./UserFoster.html">我的送養文</a></li>
+						<li><a href="./UserFollow.html">追蹤的毛孩</a></li>
+						<li><a href="./UserMsg.html">通知</a></li>
+						<li><a href="./FindMe.html">登出</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 頁籤 breadcrumb -->
+	<div class="breadcrumb-block">
+		<div class="container-fluid">
+			<ol class="breadcrumb pb-0">
+				<li class="breadcrumb-item "><a href="#">首頁</a></li>
+				<li class="breadcrumb-item active" aria-current="page">毛孩知識</li>
+			</ol>
+		</div>
+	</div>
+	<!-- 輪播+文章選單  -->
+	<!--大面積狀態 2空白+5輪播+3文章+2空白=12 -->
+	<section class="row">
+		<div class="col-12 col-md-2"></div>
+		<!-- carousel 占比5等分 -->
+		<div id="slides" class="carousel slide  col-md-5  carousel-vertical " data-ride="carousel" data-interval="3000"
+			style="padding:0px; ">
+			<div class="carousel-inner" style="border-radius: 40px 0px 0px 40px;height:100%;width: 100%;">
+				<!-- 第一張圖 -->
+				<div class="carousel-item active pic" style="height:100%">
+					<img src="../img/animals/dog02.jpeg" class="d-block w-100 h-100  " alt="...">
+					<div class="carousel-caption d-none d-md-block carousel-special-back">
+						<h5 class="text-white">狗狗飼料的5件事，第一次養狗就上手</h5>
+						<br>
+						<p class="text-white">2021-06-13</p>
+					</div>
+					<div class=" carousel-special  ">
+						<h4 class="text-white text-center">狗狗飼料必定要知道的5件事，第一次養狗就上手</h4>
+						<br>
+						<p class="text-white text-center ">
+							怎麼樣的飼料、飲食策略，才是對狗狗最好的呢?我們經過長時間的累積後，整理出狗狗的飼料選購建議大全，選擇飼料看完本篇就會讓你快速了解如何適合。</p>
+						<p class="date text-white">2021-06-13</p>
+					</div>
+				</div>
+				<!-- 第二張圖 -->
+				<div class="carousel-item pic " style="height:100%">
+					<img src="../img/animals/dog04.jpeg" class="d-block w-100 h-100" alt="...">
+					<div class="carousel-caption d-none d-md-block carousel-special-back">
+						<h5 class="text-white">三分鐘搞懂如何讓狗狗不再亂咬東西？？？？</h5>
+						<!-- 標題字數需要小於20個全形字元 -->
+						<br>
+						<p class="text-white">2021-06-13</p>
+					</div>
+					<div class="carousel-special">
+						<h4 class="text-white text-center">狗狗飼料必定要知道的5件事，第一次養狗就上手</h4>
+						<br>
+						<p class="text-white text-center">
+							怎麼樣的飼料、飲食策略，才是對狗狗最好的呢?我們經過長時間的累積後，整理出狗狗的飼料選購建議大全，選擇飼料看完本篇就會讓你快速了解如何適合。</p>
+						<p class="date text-white">2021-06-13</p>
+					</div>
+				</div>
+				<!-- 第三張圖 -->
+				<div class="carousel-item pic " style="height:100%">
+					<img src="../img/animals/cat01.jpg" class="d-block w-100 h-100" alt="...">
+					<div class="carousel-caption d-none d-md-block carousel-special-back">
+						<h5 class="text-white">三分鐘搞懂如何讓貓貓不再亂抓東西？</h5>
+						<br>
+						<p class="text-white">2021-06-13</p>
+					</div>
+					<div class="carousel-special">
+						<h4 class="text-white text-center">狗狗飼料必定要知道的5件事，第一次養狗就上手</h4>
+						<br>
+						<p class="text-white text-center">
+							怎麼樣的飼料、飲食策略，才是對狗狗最好的呢?我們經過長時間的累積後，整理出狗狗的飼料選購建議大全，選擇飼料看完本篇就會讓你快速了解如何適合。</p>
+						<p class="date text-white">2021-06-13</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 熱門文章 占比3等分 -->
+		<div class="col-md-3  "
+			style="background-color: var(--BananaYellow); height: auto;border-radius: 0px 40px 40px 0px ">
+			<div style=" display: flex; flex-direction: column;align-items: center; padding-top: 20px ;">
+				<p class=" h3 ">熱門文章</p>
+				<!-- 分界線 -->
+				<div class="" style="background-color:#fff; padding:0.15rem ;border-radius: 40px ; width: 65%;"></div>
+			</div>
+
+
+			<ul class="  "
+				style="width: auto;height: 80%;padding: 20px; ; display: flex;flex-direction: column; justify-content: space-between;  ">
+				<li class=" row " style=" width: auto; margin-left: 10px; margin-right: 10px;  ">
+					<div class="col-md-5 "
+						style="padding: 0;display: flex;align-items: center;justify-content: center;">
+						<a href="">
+							<img class="" src="../img/animals/dog04.jpeg" alt=""
+								style="max-width: 100%; height: auto;border-radius: 40px;" />
+						</a>
+					</div>
+					<div class="col-md-7 ">
+						<a href="">
+							<p class="text-truncate">三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+							<br />
+							<p class="date">2021-06-13</p>
+						</a>
+					</div>
+				</li>
+				<li class=" row " style=" width: auto; margin-left: 10px; margin-right: 10px;  ">
+					<div class="col-md-5 "
+						style=" padding: 0; display: flex;align-items: center;justify-content: center;">
+						<a href="">
+							<img class="" src="../img/animals/cat01.jpg" alt=""
+								style="max-width: 100%; height: auto;border-radius: 40px;" />
+						</a>
+					</div>
+					<div class="col-md-7 ">
+						<a href="">
+							<p class="text-truncate">三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+							<br />
+							<p class="date">2021-06-13</p>
+						</a>
+					</div>
+				</li>
+				<li class=" row " style=" width: auto; margin-left: 10px; margin-right: 10px;  ">
+					<div class="col-md-5 "
+						style=" padding: 0;display: flex;align-items: center;justify-content: center;">
+						<a href="">
+							<img class="" src="../img/animals/dog02.jpeg" alt=""
+								style="max-width: 100%; height: auto;border-radius: 40px;" />
+						</a>
+					</div>
+					<div class="col-md-7 ">
+						<a href="">
+							<p class="text-truncate">三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+							<br />
+							<p class="date">2021-06-13</p>
+						</a>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+		<div class="col-md-2"></div>
+	</section>
+	<!-- 搜尋欄 -->
+	<section class="row" style="margin-top: 80px;">
+		<div class="col-md-2"></div>
+		<div class="col-md-8 row ">
+			<h4 class="ml-0">全部文章</h4>
+			<form class="form-inline my-2 my-lg-0 ml-auto ">
+				<input class="inputNotOutline" type="search" placeholder="   輸入關鍵字..."
+					aria-label="Search through site content" size="8"
+					style="border: 1px solid black;border-radius: 40px;">
+				<button class="btn  my-2 my-sm-0 b" type="submit"><i class="fas fa-search"></i></button>
+
+			</form>
+		</div>
+		<div class="col-md-2"></div>
+
+	</section>
+	<!-- 分界線 -->
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="mb-3 line"></div>
+		<div class="col-md-2"></div>
+	</div>
+	<!-- （圖片用圓角）一整頁顯示五個文章 -->
+	<section class="row" style="margin-top: 80px;">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<ul class="flex-column ">
+				<!-- 第一篇文 -->
+				<li class="row d-inline-flex mb-4">
+					<div class="col-md-4 col-sm-4">
+						<img class="img-fluid rounded" src="../img/animals/dog04.jpeg" alt="" />
+					</div>
+					<div class="col-md-8">
+						<p>三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+						<p class="figure-caption">2021-06-13</p>
+						<p class="">
+							近年來成為貓奴的人口數量大增，然而貓咪是著名忍痛力很高的動物，加上先天不愛亂叫又內斂的特質，有沒有生病或不舒服得由飼主細心觀察方能察覺。以下整理貓咪的10種常見疾病，以及其成因和預防方式，幫助毛小孩預防勝於治療。
+						</p>
+					</div>
+				</li>
+				<!-- 第二篇文 -->
+				<li class="row d-inline-flex mb-4">
+					<div class="col-md-4 col-sm-4">
+						<img class="img-fluid rounded" src="../img/animals/dog04.jpeg" alt="" />
+					</div>
+					<div class="col-md-8">
+						<p>三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+						<p class="figure-caption">2021-06-13</p>
+						<p class="">
+							近年來成為貓奴的人口數量大增，然而貓咪是著名忍痛力很高的動物，加上先天不愛亂叫又內斂的特質，有沒有生病或不舒服得由飼主細心觀察方能察覺。以下整理貓咪的10種常見疾病，以及其成因和預防方式，幫助毛小孩預防勝於治療。
+						</p>
+					</div>
+				</li>
+				<!-- 第三篇文 -->
+				<li class="row d-inline-flex mb-4">
+					<div class="col-md-4 col-sm-4">
+						<img class="img-fluid rounded" src="../img/animals/dog04.jpeg" alt="" />
+					</div>
+					<div class="col-md-8">
+						<p>三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+						<p class="figure-caption">2021-06-13</p>
+						<p class="">
+							近年來成為貓奴的人口數量大增，然而貓咪是著名忍痛力很高的動物，加上先天不愛亂叫又內斂的特質，有沒有生病或不舒服得由飼主細心觀察方能察覺。以下整理貓咪的10種常見疾病，以及其成因和預防方式，幫助毛小孩預防勝於治療。
+						</p>
+					</div>
+				</li>
+				<!-- 第四篇文 -->
+				<li class="row d-inline-flex mb-4">
+					<div class="col-md-4 col-sm-4">
+						<img class="img-fluid rounded" src="../img/animals/dog04.jpeg" alt="" />
+					</div>
+					<div class="col-md-8 ">
+						<p>三分鐘搞懂如何讓狗狗不再亂咬東西？</p>
+						<p class="figure-caption">2021-06-13</p>
+						<p class="">
+							近年來成為貓奴的人口數量大增，然而貓咪是著名忍痛力很高的動物，加上先天不愛亂叫又內斂的特質，有沒有生病或不舒服得由飼主細心觀察方能察覺。以下整理貓咪的10種常見疾病，以及其成因和預防方式，幫助毛小孩預防勝於治療。
+						</p>
+					</div>
+				</li>
+				<!-- 第五篇文 要嗎? -->
+
+		</div>
+		<div class="col-md-2"></div>
+
+	</section>
+
+	<!-- 分頁 -->
+	<nav aria-label="Page navigation example ">
+		<ul class="pagination justify-content-center">
+			<li class="page-item">
+				<a class="page-link" href="#" aria-label="Previous">
+					<span aria-hidden="true">&laquo;</span>
+				</a>
+			</li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#">4</a></li>
+			<li class="page-item"><a class="page-link" href="#">5</a></li>
+			<li class="page-item">
+				<a class="page-link" href="#" aria-label="Next">
+					<span aria-hidden="true">&raquo;</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+	<!-- Footer -->
+	<footer class="text-center text-lg-start bg-light text-muted">
+		<!-- Section: Links  -->
+		<section class="">
+			<div class="container text-center text-md-start mt-0">
+				<!-- Grid row -->
+				<div class="row mt-0">
+					<!-- Grid column -->
+					<div class="col-md-10 mx-auto mb-0">
+						<!-- Content -->
+						<!-- <h6 class="text-uppercase fw-bold mb-4"><i class="fas fa-gem me-3"></i>Company name</h6> -->
+						<p>本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，僅就一般正常情理做審核，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。如有任何建議或合作請與我們聯絡</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Section: Links  -->
+
+		<!-- Copyright -->
+		<div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05)">© 2021 Copyright .tw By MFEE18-No.8
+		</div>
+		<!-- Copyright -->
+	</footer>
+	<!-- Footer -->
+</body>
+<script>
+	// 漢堡選單
+	$(document).ready(function () {
+		$('.burgar-menu').on('click', function (e) {
+			$('body').toggleClass('burgar-menu-show');
+		});
+	});
+</script>
+
+</html>

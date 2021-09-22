@@ -134,15 +134,29 @@
                             </tr>
                             <tr>
                                 <td class="FosterTd">性別</td>
-                                <td><input type="text" name="PetGender"></td>
+                                <td><input type="radio" name="PetGender" value="1">
+                                    <label for="PetGender">公</label>
+                                    <input type="radio" name="PetGender" value="0">
+                                    <label for="PetGender">母</label>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="FosterTd">結紮狀況</td>
-                                <td><input type="text" name="Neuter"></td>
+
+                                <td><input type="radio" name="Neuter" value="1">
+                                    <label for="Neuter">已結紮</label>
+                                    <input type="radio" name="Neuter" value="0">
+                                    <label for="Neuter">未結紮</label>
+                                </td>
+
                             </tr>
                             <tr>
                                 <td class="FosterTd">晶片</td>
-                                <td><input type="text" name="Microchip"></td>
+                                <td><input type="radio" name="Microchip" value="1">
+                                    <label for="Microchip">有晶片</label>
+                                    <input type="radio" name="Microchip" value="0">
+                                    <label for="Microchip">無晶片</label>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="FosterTd">縣市</td>
@@ -162,7 +176,11 @@
                             </tr>
                             <tr>
                                 <td class="FosterTd">領養狀態</td>
-                                <td><input type="text" name="AdoptState"></td>
+                                <td><input type="radio" name="AdoptState" value="1">
+                                    <label for="AdoptState">已領養</label>
+                                    <input type="radio" name="AdoptState" value="0">
+                                    <label for="AdoptState">待領養</label>
+                                </td>
                             </tr>
                         </table>
                     </td>
