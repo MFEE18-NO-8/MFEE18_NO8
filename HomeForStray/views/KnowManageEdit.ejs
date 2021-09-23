@@ -99,20 +99,9 @@
 
                     <tr>
                         <td class="Title">發布日期</td>
-                        <td class="Content"><input type="date"
+                        <td class="Content dateStyle"><input type="date"
                                 value="<%= (data[0].ArticleDate).toISOString().slice(0, 10) %>" class="inputNotOutline"
                                 name="articleDate"></td>
-
-                        <td class="Title">狀態</td>
-                        <td class="Content">
-                            <input type="radio" name="displayStatus" value="1" <%=(data[0].ArticleStatus=1) ? 'checked'
-                                :'' %>>
-                            <label for="">顯示</label>
-                            <br>
-                            <input type="radio" name="displayStatus" value="0" <%=(data[0].ArticleStatus=0) ? 'checked'
-                                :'' %>>
-                            <label for="">隱藏</label>
-                        </td>
                     </tr>
 
                     <tr>

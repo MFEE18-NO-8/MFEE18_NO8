@@ -106,16 +106,6 @@
                     </tr>
 
                     <tr class="MyListTr">
-                        <td>狀態：</td>
-                        <td><input type="radio" name="ListDisplay" value="1">
-                            <label for="html" class="MyListLabel">顯示</label>
-                            <input type="radio" name="ListDisplay" value="0">
-                            <label for="html" class="MyListLabel">隱藏
-                            </label>
-                        </td>
-                    </tr>
-
-                    <tr class="MyListTr">
                         <td colspan="4">
                             <input type="submit" class="ListSubmit" value="查詢">
                             <input type="submit" class="ListSubmit" value="清除">
@@ -136,7 +126,6 @@
                         <th class="ThPadding">序號</th>
                         <th>標題</th>
                         <th>發布日期</th>
-                        <th>狀態</th>
                         <th>管理</th>
                     </tr>
                 </thead>
@@ -147,18 +136,11 @@
                             <th scope="row" style="width: 5%;">
                                 <%= i+1 %>
                             </th>
-                            <td style="width: 20%;">
+                            <td style="width: 25%;">
                                 <%= data[i].ArticleTitle %>
                             </td>
                             <td style="width: 5%;">
                                 <%= (data[i].ArticleDate).toLocaleDateString() %>
-                            </td>
-                            <td style="width: 5%;">
-                                <% var statusStr='' ; %>
-                                    <% var status=data[i].ArticleStatus; //宣告status=1或0 %>
-                                        <% (status=1) ? statusStr='顯示' : statusStr='隱藏' //判斷status=1，則statusStr為顯示，反之為隱藏
-                                            ; %>
-                                            <%= statusStr %>
                             </td>
                             <td style="width:10%;">
                                 <a href="/KnowManageEdit?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>"> <input
