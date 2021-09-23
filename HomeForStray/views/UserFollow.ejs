@@ -75,63 +75,6 @@
       </div> 
     </div>
 
-    <!-- 會員資訊 -->
-    <!-- <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <h1>我追蹤的毛孩</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 col-sm-12 col-xs-12">
-                <img src="../img/profile.jpg" alt="">
-                <a href="./UserEdit.html">會員管理</a>
-                <a href="./UserFoster.html">我的送養文</a>
-                <a href="./UserFollow.html">我追蹤的毛孩</a>
-                <a href="./UserMsg.html">通知</a>
-                <a href="./FindMe.html">聯絡我們</a>
-                <a href="">登出</a>
-            </div>
-            <div class="col-md-8 col-sm-12 col-xs-12">
-                <table>
-                    <tr>
-                        <th>編號</th>
-                        <th>寵物暱稱</th>
-                        <th>追蹤日期</th>
-                        <th>狀態</th>
-                        <th>功能</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>白白</td>
-                        <td>2021-10-16</td>
-                        <td>
-                            <button>查看</button>
-                            <button>取消追蹤</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>樂樂</td>
-                        <td>2021-10-20</td>
-                        <td>
-                            <button>查看</button>
-                            <button>取消追蹤</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>momo</td>
-                        <td>2021-10-22</td>
-                        <td>
-                            <button>查看</button>
-                            <button>取消追蹤</button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div> -->
     <div class="container UserFollow-title"><h2>追蹤的毛孩</h2></div>
     <div class="container">
       <table class="table table-hover">
@@ -145,41 +88,15 @@
             </tr>
           </thead>
           <tbody>
+            <% for(var i=0; i<data.length; i++) { %>
             <tr>
-              <th scope="row">1</th>
-              <td>白白</td>
-              <td>2021-10-16</td>
+              <th scope="row"><%= (data[i]) %></th>
+              <td><%= (data[i].PetName) %></td>
+              <td><%= (data[i].FollowDate.toLocaleDateString() %></td>
               <td><button class="btnMd-back btn-green">查看</button></td>
               <td><button class="btnLg btn-lightRed">取消追蹤</button></td>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>樂樂</td>
-              <td>2021-10-16</td>
-              <td><button class="btnMd-back btn-green">查看</button></td>
-              <td><button class="btnLg btn-lightRed">取消追蹤</button></td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>momo</td>
-              <td>2021-10-16</td>
-              <td><button class="btnMd-back btn-green">查看</button></td>
-              <td><button class="btnLg btn-lightRed">取消追蹤</button></td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>momo</td>
-              <td>2021-10-16</td>
-              <td><button class="btnMd-back btn-green">查看</button></td>
-              <td><button class="btnLg btn-lightRed">取消追蹤</button></td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>momo</td>
-              <td>2021-10-16</td>
-              <td><button class="btnMd-back btn-green">查看</button></td>
-              <td><button class="btnLg btn-lightRed">取消追蹤</button></td>
-            </tr>
+            <% } %>
           </tbody>
       </table>
   </div>
