@@ -23,35 +23,89 @@ router.get('/', function (req, res, next) {
         });
     });
 });
-// 
-// 查詢
-// 
-router.post('/s', function (req, res) {
-    var NewsTitle = req.body.NewsTitle;
-    var age = req.body.s_age;
 
-    var sql = "select * from News ";
 
-    if (NewsTitle) {
-        sql += " where NewsTitle like '%" + NewsTitle + "%' ";
-        //     if (age) {
-        //         sql += " and Age=" + age + " ";
-        //     }
-        // } else {
-        //     if (age) {
-        //         sql += " where Age=" + age + " ";
-        //     }
-    }
-    // sql = sql.replace("and","where");
-    pool.query(sql, function (err, rows) {
-        console.log(rows);
-        if (err) {
-            res.end("查詢失敗：", err)
-        } else {
-            res.render("NewsManageList", { title: 'Express', datas: rows, NewsTitle: NewsTitle, s_age: age });
-        }
-    });
-});
+// 
+// 查詢1
+// 
+// router.post('/s', function (req, res) {
+//     var NewsTitle = req.body.NewsTitle;
+//     var age = req.body.s_age;
+
+//     var sql = "select * from News ";
+
+//     if (NewsTitle) {
+//         sql += " where NewsTitle like '%" + NewsTitle + "%' ";
+//         //     if (age) {
+//         //         sql += " and Age=" + age + " ";
+//         //     }
+//         // } else {
+//         //     if (age) {
+//         //         sql += " where Age=" + age + " ";
+//         //     }
+//     }
+//     // sql = sql.replace("and","where");
+//     pool.query(sql, function (err, rows) {
+//         console.log(rows);
+//         if (err) {
+//             res.end("查詢失敗：", err)
+//         } else {
+//             res.render("NewsManageList", { title: 'Express', datas: rows, NewsTitle: NewsTitle, s_age: age });
+//         }
+//     });
+// });
+// 
+// 查詢2
+// 
+// router.post('/', function (req, res) {  // app.js 已掛好路徑 post & get 會成對 >>
+
+//     // 1. 取出傳入的參數 
+//     // 下方程式為第一步驟內容 
+//     // [req.body.PetName, req.body.FosterDateStart, req.body.FosterDateEnd, req.body.AdoptState]
+
+//     // console.log(
+//     //     [
+//     //         req.body.PetName,
+//     //         req.body.PetName,
+//     //         req.body.FosterDateStart,
+//     //         req.body.FosterDateStart,
+//     //         req.body.FosterDateEnd,
+//     //         req.body.FosterDateEnd,
+//     //         req.body.AdoptState,
+//     //         req.body.AdoptState
+//     //     ]
+//     // )
+
+//     // 2. 把參數丟到資料庫查詢
+//     pool.query("select * from News WHERE (NewsTitle=? OR ?='') AND (ShowStartDate>=? OR ?='' ) AND (ShowEndDate<=? OR ?='' ) AND (NewsState=? OR ?='' ) ",
+//         // MySQL 能單個欄位查詢
+//         [
+//             req.body.NewsTitle,
+//             req.body.NewsTitle,
+//             req.body.ShowStartDate,
+//             req.body.ShowStartDate,
+//             req.body.ShowEndDate,
+//             req.body.ShowEndDate,
+//             req.body.NewsState,
+//             req.body.NewsState
+//         ],
+
+//         function (err, results) {
+//             if (err) throw err;
+
+//             // console.log(results);
+
+//             // 3. 把查詢結果作為參數傳給render
+//             res.render('NewsManageList', { data: results, });
+
+//         })
+
+//     // res.render('FosterManageList', { PetName: req.body.PetName }); // req.params找網址 req.query 找?後面參數 req.body 表單
+
+//     // console.log(req.body.FosterDateStart)
+//     // console.log(req.body.FosterDateEnd)
+// });
+
 
 module.exports = router;
 

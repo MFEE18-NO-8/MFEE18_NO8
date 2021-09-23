@@ -239,7 +239,7 @@ a:hover {
 }
 .about-logo {
     width: 600px;
-    height: 600px;
+    /* height: 600px; */
 }
 .about-logo > img {
     width: 100%;
