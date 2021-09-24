@@ -85,85 +85,92 @@
       <h2 class="title-lg">會員資料管理</h2>
     </div>
 
-
     <div id="MyDivAdd" class="container">
-      <table>
-        <tr>
+      <form action="" id="Member" name="Member" method="POST">
+        <table>
+          <!-- <tr>
           <td class="ViewTitle">會員名稱
           </td>
           <td class="ContentView"><label for="html" id="MyLabel">
               <%= data[0].Name %>
             </label>
           </td>
-        </tr>
-        <tr>
-          <td class="ViewTitle">會員編號
-          </td>
-          <td class="ContentView"><label for="html" id="MyLabel">0001</label>
-          </td>
-        </tr>
-        <tr>
-          <td class="ViewTitle">會員申請日期
-          </td>
-          <td class="ContentView"><label for="html" id="MyLabel">2021-09-14</label></td>
-        </tr>
-        <tr>
-          <td class="ViewTitle">內容</td>
-          <td class="ContentView">
-            <table border="1">
-              <tr>
-                <td>帳號</td>
-                <td>123456789</td>
-              </tr>
-              <tr>
-                <td>密碼</td>
-                <td>987654321</td>
-              </tr>
-              <tr>
-                <td>姓名</td>
-                <td>王大明</td>
-              </tr>
-              <tr>
-                <td>手機</td>
-                <td>0966-666-666</td>
-              </tr>
-              <tr>
-                <td>電子信箱</td>
-                <td>123456789@gmail.com</td>
-              </tr>
-              <tr>
-                <td>出生日期</td>
-                <td>87-08-07</td>
-              </tr>
+        </tr> -->
+          <tr>
+            <td class="ViewTitle">會員編號
+            </td>
+            <td class="ContentView"><label for="html" id="MyLabel">
+                <%= (data[0].MemberID) %>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="ViewTitle">註冊日期
+            </td>
+            <td class="ContentView"><label for="html" id="MyLabel">
+                <%= (data[0].RegistrationDate).toLocaleDateString() %>
+              </label></td>
+          </tr>
+          <tr>
+            <td class="ViewTitle">會員資料</td>
+            <td class="ContentView">
+              <table border="1">
+                <tr>
+                  <td class="ViewTitle" style="width: 250px;">帳號(信箱)</td>
+                  <td style="width: 300px;">
+                    <%= data[0].Email %>
+                  </td>
+                </tr>
 
-            </table>
-          </td>
-        </tr>
+                <tr>
+                  <td class="ViewTitle">姓名</td>
+                  <td>
+                    <%= data[0].MemberName %>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ViewTitle">手機</td>
+                  <td>
+                    <%= data[0].CellPhone %>
+                  </td>
+                </tr>
 
+            </td>
+          </tr>
+        </table>
 
-        <tr>
+        <!-- <tr>
           <td class="ViewTitle">照片</td>
           <td class="ContentView">
             <img class="ImgEdit" src="../img/dog cat/pexels-anel-rossouw-2558605.jpg">
           </td>
-        </tr>
+        </tr> -->
         <tr>
           <td class="ViewTitle">會員狀態</td>
           <td class="ContentView">
-            <input type="radio" name="FosterRadio">
-            <label for="html" id="MyLabel">使用中</label>
-            <input type="radio" name="FosterRadio">
-            <label for="html" id="MyLabel">停權</label>
+            <label for="memberState_1">
+              <input type="radio" id="memberState_1" name="memberState" value="1" <%=( data[0].memberState==1 )
+                ? 'checked' :'' %> >
+              使用中
+            </label>
+
+            <label for="memberState_0">
+              <input type="radio" id="memberState_0" name="memberState" value="0" <%=( data[0].memberState==0 )
+                ? 'checked' :'' %> >
+
+              停權中</label>
           </td>
         </tr>
+      </form>
 
 
-        <tr>
-          <td colspan="2" id="MySubmitId">
-            <input type="submit" class="MySubmitSent" value="送出">
-            <input type="submit" class="MySubmitCancel" value="取消">
-          </td>
-        </tr>
+      <td colspan="5" id="MySubmitId">
+        <input type="submit" class="MySubmitSent" value="確認修改" style="width: 120px;">
+
+        <a href="UserManageList?pageNo=<%=pageNo%> ">
+          <input type="button" class="MySubmitCancel" value="返回">
+        </a>
+      </td>
       </table>
     </div>
 
