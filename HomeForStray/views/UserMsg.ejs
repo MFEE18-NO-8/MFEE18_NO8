@@ -74,54 +74,9 @@
           </ol>
       </div> 
     </div>
-
-    <!-- <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <h1>通知</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 col-sm-12 col-xs-12">
-                <img src="../img/profile.jpg" alt="">
-                <a href="./UserEdit.html">會員管理</a>
-                <a href="./UserFoster.html">我的送養文</a>
-                <a href="./UserFollow.html">我追蹤的毛孩</a>
-                <a href="./UserMsg.html">通知</a>
-                <a href="./FindMe.html">聯絡我們</a>
-                <a href="">登出</a>
-            </div>
-            <div class="col-md-8 col-sm-12 col-xs-12">
-                <table>
-                    <tr>
-                        <th>通知日期</th>
-                        <th>通知內容</th>
-                    </tr>
-                    <tr>
-                        <td>2021-10-16</td>
-                        <td>
-                            【刊登送養通知】寵物白白，刊登送養文已送出，待小幫手審核通過後，系統即自動刊登，敬請等候唷！
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2021-09-15 </td>
-                        <td>
-                            【系統通知】您已成功完成信箱認證！
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2021-09-15 </td>
-                        <td>
-                            【系統通知】註冊完成通知，歡迎您加入「浪浪有窩」。
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div> -->
     <div class="container"><h2 class="title-lg">我的訊息通知</h2></div>
     <div class="container">
-      <table class="table">
+        <table class="table">
           <thead>
             <tr class="UserMsg-thead">
               <th  class="col-3">通知日期</th>
@@ -129,13 +84,15 @@
             </tr>
           </thead>
           <tbody>
-            <% for(var i=0; i<data.length; i++) { %>
-            <tr>
-                <td><%= (data[i].MsgDate).toLocaleDateString() %></td>
-                <td>
-                    <%= (data[i].Msg) %>
-                </td>
-            </tr>
+            <%var sn=1; //宣告sn=編號 %>
+            <% for(var i=0; i < data.length; i++) { %>
+                <tr>
+                    <td><%= (data[i].MsgDate).toLocaleDateString() %></td>
+                    <td>
+                        <%= (data[i].Msg) %>
+                    </td>
+                </tr>
+                <% sn++; %>
             <% } %>
           </tbody>
       </table>
@@ -145,17 +102,17 @@
     <nav aria-label="Page navigation example ">
         <ul class="pagination justify-content-center">
         <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
+            <a class="page-link" href="/UserMsg?pageNo=<%= (pageNo-1) %>" title="上一頁" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">4</a></li>
-        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <% for(var i=1; i <=totalPage; i++) { %>
+            <li class="page-item">
+                <a class="page-link" href="/UserMsg?pageNo=<%= i%>"><%= i%></a>
+            </li>    
+        <% } %>
         <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
+            <a class="page-link" href="/UserMsg?pageNo=<%= (pageNo+1) %>" title="下一頁" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
             </a>
         </li>
