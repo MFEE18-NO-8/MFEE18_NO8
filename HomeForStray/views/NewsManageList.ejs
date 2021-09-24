@@ -154,23 +154,23 @@
                     <% for(var i=0; i<data.length; i++) { %>
                       <tr>
                         <!-- 編號 -->
-                        <td scope="row" style="width: %;">
+                        <td scope="row">
                           <%=sn %>
                         </td>
                         <!-- 標題 -->
-                        <td style="width: %;">
+                        <td>
                           <%= data[i].NewsTitle %>
                             </a>
                         </td>
                         <!-- 發佈日期 -->
-                        <td style="width: %;">
+                        <td>
                           <%= (data[i].ShowStartDate).toLocaleDateString() %>
                             ~
 
                             <%= (data[i].ShowEndDate).toLocaleDateString() %>
                         </td>
                         <!-- 修改日期 -->
-                        <td style="width: %;">
+                        <td>
                           <%= (data[i].ModifyDate).toLocaleDateString() %>
                         </td>
                         <!-- 狀態 -->
@@ -181,7 +181,7 @@
                                 <%= statusStr %>
                         </td> -->
                         <!-- 功能 -->
-                        <td style="width: %;">
+                        <td>
                           <a href="/NewsManageEdit?id=<%= data[i].NewsId %>&pageNo=<%= pageNo %>">
                             <input type="button" class="btn btn-primary" value="編輯">
                           </a>
