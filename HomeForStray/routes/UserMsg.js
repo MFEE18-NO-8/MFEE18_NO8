@@ -16,7 +16,7 @@ router.get('/', function (req, res, next) {
     pool.query('select count(*) as cnt from UserMsg', function(err, results) { 
         if(err) throw err;
         //後續處理程式碼
-        var TotalLine = results[0].cnt;  //資料總筆數=第七行結果 的 筆數
+        var TotalLine = results[0].cnt;  //資料總筆數
         var TotalPage = Math.ceil(TotalLine / LinePerPage);  //資料總頁數＝總筆數/每頁顯示數
         //從UserMsg讀取資料 並依照MsgID做反向排序(最新的排最上方)，由(pageNo-1)＊5開始取得 5 筆資料記錄
         pool.query('SELECT * FROM UserMsg JOIN register ON(register.MemberID=UserMsg.MemberID) WHERE UserMsg.MemberID=1', [(pageNo - 1) * LinePerPage, LinePerPage], function (err, results) {  

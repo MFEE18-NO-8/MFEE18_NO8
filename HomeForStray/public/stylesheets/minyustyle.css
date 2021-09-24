@@ -682,3 +682,9 @@
     .inputNotOutline:focus{
         outline : 0; 
     }
+
+    /* 發布日期格式 */
+    .dateStyle{
+        text-align: left;
+        padding-left:50px;
+    }
