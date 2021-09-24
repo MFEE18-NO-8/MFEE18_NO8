@@ -123,7 +123,18 @@ app.use('/FosterManageAdd', FosterManageAdd);
 // var Register = require('./routes/Register');
 // app.use('/Register', Register);
 
-
+// 引入 會員管理清單
+var UserManageList = require('./routes/UserManageList');
+app.use('/UserManageList', UserManageList);
+// // 引入 會員管理
+// var UserManageAdd = require('./routes/UserManageAdd');
+// app.use('/UserManageAdd', UserManageAdd);
+// // 引入 會員管理編輯
+var UserManageEdit = require('./routes/UserManageEdit');
+app.use('/UserManageEdit', UserManageEdit);
+// // 引入 最新消息管理刪除
+// var NewsManageDel = require('./routes/NewsManageDel');
+// app.use('/NewsManageDel', NewsManageDel);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
