@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>追蹤清單</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>追蹤清單</title>
 
 
 
@@ -26,79 +26,89 @@
 </head>
 
 <body>
-    <!--navbar-->
-    <div class="container-fluid header">
-        <a href="/index" class="logoImg navbar-brand">
-          <img src="../img/Logo/改I2 2.png" alt="" class="logo">
-          <img src="../img/Logo/字.png" alt="" class="logo-text">
-        </a>
-        <div class="nav">
-        <!-- 漢堡選單 -->
-        <ul class="menu burgar-menu">
-          <li><a href="/index">首頁</a></li>
-          <li><a href="/AdopList">毛孩領養</a></li>
-          <li><a href="/Foster">刊登送養</a></li>
-          <li><a href="/KnowList">毛孩知識</a></li>
-        </ul>
-        <a href="#" class="hamBar burgar-menu">
-          <i>
-            <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
-          </i>
-        </a>
-          <!-- navbar-user -->
-          <div class="btn-group">
-            <button class="btn  btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="../img/icon/user.png" alt="" class="user-icon">
-            </button>
-            <div class="dropdown-menu dropdown-menu-right user-menu" >
-              <div class="user-img"></div>
-                <ul>
-                  <li>某某某</li>
-                  <li><a href="./UserEdit.html">會員資料</a></li>
-                  <li><a href="./UserFoster.html">我的送養文</a></li>
-                  <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
-                  <li><a href="./UserMsg.html">通知</a></li>
-                  <li><a href="./FindMe.html">聯絡我們</a></li>
-                  <li><a href="#">登出</a></li>
-                </ul>
-            </div>
-          </div>
+  <!--navbar-->
+  <div class="container-fluid header">
+    <a href="/index" class="logoImg navbar-brand">
+      <img src="../img/Logo/改I2 2.png" alt="" class="logo">
+      <img src="../img/Logo/字.png" alt="" class="logo-text">
+    </a>
+    <div class="nav">
+      <!-- 漢堡選單 -->
+      <ul class="menu burgar-menu">
+        <li><a href="/index">首頁</a></li>
+        <li><a href="/AdopList">毛孩領養</a></li>
+        <li><a href="/Foster">刊登送養</a></li>
+        <li><a href="/KnowList">毛孩知識</a></li>
+      </ul>
+      <a href="#" class="hamBar burgar-menu">
+        <i>
+          <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
+        </i>
+      </a>
+      <!-- navbar-user -->
+      <div class="btn-group">
+        <button class="btn  btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="../img/icon/user.png" alt="" class="user-icon">
+        </button>
+        <div class="dropdown-menu dropdown-menu-right user-menu">
+          <div class="user-img"></div>
+          <ul>
+            <li>某某某</li>
+            <li><a href="./UserEdit.html">會員資料</a></li>
+            <li><a href="./UserFoster.html">我的送養文</a></li>
+            <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
+            <li><a href="./UserMsg.html">通知</a></li>
+            <li><a href="./FindMe.html">聯絡我們</a></li>
+            <li><a href="#">登出</a></li>
+          </ul>
         </div>
-    </div> 
-    <!-- 麵包屑 -->
-    <div class="breadcrumb-block">
-      <div class="container-fluid">
-          <ol class="breadcrumb pb-0">
-              <li class="breadcrumb-item "><a href="#">首頁</a></li>
-              <li class="breadcrumb-item active" aria-current="page">我追蹤的毛孩</li>
-          </ol>
-      </div> 
+      </div>
     </div>
+  </div>
+  <!-- 麵包屑 -->
+  <div class="breadcrumb-block">
+    <div class="container-fluid">
+      <ol class="breadcrumb pb-0">
+        <li class="breadcrumb-item "><a href="#">首頁</a></li>
+        <li class="breadcrumb-item active" aria-current="page">我追蹤的毛孩</li>
+      </ol>
+    </div>
+  </div>
 
-    <div class="container UserFollow-title"><h2>追蹤的毛孩</h2></div>
-    <div class="container">
-      <table class="table table-hover">
-          <thead class="UserFollow-thead">
-            <tr>
-              <th scope="col">編號</th>
-              <th scope="col">寵物暱稱</th>
-              <th scope="col">追蹤日期</th>
-              <th scope="col">狀態</th >
-              <th scope="col">功能</th >
-            </tr>
-          </thead>
-          <tbody>
-            <% for(var i=0; i<data.length; i++) { %>
-              <tr>
-                <th scope="row"><%= data[i].FollowID %></th>
-                <td><%= data[i].PetName %></td>
-                <td><%= (data[i].FollowDate.toLocaleDateString() %></td>
-                <td><button class="btnMd-back btn-green">查看</button></td>
-                <td><button class="btnLg btn-lightRed">取消追蹤</button></td>
-              </tr>
-            <% } %>
-          </tbody>
-      </table>
+
+  <div class="container UserFollow-title">
+    <h2>追蹤的毛孩</h2>
+  </div>
+  <div class="container">
+    <table class="table table-hover">
+      <thead class="UserFollow-thead">
+        <tr>
+          <th scope="col">編號</th>
+          <th scope="col">寵物暱稱</th>
+          <th scope="col">追蹤日期</th>
+          <th scope="col">狀態</th>
+          <th scope="col">功能</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i=0; i<data.length; i++) { %>
+          <tr>
+            <th scope="row">
+              <%= (data[i]) %>
+            </th>
+            <td>
+              <%= (data[i].PetName) %>
+            </td>
+            <td>
+              <%= (data[i].FollowDate.toLocaleDateString() %>
+            </td>
+            <td><button class="btnMd-back btn-green">查看</button></td>
+            <td><button class="btnLg btn-lightRed">取消追蹤</button></td>
+          </tr>
+          <% } %>
+      </tbody>
+    </table>
+
   </div>
 
   <!-- 分頁 -->
@@ -123,20 +133,20 @@
   </nav>
   <!-- footer -->
   <footer class="container-fluid footer">
-      <div class="row justify-content-center w-100 m-0">
-        <div class="col-10 col-md-10 copyright">
-          本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，僅就一般正常情理做審核，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。
-          <br>如有任何建議或合作請與我們聯絡 <br>© 2021 Copyright .tw By MFEE18-No.8
-        </div>
+    <div class="row justify-content-center w-100 m-0">
+      <div class="col-10 col-md-10 copyright">
+        本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，僅就一般正常情理做審核，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。
+        <br>如有任何建議或合作請與我們聯絡 <br>© 2021 Copyright .tw By MFEE18-No.8
       </div>
+    </div>
   </footer>
   <script>
     // 漢堡選單
     $(document).ready(function () {
-    $('.burgar-menu').on('click', function (e) {
-      $('body').toggleClass('burgar-menu-show');       
+      $('.burgar-menu').on('click', function (e) {
+        $('body').toggleClass('burgar-menu-show');
+      });
     });
-  });
   </script>
 
 </body>
