@@ -87,11 +87,8 @@
     <div class="content-wrapper">
       <section class="content">
         <h3 class="title">最新消息管理</h3>
-
-
-        <!-- 查詢結果 -->
-        <div class="table-responsive">
-          <table class="table table-striped">
+        <form action="" id="News" name="News" method="POST" class="table-responsive">
+          <table class=" table table-striped">
             <!-- 標題 -->
             <tr class="">
               <th scope="col" style="vertical-align: middle;">
@@ -113,7 +110,7 @@
                 <!-- 發佈日期str -->
                 <div class="col-xs-12 col-sm-6 col-md-3">
                   <div class="form-group">
-                    <input name="ShowStartDate" type="date" class="form-control inputNotOutline" name="ShowEndDate"
+                    <input name="ShowStartDate" type="date" class="form-control inputNotOutline"
                       value="<%= (data[0].ShowStartDate).toISOString().slice(0, 10) %>" required>
                   </div>
                 </div>
@@ -122,7 +119,7 @@
                 <!-- 發佈日期End -->
                 <div class="col-xs-12 col-sm-6 col-md-3">
                   <div class="form-group">
-                    <input name="ShowEndDate" type="date" class="form-control inputNotOutline" name="ShowEndDate"
+                    <input name="ShowEndDate" type="date" class="form-control inputNotOutline"
                       value="<%= (data[0].ShowEndDate).toISOString().slice(0, 10) %>" required>
                   </div>
                 </div>
@@ -155,30 +152,31 @@
               </th>
               <td style="vertical-align: middle;">
                 <div class="col-xs-12 col-sm-12 col-md-12">
-                  <textarea name="NewsContent" id="textArea" class="form-control" cols="40" rows="10" required>
-                      <%= data[0].NewsContent %>
-                    </textarea>
+                  <textarea name="NewsContent" id="textArea" class="form-control" cols="40" rows="10"
+                    required><%= data[0].NewsContent %></textarea>
                 </div>
               </td>
             </tr>
-
-
           </table>
-        </div>
-        <!-- 查詢/清除 -->
-        <div class="col-xs-12 text-right">
-          <button type="button" class="btn btn-primary">確認修改</button>
-          <a href="NewsManageList">
-            <button type="button" class="btn btn-primary">返回</button>
-          </a>
+          <!-- 確認修改/返回 -->
+          <div class="col-xs-12 text-right">
 
-
-        </div>
-        <div class="clearfix"></div>
+            <button type="submit" class="btn btn-primary">確認修改</button>
+            <a href="NewsManageList">
+              <button type="button" class="btn btn-primary">返回</button>
+            </a>
+          </div>
+        </form>
       </section>
-
-
     </div>
+
+
+  </div>
+  <div class="clearfix"></div>
+  </section>
+
+
+  </div>
   </div>
 
 
