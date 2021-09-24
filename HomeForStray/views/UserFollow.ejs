@@ -89,13 +89,13 @@
           </thead>
           <tbody>
             <% for(var i=0; i<data.length; i++) { %>
-            <tr>
-              <th scope="row"><%= (data[i]) %></th>
-              <td><%= (data[i].PetName) %></td>
-              <td><%= (data[i].FollowDate.toLocaleDateString() %></td>
-              <td><button class="btnMd-back btn-green">查看</button></td>
-              <td><button class="btnLg btn-lightRed">取消追蹤</button></td>
-            </tr>
+              <tr>
+                <th scope="row"><%= data[i].FollowID %></th>
+                <td><%= data[i].PetName %></td>
+                <td><%= (data[i].FollowDate.toLocaleDateString() %></td>
+                <td><button class="btnMd-back btn-green">查看</button></td>
+                <td><button class="btnLg btn-lightRed">取消追蹤</button></td>
+              </tr>
             <% } %>
           </tbody>
       </table>
