@@ -41,13 +41,13 @@
       </a>
 
       <!-- 上方標題 -->
-      <nav class="navbar navbar-static-top align-items-center" role="navigation">
+      <nav class="navbar navbar-static-top align-items-center" role="navigation" style="line-height: 50px;">
         <!-- <a href="#" class="sidebar-toggle  visible-xs" data-toggle="offcanvas" role="button">
           <span class="sr-only">Toggle navigation</span>
         </a> -->
-        <!-- <h3 style="text-align: left">後臺管理系統</h3> -->
-        <div class="text-right align-items-center" style="line-height: 50px;">
-          <button type="button" class="btn btn-info">登出</button>
+        <!-- <h3 style=" text-align: left">後臺管理系統</h3> -->
+        <div class="text-right align-items-center" ">
+          <button type=" button" class="btn btn-info">登出</button>
         </div>
       </nav>
 
@@ -143,8 +143,8 @@
                   <tr class="" style="background-color: #3c8dbc; color: white">
                     <th scope="col">編號</th>
                     <th scope="col">標題</th>
-                    <th scope="col">修改日期</th>
                     <th scope="col">發佈日期</th>
+                    <th scope="col">修改日期</th>
                     <!-- <th scope="col">狀態</th> -->
                     <th scope="col">管理</th>
                   </tr>
@@ -162,16 +162,16 @@
                           <%= data[i].NewsTitle %>
                             </a>
                         </td>
-                        <!-- 修改日期 -->
-                        <td style="width: %;">
-                          <%= (data[i].ModifyDate).toLocaleDateString() %>
-                        </td>
                         <!-- 發佈日期 -->
                         <td style="width: %;">
                           <%= (data[i].ShowStartDate).toLocaleDateString() %>
                             ~
 
                             <%= (data[i].ShowEndDate).toLocaleDateString() %>
+                        </td>
+                        <!-- 修改日期 -->
+                        <td style="width: %;">
+                          <%= (data[i].ModifyDate).toLocaleDateString() %>
                         </td>
                         <!-- 狀態 -->
                         <!-- <td style="width: 10%;">
