@@ -5,6 +5,10 @@
   "scripts": {
     "start": "node ./bin/www"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MFEE18-NO-8/MFEE18_NO8.git"
+  },
   "dependencies": {
     "config": "^3.3.6",
     "cookie-parser": "~1.4.4",
