@@ -101,7 +101,7 @@ a:hover {
     padding:30px  20px;
     color: #1d3124;
     font-size: 30px;
-    transition: 1s;
+    transition: .5s;
 }
 .menu>li>a:hover {
     background-image: url(../img/新圖/雲.png);
@@ -317,7 +317,8 @@ div.user-menu {
     height: 100%;
 }
 .about-text>.about-text-content{
-    font-size: 25px;
+    font-size: 30px;
+    width: 100%;
 }
 .about-text-content{
     margin-left: 80px;
