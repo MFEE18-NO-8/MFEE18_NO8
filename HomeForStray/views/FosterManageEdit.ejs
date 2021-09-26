@@ -88,107 +88,109 @@
 
 
         <div id="MyDivView" class="container">
-            <table>
-                <tr>
-                    <td class="ViewTitle">寵物暱稱
-                    </td>
-                    <td class="ContentView"><label for="html" id="MyLabel">
-                            <%= data[0].PetName %>
-                        </label>
-                    </td>
-                </tr>
-                <tr>
+            <form action="" method="POST">
+                <table>
+                    <tr>
+                        <td class="ViewTitle">寵物暱稱
+                        </td>
+                        <td class="ContentView"><label for="html" id="MyLabel">
+                                <input type="text" name="PetName" value="<%= data[0].PetName %>">
+                            </label>
+                        </td>
+                    </tr>
+                    <!-- <tr>
                     <td class="ViewTitle">會員編號
                     </td>
                     <td class="ContentView"><label for="html" id="MyLabel">
                             <%= data[0].MemberId %>
                         </label>
                     </td>
-                </tr>
-                <tr>
-                    <td class="ViewTitle">會員刊登日期
-                    </td>
-                    <td class="ContentView"><label for="html" id="MyLabel">
-                            <%= (data[0].AdoptDate).toLocaleDateString() %>
-                        </label></td>
-                </tr>
-                <tr>
-                    <td class="ViewTitle">內容</td>
-                    <td class="ContentView">
-                        <table id="FosterTable" border="1">
-                            <tr>
-                                <td>種類</td>
-                                <td>
-                                    <%= data[0].PetSpecies %>
-                                </td>
-                            </tr>
-                            <tr class="FosterTr">
-                                <td>品種</td>
-                                <td>
-                                    <%= data[0].PetBreed %>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>體型</td>
-                                <td>
-                                    <%= data[0].BodyType %>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>毛色</td>
-                                <td>
-                                    <%= data[0].PetFur %>
-                                </td>
-                            </tr>
-                            <tr></tr>
-                            <td>年紀</td>
-                            <td>
-                                <%= data[0].PetAge %>
-                            </td>
-                </tr>
-                <tr>
-                    <td>性別</td>
-                    <td>
-                        <%= data[0].PetGender %>
-                    </td>
-                </tr>
-                <tr>
-                    <td>結紮狀況</td>
-                    <td>
-                        <%= data[0].Neuter %>
-                    </td>
-                </tr>
-                <tr>
-                    <td>是否有晶片</td>
-                    <td>
-                        <%= data[0].Microchip %>
-                    </td>
-                </tr>
-                <tr>
-                    <td>縣市</td>
-                    <td>
-                        <%= data[0].CityId %>
-                    </td>
-                </tr>
-                <tr>
-                    <td>連絡人</td>
-                    <td>
-                        <%= data[0].ContactPerson %>
-                    </td>
-                </tr>
-                <tr>
-                    <td>連絡電話</td>
-                    <td>
-                        <%= data[0].ContactPhone %>
-                    </td>
-                </tr>
-                <tr>
-                    <td>寵物描述</td>
-                    <td>
-                        <%= data[0].PetDes %>
-                    </td>
-                </tr>
-                <tr>
+                </tr> -->
+                    <tr>
+                        <td class="ViewTitle">會員刊登日期
+                        </td>
+                        <td class="ContentView"><label for="html" id="MyLabel">
+                                <input type="text" name="AdoptDate"
+                                    value="<%= (data[0].AdoptDate).toLocaleDateString() %>">
+                            </label></td>
+                    </tr>
+                    <tr>
+                        <td class="ViewTitle">內容</td>
+                        <td class="ContentView">
+                            <table id="FosterTable" border="1">
+                                <tr>
+                                    <td>種類</td>
+                                    <td>
+                                        <input type="text" name="PetSpecies" value="<%= data[0].PetSpecies %>">
+                                    </td>
+                                </tr>
+                                <tr class="FosterTr">
+                                    <td>品種</td>
+                                    <td>
+                                        <input type="text" name="PetBreed" value="<%= data[0].PetBreed %>">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>體型</td>
+                                    <td>
+                                        <input type="text" name="BodyType" value="<%= data[0].BodyType %>">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>毛色</td>
+                                    <td>
+                                        <input type="text" name="PetFur" value="<%= data[0].PetFur %>">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>年紀</td>
+                                    <td>
+                                        <input type="text" name="PetAge" value="<%= data[0].PetAge %>">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>性別</td>
+                                    <td>
+                                        <input type="text" name="PetGender" value="<%= data[0].PetGender %>">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>結紮狀況</td>
+                                    <td>
+                                        <input type="text" name="Neuter" value="<%= data[0].Neuter %>">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>是否有晶片</td>
+                                    <td>
+                                        <input type="text" name="Microchip" value="<%= data[0].Microchip %>">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>縣市</td>
+                                    <td>
+                                        <input type="text" name="CityId" value="<%= data[0].CityId %>">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>連絡人</td>
+                                    <td>
+                                        <input type="text" name="ContactPerson" value="<%= data[0].ContactPerson %>">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>連絡電話</td>
+                                    <td>
+                                        <input type="text" name="ContactPhone" value="<%= data[0].ContactPhone %>">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>寵物描述</td>
+                                    <td>
+                                        <input type="text" name="PetDes" value="<%= data[0].PetDes %>">
+                                    </td>
+                                </tr>
+                                <!-- <tr>
                     <td>領養狀態</td>
                     <td>
                         <input type="radio" name="AdoptState" value="">
@@ -196,43 +198,51 @@
                         <input type="radio" name="AdoptState" value="">
                         <label for="">未通過</label>
                     </td>
-                </tr>
-            </table>
-            </td>
-            </tr>
+                </tr> -->
+                            </table>
+                        </td>
+                    </tr>
 
 
-            <td class="Title">照片</td>
-            <td colspan="5" class="Content">
-                <img src="">
-                <div id="TitleButtonDiv">
-                    <!-- 隱藏img -->
-                    <img src="" alt="" id="outputImg" height="100" style="display:none">
-                    <!-- 隱藏img end -->
+                    <td class="Title">照片</td>
+                    <td colspan="5" class="Content">
+                        <img src="">
+                        <div id="TitleButtonDiv">
+                            <!-- 隱藏img -->
+                            <img src="" alt="" id="outputImg" height="100" style="display:none">
+                            <!-- 隱藏img end -->
 
-                    <label for="uploadImg" class="TitleButton uploadImg">
+                            <!-- <label for="uploadImg" class="TitleButton uploadImg">
                         <input type="file" style="display:none;" accept=".jpg, .jpeg, .png" id="uploadImg"
                             name="uploadImg" onchange="openFile(event)">上傳圖片
                     </label>
-                    <input type="button" class="TitleButton" value="刪除圖片" id="deleteImg">
-                </div>
-            </td>
-            <tr>
-                <td class="ViewTitle">狀態</td>
-                <td class="ContentView">
-                    <label for="html" id="MyLabel">
-                        <%= data[0].AuditId %>
-                    </label>
-                </td>
-            </tr>
+                    <input type="button" class="TitleButton" value="刪除圖片" id="deleteImg"> -->
+                        </div>
+                    </td>
+                    <tr>
+                        <td class="ViewTitle">狀態</td>
+                        <td class="ContentView">
+                            <!-- <label for="html" id="MyLabel">
+                                <input type="radio" name="AdoptSatae" value="<%= data[0].AdoptSatae %>">
+                                <input type="radio" name="AdoptSatae" value="<%= data[0].AdoptSatae %>">
 
-            <tr>
-                <td colspan="2" id="MySubmitId">
-                    <input type="submit" class="MySubmitSent" value="修改">
-                    <input type="submit" class="MySubmitCancel" value="取消">
-                </td>
-            </tr>
-            </table>
+                                <% var Satae=(data[0].AdoptSatae==0) ? "未通過" : "已通過" ; %>
+                                    <%= Satae %>
+                            </label> -->
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" id="MySubmitId">
+                            <input type="submit" class="MySubmitSent" value="修改">
+                            <input type="text" id="PetDeleInput" name="PetId" value="<%= data[0].PetId %>">
+
+                            <a href="/FosterManageList"><button type="button" class="MySubmitCancel"
+                                    value="">取消</button></a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
         </div>
 
         <!-- footer -->

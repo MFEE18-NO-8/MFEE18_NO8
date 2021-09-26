@@ -16,7 +16,8 @@ router.post('/', function (req, res) {  // app.js 已掛好路徑 post & get 會
     // 下方程式為第一步驟內容 
     // [req.body.PetName, req.body.FosterDateStart, req.body.FosterDateEnd, req.body.AdoptState]
 
-    // console.log(
+    // console.log
+    // (
     //     [
     //         req.body.PetName,
     //         req.body.PetName,
@@ -60,27 +61,27 @@ router.post('/', function (req, res) {  // app.js 已掛好路徑 post & get 會
 });
 
 
-//刪除資料
-router.post('/', function (req, res) {
+// //刪除資料
+// router.post('/', function (req, res) {
 
-    // DELETE statment
-    let sql = 'DELETE FROM `postforadopt` WHERE `postforadopt`.`PetId` = ?';
+//     // DELETE statment
+//     let sql = 'DELETE FROM `postforadopt` WHERE `postforadopt`.`PetId` = ?';
 
-    // delete a row with PetId 
-    pool.query(sql, PetId,
+//     // delete a row with PetId 
+//     pool.query(sql, PetId,
 
-        function (err, results) {
+//         function (err, results) {
 
-            onsole.log(req.body.PetId)
-            if (err) throw err;
-            console.log(results)
+//             onsole.log(req.body.PetId)
+//             if (err) throw err;
+//             console.log(results)
 
-            // res.redirect('/FosterManageList');
+//             // res.redirect('/FosterManageList');
 
-        });
+//         });
 
-    // console.log(req.body.PetId)
-});
+//     // console.log(req.body.PetId)
+// });
 
 
 module.exports = router;
