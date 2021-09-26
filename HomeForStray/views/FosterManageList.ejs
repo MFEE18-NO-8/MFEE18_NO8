@@ -120,7 +120,7 @@
                     <tr class="MyListTr">
                         <td colspan="4">
                             <input type="submit" class="ListSubmit" value="查詢">
-                            <button type="submit" class="ListSubmit" value="">清除</button>
+                            <button type="button" class="ListSubmit" value="">清除</button>
                         </td>
                     </tr>
                 </table>
@@ -128,12 +128,14 @@
         </div>
 
         <div id="MyblueTable" class="container">
-            <a href="/FosterManageAdd"><button class="btnLg btn-lightOrange btnAdd">新增</button></a>
+            <!-- <a href="/FosterManageAdd"><button class="btnLg btn-lightOrange btnAdd">新增</button></a> -->
+
 
             <table class="table table-hover">
                 <thead>
                     <tr class="UserFoster-thead">
                         <th>序號</th>
+                        <th>會員名稱</th>
                         <th>寵物暱稱</th>
                         <th>送審日期</th>
                         <!-- <th>審核通過時間</th> -->
@@ -143,30 +145,44 @@
                 </thead>
                 <tbody>
                     <% for(var i=0; i < data.length ; i++) { %>
-                        <form action="" method="POST">
-                            <tr>
-                                <th scope="row">
-                                    <%= i+1 %>
-                                </th>
-                                <td>
-                                    <%= data[i].PetName %>
-                                </td>
-                                <td>
-                                    <%= (data[i].AdoptDate).toLocaleDateString() %>
-                                </td>
 
-                                <!-- <td>
+                        <tr>
+                            <th scope="row">
+                                <%= i+1 %>
+                            </th>
+                            <td>
+                                <%= data[i].ContactPerson %>
+                            </td>
+                            <td>
+                                <%= data[i].PetName %>
+                            </td>
+                            <td>
+                                <%= (data[i].AdoptDate).toLocaleDateString() %>
+                            </td>
+
+                            <!-- <td>
                                
                             </td> -->
-                                <td>
-                                    <%= data[i].AdoptState %>
-                                </td>
 
-                                <td><input type="button" class="ListButtonEdit" name="EditAdopt" value="編輯">
-                                    <input type="submit" class="ListButtonDele" name="DeleAdopt" value="刪除">
-                                </td>
-                            </tr>
-                        </form>
+                            <!-- <%= data[i].AdoptState %> -->
+                            <td>
+                                <% var statusStr='' ; %>
+                                    <% var status=data[i].AdoptState; %>
+                                        <% (status==1) ? statusStr='已批准' : statusStr='未批准' ;
+                                            //判斷status=1，則statusStr為已批准，反之為未批准 ; %>
+                                            <%= statusStr %>
+                            </td>
+                            </td>
+
+                            <td>
+                                <a href="/FosterManageEdit?PetId=<%= data[i].PetId %>">
+                                    <button class="ListButtonEdit" name="EditAdopt" value="">編輯</button></a>
+                                <a href="/FosterManageDele?PetId=<%= data[i].PetId %>">
+                                    <button class="ListButtonDele" name="DeleAdopt" value="">刪除</button></a>
+                            </td>
+                        </tr>
+
+
                         <% } %>
 
                             <!-- <tr>

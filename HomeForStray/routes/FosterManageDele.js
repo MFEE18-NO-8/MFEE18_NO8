@@ -4,26 +4,46 @@ var router = express.Router();
 var mysql = require('mysql'); //含入mysql套件
 var pool = require('./lib/db.js') //含入資料庫連線
 
-var id = 0;
 
-router.get('/', function (req, res, next) {
-    id = req.query.id;  //取得傳送的資料id
-    var pageNo = parseInt(req.query.pageNo);
-    pool.query('select * from newscenter where news_id=?', [id], function (err, results) {  //根據id讀取資料
-        if (err) throw err;
-        res.render('newsdelete', { data: results, pageNo: pageNo });
-    });
+
+router.get('/', function (req, res) {
+    var PetId = 0;
+    PetId = req.query.PetId;  //取得傳送的資料id
+    // var PetId = parseInt(req.query.PetId);
+    pool.query('select * from postforadopt where PetId=?',
+        [
+            PetId
+        ],
+
+        function (err, results) {  //根據PetId讀取資料
+
+            if (err) throw err;
+            res.render('FosterManageDele', { data: results, PetId: PetId });
+        });
 });
 
-router.post('/', function (req, res, next) {
+router.post('/', function (req, res) {
+    // 1. req取得PetId 
+
+    var PetId = req.body.PetId
+
+    // 2. 根據PetId將資料抓出來刪除 
     pool.query('DELETE FROM `postforadopt` WHERE `postforadopt`.`PetId` = ?',
-        PetId,
+
+        [
+            PetId
+        ],
 
         function (err, results) {  //刪除資料
             if (err) throw err;
-            res.redirect('/adminmain');
+
+            // 3. 跳轉到List
+            res.redirect('/FosterManageList');
         });
 });
+
+
+
 
 //刪除資料
 // router.post('/', function (req, res) {

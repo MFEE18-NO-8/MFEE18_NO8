@@ -120,6 +120,9 @@ app.use('/FosterManageList', FosterManageList);
 //引入 刊登送養審核 新增
 var FosterManageAdd = require('./routes/FosterManageAdd');
 app.use('/FosterManageAdd', FosterManageAdd);
+//引入 刊登送養審核 刪除
+var FosterManageDele = require('./routes/FosterManageDele');
+app.use('/FosterManageDele', FosterManageDele);
 
 // //引入 會員註冊資料 新增
 // var Register = require('./routes/Register');
