@@ -44,26 +44,6 @@
             height: 100%;
             object-fit: cover;
         }
-
-        /* 文章區塊 */
-        .article-img{
-            /* 文章圖片置中 */
-            display:block; 
-            margin:auto;
-        }
-
-        .titleStyle {
-            text-align: center;
-            margin: 50px;
-            font-weight: bolder;
-        }
-        .contentStyle {
-            text-align: center;
-            /* 使用CSS的white-space 屬性保留空白符序列，但是正常地進行換行。 */
-            white-space: pre-wrap;
-        }
-
-
     </style>
 </head>
 
@@ -118,20 +98,12 @@
     <!-- 主要內容 -->
     <div class="row col-12">
         <div class="col-md-1"></div>
-        <div class="col-md-7 articleBox">
-            <div class="article-img-box">
-                <img class="img-fluid article-img" src="../img/animals/dog04.jpeg" alt="" />
-            </div>
-            <div class="article-title-box">
-                <h4 class="titleStyle">
-                    <%= data[0].ArticleTitle %>
-                </h4>
-            </div>
-            <div class="article-content-box">
-                <p class="contentStyle">
-                    <%= data[0].ArticleCont %>
-                </p>
-            </div>
+        <div class="col-md-7">
+            <img class="img-fluid" src="../img/animals/dog04.jpeg" alt="" />
+            <h4><%= data[0].ArticleTitle %></h4>
+            <p>
+                <%= data[0].ArticleCont %>
+            </p>
         </div>
 
         <!-- 熱門文章 -->
@@ -165,7 +137,9 @@
                     </li>
                     <% } %>
             </ul>
+
         </div>
+
         <div class="col-md-1"></div>
     </div>
 

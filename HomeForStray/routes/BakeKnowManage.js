@@ -57,7 +57,7 @@ router.post('/KnowManageAdd', function (req, res, next) {
 
     }], function (err, results) {
         if (err) throw err;
-        res.redirect('/BackKnowManage/KnowManageList');
+        res.redirect('/BakeKnowManage/KnowManageList');
     });
 });
 
@@ -78,7 +78,7 @@ router.get('/KnowManageDel', function (req, res, next) {
 router.post('/KnowManageDel', function (req, res, next) {
     pool.query('delete from articlenews where ArticleId=?', [id], function (err, results) {  //刪除資料
         if (err) throw err;
-        res.redirect('/BackKnowManage/KnowManageList');
+        res.redirect('/BakeKnowManage/KnowManageList');
     });
 });
 
@@ -111,7 +111,7 @@ router.post('/KnowManageEdit', function(req, res, next) {
       ArticleCont:articleContent,
     }, id] , function(err, results) {
       if(err) throw err;
-      res.redirect('/BackKnowManage/KnowManageList');  //回到原來頁數的管理頁面
+      res.redirect('/BakeKnowManage/KnowManageList');  //回到原來頁數的管理頁面
   });
 });
 
