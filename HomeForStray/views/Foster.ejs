@@ -117,26 +117,27 @@
 
       </div>
     </div>
-    <form class="foster-form">
+    <form class="foster-form" action="" method="POST">
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">寵物暱稱</label>
         <div class="col-9">
-          <input type="text" class="form-control" id="accountNumber">
+          <input type="text" class="form-control" id="accountNumber" name="PetName">
         </div>
       </div>
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">種類</label>
         <div class="col">
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <!-- <input type="text" class="form-control" id="accountNumber" name="PetSpecies"> -->
+            <input class="form-check-input" type="radio" name="PetSpecies" id="inlineRadio1" value="0">
             <label class="form-check-label" for="inlineRadio1">狗</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <input class="form-check-input" type="radio" name="PetSpecies" id="inlineRadio2" value="1">
             <label class="form-check-label" for="inlineRadio2">貓</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <input class="form-check-input" type="radio" name="PetSpecies" id="inlineRadio2" value="2">
             <label class="form-check-label" for="inlineRadio2">其他</label>
           </div>
         </div>
@@ -144,28 +145,28 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">品種</label>
         <div class="col-9">
-          <input type="text" class="form-control" id="accountNumber">
+          <input type="text" class="form-control" id="accountNumber" name="PetBreed">
         </div>
       </div>
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">毛色</label>
         <div class="col-9">
-          <input type="text" class="form-control" id="accountNumber">
+          <input type="text" class="form-control" id="accountNumber" name="PetFur">
         </div>
       </div>
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">體型</label>
         <div class="col">
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <input class="form-check-input" type="radio" name="BodyType" id="inlineRadio1" value="0">
             <label class="form-check-label" for="inlineRadio1">小型</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <input class="form-check-input" type="radio" name="BodyType" id="inlineRadio2" value="1">
             <label class="form-check-label" for="inlineRadio2">中型</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <input class="form-check-input" type="radio" name="BodyType" id="inlineRadio2" value="2">
             <label class="form-check-label" for="inlineRadio2">大型</label>
           </div>
         </div>
@@ -174,12 +175,16 @@
         <label for="staticEmail" class="col-sm-2 col-form-label">年紀</label>
         <div class="col">
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <input class="form-check-input" type="radio" name="PetAge" id="inlineRadio1" value="0">
             <label class="form-check-label" for="inlineRadio1">幼年</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <input class="form-check-input" type="radio" name="PetAge" id="inlineRadio2" value="1">
             <label class="form-check-label" for="inlineRadio2">成年</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="PetAge" id="inlineRadio2" value="2">
+            <label class="form-check-label" for="inlineRadio2">老年</label>
           </div>
         </div>
       </div>
@@ -187,11 +192,11 @@
         <label for="staticEmail" class="col-sm-2 col-form-label">性別</label>
         <div class="col">
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <input class="form-check-input" type="radio" name="PetGender" id="inlineRadio1" value="1">
             <label class="form-check-label" for="inlineRadio1">公</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <input class="form-check-input" type="radio" name="PetGender" id="inlineRadio2" value="0">
             <label class="form-check-label" for="inlineRadio2">母</label>
           </div>
         </div>
@@ -200,11 +205,11 @@
         <label for="staticEmail" class="col-sm-2 col-form-label">結紮狀況</label>
         <div class="col">
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <input class="form-check-input" type="radio" name="Neuter" id="inlineRadio1" value="1">
             <label class="form-check-label" for="inlineRadio1">是</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <input class="form-check-input" type="radio" name="Neuter" id="inlineRadio2" value="0">
             <label class="form-check-label" for="inlineRadio2">否</label>
           </div>
         </div>
@@ -213,11 +218,11 @@
         <label for="staticEmail" class="col-sm-2 col-form-label">有無晶片</label>
         <div class="col">
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <input class="form-check-input" type="radio" name="Microchip" id="inlineRadio1" value="1">
             <label class="form-check-label" for="inlineRadio1">是</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <input class="form-check-input" type="radio" name="Microchip" id="inlineRadio2" value="0">
             <label class="form-check-label" for="inlineRadio2">否</label>
           </div>
         </div>
@@ -226,29 +231,39 @@
         <label for="staticEmail" class="col-sm-2 col-form-label">區域</label>
         <div class="col-9">
           <div class="form-group">
-            <select class="form-control foster-select" id="exampleFormControlSelect1">
-              <option>台北市</option>
-              <option>基隆市</option>
-              <option>新北市</option>
-              <option>宜蘭縣</option>
-              <option>桃園市</option>
-              <option>新竹市</option>
-              <option>新竹縣</option>
-              <option>苗栗縣</option>
-              <option>台中市</option>
-              <option>彰化縣</option>
-              <option>南投縣</option>
-              <option>嘉義市</option>
-              <option>嘉義縣</option>
-              <option>雲林縣</option>
-              <option>台南市</option>
-              <option>高雄市</option>
-              <option>澎湖縣</option>
-              <option>金門縣</option>
-              <option>屏東縣</option>
-              <option>台東縣</option>
-              <option>花蓮縣</option>
-              <option>連江縣</option>
+            <select class="form-control foster-select" id="exampleFormControlSelect1" name="CityId">
+              <option value="1">台北市</option>
+              <option value="2">基隆市</option>
+              <option value="3">新北市</option>
+              <option value="4">宜蘭縣</option>
+              <option value="5">宜蘭市</option>
+              <option value="6">桃園市</option>
+              <option value="8">新竹市</option>
+              <option value="7">新竹縣</option>
+              <option value="9">苗栗縣</option>
+              <option value="10">苗栗市</option>
+              <option value="11">台中市</option>
+              <option value="12">彰化縣</option>
+              <option value="13">彰化市</option>
+              <option value="14">南投縣</option>
+              <option value="15">南投市</option>
+              <option value="18">嘉義市</option>
+              <option value="17">嘉義縣</option>
+              <option value="16">雲林縣</option>
+              <option value="19">台南市</option>
+              <option value="20">高雄市</option>
+              <option value="27">澎湖縣</option>
+              <option value="28">金門縣</option>
+              <option value="21">屏東縣</option>
+              <option value="22">屏東市</option>
+              <option value="23">台東縣</option>
+              <option value="24">台東市</option>
+              <option value="25">花蓮縣</option>
+              <option value="26">花蓮市</option>
+              <option value="29">連江縣</option>
+              <option value="30">蘭嶼</option>
+              <option value="31">馬祖</option>
+              <option value="32">綠島</option>
             </select>
           </div>
         </div>
@@ -256,19 +271,19 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">聯絡人</label>
         <div class="col-9">
-          <input type="text" class="form-control" id="accountNumber">
+          <input type="text" class="form-control" id="accountNumber" name="ContactPerson">
         </div>
       </div>
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">聯絡電話</label>
         <div class="col-9">
-          <input type="text" class="form-control" id="accountNumber">
+          <input type="text" class="form-control" id="accountNumber" name="ContactPhone">
         </div>
       </div>
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">個性描述</label>
         <div class="col-9">
-          <textarea name="" id="" cols="30" rows="3"></textarea>
+          <textarea name="PetDes" id="" cols="30" rows="3"></textarea>
         </div>
       </div>
       <!-- 檔案上傳 -->
@@ -281,73 +296,76 @@
                 </div>              
               </div>
             </div> -->
-            <div class="form-group row">
-              <label for="staticEmail" class="col-sm-2 col-form-label">照片</label>
-              <div class="col-9">
-                <div class="form-group">
-                  <table class="table">
-                    <small id="emailHelp" class="form-text ">第一張上傳照片為封面照,最多可上傳4張。每張不超過2MB</small>
-                    <thead>
-                      <tr>
-                        <th scope="col">新增</th>
-                        <th scope="col">刪除</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <button type="submit" class="btn btn-profile btnLg btn-green" onclick="uploadImg()">
-                            新增照片
-                          </button>
-                          <input id="profile-img" accept="image/jpeg,image/png" onchange="importImg()" type="file" hidden />
-                        </td>
-                        <td><button class="btnLg btn-lightRed">刪除照片</button></td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <button class="btn  btnLg btn-green" onclick="uploadImg()">
-                            新增照片
-                          </button>
-                          <input id="profile-img" accept="image/jpeg,image/png" onchange="importImg()" type="file" hidden />
-                        </td>
-                        <td><button class="btnLg btn-lightRed">刪除照片</button></td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <button class="btn  btnLg btn-green" onclick="uploadImg()">
-                            新增照片
-                          </button>
-                          <input id="profile-img" accept="image/jpeg,image/png" onchange="importImg()" type="file" hidden />
-                        </td>
-                        <td><button class="btnLg btn-lightRed">刪除照片</button></td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <button class="btn  btnLg btn-green" onclick="uploadImg()">
-                            新增照片
-                          </button>
-                          <input id="profile-img" accept="image/jpeg,image/png" onchange="importImg()" type="file" hidden />
-                        </td>
-                        <td><button class="btnLg btn-lightRed">刪除照片</button></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>              
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="form-group form-check checkbox-foster">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">已閱讀注意事項</label>
-              </div>
-            </div>
-            <div class="row justify-content-center btn-foster">
-              <button class="btnMd btn-BananaYellow">送出</button>
-              <button class="btnMd btn-lightRed">取消</button>
-            </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">照片</label>
+        <div class="col-9">
+          <div class="form-group">
+            <table class="table">
+              <small id="emailHelp" class="form-text ">第一張上傳照片為封面照,最多可上傳4張。每張不超過2MB</small>
+              <thead>
+                <tr>
+                  <th scope="col">新增</th>
+                  <th scope="col">刪除</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <button type="submit" class="btn btn-profile btnLg btn-green" onclick="uploadImg()">
+                      新增照片
+                    </button>
+                    <input id="profile-img" accept="image/jpeg,image/png" onchange="importImg()" type="file" hidden />
+                  </td>
+                  <td><button class="btnLg btn-lightRed">刪除照片</button></td>
+                </tr>
+                <tr>
+                  <td>
+                    <button class="btn  btnLg btn-green" onclick="uploadImg()">
+                      新增照片
+                    </button>
+                    <input id="profile-img" accept="image/jpeg,image/png" onchange="importImg()" type="file" hidden />
+                  </td>
+                  <td><button class="btnLg btn-lightRed">刪除照片</button></td>
+                </tr>
+                <tr>
+                  <td>
+                    <button class="btn  btnLg btn-green" onclick="uploadImg()">
+                      新增照片
+                    </button>
+                    <input id="profile-img" accept="image/jpeg,image/png" onchange="importImg()" type="file" hidden />
+                  </td>
+                  <td><button class="btnLg btn-lightRed">刪除照片</button></td>
+                </tr>
+                <tr>
+                  <td>
+                    <button class="btn  btnLg btn-green" onclick="uploadImg()">
+                      新增照片
+                    </button>
+                    <input id="profile-img" accept="image/jpeg,image/png" onchange="importImg()" type="file" hidden />
+                  </td>
+                  <td><button class="btnLg btn-lightRed">刪除照片</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="form-group form-check checkbox-foster">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">已閱讀注意事項</label>
+        </div>
+      </div>
+      <div class="row justify-content-center btn-foster">
+        <!-- <button class="btnMd btn-BananaYellow">送出</button> -->
+        <input type="submit" class="btnMd btn-BananaYellow" value="新增">
 
-          </form>
-    </div>
+        <!-- <button class="btnMd btn-lightRed">取消</button> -->
+        <a href="/Foster"><button type="button" class="btnMd btn-lightRed">取消</button></a>
+      </div>
+
+    </form>
+  </div>
   <!-- footer -->
   <footer class="container-fluid footer">
     <div class="row justify-content-center w-100 m-0">
@@ -364,41 +382,41 @@
       $('.burgar-menu').on('click', function (e) {
         $('body').toggleClass('burgar-menu-show');
       });
-      });
-      // 照片上傳
-      const inputFile = document.getElementById("profile-img");
-      function uploadImg(e) {
-        inputFile.click();
-      }
-      $('.btn-profile').click(function(e){
-        e.stopPropagation();
-        return false;
+    });
+    // 照片上傳
+    const inputFile = document.getElementById("profile-img");
+    function uploadImg(e) {
+      inputFile.click();
+    }
+    $('.btn-profile').click(function (e) {
+      e.stopPropagation();
+      return false;
 
-      });
+    });
 
-      function importImg(e) {
-        const files = inputFile.files;
-        if (files.length > 0) {
-          const file = files[0];
+    function importImg(e) {
+      const files = inputFile.files;
+      if (files.length > 0) {
+        const file = files[0];
 
-          const size = (file.size / 1024).toFixed(0);
+        const size = (file.size / 1024).toFixed(0);
 
-          // 確認檔案大小在200K以下,檔案格式為'image/jpeg'或'image/png'
-          if (
-            parseInt(size, 10) > 200 ||
-            (file.type !== "image/jpeg" && file.type !== "image/png")
-          ) {
-            alert("請上傳200KB以下，JPG/PNG圖檔");
+        // 確認檔案大小在200K以下,檔案格式為'image/jpeg'或'image/png'
+        if (
+          parseInt(size, 10) > 200 ||
+          (file.type !== "image/jpeg" && file.type !== "image/png")
+        ) {
+          alert("請上傳200KB以下，JPG/PNG圖檔");
 
-            console.log(`file size: ${size}KB`);
-          } else {
-            console.log("valid file", file);
-            console.log("Filename: " + file.name);
-            console.log("Type: " + file.type);
-          }
+          console.log(`file size: ${size}KB`);
+        } else {
+          console.log("valid file", file);
+          console.log("Filename: " + file.name);
+          console.log("Type: " + file.type);
         }
       }
-    </script>
+    }
+  </script>
 </body>
 
 </html>
