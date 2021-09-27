@@ -35,10 +35,6 @@ router.get('/KnowManageList', function (req, res, next) {
 });
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 54dd02b (Revert "Merge branch 'main' of https://github.com/MFEE18-NO-8/MFEE18_NO8")
 // 毛孩知識後台新增
 var message = '';
 
@@ -89,33 +85,33 @@ router.post('/KnowManageDel', function (req, res, next) {
 // 毛孩知識編輯
 
 var id = 0;
- 
-router.get('/KnowManageEdit', function(req, res, next) {
-  var categories = ['標題', '發布日期', '內容', '狀態'];
-  id = req.query.id;  //取得傳送的資料id
-  var pageNo = parseInt(req.query.pageNo);
 
-  pool.query('select * from articlenews where ArticleId=?', [id], function(err, results) {  //根據id讀取資料
-    if(err) throw err;
-    res.render('KnowManageEdit', { data:results, pageNo:pageNo, categories:categories});
-  });
+router.get('/KnowManageEdit', function (req, res, next) {
+    var categories = ['標題', '發布日期', '內容', '狀態'];
+    id = req.query.id;  //取得傳送的資料id
+    var pageNo = parseInt(req.query.pageNo);
+
+    pool.query('select * from articlenews where ArticleId=?', [id], function (err, results) {  //根據id讀取資料
+        if (err) throw err;
+        res.render('KnowManageEdit', { data: results, pageNo: pageNo, categories: categories });
+    });
 });
 
-router.post('/KnowManageEdit', function(req, res, next) {
-  var pageNo = parseInt(req.query.pageNo);
-  var articleTitle = req.body['articleTitle'];  //取得輸入的類型
-  var articleDate = req.body['articleDate'];
-  var articleContent = req.body['articleContent'];
+router.post('/KnowManageEdit', function (req, res, next) {
+    var pageNo = parseInt(req.query.pageNo);
+    var articleTitle = req.body['articleTitle'];  //取得輸入的類型
+    var articleDate = req.body['articleDate'];
+    var articleContent = req.body['articleContent'];
 
-  
-  pool.query('update articlenews set ? where ArticleId=?', [{  //更新資料
-      ArticleTitle:articleTitle,
-      ArticleDate: articleDate,
-      ArticleCont:articleContent,
-    }, id] , function(err, results) {
-      if(err) throw err;
-      res.redirect('/BakeKnowManage/KnowManageList');  //回到原來頁數的管理頁面
-  });
+
+    pool.query('update articlenews set ? where ArticleId=?', [{  //更新資料
+        ArticleTitle: articleTitle,
+        ArticleDate: articleDate,
+        ArticleCont: articleContent,
+    }, id], function (err, results) {
+        if (err) throw err;
+        res.redirect('/BakeKnowManage/KnowManageList');  //回到原來頁數的管理頁面
+    });
 });
 
 
