@@ -84,38 +84,41 @@
             </tr>
           </thead>
           <tbody>
-            <%var sn=1; //宣告sn=編號 %>
-            <% for(var i=0; i < data.length; i++) { %>
-                <tr>
-                    <td><%= (data[i].MsgDate).toLocaleDateString() %></td>
-                    <td>
-                        <%= (data[i].Msg) %>
-                    </td>
-                </tr>
-                <% sn++; %>
-            <% } %>
+            
+                <% for(var i=0; i < data.length; i++) { %>
+                    <tr>
+                        <td>
+                            <%= (data[i].MsgDate).toLocaleDateString() %>
+                        </td>
+                        <td>
+                            <%= (data[i].Msg) %>
+                        </td>
+                    </tr>
+                    
+                <% } %>
           </tbody>
       </table>
     </div>
 
     <!-- 分頁 -->
-    <nav aria-label="Page navigation example ">
+    <nav aria-label="Page navigation example " style="display: flex;justify-content: center;">
         <ul class="pagination justify-content-center">
-        <li class="page-item">
-            <a class="page-link" href="/UserMsg?pageNo=<%= (pageNo-1) %>" title="上一頁" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-            </a>
-        </li>
-        <% for(var i=1; i <=totalPage; i++) { %>
             <li class="page-item">
-                <a class="page-link" href="/UserMsg?pageNo=<%= i%>"><%= i%></a>
-            </li>    
-        <% } %>
-        <li class="page-item">
-            <a class="page-link" href="/UserMsg?pageNo=<%= (pageNo+1) %>" title="下一頁" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-            </a>
-        </li>
+                <a class="page-link" href="/UserMsg?pageNo=<%= (pageNo-1) %>" title="上一頁" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        
+            <% for(var i=1; i<= TotalLine; i++) { %>
+                <li class="page-item">
+                    <a class="page-link" href="/UserMsg?pageNo=<%= i%>"><%= i%></a>
+                </li>    
+            <% } %>
+            <li class="page-item">
+                <a class="page-link" href="/UserMsg?pageNo=<%= (pageNo+1) %>" title="下一頁" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
         </ul>
     </nav>
     <!-- footer -->
