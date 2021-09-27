@@ -40,9 +40,10 @@ a:hover {
 }
 /* navbar */
 .header {
-    background: url(../img/新圖/header.png);
+    background-color: #DCE9F3;
+    /* background: url(../img/新圖/header.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     display: flex;
     justify-content: space-between;
 }
@@ -230,7 +231,7 @@ div.dropdown-menu::before{
     position: relative;
 }
 .peo{
-    width: 500px;
+    width: 450px;
     height: auto;
     position: absolute;
     top: -30px;
@@ -240,11 +241,11 @@ div.dropdown-menu::before{
     width: 150px;
     height: auto;
     position: absolute;
-    top: 100%;
-    right:-15%;
+    top: 95%;
+    right:-5%;
 }
 .body-text{
-    margin-top:140px;
+    margin-top:100px;
     text-align:center;
     font-size: 35px;
     line-height: 2;
@@ -386,7 +387,7 @@ div.dropdown-menu::before{
     width: 400px;
     text-align: left;
 }
-/* footer */
+/*view */
 .view{
     background-image:url(../img/新圖/view1.png);
     width: 100%;
@@ -401,6 +402,7 @@ div.dropdown-menu::before{
 }
 
 .river-line{
+    height: 50px;
     position: absolute;
     opacity: 50%;
     animation-name: riverMove;
@@ -409,6 +411,7 @@ div.dropdown-menu::before{
     animation-timing-function: linear;
 }
 .river-line2{
+    height: 50px;
     position: absolute;
     opacity: 50%;
     animation-name: riverMove2;
@@ -418,7 +421,7 @@ div.dropdown-menu::before{
 }
 @keyframes riverMove{
     from{left: 500px;}
-    to{left: 1300px; opacity: .8;}
+    to{left: 1200px; opacity: .8;}
 }
 @keyframes riverMove2{
     from{left: 0px;}
@@ -451,22 +454,23 @@ div.dropdown-menu::before{
 .dog-1{
     height: 196px;
     width: 200px;
-    top: -10px;
+    top: -30px;
     left: 20%;
 }
 .dog-2{
     width: 200px;
     height: auto;
-    top: -30px;
+    top: -15%;
     right: 10%;    
     z-index: 2;   
 }
 .dog-3{
-    width: 135px;
-    height: 144px;
-    left:50%;
+    width: auto;
+    height: 120px;
+    left:45%;
     top: -70px;
 }
+/* footer */
 footer{
     background-image:url(../img/新圖/footer.png);
     width: 100%;
@@ -485,26 +489,26 @@ footer{
     display: flex;
 }
 .footer-link>ul{
-    margin: 50px 10px 20px 0px;
+    margin: 60px 10px 20px 0px;
 }
 .footer-link>ul>li>a{
     margin: 15px 10px;
     color: #605651;
-    font-size: 30px;
+    font-size: 25px;
     transition: .5s;
 }
 .footer-link>ul>li>a:hover{
     color:#c9b6ac ;
 }
-.footet-text{
+.footer-text{
     margin-top: 20px;
     text-align: center;
     justify-content: center;
 }
-.footet-text>div{
-    color: #605651;
-    font-size: 20px;
+.footer-text>div{
+	color: #605651;
+	font-size: 18px;
 }
 .copy{
-    margin-top: 10px;
+    margin: 10px 0px;
 }
