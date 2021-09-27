@@ -267,11 +267,3 @@ button.rigister{
     border-radius: 50px;
     background-color: var(--BananaYellow);
 }
-
-nav div .blueheader{
-    background-color:red;
-}
-
-#main-sidebar{
-    background-color:#DCE9F3; 
-}
