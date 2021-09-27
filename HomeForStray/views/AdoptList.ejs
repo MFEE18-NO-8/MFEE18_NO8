@@ -15,10 +15,10 @@
   <!-- 連結方式建議使用cdn 嘗試一下未來工作的情況 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
-  <script src="../Bootstrap/js/jquery.min.js"></script>
-  <script src="../Bootstrap/js/popper.min.js"></script>
-  <script src="../Bootstrap/js/bootstrap.min.js"></script>
-
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+  
   <!-- css -->
   <link rel="stylesheet" href="stylesheets/style.css">
   <title>浪浪有窩</title>
@@ -46,31 +46,25 @@
         </a> 
           <!-- navbar-user -->
           <div class="btn-group">
-            <button class="btn  btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="../img/icon/user.png" alt="" class="user-icon">
+            <button class="btn  btn-sm" type="button"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="../img/icon/user.png" alt="" class="user-icon">
             </button>
-            <div class="dropdown-menu dropdown-menu-right user-menu" >
-                <ul>
-                  <li>某某某</li>
-                  <li><a href="/UserEdit">會員資料</a></li>
-                  <li><a href="/UserFoster">我的送養文</a></li>
-                  <li><a href="/UserFollow">追蹤的毛孩</a></li>
-                  <li><a href="/UserMsg">通知</a></li>
-                  <li><a href="#">登出</a></li>
-                </ul>
+            <div class="dropdown-menu  user-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+              <ul>
+                <li><a href="./UserEdit.html">會員資料</a></li>
+                <li><a href="./UserFoster.html">我的送養文</a></li>
+                <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
+                <li><a href="./UserMsg.html">通知</a></li>
+                <li><a href="./FindMe.html">登出</a></li>
+              </ul>
             </div>
           </div>
         </div>
-    </div> 
-    <!-- 麵包屑 -->
-    <div class="breadcrumb-block">
-        <div class="container-fluid">
-            <ol class="breadcrumb pb-0">
-                <li class="breadcrumb-item "><a href="/">首頁</a></li>
-                <li class="breadcrumb-item active" aria-current="page">毛孩領養</li>
-            </ol>
-        </div> 
     </div>
+    <!-- 第二版本header -->
+    <!-- <div class="container-fluid p-0">
+      <div class="row hiLen"></div>
+    </div> -->
     <!-- 搜尋區塊 -->
     <div class="container">
         <div class="row">
@@ -188,13 +182,33 @@
     </ul>
     </nav>
     <!-- footer -->
-    <footer class="container-fluid footer">
-        <div class="row justify-content-center w-100 m-0">
-          <div class="col-10 col-md-10 copyright">
-              本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，僅就一般正常情理做審核，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。
-              <br>如有任何建議或合作請與我們聯絡 <br>© 2021 Copyright .tw By MFEE18-No.8
-          </div>
-        </div>
+    <footer class="container-fluid p-0">
+      <div class="container">
+      <div class="row">
+      <div class="col-md-6">
+        <img src="../img/Logo/字.png" alt="" class="footer-logo">
+      </div>
+      <div class="col-md-6 footer-link">
+        <ul>
+          <li><a href="#">毛孩領養</a></li>
+          <li><a href="#">毛孩知識</a></li>
+        </ul>
+        <ul>
+          <li><a href="#">刊登送養</a></li>
+          <li><a href="#">會員專區</a></li>
+        </ul>
+        <ul>
+          <li><a href="#">最新消息</a></li>
+          <li><a href="#">關於我們</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row footer-text">
+      <div class="col-12">本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。
+        <br>如有任何建議或合作請與我們聯絡</div>
+      <div class="col-12 copy">© 2021 Copyright .tw By MFEE18-No.8</div>
+    </div>
+      </div>
     </footer>
 
     <script>
@@ -205,7 +219,7 @@
         });
       });
     </script>
-
+  
 </body>
 
 </html>
