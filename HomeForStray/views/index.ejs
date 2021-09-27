@@ -5,13 +5,22 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+    crossorigin="anonymous"></script>
   <!-- css -->
   <link rel="stylesheet" href="stylesheets/lynnstyle.css">
   <title>浪浪有窩</title>
@@ -27,10 +36,19 @@
     <div class="nav">
       <!-- 漢堡選單 -->
       <ul class="menu burgar-menu">
+        <% if ( memberData == ""){ %>
+          <span>Hello!Guest</span>
+        <% }else{ %>
+          <span>Hello! <%= memberData[0].MemberName %></span>
+        <% } %>
         <li><a href="./X_index.html">首頁</a></li>
         <li><a href="./AdopList.html">毛孩領養</a></li>
         <li><a href="./Foster.html">刊登送養</a></li>
         <li><a href="./KnowList.html">毛孩知識</a></li>
+        <% if ( memberData == "" ){ %>
+          <li><a href="/member/login">登入</a></li>
+          <li><a href="/member/register">註冊</a></li>
+          <% }else{ %>
       </ul>
       <a href="#" class="hamBar burgar-menu">
         <i>
@@ -38,20 +56,22 @@
         </i>
       </a>
       <!-- navbar-user -->
-      <div class="btn-group">
-        <button class="btn  btn-sm" type="button"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="../img/icon/user.png" alt="" class="user-icon">
-        </button>
-        <div class="dropdown-menu  user-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-          <ul>
-            <li><a href="./UserEdit.html">會員資料</a></li>
-            <li><a href="./UserFoster.html">我的送養文</a></li>
-            <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
-            <li><a href="./UserMsg.html">通知</a></li>
-            <li><a href="./FindMe.html">登出</a></li>
-          </ul>
-        </div>
-      </div>
+          <div class="btn-group">
+            <button class="btn  btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <img src="../img/icon/user.png" alt="" class="user-icon">
+            </button>
+            <div class="dropdown-menu  user-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+              <ul>
+                <li><a href="./UserEdit.html">會員資料</a></li>
+                <li><a href="./UserFoster.html">我的送養文</a></li>
+                <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
+                <li><a href="./UserMsg.html">通知</a></li>
+                <li><a href="/member/logout">登出</a></li>
+              </ul>
+            </div>
+          </div>
+        <% } %>
     </div>
   </div>
   <!-- 第二版本 -->
@@ -62,7 +82,7 @@
         <img src="../img/新圖/—Pngtree—domestic pet cat_4551043.png" alt="" class="cat">
       </div>
       <div class="col-12 col-md body-text">
-              尋尋覓覓<br>
+        尋尋覓覓<br>
         有一隻等愛的浪浪，在這裡等你<br>
         快來找尋誰是你最親密的動物伴侶?
       </div>
@@ -75,14 +95,16 @@
         <img src="../img/Logo/logomix.png" alt="" class="img-fluid">
       </div>
       <div class="col col-md-6 about-text">
-        <div class="title about-title mt-0"><h4>關於我們</h4></div>
+        <div class="title about-title mt-0">
+          <h4>關於我們</h4>
+        </div>
         <div class="about-text-content">
           現今社會越來越有愛護動物的意識，<br>
           大家更願意領養代替購買，<br>
           民間也開始用用FB社團等平台張貼領養<br>
           等資訊，但在這個資訊爆炸的世代，<br>
           難免資訊雜亂難以查找。<br><br>
-  
+
           我們是一群正在學習軟體工程的學生，<br>
           期望用我們所學的力量創建本平台改善大環境。
           希望能藉由這個平台<br>幫助更多毛孩找到一個家。
@@ -99,7 +121,7 @@
         毛小孩無法說話，<br>也無法決定自己的命運，<br>
         但伸出援手的你，<br>卻可以成為他們的靠山。
       </div>
-      <div >
+      <div>
         <a href="/" class="adopt-title">毛孩領養</a>
       </div>
     </div>
@@ -113,48 +135,52 @@
         牽起流浪動物的手，<br>
         協助牠們找尋幸福。
       </div>
-      <div >
+      <div>
         <a href="/" class="foster-title">刊登送養</a>
-      </div> 
+      </div>
     </div>
     <img src="../img/新圖/foster.png" alt="" class="adopt-right-img">
   </div>
   <div class="container link-block-adopt ">
-  
+
     <img src="../img/新圖/毛孩知識.png" alt="" class="adopt-right-img">
     <div class="know-right w-100">
       <img src="../img/新圖/cloud-1.png" alt="" class="link-adopt-img">
       <div class="know-text">
         毛孩的健康知識你知道多少呢？ <br>
         定期更新關於毛孩你要知道的事！
-      </div> 
-      <div >
+      </div>
+      <div>
         <a href="/" class="know-title">毛孩知識</a>
-      </div> 
+      </div>
     </div>
   </div>
   <!-- 最新消息 -->
-<div class="container fly-new w-100">
-  <img src="../img/新圖/未命名-1.png" alt="" class="fly-new-img w-100">
-  <div class="row fly-block">
-    <div class="col-10 new-block-title">
-      <h3>最新消息</h3>
-    </div>
-    <% for(var i=0; i< 3 ; i++) { %>
-    <div class="row fly-text">
-      <div class="new-title" >
-        <p class="date"><%= (data[i].ShowStartDate).toLocaleDateString() %></p>
+  <div class="container fly-new w-100">
+    <img src="../img/新圖/未命名-1.png" alt="" class="fly-new-img w-100">
+    <div class="row fly-block">
+      <div class="col-10 new-block-title">
+        <h3>最新消息</h3>
       </div>
-      <div class="new-content">
-        <a href="#" class="content multiline-ellipsis w-100"><%= data[i].NewsTitle %></a>
-      </div>
-    </div>
-    <% } %>
-    <div class="col-10 more-news display-flex">
-        <a href="NewsList.html">更多消息...</a>
+      <% for(var i=0; i< 2 ; i++) { %>
+        <div class="row fly-text">
+          <div class="new-title">
+            <p class="date">
+              <%= (data[i].ShowStartDate).toLocaleDateString() %>
+            </p>
+          </div>
+          <div class="new-content">
+            <a href="#" class="content multiline-ellipsis w-100">
+              <%= data[i].NewsTitle %>
+            </a>
+          </div>
+        </div>
+        <% } %>
+          <div class="col-10 more-news display-flex">
+            <a href="NewsList.html">更多消息...</a>
+          </div>
     </div>
   </div>
-</div>
   <!-- 造景 -->
   <div class="container-fluid view w-100">
   </div>
@@ -173,37 +199,38 @@
     <img src="../img/新圖/grass.png" alt="" class="grass-2">
     <img src="../img/新圖/smallgrass.png" alt="" class="grass-3">
   </div>
-    <!-- footer -->
+  <!-- footer -->
   <footer class="container-fluid p-0">
     <div class="container">
-    <div class="row">
-    <div class="col-md-6">
-      <img src="../img/Logo/字.png" alt="" class="footer-logo">
-    </div>
-    <div class="col-md-6 footer-link">
-      <ul>
-        <li><a href="#">毛孩領養</a></li>
-        <li><a href="#">毛孩知識</a></li>
-      </ul>
-      <ul>
-        <li><a href="#">刊登送養</a></li>
-        <li><a href="#">會員專區</a></li>
-      </ul>
-      <ul>
-        <li><a href="#">最新消息</a></li>
-        <li><a href="#">關於我們</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="row footet-text">
-    <div class="col-12">本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。
-      <br>如有任何建議或合作請與我們聯絡</div>
-    <div class="col-12 copy">© 2021 Copyright .tw By MFEE18-No.8</div>
-  </div>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="../img/Logo/字.png" alt="" class="footer-logo">
+        </div>
+        <div class="col-md-6 footer-link">
+          <ul>
+            <li><a href="#">毛孩領養</a></li>
+            <li><a href="#">毛孩知識</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">刊登送養</a></li>
+            <li><a href="#">會員專區</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">最新消息</a></li>
+            <li><a href="#">關於我們</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row footet-text">
+        <div class="col-12">本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。
+          <br>如有任何建議或合作請與我們聯絡
+        </div>
+        <div class="col-12 copy">© 2021 Copyright .tw By MFEE18-No.8</div>
+      </div>
     </div>
   </footer>
 
-  
+
   <script>
     // 漢堡選單
     $(document).ready(function () {
@@ -211,34 +238,34 @@
         $('body').toggleClass('burgar-menu-show');
       });
       //毛孩知識
-      $('.know-right').mousemove(function(){
+      $('.know-right').mousemove(function () {
         $('.know-text').hide();
         $('.know-title').show();
       });
-      $('.know-right').mouseout(function(){
+      $('.know-right').mouseout(function () {
         $('.know-text').show();
         $('.know-title').hide();
       });
       //刊登送養
-      $('.foster-left').mousemove(function(){
+      $('.foster-left').mousemove(function () {
         $('.foster-text').hide();
         $('.foster-title').show();
       });
-      $('.foster-left').mouseout(function(){
+      $('.foster-left').mouseout(function () {
         $('.foster-text').show();
         $('.foster-title').hide();
       });
       //毛孩領養
-      $('.adopt-right').mousemove(function(){
+      $('.adopt-right').mousemove(function () {
         $('.adopt-text').hide();
         $('.adopt-title').show();
       });
-      $('.adopt-right').mouseout(function(){
+      $('.adopt-right').mouseout(function () {
         $('.adopt-text').show();
         $('.adopt-title').hide();
       });
     });
   </script>
-  </body>
+</body>
 
 </html>
