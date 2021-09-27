@@ -263,6 +263,38 @@ div.user-menu {
     height: 18px;
     margin: 0 10px;
 }
+/* 首頁改版第二版本 */
+.body-content{
+    background: url(../img/新圖/header-1.png);
+    width: 100%;
+    height: 700px;
+    background-position: center;
+    background-size: cover;
+}
+.body-content-img{
+    position: relative;
+}
+.peo{
+    width: 500px;
+    height: auto;
+    position: absolute;
+    top: 10px;
+    left: 30%;
+}
+.cat{
+    width: 150px;
+    height: auto;
+    position: absolute;
+    top: 100%;
+    right:-15%;
+}
+.body-text{
+    margin-top:140px;
+    text-align:center;
+    font-size: 35px;
+    line-height: 2;
+    font-weight: 700;
+}
 /* 最新消息 */
 /* .title{
     width: 180px;
@@ -437,6 +469,32 @@ div.user-menu {
     background-color:#92d8f1 ;
     width: 100%;
     height: 50px;
+    position: relative;
+}
+
+.river-line{
+    position: absolute;
+    opacity: 50%;
+    animation-name: riverMove;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.river-line2{
+    position: absolute;
+    opacity: 50%;
+    animation-name: riverMove2;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes riverMove{
+    from{left: 500px;}
+    to{left: 1480px; opacity: .8;}
+}
+@keyframes riverMove2{
+    from{left: 0px;}
+    to{left: 1000px; opacity: .8;}
 }
 .footer-top{
     background-image: url(../img/新圖/footer-top-2.png);
