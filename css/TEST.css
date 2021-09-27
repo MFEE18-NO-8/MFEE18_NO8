@@ -145,32 +145,6 @@ a:hover {
     .hamBar {
         margin-right: 5px;
     }
-    /* 最新消息 */
-    /* .more-news{
-        margin-right: 10px;
-    }
-    .news>.news-block-ground{
-        margin-top: 50px;
-    }
-    .news-block-ground>.news-block{
-        height: 250px;
-        margin: 10px;
-    }
-    .news-text,.date{
-        font-size: 20px;
-    } */
-    /* 關於我們 */
-    /* .title.about-title{
-        margin-bottom: 50px;
-    }
-    .about-text {
-        padding:0px 30px;
-    } */
-    /* 連結區塊 */
-    /* .block-img{
-        margin: 0 auto;
-        margin-bottom: 50px;
-    } */
 }
 /* 手機版本 */
 @media screen and (max-width: 576px){
@@ -203,20 +177,28 @@ a:hover {
 }
 div.user-menu {
     background-color: #f5f5f5;
-    border-radius: 20px;
+    border-radius: 10px 15px 10px 10px;
+    border-color: transparent;
 }
-.user-img {
-    width: 150px;
-    height: 150px;
-    margin: 20px auto;
-    background-color: #afc2cb;
-    border-radius: 50%;
+div.dropdown-menu::before{
+    content: "";
+    display:block;
+    width: 0px;
+    height:0px;
+    border-bottom: 60px solid #f5f5f5;
+    border-left: 50px solid transparent;
+    border-right: 30px solid transparent;
+    position: absolute;
+    top: -15%;
+    right:0px;
 }
-.user-menu > ul>li:first-of-type {
-    text-align: center;
+.user-menu > ul>li:last-of-type {
+    border-bottom:none;
 }
 .user-menu > ul>li {
     margin: 10px 30px;
+    padding: 5px 0px;
+    border-bottom: 2px dashed #aaa;
 }
 .user-menu > ul>li > a:hover {
     color: #1d3124;
@@ -268,52 +250,7 @@ div.user-menu {
     line-height: 2;
     font-weight: 700;
 }
-/* 最新消息 */
-/* .title{
-    width: 180px;
-    font-size: 30px;
-    box-sizing: border-box;
-    border-radius: 20px;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 60px;
-    margin-bottom: 30px;
-    background-color: #f8e4ac;
-}
-.news-text {
-    text-align: center;
-    padding: 0 20px;
-}
-.date {
-    margin-left: auto;
-    position: absolute;
-    margin-right: 20px;
-    bottom: 0;
-    right: 0;
-}
-.news-block-ground {
-    margin-top: 100px;
-}
-.news-block {
-    background-color: #f5f5f5;
-    height: 300px;
-    margin: 0 30px 30px 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 50, 0.5);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    transform: translateY(0%);
-    transition: 0.5s;
-}
-.news-block:hover {
-    background-color: #fffde7;
-    transform: translateY(-5%);
-} */
 /* 關於我們 */
-/* .about-logo {
-    width: 600px;
-    height: auto;
-} */
 .about-block {
     margin-top: 120px;
 }
@@ -347,7 +284,7 @@ div.user-menu {
     padding: 50px 0px;
 }
 .adopt-right-img{
-    width: 700px;
+    width: 600px;
     height: auto;
 }
 .adopt-text{
@@ -408,7 +345,7 @@ div.user-menu {
 .fly-new-img{
   width: 1250px;
   height: 650px;
-  transform: translateX(-150px);
+  /* transform: translateX(-150px); */
 }
 .fly-new{
     position: relative;
@@ -418,12 +355,12 @@ div.user-menu {
 }
 .fly-block{
     position: absolute;
-    top:160px;
-    left: 400px;
+    top:180px;
+    left: 430px;
     text-align: center;
 }
 .fly-text{
-    margin-top: 40px;
+    margin-top: 30px;
 }
 .more-news{
     text-align: right;
@@ -470,7 +407,7 @@ div.user-menu {
 }
 @keyframes riverMove{
     from{left: 500px;}
-    to{left: 1400px; opacity: .8;}
+    to{left: 1300px; opacity: .8;}
 }
 @keyframes riverMove2{
     from{left: 0px;}
@@ -560,48 +497,3 @@ footer{
 .copy{
     margin-top: 10px;
 }
-/* 連結區塊 */
-/* .block-img {
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    position: relative;
-}
-.block-img > img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-}
-.block-txt {
-    background-color: rgba(0, 0, 0, 0.5);
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    transition: 0.5s;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-}
-.block-txt > a > h1 {
-    color: #fff;
-    text-align: center;
-    align-self: center;
-}
-.block-img:hover .block-txt {
-    height: 400px;
-} */
-/* footer */
-/* .footer {
-    background-color: #afc2cb;
-    margin-top: 0px;
-    box-sizing: border-box;
-}
-.copyright {
-    text-align: center;
-    height: 100%;
-    padding: 30px;
-    font-size: 18px;
-} */
