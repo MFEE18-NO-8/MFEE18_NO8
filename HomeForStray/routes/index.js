@@ -9,9 +9,12 @@ var pool = require('./lib/db.js');  //含入資料庫連線
 router.get('/', function (req, res, next) {
 
 
-  pool.query('select * from News order by ShowStartDate desc', function (err, results) {
+  pool.query('select * from News order by ShowStartDate desc; select * from Member where Email=?',[req.session.Email], function (err, results) {
     if (err) throw err;
-    res.render('index', { data: results });
+    // console.log(results[0])
+    console.log(results[1])
+    res.render('index', { data: results[0] ,
+                          memberData: results[1] || ""});
   });
 
 });
