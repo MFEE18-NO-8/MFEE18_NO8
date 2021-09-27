@@ -9,6 +9,16 @@ var usersRouter = require('./routes/users');
 //上述列 含入controller檔案
 var app = express();
 
+// 引入session
+var session = require("express-session")
+app.use(
+  session({
+    secret:"Pa$$0rd",
+    resave: false,  // 即使 Session 沒做變動，是否強制重新儲存進 Store。
+    saveUninitialized: true, // 是否強制將未初始化的 Session 儲存至 Store。（新產生的 Session）
+  })
+)
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -25,10 +35,13 @@ app.use('/users', usersRouter);
 //引入multer
 const multer = require('multer');
 
+// 會員路由
+var member = require('./routes/member');
+app.use('/member', member);
 
 // 引入 毛孩知識管理(後台)
-var BakeKnowManage = require('./routes/BakeKnowManage');
-app.use('/BakeKnowManage', BakeKnowManage);
+var BackKnowManage = require('./routes/BackKnowManage');
+app.use('/BackKnowManage', BackKnowManage);
 // 引入 毛孩知識清單(前台)
 var KnowList = require('./routes/KnowList');
 app.use('/KnowList', KnowList);
