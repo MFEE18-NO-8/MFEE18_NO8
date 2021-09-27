@@ -36,8 +36,6 @@
 
 		.pic:hover .carousel-special {
 			display: block;
-
-
 		}
 
 		.pic .carousel-special-back {
@@ -67,19 +65,16 @@
 
 		/* 熱門文章 */
 		.hot-article-box {
-
 			height: 450px;
 		}
 
 		.hot-article-imgbox {
-
 			float: left;
 			height: 150px;
 			padding: 10px;
 		}
 
 		.hot-article-listbox {
-
 			float: right;
 			height: 150px;
 			padding: 15px;
@@ -199,23 +194,23 @@
 					<img src="../img/animals/dog02.jpeg" class="d-block w-100 h-100  " alt="...">
 					<div class="carousel-caption d-none d-md-block carousel-special-back">
 						<h5 class="text-white">
-							<%= data[1].ArticleTitle %>
+							<%= hotdata[0].ArticleTitle %>
 						</h5>
 						<br>
 						<p class="text-white">
-							<%= data[1].ArticleDate.toLocaleDateString() %>
+							<%= hotdata[0].ArticleDate.toLocaleDateString() %>
 						</p>
 					</div>
 					<div class=" carousel-special  ">
 						<h4 class="text-white text-center">
-							<%= data[1].ArticleTitle %>
+							<%= hotdata[0].ArticleTitle %>
 						</h4>
 						<br>
 						<p class="text-white text-center multiline-ellipsis-head">
-							<%= data[1].ArticleCont %>
+							<%= hotdata[0].ArticleCont %>
 						</p>
 						<p class="date text-white text-center">
-							<%= data[1].ArticleDate.toLocaleDateString() %>
+							<%= hotdata[0].ArticleDate.toLocaleDateString() %>
 						</p>
 					</div>
 				</div>
@@ -225,24 +220,24 @@
 					<img src="../img/animals/dog04.jpeg" class="d-block w-100 h-100" alt="...">
 					<div class="carousel-caption d-none d-md-block carousel-special-back">
 						<h5 class="text-white">
-							<%= data[2].ArticleTitle %>
+							<%= hotdata[1].ArticleTitle %>
 						</h5>
 						<!-- 標題字數需要小於20個全形字元 -->
 						<br>
 						<p class="text-white">
-							<%= data[2].ArticleDate.toLocaleDateString() %>
+							<%= hotdata[1].ArticleDate.toLocaleDateString() %>
 						</p>
 					</div>
 					<div class="carousel-special">
 						<h4 class="text-white text-center">
-							<%= data[2].ArticleTitle %>
+							<%= hotdata[1].ArticleTitle %>
 						</h4>
 						<br>
 						<p class="text-white text-center multiline-ellipsis-head">
-							<%= data[2].ArticleCont %>
+							<%= hotdata[1].ArticleCont %>
 						</p>
 						<p class="date text-white text-center">
-							<%= data[2].ArticleDate.toLocaleDateString() %>
+							<%= hotdata[1].ArticleDate.toLocaleDateString() %>
 						</p>
 					</div>
 				</div>
@@ -251,23 +246,23 @@
 					<img src="../img/animals/cat01.jpg" class="d-block w-100 h-100" alt="...">
 					<div class="carousel-caption d-none d-md-block carousel-special-back">
 						<h5 class="text-white">
-							<%= data[1].ArticleTitle %>
+							<%= hotdata[2].ArticleTitle %>
 						</h5>
 						<br>
 						<p class="text-white">
-							<%= data[1].ArticleDate.toLocaleDateString() %>
+							<%= hotdata[2].ArticleDate.toLocaleDateString() %>
 						</p>
 					</div>
 					<div class="carousel-special">
 						<h4 class="text-white text-center">
-							<%= data[1].ArticleTitle %>
+							<%= hotdata[2].ArticleTitle %>
 						</h4>
 						<br>
 						<p class="text-white text-center multiline-ellipsis-head">
-							<%= data[1].ArticleCont %>
+							<%= hotdata[2].ArticleCont %>
 						</p>
 						<p class="date text-white text-center">
-							<%= data[1].ArticleDate.toLocaleDateString() %>
+							<%= hotdata[2].ArticleDate.toLocaleDateString() %>
 						</p>
 					</div>
 				</div>
@@ -335,11 +330,11 @@
 			<ul class="flex-column ">
 				<!-- 第一篇文 -->
 				<% for(var i=0; i<data.length; i++) { %>
-					<li class="row d-inline-flex mb-4 articleBox">
-						<div class="col-md-4 col-sm-4 articleImg">
+					<li class="row d-inline-flex mb-4">
+						<div class="col-md-4 col-sm-4">
 							<img class="img-fluid rounded" src="../img/animals/dog04.jpeg" alt="" />
 						</div>
-						<div class="col-md-8">
+						<div class="col-md-8 col-sm-8">
 							<a href="">
 								<h5>
 									<%= data[i].ArticleTitle %>
@@ -355,6 +350,7 @@
 						</div>
 					</li>
 					<% } %>
+			</ul>
 		</div>
 		<div class="col-md-2"></div>
 	</section>
