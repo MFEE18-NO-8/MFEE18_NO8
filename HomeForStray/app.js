@@ -36,8 +36,8 @@ app.use('/users', usersRouter);
 const multer = require('multer');
 
 // 會員路由
-// var member = require('./routes/member');
-// app.use('/member', member);
+var member = require('./routes/member');
+app.use('/member', member);
 
 // 引入 毛孩知識管理(後台)
 // var BackKnowManage = require('./routes/BackKnowManage');
