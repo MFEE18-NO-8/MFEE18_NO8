@@ -9,6 +9,19 @@ var usersRouter = require('./routes/users');
 //上述列 含入controller檔案
 var app = express();
 
+<<<<<<< HEAD
+=======
+// 引入session
+var session = require("express-session")
+app.use(
+  session({
+    secret: "Pa$$0rd",
+    resave: false,  // 即使 Session 沒做變動，是否強制重新儲存進 Store。
+    saveUninitialized: true, // 是否強制將未初始化的 Session 儲存至 Store。（新產生的 Session）
+  })
+)
+
+>>>>>>> Anni
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -38,6 +51,9 @@ app.use('/KnowConent', KnowConent);
 
 
 
+// 引入 最新消息清單(後台)
+var BackNewsManage = require('./routes/BackNewsManage');
+app.use('/BackNewsManage', BackNewsManage);
 // 引入 最新消息清單(前台)
 var NewsList = require('./routes/NewsList');
 app.use('/NewsList', NewsList);
@@ -47,18 +63,7 @@ app.use('/NewsContent', NewsContent);
 
 
 
-// 引入 最新消息管理清單
-var NewsManageList = require('./routes/NewsManageList');
-app.use('/NewsManageList', NewsManageList);
-// 引入 最新消息管理新增
-var NewsManageAdd = require('./routes/NewsManageAdd');
-app.use('/NewsManageAdd', NewsManageAdd);
-// 引入 最新消息管理編輯
-var NewsManageEdit = require('./routes/NewsManageEdit');
-app.use('/NewsManageEdit', NewsManageEdit);
-// 引入 最新消息管理刪除
-var NewsManageDel = require('./routes/NewsManageDel');
-app.use('/NewsManageDel', NewsManageDel);
+
 
 
 

@@ -266,4 +266,88 @@ button.rigister{
     height: 50px;
     border-radius: 50px;
     background-color: var(--BananaYellow);
+<<<<<<< HEAD
+=======
+}
+
+
+
+#main-sidebar{
+    background-color:#DCE9F3; 
+    
+}
+
+.search{
+    background-color:#DCE9F3; 
+
+}
+
+.serchlist{
+    background-color: #DCE9F3;
+    color: black;
+    font-weight: bold;
+}
+
+.serchlist th{
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.sidebar-mini .sidebar-menu>li>a>i{
+    display: none;
+
+}
+
+.sidebar-mini .sidebar-menu>li:hover>a>i{
+display: inline;
+padding-left: 5px;
+}
+
+.sidebar-mini .sidebar-menu>li{
+    width: 200px;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.sidebar-mini .sidebar-menu>li:hover>a{
+    background-color:white;
+    border-radius: 50px;
+
+    /* background: url("../img/back/cloud-1.png") no-repeat;  */
+}
+
+.sidebar-mini .sidebar-menu>li:active>a{
+    background-color:white;
+    /* background: url("../img/back/cloud-1.png") no-repeat;  */
+}
+
+.sidebar-mini .sidebar-menu>li:visited>a{
+    background-color:white;
+    /* background: url("../img/back/cloud-1.png") no-repeat;  */
+}
+
+.logout{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.menu-active{
+    background-color:white;
+    border-radius: 50px;
+    display: inline;
+
+}
+
+
+.menu-logo{
+    margin-left: -10px;
+}
+.table-striped tbody tr td{
+    text-align: center;
+}
+.addBtn{
+    margin-bottom: 20px;
+    
+>>>>>>> Anni
 }
