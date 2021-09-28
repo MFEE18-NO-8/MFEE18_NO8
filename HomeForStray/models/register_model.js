@@ -35,7 +35,15 @@ module.exports = function register(memberData) {
             const rePassword = hashPassword.digest('hex');
 
             // 將資料寫入資料庫
-            db.query('INSERT INTO member SET ?', { Email: memberData.Email, Password: rePassword, MemberName: memberData.MemberName, CellPhone: memberData.CellPhone, RegistrationDate: memberData.RegistrationDate, memberState: memberData.memberState}, function (err, rows) {
+            db.query('INSERT INTO member SET ?', 
+            { Email: memberData.Email, 
+              Password: rePassword, 
+              MemberName: memberData.MemberName, 
+              CellPhone: memberData.CellPhone, 
+              RegistrationDate: memberData.RegistrationDate, 
+              memberState: memberData.memberState,
+              ModifiedDate: memberData.ModifiedDate,
+            }, function (err, rows) {
                 // 若資料庫部分出現問題，則回傳給client端「伺服器錯誤，請稍後再試！」的結果。
                 if (err) {
                     console.log(err);

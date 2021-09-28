@@ -18,11 +18,12 @@ router.post('/register', memberModifyMethod.postRegister);
 
 
 // 登入
-var messages ='';  //錯誤訊息
+
 router.get('/login', function (req, res, next) {
-    res.render('login', {messages:messages});
+    res.render('login', {messages:''});
 });
 
+var messages = ""; //錯誤訊息
 router.post('/login', function (req, res, next) {
     var Email = req.body.Email;
     var Password = req.body.Password;
@@ -38,7 +39,7 @@ router.post('/login', function (req, res, next) {
         if(results.length == 0) {  //帳號不存在
           messages = "帳號不正確"
           res.render('login', {messages:messages})
-        } else if(results[0].Password != rePassword) {  //密碼不正確
+        } else if(results[0].Password != rePassword  && results[0].Password != req.body.Password) {  //密碼不正確
           messages = "密碼不正確"
           res.render('login', {messages:messages})
         } else {  //帳號及密碼皆正確
