@@ -18,22 +18,19 @@
     <style>
         /* 熱門文章 */
         .hot-article-box {
-
             height: 450px;
         }
 
         .hot-article-imgbox {
-
             float: left;
             height: 150px;
             padding: 10px;
         }
 
         .hot-article-listbox {
-
             float: right;
             height: 150px;
-            padding: 15px;
+            padding: 10px;
         }
 
         .hot-article-img {
@@ -42,6 +39,32 @@
             height: 100%;
             object-fit: cover;
         }
+        .hot-articleTitle{
+            font-size: 20px;
+        }
+        .hot-articleDate{
+            text-align: center;
+        }
+
+        /* 文章區塊 */
+        .article-img{
+            /* 文章圖片置中 */
+            display:block; 
+            margin:auto;
+        }
+
+        .titleStyle {
+            text-align: center;
+            margin: 50px;
+            font-weight: bolder;
+        }
+        .contentStyle {
+            text-align: center;
+            /* 使用CSS的white-space 屬性保留空白符序列，但是正常地進行換行。 */
+            white-space: pre-wrap;
+        }
+
+
     </style>
 </head>
 
@@ -86,17 +109,25 @@
     <!-- 主要內容 -->
     <div class="row col-12">
         <div class="col-md-1"></div>
-        <div class="col-md-7">
-            <img class="img-fluid" src="../img/animals/dog04.jpeg" alt="" />
-            <h4><%= data[0].ArticleTitle %></h4>
-            <p>
-                <%= data[0].ArticleCont %>
-            </p>
+        <div class="col-md-7 articleBox">
+            <div class="article-img-box">
+                <img class="img-fluid article-img" src="../img/animals/dog04.jpeg" alt="" />
+            </div>
+            <div class="article-title-box">
+                <h4 class="titleStyle">
+                    <%= data[0].ArticleTitle %>
+                </h4>
+            </div>
+            <div class="article-content-box">
+                <p class="contentStyle">
+                    <%= data[0].ArticleCont %>
+                </p>
+            </div>
         </div>
 
         <!-- 熱門文章 -->
         <div class="col-md-3"
-            style="background-color: var(--BananaYellow); height: 480px; border-radius: 40px 40px 40px 40px ; overflow: hidden;">
+            style="background-color: var(--BananaYellow); height: 550px; border-radius: 40px; overflow: hidden;">
             <div
                 style="display: flex; flex-direction: column; align-items: center; padding-top: 20px; justify-content: space-around;">
                 <p class="h3">熱門文章</p>
@@ -105,7 +136,7 @@
             </div>
             <ul class="col-md-12 hot-article-box">
                 <!-- 熱門文章內容 -->
-                <% for(var i=0; i<data.length; i++) { %>
+                <% for(var i=0; i<3; i++) { %>
                     <li class="row ">
                         <div class="col-md-6 hot-article-imgbox">
                             <a href="">
@@ -115,19 +146,17 @@
                         <div class="col-md-6 hot-article-listbox">
                             <a href="">
                                 <p class="hot-articleTitle">
-                                    <%= data[i].ArticleTitle %>
+                                    <%= hotdata[i].ArticleTitle %>
                                 </p>
-                                <p class="hot-articleDate">
-                                    <%= data[i].ArticleDate.toLocaleDateString() %>
+                                <p class="figure-caption hot-articleDate">
+                                    <%= hotdata[i].ArticleDate.toLocaleDateString() %>
                                 </p>
                             </a>
                         </div>
                     </li>
                     <% } %>
             </ul>
-
         </div>
-
         <div class="col-md-1"></div>
     </div>
     <!-- footer -->
