@@ -12,7 +12,7 @@ router.get('/', function (req, res, next) {
   pool.query('select * from News order by ShowStartDate desc; select * from Member where Email=?',[req.session.Email], function (err, results) {
     if (err) throw err;
     // console.log(results[0])
-    console.log(results[1])
+    // console.log(results[1])
     res.render('index', { data: results[0] ,
                           memberData: results[1] || ""});
   });
