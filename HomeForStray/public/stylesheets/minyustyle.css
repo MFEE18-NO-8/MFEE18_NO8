@@ -464,13 +464,13 @@
      box-shadow:none;
     } */
     /* navbar */
-    .header {
+    /* .header {
         background: url(../img/background/header.PNG);
         background-repeat: no-repeat;
         background-size: cover;
         display: flex;
         justify-content: space-between;
-    }
+    } */
     .logoImg {
         margin: 5px 15px;
     }
