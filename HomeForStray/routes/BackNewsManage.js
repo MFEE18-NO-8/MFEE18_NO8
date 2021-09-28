@@ -76,7 +76,7 @@ router.get('/NewsManageDel', function (req, res, next) {
     });
 });
 
-router.post('/', function (req, res, next) {
+router.post('/NewsManageDel', function (req, res, next) {
     pool.query('delete from News where NewsId=?', [id], function (err, results) {  //刪除資料
         if (err) throw err;
         res.redirect('/BackNewsManage/NewsManageList');
