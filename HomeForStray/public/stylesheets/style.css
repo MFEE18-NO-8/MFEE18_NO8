@@ -174,6 +174,11 @@ input.form-control {
 	border-radius: 10px;
 	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
+.btn-adopt {
+	width: 300px;
+	border-radius: 10px;
+	box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+}
 .btn-green {
 	background-color: var(--FrosteeGreen);
 	border: 0;
@@ -184,6 +189,12 @@ input.form-control {
 	background-color: var(--BananaYellow);
 	border: 0;
 	padding: 5px;
+	font-weight: 600;
+}
+.btn-White{
+	background-color: #fff;
+	border: 0;
+	padding: 2px;
 	font-weight: 600;
 }
 .btn-lightRed {
@@ -384,6 +395,12 @@ input.form-control {
 	div.adopList-search-txt {
 		transform: translateY(0px);
 		margin-top: 20px;
+	}
+	.adopList-group>.bg{
+		background-image: url(../img/新圖/godbackground.png);
+		background-size: cover;
+		width: 100%;
+		height: 100%;
 	}
 	/* 毛孩領養資訊 */
 	.share-left {
@@ -752,38 +769,50 @@ select.foster-select {
 	transform: translateY(-40px);
 }
 .adopitem-icon {
-	width: 30px;
-	height: 30px;
+	width: 25px;
+	height:25px;
 	margin-right: 10px;
-	margin-bottom: 8px;
+	margin-bottom:10px;
 }
 div.adop-text-con {
-	font-size: 25px;
-	margin-top: 20px;
+	font-size: 22px;
+	margin-top:5px;
+	margin-bottom:10px;
 }
 div.adop-img > img {
-	height: 400px;
-	width: 400px;
-	border-radius: 50%;
+	height:250px;
+	width:250px;
+	border-radius:20%;
+	margin-top: 50px;
 }
 .adop-text {
 	text-align: center;
-	margin: 30px 0px;
-	background-color: rgba(255, 255, 255, 0.5);
-	border-radius: 60px;
-	box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.5);
+	/* margin: 30px 0px; */
+	/* background-color: rgba(255, 255, 255, 0.5); */
+	/* border-radius: 60px; */
+	/* box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.5); */
 }
 div.adop-name {
 	align-items: center;
 	width: 80px;
-	font-size: 35px;
+	font-size:30px;
+	margin: 10px 0px;
 }
 .btn-adopitem {
-	margin: 30px auto;
+	margin: 10px auto;
+	margin-bottom:40px;
 }
 .adopList-group {
 	justify-content: space-around;
-	margin-top: 100px;
+	/* margin-top: 100px; */
+}
+.adopt-bg{
+	background: url(../img/新圖/adoptdog1.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:inherit;
+	width: 100%;;
+	height: 100%;
 }
 /* 毛孩資訊 */
 .AdoptContent-block {
