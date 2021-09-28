@@ -17,17 +17,19 @@ router.get('/', function (req, res, next) {
         var totalLine = results[0].cnt;  //資料總筆數
         var totalPage = Math.ceil(totalLine / linePerPage);  //總頁數
 
-        pool.query('select * from articlenews order by ArticleId desc limit ?, ?',
+        pool.query('select * from articlenews order by ArticleId desc limit ?, ?;select * from articlenews order by ArticleId desc limit 0, 3',
          [(pageNo - 1) * linePerPage, linePerPage],
           function (err, results) {  //根據目前頁數讀取資料
             if (err) throw err;
+            console.log(results[1])
             res.render('KnowList', { 
-                data: results, 
+                data: results[0], 
+                hotdata: results[1], 
                 pageNo: pageNo, 
                 totalLine: totalLine, 
                 totalPage: totalPage, 
                 linePerPage: linePerPage });
-        });
+        });   
     });
 });
 
