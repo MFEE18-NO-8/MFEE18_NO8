@@ -35,7 +35,7 @@ router.get('/NewsManageAdd', function (req, res, next) {
     res.render('NewsManageAdd', { pageNo: pageNo, message: message });
 });
 
-router.post('/', function (req, res, next) {
+router.post('/NewsManageAdd', function (req, res, next) {
     var pageNo = parseInt(req.query.pageNo);
     var NewsTitle = req.body['NewsTitle'];  //取得輸入的類型
     var ShowStartDate = req.body['ShowStartDate'];
