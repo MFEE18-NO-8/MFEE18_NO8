@@ -38,17 +38,21 @@
       <ul class="menu burgar-menu">
         <% if ( memberData=="" ){ %>
           <span>Hello!Guest</span>
-          <% }else{ %>
-            <span>Hello! <%= memberData[0].MemberName %></span>
-            <% } %>
-              <li><a href="/">首頁</a></li>
-              <li><a href="/AdoptList">毛孩領養</a></li>
-              <li><a href="/Foster">刊登送養</a></li>
-              <li><a href="/KnowList">毛孩知識</a></li>
-              <% if ( memberData=="" ){ %>
-                <li><a href="/member/login">登入</a></li>
-                <li><a href="/member/register">註冊</a></li>
-                <% }else{ %>
+          <% }else if( memberData[0].MemberName=="管理者" ){ %>
+            <span>Hi! <%= memberData[0].MemberName %>，
+                <a href="/BackNewsManage/NewsManageList">後臺管理</a>
+            </span>
+            <% }else{ %>
+              <span>Hello! <%= memberData[0].MemberName %></span>
+              <% } %>
+                <li><a href="/">首頁</a></li>
+                <li><a href="/AdoptList">毛孩領養</a></li>
+                <li><a href="/Foster">刊登送養</a></li>
+                <li><a href="/KnowList">毛孩知識</a></li>
+                <% if ( memberData=="" ){ %>
+                  <li><a href="/member/login">登入</a></li>
+                  <li><a href="/member/register">註冊</a></li>
+                  <% }else{ %>
       </ul>
       <a href="#" class="hamBar burgar-menu">
         <i>
