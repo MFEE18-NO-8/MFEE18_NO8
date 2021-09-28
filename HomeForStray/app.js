@@ -9,8 +9,6 @@ var usersRouter = require('./routes/users');
 //上述列 含入controller檔案
 var app = express();
 
-<<<<<<< HEAD
-=======
 // 引入session
 var session = require("express-session")
 app.use(
@@ -21,7 +19,6 @@ app.use(
   })
 )
 
->>>>>>> Anni
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
