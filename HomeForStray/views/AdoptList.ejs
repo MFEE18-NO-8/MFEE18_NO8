@@ -142,7 +142,13 @@
     <div class="container">
       <div class="row adopList-group">
         <% for(var i=0; i<data.length; i++) { %>
-          <div class="col-12 col-md-5 adopt-bg h-100">
+          <%if(data[i].PetSpecies == '狗'){%>
+            <div class="col-12 col-md-5 adopt-bg-dog h-100">
+            <%}else if(data[i].PetSpecies == '貓'){%>
+            <div class="col-12 col-md-5 adopt-bg-cat h-100">
+              <%}else{%>
+            <div class="col-12 col-md-5 adopt-bg-other h-100">
+              <%}%>
               <div class="row adop-img justify-content-center"><img src="<%=data[i].PetImgURL%>" class="img-fluid"></div>
                 <div class="row adop-text">
                     <div class="col-12 adop-text-con adop-name"><%= data[i].PetName %></div>
