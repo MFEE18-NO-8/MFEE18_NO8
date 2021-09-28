@@ -41,10 +41,10 @@
           <% }else{ %>
             <span>Hello! <%= memberData[0].MemberName %></span>
             <% } %>
-              <li><a href="./">首頁</a></li>
-              <li><a href="./AdoptList">毛孩領養</a></li>
-              <li><a href="./Foster">刊登送養</a></li>
-              <li><a href="./KnowList">毛孩知識</a></li>
+              <li><a href="/">首頁</a></li>
+              <li><a href="/AdoptList">毛孩領養</a></li>
+              <li><a href="/Foster">刊登送養</a></li>
+              <li><a href="/KnowList">毛孩知識</a></li>
               <% if ( memberData=="" ){ %>
                 <li><a href="/member/login">登入</a></li>
                 <li><a href="/member/register">註冊</a></li>
@@ -63,10 +63,10 @@
         </button>
         <div class="dropdown-menu  user-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
           <ul>
-            <li><a href="./UserEdit.html">會員資料</a></li>
-            <li><a href="./UserFoster.html">我的送養文</a></li>
-            <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
-            <li><a href="./UserMsg.html">通知</a></li>
+            <li><a href="/UserEdit">會員資料</a></li>
+            <li><a href="/UserFoster">我的送養文</a></li>
+            <li><a href="/UserFollow">追蹤的毛孩</a></li>
+            <li><a href="/UserMsg">通知</a></li>
             <li><a href="/member/logout">登出</a></li>
           </ul>
         </div>
@@ -121,7 +121,7 @@
         但伸出援手的你，<br>卻可以成為他們的靠山。
       </div>
       <div>
-        <a href="/" class="adopt-title">毛孩領養</a>
+        <a href="/AdoptList" class="adopt-title">毛孩領養</a>
       </div>
     </div>
   </div>
@@ -135,7 +135,7 @@
         協助牠們找尋幸福。
       </div>
       <div>
-        <a href="/" class="foster-title">刊登送養</a>
+        <a href="/Foster" class="foster-title">刊登送養</a>
       </div>
     </div>
     <img src="../img/新圖/foster.png" alt="" class="adopt-right-img">
@@ -150,7 +150,7 @@
         定期更新關於毛孩你要知道的事！
       </div>
       <div>
-        <a href="/" class="know-title">毛孩知識</a>
+        <a href="/KnowList" class="know-title">毛孩知識</a>
       </div>
     </div>
   </div>
@@ -176,7 +176,7 @@
         </div>
         <% } %>
           <div class="col-10 more-news display-flex">
-            <a href="NewsList.html">更多消息...</a>
+            <a href="/NewsList">更多消息...</a>
           </div>
     </div>
   </div>
@@ -207,16 +207,16 @@
         </div>
         <div class="col-md-6 footer-link">
           <ul>
-            <li><a href="#">毛孩領養</a></li>
-            <li><a href="#">毛孩知識</a></li>
+            <li><a href="/AdoptList">毛孩領養</a></li>
+            <li><a href="/KnowList">毛孩知識</a></li>
           </ul>
           <ul>
-            <li><a href="#">刊登送養</a></li>
-            <li><a href="#">會員專區</a></li>
+            <li><a href="/Foster">刊登送養</a></li>
+            <li><a href="/UserEdit">會員專區</a></li>
           </ul>
           <ul>
-            <li><a href="#">最新消息</a></li>
-            <li><a href="#">關於我們</a></li>
+            <li><a href="/NewsList">最新消息</a></li>
+            <li><a href="/">關於我們</a></li>
           </ul>
         </div>
       </div>
