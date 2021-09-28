@@ -14,7 +14,8 @@ module.exports = class Member {
             MemberName: req.body.MemberName,
             CellPhone: req.body.CellPhone,
             memberState: 1,
-            RegistrationDate: onTime()
+            RegistrationDate: onTime(),
+            ModifiedDate:onTime(),
         }
 
         const checkEmail = check.checkEmail(req.body.Email);
