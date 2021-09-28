@@ -40,8 +40,8 @@ var member = require('./routes/member');
 app.use('/member', member);
 
 // 引入 毛孩知識管理(後台)
-// var BackKnowManage = require('./routes/BackKnowManage');
-// app.use('/BackKnowManage', BackKnowManage);
+var BackKnowManage = require('./routes/BackKnowManage');
+app.use('/BackKnowManage', BackKnowManage);
 // 引入 毛孩知識清單(前台)
 var KnowList = require('./routes/KnowList');
 app.use('/KnowList', KnowList);
