@@ -50,7 +50,7 @@
                                 <div class="clearfix"></div>
                                 <input type="radio" name="AdoptState" value="1">
                                 <label for="html" class="MyListLabel">已批准</label>
-                                <input type="radio" name="AdoptState" value="0">
+                                <input type="radio" name="AdoptState" value="0" checked>
                                 <label for="html" class="MyListLabel">未批准
                                 </label>
                             </div>
@@ -102,12 +102,6 @@
                                         <td>
                                             <%= (data[i].AdoptDate).toLocaleDateString() %>
                                         </td>
-
-                                        <!-- <td>
-                                           
-                                        </td> -->
-
-                                        <!-- <%= data[i].AdoptState %> -->
                                         <td>
                                             <% var statusStr='' ; %>
                                                 <% var status=data[i].AdoptState; %>
@@ -119,87 +113,52 @@
 
                                         <td>
                                             <a href="/FosterManageEdit?PetId=<%= data[i].PetId %>">
-                                                <button class="btn btn-primary  " name="EditAdopt"
-                                                    value="">編輯</button></a>
+                                                <button class="ListButtonEdit" name="EditAdopt" value="">編輯</button></a>
                                             <a href="/FosterManageDele?PetId=<%= data[i].PetId %>">
-                                                <button class="btn btn-primary" name="DeleAdopt"
-                                                    value="">刪除</button></a>
+                                                <button class="ListButtonDele" name="DeleAdopt" value="">刪除</button></a>
                                         </td>
                                     </tr>
 
 
                                     <% } %>
 
-                                        <!-- <tr>
-                                    <td>02</td>
-                                    <td>可可</td>
-                                    <td>2021-10-18</td>
-                                    <td>2021-10-19</td>
-                                    <td>已批准</td>
-                                    <td><input type="button" class="ListButtonEdit" value="編輯">
-                                        <input type="button" class="ListButtonDele" value="刪除">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>03</td>
-                                    <td>黑黑</td>
-                                    <td>2021-10-19</td>
-                                    <td>2021-10-20</td>
-                                    <td>已批准</td>
-                                    <td><input type="button" class="ListButtonEdit" value="編輯">
-                                        <input type="button" class="ListButtonDele" value="刪除">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>04</td>
-                                    <td>白白</td>
-                                    <td>2021-10-21 </td>
-                                    <td></td>
-                                    <td>未批准</td>
-                                    <td><input type="button" class="ListButtonEdit" value="編輯">
-                                        <input type="button" class="ListButtonDele" value="刪除">
-                                    </td>
-                                </tr> -->
-                            </tbody>
+                                        <!-- 頁碼 -->
+                                        <nav aria-label="Page navigation example ">
+                                            <ul class="pagination justify-content-center">
+                                                <li class="page-item">
+                                                    <% if(PageNum> 1) { %>
+                                                        <a class="page-link"
+                                                            href="/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=(PageNum-1) %>"
+                                                            aria-label="Previous">
+                                                            <span aria-hidden="true">&laquo;</span>
+                                                        </a>
+                                                        <% } %>
+                                                </li>
+                                                <% for(var a=1; a <=TotalPage ; a++) { %>
+                                                    <li class="page-item">
+                                                        <a class="page-link"
+                                                            href="/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=a %>">
+                                                            <%= a %>
+                                                        </a>
+                                                    </li>
+                                                    <% } %>
+                                                        <li class="page-item">
+                                                            <% if(PageNum < TotalPage) { %>
+                                                                <a class="page-link"
+                                                                    href="/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=(PageNum+1) %>"
+                                                                    aria-label="Next">
+                                                                    <span aria-hidden="true">&raquo;</span>
+                                                                </a>
+                                                                <% } %>
+                                                        </li>
+                                            </ul>
+                                        </nav>
 
-                        </table>
+
+
                     </div>
 
-                    <!-- 頁碼 -->
-                    <nav aria-label="Page navigation" class="text-right">
-                        <ul class="pagination">
-
-                            <!-- 上一頁 -->
-                            <li class="">
-                                <a class=""
-                                    href="/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=(PageNum-1) %>"
-                                    title="上一頁"" aria-label=" Previous">
-
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-
-
-
-                            <!-- 下一頁 -->
-                            <li class="">
-                                <a class=""
-                                    href="/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=(PageNum+1) %>"
-                                    title="下一頁" aria-label="Next">
-
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-
-
-                        </ul>
-                    </nav>
-
-
-
                 </div>
-
-            </div>
         </section>
     </div>
 
