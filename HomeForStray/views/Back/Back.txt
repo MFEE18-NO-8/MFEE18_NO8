@@ -48,10 +48,23 @@
             vertical-align: middle;
         }
 
-        #main-sidebar {
+ㄋ
+
+
+.content-wrapper, section{
+  height: 100vh;
+}
+
+        .main-sidebar,#main-sidebar,ul.sidebar-menu, .sidebar {
             height: 100vh;
             background-color: #DCE9F3;
+            padding-bottom:200px;
         }
+
+
+      
+
+
     </style>
 
 
@@ -86,17 +99,19 @@
 
     </header>
 
+   
     <!-- 左側選單 -->
-
-    <aside class="main-sidebar" id="main-sidebar">
+ <aside class="main-sidebar" id="main-sidebar">
       <section class=" sidebar">
         <!-- Logo -->
         <img class="menu-logo" src="/img/Logo/logomix.png" style="width: 250px;" alt="">
-        <ul class="sidebar-menu">
+        <ul class="sidebar-menu" style="background-color: #DCE9F3;">
+          <li class="treeview"><a href="/"><span>回前臺</span><i class="fa fas fa-paw"></i></a></li>
+
           <li class="treeview"><a href="/BackUserManage/UserManageList"><span>會員資料管理</span><i
                 class="fa fas fa-paw"></i></a></li>
           <li class="treeview"><a href="/FosterManageList"><span>刊登送養審核</span><i class="fa fas fa-paw"></i></a></li>
-          <li class="treeview"><a class="menu-active" href="/BackNewsManage/NewsManageList"><span>最新消息管理</span><i
+          <li class="treeview"><a href="/BackNewsManage/NewsManageList"><span>最新消息管理</span><i
                 class="fa fas fa-paw"></i></a></li>
           <li class="treeview"><a href="/BackKnowManage/KnowManageList"><span>毛孩知識文章管理</span><i class="fa fas fa-paw"></i></a></li>
         </ul>
