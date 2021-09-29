@@ -90,7 +90,6 @@ var UserEdit = require('./routes/UserEdit');
 app.use('/UserEdit', UserEdit)
 
 
-
 //引入 刊登送養
 var Foster = require('./routes/Foster');
 //const multer = require('multer');
@@ -107,6 +106,11 @@ app.get("/", function (req, res) {
     if (err) res.send(404);
   })
 })
+
+
+// // 引入 刊登送養後台
+// var BackFosterManage = require('./routes/BackFosterManage');
+// app.use('/BackFosterManage', BackFosterManage);
 //引入 刊登送養審核 檢視
 var FosterManageEdit = require('./routes/FosterManageEdit');
 app.use('/FosterManageEdit', FosterManageEdit);
