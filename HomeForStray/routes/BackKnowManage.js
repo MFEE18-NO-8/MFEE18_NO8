@@ -70,7 +70,27 @@ router.get('/KnowManageDel', function (req, res, next) {
     var pageNo = parseInt(req.query.pageNo);
     pool.query('select * from articlenews where ArticleId=?', [id], function (err, results) {  //根據id讀取資料
         if (err) throw err;
-        res.render('KnowManageDel', { data: results, pageNo: pageNo });
+        var date = results[0].ArticleDate;
+        // 改變日期格式
+        const formatDate = (date) => {
+            if ( (parseInt(date.getMonth() + 1)) >= 10 && parseInt(date.getDate()) >=10 ){
+                let formatted_date1 =  date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+                return formatted_date1;
+            }else if( (parseInt(date.getMonth() + 1)) >= 10 && parseInt(date.getDate()) <= 10 ){
+                let formatted_date2 =  date.getFullYear() + "-" + (date.getMonth() + 1) + "-0" + date.getDate()
+                return formatted_date2;
+            }else if(  (parseInt(date.getMonth() + 1)) <= 10 && parseInt(date.getDate()) <= 10 ){
+                let formatted_date3 =  date.getFullYear() + "-0" + (date.getMonth() + 1) + "-0" + date.getDate()
+                return formatted_date3;
+            }
+            else{
+                let formatted_date4 =  date.getFullYear() + "-0" + (date.getMonth() + 1) + "-" + date.getDate()
+                return formatted_date4;
+            }       
+        }
+        // console.log(formatDate(date));
+
+        res.render('KnowManageDel', { data: results, pageNo: pageNo,date:formatDate(date) });
     });
 });
 
@@ -91,9 +111,34 @@ router.get('/KnowManageEdit', function (req, res, next) {
     id = req.query.id;  //取得傳送的資料id
     var pageNo = parseInt(req.query.pageNo);
 
+
     pool.query('select * from articlenews where ArticleId=?', [id], function (err, results) {  //根據id讀取資料
         if (err) throw err;
-        res.render('KnowManageEdit', { data: results, pageNo: pageNo, categories: categories });
+        var date = results[0].ArticleDate;
+        // 改變日期格式
+        const formatDate = (date) => {
+            if ( (parseInt(date.getMonth() + 1)) >= 10 && parseInt(date.getDate()) >=10 ){
+                let formatted_date1 =  date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+                return formatted_date1;
+            }else if( (parseInt(date.getMonth() + 1)) >= 10 && parseInt(date.getDate()) <= 10 ){
+                let formatted_date2 =  date.getFullYear() + "-" + (date.getMonth() + 1) + "-0" + date.getDate()
+                return formatted_date2;
+            }else if(  (parseInt(date.getMonth() + 1)) <= 10 && parseInt(date.getDate()) <= 10 ){
+                let formatted_date3 =  date.getFullYear() + "-0" + (date.getMonth() + 1) + "-0" + date.getDate()
+                return formatted_date3;
+            }
+            else{
+                let formatted_date4 =  date.getFullYear() + "-0" + (date.getMonth() + 1) + "-" + date.getDate()
+                return formatted_date4;
+            }       
+        }
+
+        res.render('KnowManageEdit', {
+            data: results,
+            date:formatDate(date),
+            pageNo: pageNo,
+            categories: categories
+        });
     });
 });
 
@@ -113,6 +158,8 @@ router.post('/KnowManageEdit', function (req, res, next) {
         res.redirect('/backKnowManage/KnowManageList');  //回到原來頁數的管理頁面
     });
 });
+
+
 
 
 

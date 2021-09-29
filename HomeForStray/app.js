@@ -39,9 +39,9 @@ const multer = require('multer');
 var member = require('./routes/member');
 app.use('/member', member);
 
-// 引入 毛孩知識管理(後台)
-// var Back = require('./routes/Back');
-// app.use('/Back', Back);
+// 引入 後台
+var Back = require('./routes/Back');
+app.use('/Back', Back);
 
 // 引入 毛孩知識管理(後台)
 var BackKnowManage = require('./routes/BackKnowManage');
