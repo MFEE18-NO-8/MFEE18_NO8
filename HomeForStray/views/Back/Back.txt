@@ -62,7 +62,24 @@
         }
 
 
-      
+       .back-index-link {
+
+            height: 250px;
+            line-height: 250px;
+            text-align: center;
+            box-sizing: content-box;
+            background-color: #1F4E79;
+            color: white;
+            font-size: 24pt;
+            border-radius: 20px;
+
+        }
+
+        .back-index-link:hover {
+
+            border: 6px dashed #DCE9F3;
+        }
+
 
 
     </style>
