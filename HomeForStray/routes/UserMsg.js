@@ -1,8 +1,8 @@
-var express =require('express');
-var router =express.Router();
+var express = require('express');
+var router = express.Router();
 // 使用資料庫
-var mysql =require('mysql'); //含入mysql套件
-var pool=require('./lib/db.js') //含入資料庫連線
+var mysql = require('mysql'); //含入mysql套件
+var pool = require('./lib/db.js') //含入資料庫連線
 //設定網頁 每頁資料筆數
 var LinePerPage = 5;
 
@@ -11,30 +11,34 @@ router.get('/', function (req, res, next) {
     if (isNaN(PageNo) || PageNo < 1) {  //如果沒有傳送參數,設目前頁數為第1頁
         PageNo = 1;
     }
-    //對資料庫進行存取
-    //從"使用者通知"那資料庫裏，抓資料(總筆數)，如果資料庫操作命令執行結果有傳回值，傳回值會儲存於「results」參數中。
+    pool.query('select * from Member where Email=?', [req.session.Email], function (err, results) {
+        var memberData = results[0]; // 撈取是否有登入session
+       
+       
+        //對資料庫進行存取
+        //從"使用者通知"那資料庫裏，抓資料(總筆數)，如果資料庫操作命令執行結果有傳回值，傳回值會儲存於「results」參數中。
+        pool.query('SELECT * FROM UserMsg JOIN member ON(member.MemberID=UserMsg.MemberID)  where Email=?', [req.session.Email], function (err, results) {
+            var MsgData = results; // 撈取是否有登入session
+            console.log(MsgData)
 
-
-        pool.query('SELECT * FROM UserMsg JOIN member ON(member.MemberID=UserMsg.MemberID)  where Email=?',[req.session.Email], function (err, results) {
-            var memberData = results; // 撈取是否有登入session
-            console.log(memberData)
-
-            var TotalLine = memberData.length;  // 資料總筆數 會員1只有兩筆
+            var TotalLine = MsgData.length;  // 資料總筆數 會員1只有兩筆
             var TotalPage = Math.ceil(TotalLine / LinePerPage);  //資料總頁數＝總筆數/每頁顯示數
             pool.query('SELECT * from UserMsg order by MsgID DESC limit ?, ?',
-            [(PageNo - 1) * LinePerPage, LinePerPage],
-            // pool.query('SELECT * FROM UserMsg JOIN member ON(member.MemberID=UserMsg.MemberID) where Email= ? order by MsgID desc limit ?, ?',
-            // [req.session.Email,(PageNo - 1) * LinePerPage, LinePerPage],
-             function (err, results) {  //根據目前頁數讀取資料
-               if (err) throw err;
-               res.render('UserMsg', { 
-                   data: results, //全部筆數
-                   memberData: memberData || "", 
-                   PageNo: PageNo, 
-                   TotalLine: TotalLine, 
-                   TotalPage: TotalPage, 
-                   LinePerPage: LinePerPage });
-
+                [(PageNo - 1) * LinePerPage, LinePerPage],
+                // pool.query('SELECT * FROM UserMsg JOIN member ON(member.MemberID=UserMsg.MemberID) where Email= ? order by MsgID desc limit ?, ?',
+                // [req.session.Email,(PageNo - 1) * LinePerPage, LinePerPage],
+                function (err, results) {  //根據目前頁數讀取資料
+                    if (err) throw err;
+                    res.render('UserMsg', {
+                        data: results, //全部筆數
+                        MsgData: MsgData || "",
+                        PageNo: PageNo,
+                        TotalLine: TotalLine,
+                        TotalPage: TotalPage,
+                        LinePerPage: LinePerPage,
+                        memberData: memberData || "",
+                    });
+                });
         });
     });
 });

@@ -20,7 +20,7 @@
 
 	<body>
 		<!-- 引入header -->
-		<% include Header %>
+		<%- include Header %>
 
 		<div class="container UserFollow-title">
 			<h2>追蹤的毛孩</h2>
@@ -37,13 +37,13 @@
 					</tr>
 				</thead>
 				<tbody>
-					<%var sn=1; //宣告sn=編號 %> <% for(var i=0; i < memberData.length; i++) { %>
+					<%var sn=1; //宣告sn=編號 %> <% for(var i=0; i < FollowData.length; i++) { %>
 					<tr>
 						<!-- 這裡要放序號 -->
 
 						<td><%= sn %></td>
-						<td><%= (memberData[i].PetName) %></td>
-						<td><%= (memberData[i].FollowDate).toLocaleDateString() %></td>
+						<td><%= (FollowData[i].PetName) %></td>
+						<td><%= (FollowData[i].FollowDate).toLocaleDateString() %></td>
 						<!--這裡要放查看按鈕  這個會連到相關AdoptList-->
 						<!--這裡要放取消追蹤按鈕  這個會改變狀態 -->
 						<td><button class="btnMd-back btn-green">查看</button></td>
