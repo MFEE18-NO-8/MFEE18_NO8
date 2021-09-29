@@ -15,7 +15,7 @@ router.get('/', function (req, res, next) {
     //從"使用者通知"那資料庫裏，抓資料(總筆數)，如果資料庫操作命令執行結果有傳回值，傳回值會儲存於「results」參數中。
 
 
-        pool.query('SELECT * FROM UserMsg JOIN member ON(member.MemberID=UserMsg.MemberID) where Email=?',[req.session.Email], function (err, results) {
+        pool.query('SELECT * FROM UserMsg JOIN member ON(member.MemberID=UserMsg.MemberID)  where Email=?',[req.session.Email], function (err, results) {
             var memberData = results; // 撈取是否有登入session
             console.log(memberData)
 

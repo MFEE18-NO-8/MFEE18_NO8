@@ -40,15 +40,16 @@
 					<%var sn=1; //宣告sn=編號 %> <% for(var i=0; i < memberData.length; i++) { %>
 					<tr>
 						<!-- 這裡要放序號 -->
+
+						<td><%= sn %></td>
 						<td><%= (memberData[i].PetName) %></td>
 						<td><%= (memberData[i].FollowDate).toLocaleDateString() %></td>
-
 						<!--這裡要放查看按鈕  這個會連到相關AdoptList-->
-
 						<!--這裡要放取消追蹤按鈕  這個會改變狀態 -->
 						<td><button class="btnMd-back btn-green">查看</button></td>
 						<td><button class="btnLg btn-lightRed">取消追蹤</button></td>
 					</tr>
+					<% sn++; %> <% } %>
 				</tbody>
 			</table>
 		</div>
@@ -57,17 +58,17 @@
 		<nav aria-label="Page navigation example ">
 			<ul class="pagination justify-content-center">
 				<li class="page-item">
-					<a class="page-link" href="/UserMsg?PageNo=<%= (PageNo-1) %>" title="上一頁" aria-label="Previous">
+					<a class="page-link" href="/UserFollow?PageNo=<%= (PageNo-1) %>" title="上一頁" aria-label="Previous">
 						<span aria-hidden="true">&laquo;</span>
 					</a>
 				</li>
 				<% for(var i=1; i <=TotalPage; i++) { %>
 				<li class="page-item">
-					<a class="page-link" href="/UserMsg?PageNo=<%= i%>"><%= i%></a>
+					<a class="page-link" href="/UserFollow?PageNo=<%= i%>"><%= i%></a>
 				</li>
 				<% } %>
 				<li class="page-item">
-					<a class="page-link" href="/UserMsg?PageNo=<%= (PageNo+1) %>" title="下一頁" aria-label="Next">
+					<a class="page-link" href="/UserFollow?PageNo=<%= (PageNo+1) %>" title="下一頁" aria-label="Next">
 						<span aria-hidden="true">&raquo;</span>
 					</a>
 				</li>
