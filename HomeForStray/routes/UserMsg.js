@@ -16,10 +16,10 @@ router.get('/', function (req, res, next) {
 
 
         pool.query('SELECT * FROM UserMsg JOIN member ON(member.MemberID=UserMsg.MemberID)  where Email=?',[req.session.Email], function (err, results) {
-            var memberData = results; // 撈取是否有登入session
-            console.log(memberData)
+            var MsgData = results; // 撈取是否有登入session
+            console.log(MsgData)
 
-            var TotalLine = memberData.length;  // 資料總筆數 會員1只有兩筆
+            var TotalLine = MsgData.length;  // 資料總筆數 會員1只有兩筆
             var TotalPage = Math.ceil(TotalLine / LinePerPage);  //資料總頁數＝總筆數/每頁顯示數
             pool.query('SELECT * from UserMsg order by MsgID DESC limit ?, ?',
             [(PageNo - 1) * LinePerPage, LinePerPage],
@@ -29,7 +29,7 @@ router.get('/', function (req, res, next) {
                if (err) throw err;
                res.render('UserMsg', { 
                    data: results, //全部筆數
-                   memberData: memberData || "", 
+                   MsgData: MsgData || "", 
                    PageNo: PageNo, 
                    TotalLine: TotalLine, 
                    TotalPage: TotalPage, 

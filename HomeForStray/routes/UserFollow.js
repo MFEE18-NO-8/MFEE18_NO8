@@ -11,10 +11,10 @@ router.get('/', function (req, res, next) {
         PageNo = 1;
     }
     pool.query('SELECT * FROM UserFollow JOIN member ON(member.MemberID=UserFollow.MemberID) JOIN PostForAdopt ON (PostForAdopt.Petid=UserFollow.Petid) WHERE UserFollowState = 1 AND Email=?',[req.session.Email], function(err, results){
-        var memberData = results; // 撈取是否有登入session
-        console.log(memberData)
+        var FollowData = results; // 撈取是否有登入session
+        console.log(FollowData)
 
-        var TotalLine = memberData.length; //資料總筆數 朱建輝 有兩筆追蹤資料
+        var TotalLine = FollowData.length; //資料總筆數 朱建輝 有兩筆追蹤資料
         var TotalPage = Math.ceil(TotalLine / LinePerPage); //資料總頁數＝總筆數/每頁顯示數  朱建輝資料總頁數 1 ，因為總共2筆/每頁顯示5筆資料
 
         pool.query('SELECT * FROM UserFollow ORDER BY FollowDate DESC LIMIT ?,?',[(PageNo - 1) * LinePerPage, LinePerPage],
@@ -22,7 +22,7 @@ router.get('/', function (req, res, next) {
             if (err) throw err;
             res.render('UserFollow', { 
                 data: results, 
-                memberData: memberData || "", 
+                FollowData: FollowData || "", 
                 PageNo: PageNo, 
                 TotalLine: TotalLine, 
                 TotalPage: TotalPage, 
