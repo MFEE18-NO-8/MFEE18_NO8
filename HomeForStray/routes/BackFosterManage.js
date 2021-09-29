@@ -7,19 +7,37 @@ var pool = require('./lib/db.js');   //含入資料庫連線
 
 // 刊登審核後台清單
 router.get('/FosterManageList', function (req, res) {
+    var PetName = req.query.PetName
+    var FosterDateStart = req.query.FosterDateStart
+    var FosterDateEnd = req.query.FosterDateEnd
+    var AdoptState = req.query.AdoptState
+
+    if (PetName === undefined) {
+        PetName = ''
+    }
+    if (FosterDateStart === undefined) {
+        FosterDateStart = ''
+    }
+    if (FosterDateEnd === undefined) {
+        FosterDateEnd = ''
+    }
+    if (AdoptState === undefined) {
+        AdoptState = ''
+    }
+
+
 
     pool.query(" select  count(*) as cnt  from postforadopt WHERE (PetName=? OR ?='') AND (AdoptDate>=? OR ?='' ) AND (AdoptDate<=? OR ?='' ) AND (AdoptState=? OR ?='') ",
         [
-            req.query.PetName,
-            req.query.PetName,
-            req.query.FosterDateStart,
-            req.query.FosterDateStart,
-            req.query.FosterDateEnd,
-            req.query.FosterDateEnd,
-            req.query.AdoptState,
-            req.query.AdoptState
+            PetName,
+            PetName,
+            FosterDateStart,
+            FosterDateStart,
+            FosterDateEnd,
+            FosterDateEnd,
+            AdoptState,
+            AdoptState
         ],
-
         function (err, results) {  //讀取資料總筆數
             if (err) throw err;
             var LinePage = 5;
@@ -31,21 +49,23 @@ router.get('/FosterManageList', function (req, res) {
                 PageNum = 1;
             }
 
+
+
+
             pool.query(" select * from postforadopt WHERE (PetName=? OR ?='') AND (AdoptDate>=? OR ?='' ) AND (AdoptDate<=? OR ?='' ) AND (AdoptState=? OR ?='' ) order by  AdoptDate , PetId  limit ?, ? ", // 選此資料表 用PetId排序
                 [
-                    req.query.PetName,
-                    req.query.PetName,
-                    req.query.FosterDateStart,
-                    req.query.FosterDateStart,
-                    req.query.FosterDateEnd,
-                    req.query.FosterDateEnd,
-                    req.query.AdoptState,
-                    req.query.AdoptState,
+                    PetName,
+                    PetName,
+                    FosterDateStart,
+                    FosterDateStart,
+                    FosterDateEnd,
+                    FosterDateEnd,
+                    AdoptState,
+                    AdoptState,
 
                     (PageNum - 1) * LinePage,
                     LinePage
                 ],
-
                 function (err, results) {  //根據目前頁數讀取資料  )
                     if (err) throw err;
                     res.render('FosterManageList',  //丟到 ejs 模板上
@@ -58,9 +78,7 @@ router.get('/FosterManageList', function (req, res) {
                             LinePage: LinePage
                         });
                 });
-
-        }
-    );
+        })
 
 });
 
@@ -98,14 +116,10 @@ router.post('/FosterManageAdd', function (req, res) {
 
         function (err, results) {
 
-            // console.log(results);
-
             if (err) throw err;
 
             res.redirect('/BackFosterManage/FosterManageList');
         });
-
-
 })
 
 
@@ -159,9 +173,7 @@ router.get('/FosterManageDel', function (req, res) {
 
 router.post('/FosterManageDel', function (req, res) {
     // 1. req取得PetId 
-
     var PetId = req.body.PetId
-
     // 2. 根據PetId將資料抓出來刪除 
     pool.query('DELETE FROM `postforadopt` WHERE `postforadopt`.`PetId` = ?',
 
