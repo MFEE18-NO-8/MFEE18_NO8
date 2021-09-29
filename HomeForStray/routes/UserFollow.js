@@ -10,28 +10,36 @@ router.get('/', function (req, res, next) {
     if (isNaN(pageNo) || pageNo < 1) {  //如果沒有傳送參數,設目前頁數為第1頁
         pageNo = 1;
     }
-    //對資料庫進行存取
-    //從"使用者追蹤"那資料庫裏，抓資料(總筆數)，如果資料庫操作命令執行結果有傳回值，傳回值會儲存於「results」參數中。
-    pool.query('select count(*) as cnt from UserFollow', 
-        function(err, results) { 
-        if(err) throw err;
-        var TotalLine = results[0].cnt;  //資料總筆數 假設100筆
-        var TotalPage = Math.ceil(TotalLine / LinePerPage);  //資料總頁數＝總筆數/每頁顯示數  10頁 每頁10筆
+    pool.query('SELECT * FROM UserFollow JOIN member ON(member.MemberID=UserFollow.MemberID) JOIN PostForAdopt ON (PostForAdopt.MemberID=member.MemberID) WHERE Email="tikunawo@gmail.com"', function(err, results){
+        var memberData = results; // 撈取是否有登入session
+        console.log(memberData)
 
-        pool.query('SELECT * FROM UserFollow JOIN register ON(register.MemberID=UserFollow.MemberID)JOIN PostForAdopt ON(register.MemberID=PostForAdopt.MemberID) WHERE UserFollow.UserFollowState=1', 
-            [(pageNo - 1) * LinePerPage, LinePerPage], 
-            function (err, results) {  //根據目前頁數讀取資料
+        var TotalLine = memberData.length; //資料總筆數 朱建輝 有五筆資料
+        var TotalPage = Math.ceil(TotalLine / LinePerPage); //資料總頁數＝總筆數/每頁顯示數  朱建輝資料總頁數 1 因為總共5筆/每頁顯示5筆資料
+
+        pool.query('SELECT * FROM UserFollow JOIN member ON(member.MemberID=UserFollow.MemberID) JOIN PostForAdopt ON (PostForAdopt.MemberID=member.MemberID) WHERE UserFollowState = 1 ',function(err,results){
+            var RightNowData = results;
+            console.log(RightNowData) 
+            pool.query('SELECT * FROM UserFollow ORDER BY FollowDate DESC LIMIT ?,?',[(PageNo - 1) * LinePerPage, LinePerPage],function(err,results){
                 if (err) throw err;
-                // 將取得的資料記錄以「data,pageNo,TotaLine,TotalPage,LinePerPage」等參數傳送給 <UserFollow.ejs> 模版
-                res.render('UserFollow', 
-                {   data: results, 
-                    pageNo: pageNo, 
-                    TotalLine: TotalLine, 
-                    TotalPage: TotalPage, 
-                    LinePerPage: LinePerPage 
-                });
+                res.render('UserFollow', { 
+                   data: results[0], //把0刪掉不影響
+                   memberData: memberData || "", 
+                   PageNo: PageNo, 
+                   TotalLine: TotalLine, 
+                   TotalPage: TotalPage, 
+                   LinePerPage: LinePerPage });
             });
+        });
     });
+
+
+
+
+
+
+
+
    
 });
 
