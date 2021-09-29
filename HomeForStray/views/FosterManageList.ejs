@@ -8,63 +8,65 @@
 
                 <!-- 查詢條件 -->
                 <div class="col-xs-12">
-                    <div class="search">
-                        <!-- 標題 -->
-                        <div class="col-xs-12 col-sm-6 col-md-3">
-                            <div class="form-group">
-                                <label>寵物暱稱：</label>
-                                <input type="text" name="PetName" class="form-control" id="">
+                    <form action="/BackFosterManage/FosterManageList" method="GET">
+                        <div class="search">
+                            <!-- 標題 -->
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <label>寵物暱稱：</label>
+                                    <input type="text" name="PetName" class="form-control" id="">
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- 換行 -->
-                        <div class="clearfix"></div>
+                            <!-- 換行 -->
+                            <div class="clearfix"></div>
 
-                        <!-- 送審日期 -->
-                        <div class="col-xs-12 col-sm-6 col-md-3">
-                            <label>送審日期：</label>
-                        </div>
-                        <div class="clearfix"></div>
-                        <!-- 送審日期(起) -->
-                        <div class="col-xs-12 col-sm-6 col-md-3">
-                            <div class="form-group">
-                                <input name="FosterDateStart" type="date" class="form-control inputNotOutline">
+                            <!-- 送審日期 -->
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <label>送審日期：</label>
                             </div>
-                        </div>
-                        <!-- 送審日期~ -->
-                        <label class="s-Elab">～</label>
-                        <!-- 送審日期(迄) -->
-                        <div class="col-xs-12 col-sm-6 col-md-3">
-                            <div class="form-group">
-                                <input name="FosterDateEnd" type="date" class="form-control inputNotOutline">
+                            <div class="clearfix"></div>
+                            <!-- 送審日期(起) -->
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <input name="FosterDateStart" type="date" class="form-control inputNotOutline">
+                                </div>
                             </div>
-                        </div>
-
-                        <!-- 換行 -->
-                        <div class="clearfix"></div>
-
-                        <!-- 狀態： -->
-                        <div class="col-xs-12 col-sm-6 col-md-3">
-                            <div class="form-group">
-                                <label>狀態：</label>
-                                <div class="clearfix"></div>
-                                <input type="radio" name="AdoptState" value="1">
-                                <label for="html" class="MyListLabel">已批准</label>
-                                <input type="radio" name="AdoptState" value="0" checked>
-                                <label for="html" class="MyListLabel">未批准
-                                </label>
+                            <!-- 送審日期~ -->
+                            <label class="s-Elab">～</label>
+                            <!-- 送審日期(迄) -->
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <input name="FosterDateEnd" type="date" class="form-control inputNotOutline">
+                                </div>
                             </div>
+
+                            <!-- 換行 -->
+                            <div class="clearfix"></div>
+
+                            <!-- 狀態： -->
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <label>狀態：</label>
+                                    <div class="clearfix"></div>
+                                    <input type="radio" name="AdoptState" value="1">
+                                    <label for="html" class="MyListLabel">已批准</label>
+                                    <input type="radio" name="AdoptState" value="0" checked>
+                                    <label for="html" class="MyListLabel">未批准
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            <!-- 查詢/清除 -->
+                            <div class="col-xs-12 text-right">
+                                <button type="submit" class="btn btn-primary">查詢</button>
+                                <button type="button" class="btn btn-primary">清除</button>
+                            </div>
+                            <div class="clearfix"></div>
+
                         </div>
-
-
-                        <!-- 查詢/清除 -->
-                        <div class="col-xs-12 text-right">
-                            <button type="button" class="btn btn-primary">查詢</button>
-                            <button type="button" class="btn btn-primary">清除</button>
-                        </div>
-                        <div class="clearfix"></div>
-
-                    </div>
+                    </form>
                 </div>
 
 
@@ -112,10 +114,10 @@
 
 
                                         <td>
-                                            <a href="/FosterManageEdit?PetId=<%= data[i].PetId %>">
+                                            <a href="/BackFosterManage/FosterManageEdit?PetId=<%= data[i].PetId %>">
                                                 <button class="ListButtonEdit" name="EditAdopt" value="">編輯</button></a>
-                                            <a href="/FosterManageDele?PetId=<%= data[i].PetId %>">
-                                                <button class="ListButtonDele" name="DeleAdopt" value="">刪除</button></a>
+                                            <!-- <a href="/BackFosterManage/FosterManageDele?PetId=<%= data[i].PetId %>">
+                                                <button class="ListButtonDele" name="DeleAdopt" value="">刪除</button></a> -->
                                         </td>
                                     </tr>
 
@@ -128,7 +130,7 @@
                                                 <li class="page-item">
                                                     <% if(PageNum> 1) { %>
                                                         <a class="page-link"
-                                                            href="/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=(PageNum-1) %>"
+                                                            href="/BackFosterManage/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=(PageNum-1) %>"
                                                             aria-label="Previous">
                                                             <span aria-hidden="true">&laquo;</span>
                                                         </a>
@@ -137,7 +139,7 @@
                                                 <% for(var a=1; a <=TotalPage ; a++) { %>
                                                     <li class="page-item">
                                                         <a class="page-link"
-                                                            href="/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=a %>">
+                                                            href="/BackFosterManage/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=a %>">
                                                             <%= a %>
                                                         </a>
                                                     </li>
@@ -145,7 +147,7 @@
                                                         <li class="page-item">
                                                             <% if(PageNum < TotalPage) { %>
                                                                 <a class="page-link"
-                                                                    href="/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=(PageNum+1) %>"
+                                                                    href="/BackFosterManage/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=(PageNum+1) %>"
                                                                     aria-label="Next">
                                                                     <span aria-hidden="true">&raquo;</span>
                                                                 </a>
