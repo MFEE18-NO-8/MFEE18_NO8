@@ -1,7 +1,7 @@
-var express =require('express');
-var router =express.Router();
-var mysql =require('mysql'); //含入mysql套件
-var pool=require('./lib/db.js') //含入資料庫連線
+var express = require('express');
+var router = express.Router();
+var mysql = require('mysql'); //含入mysql套件
+var pool = require('./lib/db.js') //含入資料庫連線
 
 var linePerPage = 6;  // 每頁資料筆數
 
@@ -12,19 +12,26 @@ router.get('/', function (req, res) {
     if (isNaN(pageNo) || pageNo < 1) {  //如果沒有傳送參數,設目前頁數為第1頁
         pageNo = 1;
     }
+    pool.query('select * from Member where Email=?', [req.session.Email], function (err, results) {
+        var memberData = results[0]; // 撈取是否有登入session
 
-    
-    pool.query('select count(*) as cnt from PostForAdopt', function (err, results) {  //讀取資料總筆數
-        if (err) throw err;
-        var totalLine = results[0].cnt;  //資料總筆數
-        var totalPage = Math.ceil(totalLine / linePerPage);  //總頁數
-        
-        pool.query('select * from PostForAdopt,CityDatas,PetImgDatas where  PostForAdopt.CityId=CityDatas.CityId and PostForAdopt.PetId=PetImgDatas.PetId and PostForAdopt.PetImgId=PetImgDatas.PetImgId order by PostForAdopt.PetId asc limit ?, ?', [(pageNo - 1) * linePerPage, linePerPage], function (err, results) {  //根據目前頁數讀取資料
+        pool.query('select count(*) as cnt from PostForAdopt', function (err, results) {  //讀取資料總筆數
             if (err) throw err;
-            res.render('AdoptList', { data: results, pageNo: pageNo, totalLine: totalLine, totalPage: totalPage, linePerPage: linePerPage });
-        });     
-    });
+            var totalLine = results[0].cnt;  //資料總筆數
+            var totalPage = Math.ceil(totalLine / linePerPage);  //總頁數
 
+            pool.query('select * from PostForAdopt,CityDatas,PetImgDatas where  PostForAdopt.CityId=CityDatas.CityId and PostForAdopt.PetId=PetImgDatas.PetId and PostForAdopt.PetImgId=PetImgDatas.PetImgId order by PostForAdopt.PetId asc limit ?, ?', [(pageNo - 1) * linePerPage, linePerPage], function (err, results) {  //根據目前頁數讀取資料
+                if (err) throw err;
+                res.render('AdoptList', 
+                {   data: results, 
+                    memberData: memberData || "",
+                    pageNo: pageNo, 
+                    totalLine: totalLine, 
+                    totalPage: totalPage, 
+                    linePerPage: linePerPage });
+            });
+        });
+    });
 });
 
 router.post('/', function (req, res) {  // app.js 已掛好路徑 post & get 會成對 >>
