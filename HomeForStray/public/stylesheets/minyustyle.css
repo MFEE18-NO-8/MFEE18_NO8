@@ -588,9 +588,9 @@
         background-color: #afc2cb;
         border-radius: 50%;
     }
-    .user-menu >ul> li:first-of-type {
+    /* .user-menu >ul> li:first-of-type {
         text-align: center;
-    }
+    } */
     .user-menu >ul> li {
         margin: 10px 30px;
     }
