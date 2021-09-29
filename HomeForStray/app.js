@@ -113,20 +113,20 @@ app.get("/", function (req, res) {
 
 
 // // 引入 刊登送養後台
-// var BackFosterManage = require('./routes/BackFosterManage');
-// app.use('/BackFosterManage', BackFosterManage);
-//引入 刊登送養審核 檢視
-var FosterManageEdit = require('./routes/FosterManageEdit');
-app.use('/FosterManageEdit', FosterManageEdit);
+var BackFosterManage = require('./routes/BackFosterManage');
+app.use('/BackFosterManage', BackFosterManage);
+// //引入 刊登送養審核 檢視
+// var FosterManageEdit = require('./routes/FosterManageEdit');
+// app.use('/FosterManageEdit', FosterManageEdit);
 //引入 刊登送養審核 查詢
-var FosterManageList = require('./routes/FosterManageList');
-app.use('/FosterManageList', FosterManageList);
-//引入 刊登送養審核 新增
-var FosterManageAdd = require('./routes/FosterManageAdd');
-app.use('/FosterManageAdd', FosterManageAdd);
-//引入 刊登送養審核 刪除
-var FosterManageDele = require('./routes/FosterManageDele');
-app.use('/FosterManageDele', FosterManageDele);
+// var FosterManageList = require('./routes/FosterManageList');
+// app.use('/FosterManageList', FosterManageList);
+// //引入 刊登送養審核 新增
+// var FosterManageAdd = require('./routes/FosterManageAdd');
+// app.use('/FosterManageAdd', FosterManageAdd);
+// //引入 刊登送養審核 刪除
+// var FosterManageDele = require('./routes/FosterManageDele');
+// app.use('/FosterManageDele', FosterManageDele);
 
 // //引入 會員註冊資料 新增
 // var Register = require('./routes/Register');
