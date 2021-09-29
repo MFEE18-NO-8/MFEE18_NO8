@@ -4,7 +4,15 @@ var mysql = require('mysql'); //含入mysql套件
 var pool = require('./lib/db.js') //含入資料庫連線
 
 router.get('/', function (req, res, next) {
-    res.render('Foster');
+    pool.query('select * from Member where Email=?', [req.session.Email], function (err, results) {
+        var memberData = results[0]; // 撈取是否有登入session
+        console.log(memberData)
+        if (memberData == undefined) {  // 沒登入狀態
+            res.redirect('/member/login')
+          } else { 
+            res.render('Foster',{ memberData: memberData,});
+          }
+    });
 });
 
 router.post('/', function (req, res) {
