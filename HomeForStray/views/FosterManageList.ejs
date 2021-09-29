@@ -26,7 +26,6 @@
 
 </head>
 
-
 <body>
 
     <body>
@@ -89,7 +88,7 @@
 
         <div id="ListDiv" class="container">
 
-            <form action="/FosterManageList" method="POST">
+            <form action="/FosterManageList" method="GET">
                 <table id="MyListTable" style="border-collapse:separate; border-spacing:10px 10px;">
                     <tr class="MyListTr">
                         <td>寵物暱稱：</td>
@@ -110,7 +109,7 @@
                     <tr class="MyListTr">
                         <td>狀態：</td>
                         <td>
-                            <input type="radio" name="AdoptState" value="1" checked>
+                            <input type="radio" name="AdoptState" value="1">
                             <label for="html" class="MyListLabel">已批准</label>
                             <input type="radio" name="AdoptState" value="0">
                             <label for="html" class="MyListLabel">未批准
@@ -173,7 +172,7 @@
                                             //判斷status=1，則statusStr為已批准，反之為未批准 ; %>
                                             <%= statusStr %>
                             </td>
-                            </td>
+
 
                             <td>
                                 <a href="/FosterManageEdit?PetId=<%= data[i].PetId %>">
@@ -222,8 +221,9 @@
         </div>
 
         <!-- 頁碼 -->
+
         <div class="container">
-            <!-- <form action="" method="POST"> -->
+            <!-- <form action="" method="GET"> -->
 
             <!-- 上一頁 -->
             <a href="/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=(PageNum-1) %>"
@@ -238,6 +238,7 @@
             </a>
             <!-- </form> -->
         </div>
+
 
         <!-- footer -->
         <footer class="container-fluid footer">
