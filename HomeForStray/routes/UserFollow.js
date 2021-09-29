@@ -10,37 +10,26 @@ router.get('/', function (req, res, next) {
     if (isNaN(pageNo) || pageNo < 1) {  //如果沒有傳送參數,設目前頁數為第1頁
         pageNo = 1;
     }
-    pool.query('SELECT * FROM UserFollow JOIN member ON(member.MemberID=UserFollow.MemberID) JOIN PostForAdopt ON (PostForAdopt.MemberID=member.MemberID) WHERE Email="tikunawo@gmail.com"', function(err, results){
+    pool.query('SELECT * FROM UserFollow JOIN member ON(member.MemberID=UserFollow.MemberID) JOIN PostForAdopt ON (PostForAdopt.Petid=UserFollow.Petid) WHERE UserFollowState = 1 AND Email=？',[req.session.Email], function(err, results){
         var memberData = results; // 撈取是否有登入session
         console.log(memberData)
 
-        var TotalLine = memberData.length; //資料總筆數 朱建輝 有五筆資料
-        var TotalPage = Math.ceil(TotalLine / LinePerPage); //資料總頁數＝總筆數/每頁顯示數  朱建輝資料總頁數 1 因為總共5筆/每頁顯示5筆資料
+        var TotalLine = memberData.length; //資料總筆數 朱建輝 有兩筆追蹤資料
+        var TotalPage = Math.ceil(TotalLine / LinePerPage); //資料總頁數＝總筆數/每頁顯示數  朱建輝資料總頁數 1 ，因為總共2筆/每頁顯示5筆資料
 
-        pool.query('SELECT * FROM UserFollow JOIN member ON(member.MemberID=UserFollow.MemberID) JOIN PostForAdopt ON (PostForAdopt.MemberID=member.MemberID) WHERE UserFollowState = 1 ',function(err,results){
-            var RightNowData = results;
-            console.log(RightNowData) 
-            pool.query('SELECT * FROM UserFollow ORDER BY FollowDate DESC LIMIT ?,?',[(PageNo - 1) * LinePerPage, LinePerPage],function(err,results){
-                if (err) throw err;
-                res.render('UserFollow', { 
-                   data: results[0], //把0刪掉不影響
-                   memberData: memberData || "", 
-                   PageNo: PageNo, 
-                   TotalLine: TotalLine, 
-                   TotalPage: TotalPage, 
-                   LinePerPage: LinePerPage });
-            });
+        pool.query('SELECT * FROM UserFollow ORDER BY FollowDate DESC LIMIT ?,?',[(PageNo - 1) * LinePerPage, LinePerPage],
+        function(err,results){
+            if (err) throw err;
+            res.render('UserFollow', { 
+                data: results, 
+                memberData: memberData || "", 
+                PageNo: PageNo, 
+                TotalLine: TotalLine, 
+                TotalPage: TotalPage, 
+                LinePerPage: LinePerPage });
         });
+        
     });
-
-
-
-
-
-
-
-
-   
 });
 
 module.exports = router;

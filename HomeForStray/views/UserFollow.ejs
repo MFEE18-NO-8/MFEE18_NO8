@@ -37,14 +37,14 @@
 					</tr>
 				</thead>
 				<tbody>
-					<%var sn=1; //宣告sn=編號 %> <% for(var i=0; i < data.length; i++) { %>
+					<%var sn=1; //宣告sn=編號 %> <% for(var i=0; i < memberData.length; i++) { %>
 					<tr>
-						<td><%= (data[i]) %></td>
-						<td><%= (data[i].PetName) %></td>
-						<td><%= (data[i].FollowDate).toLocaleDateString() %></td>
-						<td><%= (data[i]) %></td>
+						<!-- 這裡要放序號 -->
+						<td><%= (memberData[i].PetName) %></td>
+						<td><%= (memberData[i].FollowDate).toLocaleDateString() %></td>
+
 						<!--這裡要放查看按鈕  這個會連到相關AdoptList-->
-						<td><%= (data[i]) %></td>
+
 						<!--這裡要放取消追蹤按鈕  這個會改變狀態 -->
 						<td><button class="btnMd-back btn-green">查看</button></td>
 						<td><button class="btnLg btn-lightRed">取消追蹤</button></td>
