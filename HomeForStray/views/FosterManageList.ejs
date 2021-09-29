@@ -26,6 +26,7 @@
 
 </head>
 
+
 <body>
 
     <body>
@@ -218,6 +219,24 @@
                 </tbody>
                 </tr>
             </table>
+        </div>
+
+        <!-- 頁碼 -->
+        <div class="container">
+            <!-- <form action="" method="POST"> -->
+
+            <!-- 上一頁 -->
+            <a href="/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=(PageNum-1) %>"
+                title="上一頁">
+                <button>上一頁</button>
+            </a>
+
+            <!-- 下一頁 -->
+            <a href="/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=(PageNum+1) %>"
+                title="下一頁">
+                <button>下一頁</button>
+            </a>
+            <!-- </form> -->
         </div>
 
         <!-- footer -->
