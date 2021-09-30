@@ -2,6 +2,22 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');        //含入mysql套件
 var pool = require('./lib/db.js');   //含入資料庫連線
+var multer = require('multer');
+const fs = require('fs')
+
+
+var myStorage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "./uploads/");    // 保存的路徑 (需先自己創建)
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname);  // 自定義檔案名稱
+    }
+});
+
+var upload = multer({
+    storage: myStorage  // 設置 storage
+});
 
 
 
@@ -43,16 +59,20 @@ router.get('/KnowManageAdd', function (req, res, next) {
     res.render('KnowManageAdd', { pageNo: pageNo, message: message });
 });
 
-router.post('/KnowManageAdd', function (req, res, next) {
+router.post('/KnowManageAdd', upload.single('uploadImg'),function (req, res, next) {
+    console.log(req.file);
     var pageNo = parseInt(req.query.pageNo);
     var articleTitle = req.body['articleTitle'];  //取得輸入的類型
     var articleDate = req.body['articleDate'];
     var articleContent = req.body['articleContent'];
 
+
+
     pool.query('insert into articlenews set ?', [{  //新增資料
         ArticleTitle: articleTitle,
         ArticleDate: articleDate,
         ArticleCont: articleContent,
+
 
     }], function (err, results) {
         if (err) throw err;
