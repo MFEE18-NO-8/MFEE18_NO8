@@ -44,14 +44,14 @@ router.get('/', function (req, res, next) {
 //     });
 // });
 
-// 方法2. 更改數值-模擬中
-// router.post('/UserFollow',function(req,res,next){
+// 方法2.更改數值 - 模擬中
+// router.post('/UserFollow', function (req, res, next) {
 //     //我該怎麼接收前台傳出的指令？是下面這樣做嗎？
-//     var FollowButton =req.body.FollowButton
-//     var FollowButton =req.query.FollowButton
-//     var FollowButton =req.params.FollowButton
+//     var FollowButton = req.body.FollowButton
+//     var FollowButton = req.query.FollowButton
+//     var FollowButton = req.params.FollowButton
 
-//     pool.query('UPDATE UserFollow SET UserFollowState=0 WHERE UserFollow =?',[id],function(errr,results){
+//     pool.query('UPDATE UserFollow SET UserFollowState=0 WHERE UserFollow =?', [id], function (errr, results) {
 //         if (err) throw err;
 //         res.redirect('/UserFollow');
 //     });
