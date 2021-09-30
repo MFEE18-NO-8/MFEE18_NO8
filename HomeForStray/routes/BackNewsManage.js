@@ -72,7 +72,44 @@ router.get('/NewsManageDel', function (req, res, next) {
     var pageNo = parseInt(req.query.pageNo);
     pool.query('select * from News where NewsId=?', [id], function (err, results) {  //根據id讀取資料
         if (err) throw err;
-        res.render('NewsManageDel', { data: results, pageNo: pageNo });
+        var date = results[0].ShowStartDate;
+        // 改變日期格式
+        const formatDate = (date) => {
+            if ( (parseInt(date.getMonth() + 1)) >= 10 && parseInt(date.getDate()) >=10 ){
+                let formatted_date1 =  date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+                return formatted_date1;
+            }else if( (parseInt(date.getMonth() + 1)) >= 10 && parseInt(date.getDate()) <= 10 ){
+                let formatted_date2 =  date.getFullYear() + "-" + (date.getMonth() + 1) + "-0" + date.getDate()
+                return formatted_date2;
+            }else if(  (parseInt(date.getMonth() + 1)) <= 10 && parseInt(date.getDate()) <= 10 ){
+                let formatted_date3 =  date.getFullYear() + "-0" + (date.getMonth() + 1) + "-0" + date.getDate()
+                return formatted_date3;
+            }
+            else{
+                let formatted_date4 =  date.getFullYear() + "-0" + (date.getMonth() + 1) + "-" + date.getDate()
+                return formatted_date4;
+            }       
+        }
+        var EndDate = results[0].ShowEndDate;
+        // 改變日期格式
+        const formatDate2 = (EndDate) => {
+            if ( (parseInt(EndDate.getMonth() + 1)) >= 10 && parseInt(EndDate.getDate()) >=10 ){
+                let formatted_EndDate1 =  EndDate.getFullYear() + "-" + (EndDate.getMonth() + 1) + "-" + EndDate.getDate()
+                return formatted_EndDate1;
+            }else if( (parseInt(EndDate.getMonth() + 1)) >= 10 && parseInt(EndDate.getDate()) <= 10 ){
+                let formatted_EndDate2 =  EndDate.getFullYear() + "-" + (EndDate.getMonth() + 1) + "-0" + EndDate.getDate()
+                return formatted_EndDate2;
+            }else if(  (parseInt(EndDate.getMonth() + 1)) <= 10 && parseInt(EndDate.getDate()) <= 10 ){
+                let formatted_EndDate3 =  EndDate.getFullYear() + "-0" + (EndDate.getMonth() + 1) + "-0" + EndDate.getDate()
+                return formatted_EndDate3;
+            }
+            else{
+                let formatted_EndDate4 =  EndDate.getFullYear() + "-0" + (EndDate.getMonth() + 1) + "-" + EndDate.getDate()
+                return formatted_EndDate4;
+            }       
+        }
+        
+        res.render('NewsManageDel', { data: results, pageNo: pageNo,ShowStartDate:formatDate(date),ShowEndDate:formatDate2(EndDate), });
     });
 });
 
@@ -95,8 +132,44 @@ router.get('/NewsManageEdit', function (req, res, next) {
     var pageNo = parseInt(req.query.pageNo);
     pool.query('select * from News where NewsId=?', [id], function (err, results) {  //根據id讀取資料
         if (err) throw err;
+        var date = results[0].ShowStartDate;
+        // 改變日期格式
+        const formatDate = (date) => {
+            if ( (parseInt(date.getMonth() + 1)) >= 10 && parseInt(date.getDate()) >=10 ){
+                let formatted_date1 =  date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+                return formatted_date1;
+            }else if( (parseInt(date.getMonth() + 1)) >= 10 && parseInt(date.getDate()) <= 10 ){
+                let formatted_date2 =  date.getFullYear() + "-" + (date.getMonth() + 1) + "-0" + date.getDate()
+                return formatted_date2;
+            }else if(  (parseInt(date.getMonth() + 1)) <= 10 && parseInt(date.getDate()) <= 10 ){
+                let formatted_date3 =  date.getFullYear() + "-0" + (date.getMonth() + 1) + "-0" + date.getDate()
+                return formatted_date3;
+            }
+            else{
+                let formatted_date4 =  date.getFullYear() + "-0" + (date.getMonth() + 1) + "-" + date.getDate()
+                return formatted_date4;
+            }       
+        }
+        var EndDate = results[0].ShowEndDate;
+        // 改變日期格式
+        const formatDate2 = (EndDate) => {
+            if ( (parseInt(EndDate.getMonth() + 1)) >= 10 && parseInt(EndDate.getDate()) >=10 ){
+                let formatted_EndDate1 =  EndDate.getFullYear() + "-" + (EndDate.getMonth() + 1) + "-" + EndDate.getDate()
+                return formatted_EndDate1;
+            }else if( (parseInt(EndDate.getMonth() + 1)) >= 10 && parseInt(EndDate.getDate()) <= 10 ){
+                let formatted_EndDate2 =  EndDate.getFullYear() + "-" + (EndDate.getMonth() + 1) + "-0" + EndDate.getDate()
+                return formatted_EndDate2;
+            }else if(  (parseInt(EndDate.getMonth() + 1)) <= 10 && parseInt(EndDate.getDate()) <= 10 ){
+                let formatted_EndDate3 =  EndDate.getFullYear() + "-0" + (EndDate.getMonth() + 1) + "-0" + EndDate.getDate()
+                return formatted_EndDate3;
+            }
+            else{
+                let formatted_EndDate4 =  EndDate.getFullYear() + "-0" + (EndDate.getMonth() + 1) + "-" + EndDate.getDate()
+                return formatted_EndDate4;
+            }       
+        }
 
-        res.render('NewsManageEdit', { data: results, pageNo: pageNo, categories: categories });
+        res.render('NewsManageEdit', { data: results, pageNo: pageNo, categories: categories,ShowStartDate:formatDate(date),ShowEndDate:formatDate2(EndDate),  });
     });
 });
 router.post('/NewsManageEdit', function (req, res, next) {
