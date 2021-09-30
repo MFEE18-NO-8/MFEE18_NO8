@@ -640,7 +640,8 @@ textarea {
 }
 .login-block-left {
 	/* background: var(--BananaYellow); */
-	background-image: url(../img/dog\ cat/carousel1.jpg);
+	background-image: url(../img/dog\ cat/carousel1_login.jpg);
+	background-position:center;
 	height: 600px;
 	text-align: center;
 	border-radius: 40px 0px 0px 40px;
