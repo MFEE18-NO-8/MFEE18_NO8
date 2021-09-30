@@ -28,9 +28,8 @@
       </button>
       <div class="dropdown-menu  user-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
         <ul>
-          <li><a href="/UserEdit">
-              <%= memberData.MemberName %>
-            </a></li>
+          <li><%= memberData.MemberName %></li>
+          <li><a href="/UserEdit">管理者資訊</a></li>
           <li><a href="/UserFoster">我的送養文</a></li>
           <li><a href="/UserFollow">追蹤的毛孩</a></li>
           <li><a href="/UserMsg">通知</a></li>
@@ -54,9 +53,8 @@
         </button>
         <div class="dropdown-menu  user-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
           <ul>
-            <li><a href="/UserEdit">
-                <%= memberData.MemberName %>
-              </a></li>
+            <li><%= memberData.MemberName %></li>
+            <li><a href="/UserEdit">會員資訊</a></li>
             <li><a href="/UserFoster">我的送養文</a></li>
             <li><a href="/UserFollow">追蹤的毛孩</a></li>
             <li><a href="/UserMsg">通知</a></li>
