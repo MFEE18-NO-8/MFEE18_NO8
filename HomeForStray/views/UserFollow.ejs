@@ -44,10 +44,16 @@
 						<td><%= sn %></td>
 						<td><%= (FollowData[i].PetName) %></td>
 						<td><%= (FollowData[i].FollowDate).toLocaleDateString() %></td>
-						<!--這裡要放查看按鈕  這個會連到相關AdoptList-->
+						<!--這裡要放查看按鈕  這個會連到相關AdoptList  之後透過PetId去連到寵物頁面-->
+						<td>
+							<!-- <input type="button" value="查看動物" id="CheckPet" class="btnMd-back btn-green" /> -->
+							<button class="btnMd-back btn-green" type="submit" formmethod="post" value="<%= (FollowData[i].PetId) %>">查看</button>
+						</td>
 						<!--這裡要放取消追蹤按鈕  這個會改變狀態 -->
-						<td><button class="btnMd-back btn-green">查看</button></td>
-						<td><button class="btnLg btn-lightRed">取消追蹤</button></td>
+						<td>
+							<!-- <input type="button" value="取消追蹤" id="CancelFollow" class="btnMd-back btn-green" /> -->
+							<button class="btnLg btn-lightRed" type="submit" formmethod="post" value="<%= (FollowData[i].FollowID) %>">取消追蹤</button>
+						</td>
 					</tr>
 					<% sn++; %> <% } %>
 				</tbody>
