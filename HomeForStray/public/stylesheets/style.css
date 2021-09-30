@@ -279,7 +279,7 @@ input.form-control {
 	background-size: cover;
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 150px;
+	margin-bottom: 100px;
 	box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.3);
 }
 /* 第二版本header */
