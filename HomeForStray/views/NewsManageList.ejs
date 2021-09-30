@@ -140,10 +140,12 @@
 
               <!-- 上一頁 -->
               <li class="">
+                <% if(pageNo > 1) { %>
                 <a class="" href="/BackNewsManage/NewsManageList?pageNo=<%= (pageNo-1) %>" title="上一頁"" aria-label="
                   Previous">
                   <span aria-hidden="true">&laquo;</span>
                 </a>
+                <% } %>
               </li>
 
               <!-- 頁碼 -->
@@ -156,10 +158,12 @@
 
                   <!-- 下一頁 -->
                   <li class="">
+                    <% if(pageNo < totalPage) { %>
                     <a class="" href="/BackNewsManage/NewsManageList?pageNo=<%= (pageNo+1) %>" title="下一頁"
                       aria-label="Next">
                       <span aria-hidden="true">&raquo;</span>
                     </a>
+                    <% } %>
                   </li>
             </ul>
           </nav>
