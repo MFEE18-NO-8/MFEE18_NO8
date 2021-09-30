@@ -36,27 +36,29 @@ router.get('/login', function (req, res, next) {
 
 var messages = ""; //錯誤訊息
 router.post('/login', function (req, res, next) {
-  var Email = req.body.Email;
-  var Password = req.body.Password;
+  db.query("select * from member where Email=?", [req.session.Email], function (err, results) {
+    var memberData = results[0];
 
-  // 加密
-  let hashPassword = crypto.createHash('sha1');
-  hashPassword.update(Password);
-  const rePassword = hashPassword.digest('hex');
+    var Email = req.body.Email;
+    var Password = req.body.Password;
+    // 加密
+    let hashPassword = crypto.createHash('sha1');
+    hashPassword.update(Password);
+    const rePassword = hashPassword.digest('hex');
 
-  db.query("select * from member where Email=?", [Email], function (err, results) {  //根據帳號讀取資料
-    if (err) throw err;
-    if (results.length == 0) {  //帳號不存在
-      var memberData = results[0];
-      messages = "帳號不正確"
-      res.render('login', { messages: messages ,memberData: memberData || "",})
-    } else if (results.Password != rePassword && results.Password != req.body.Password) {  //密碼不正確
-      messages = "密碼不正確"
-      res.render('login', { messages: messages ,memberData: memberData || "",})
-    } else {  //帳號及密碼皆正確
-      req.session.Email = req.body.Email;
-      res.redirect('/'); //跳轉首頁
-    }
+    db.query("select * from member where Email=?", [Email], function (err, results) {  //根據帳號讀取資料
+      if (err) throw err;
+      if (results.length == 0) {  //帳號不存在
+        messages = "帳號不正確"
+        res.render('login', { messages: messages, memberData: memberData || "", })
+      } else if (results[0].Password != rePassword && results[0].Password != req.body.Password) {  //密碼不正確
+        messages = "密碼不正確"
+        res.render('login', { messages: messages, memberData: memberData || "", })
+      } else {  //帳號及密碼皆正確
+        req.session.Email = req.body.Email;
+        res.redirect('/'); //跳轉首頁
+      }
+    });
   });
 });
 
