@@ -45,14 +45,14 @@ router.post('/login', function (req, res, next) {
   const rePassword = hashPassword.digest('hex');
 
   db.query("select * from member where Email=?", [Email], function (err, results) {  //根據帳號讀取資料
-    console.log(results.length)
     if (err) throw err;
     if (results.length == 0) {  //帳號不存在
+      var memberData = results[0];
       messages = "帳號不正確"
-      res.render('login', { messages: messages })
-    } else if (results[0].Password != rePassword && results[0].Password != req.body.Password) {  //密碼不正確
+      res.render('login', { messages: messages ,memberData: memberData || "",})
+    } else if (results.Password != rePassword && results.Password != req.body.Password) {  //密碼不正確
       messages = "密碼不正確"
-      res.render('login', { messages: messages })
+      res.render('login', { messages: messages ,memberData: memberData || "",})
     } else {  //帳號及密碼皆正確
       req.session.Email = req.body.Email;
       res.redirect('/'); //跳轉首頁
