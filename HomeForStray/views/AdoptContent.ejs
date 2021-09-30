@@ -63,18 +63,28 @@
                             <a href="#"><img src="../img/icon/heart.png" alt="" class="share-img"></a>
                             <h4>追蹤</h4>
                         </div>
-                        <div class="share-right">
+                        <!-- <div class="share-right">
                             <a href="#"><img src="../img/icon/facebook.png" alt="" class="share-img"></a>
                             <a href="#"><img src="../img/icon/line.png" alt="" class="share-img"></a>
                             <h4>分享</h4>
-                        </div>
+                        </div> -->
                     </div>
+                    <% if ( memberData=="" ){ %>
+                    <div class="row AdoptContent-connection justify-content-left">
+                        <ul>
+                            <li>查看聯絡資訊，前往
+                                <a href="/member/login"><button class="btnMd btn-green">登入</button></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <% }else{ %>
                     <div class="row AdoptContent-connection justify-content-left">
                         <ul>
                             <li>聯絡人：<%= data[0].ContactPerson %></li>
                             <li>聯絡電話：<%= data[0].ContactPhone %></li>
                         </ul>
                     </div>
+                    <% } %>
                 </div>
             </div>
             <div class="col-12 col-md-6 AdoptContent-right">
