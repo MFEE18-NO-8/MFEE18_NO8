@@ -12,6 +12,7 @@ router.get('/', function (req, res, next) {
 
     pool.query('select * from articlenews where ArticleId=?;select * from articlenews order by ArticleId desc limit 0, 3', [id], function (err, results) {  //根據id讀取資料
       if (err) throw err;
+      
       res.render('KnowConent', 
       { data: results[0], 
         memberData : memberData || "" ,

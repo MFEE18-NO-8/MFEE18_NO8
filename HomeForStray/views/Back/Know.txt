@@ -126,7 +126,7 @@
 
           <li class="treeview"><a href="/BackUserManage/UserManageList"><span>會員資料管理</span><i
                 class="fa fas fa-paw"></i></a></li>
-          <li class="treeview"><a href="/FosterManageList"><span>刊登送養審核</span><i class="fa fas fa-paw"></i></a></li>
+          <li class="treeview"><a href="/BackFosterManage/FosterManageList"><span>刊登送養審核</span><i class="fa fas fa-paw"></i></a></li>
           <li class="treeview"><a href="/BackNewsManage/NewsManageList"><span>最新消息管理</span><i
                 class="fa fas fa-paw"></i></a></li>
           <li class="treeview"><a class="menu-active" href="/BackKnowManage/KnowManageList"><span>毛孩知識文章管理</span><i class="fa fas fa-paw"></i></a></li>

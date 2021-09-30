@@ -6,7 +6,7 @@ var pool = require('./lib/db.js');   //含入資料庫連線
 
 
 // 最新消息後台清單
-var linePerPage = 10;  // 每頁資料筆數
+var linePerPage = 5;  // 每頁資料筆數
 
 router.get('/NewsManageList', function (req, res, next) {
     var pageNo = parseInt(req.query.pageNo);  //取得傳送的目前頁數
