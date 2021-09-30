@@ -266,8 +266,6 @@ button.rigister{
     height: 50px;
     border-radius: 50px;
     background-color: var(--BananaYellow);
-<<<<<<< HEAD
-=======
 }
 
 
@@ -349,5 +347,14 @@ padding-left: 5px;
 .addBtn{
     margin-bottom: 20px;
     
->>>>>>> Anni
 }
+
+.header {
+	
+	margin-bottom: 20px;
+}
+
+.UserFoster-title{
+    margin-top: -50px;
+}
+
