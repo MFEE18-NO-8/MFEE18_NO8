@@ -25,8 +25,6 @@ router.get('/FosterManageList', function (req, res) {
         AdoptState = ''
     }
 
-
-
     pool.query(" select  count(*) as cnt  from postforadopt WHERE (PetName=? OR ?='') AND (AdoptDate>=? OR ?='' ) AND (AdoptDate<=? OR ?='' ) AND (AdoptState=? OR ?='') ",
         [
             PetName,

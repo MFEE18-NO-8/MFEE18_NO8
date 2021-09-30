@@ -115,50 +115,48 @@
 
                                         <td>
                                             <a href="/BackFosterManage/FosterManageEdit?PetId=<%= data[i].PetId %>">
-                                                <button class="ListButtonEdit" name="EditAdopt" value="">編輯</button></a>
+                                                <button class="btn btn-primary" name="EditAdopt"
+                                                    value="">編輯</button></a>
                                             <!-- <a href="/BackFosterManage/FosterManageDele?PetId=<%= data[i].PetId %>">
                                                 <button class="ListButtonDele" name="DeleAdopt" value="">刪除</button></a> -->
                                         </td>
                                     </tr>
 
-
                                     <% } %>
-
-                                        <!-- 頁碼 -->
-                                        <nav aria-label="Page navigation example ">
-                                            <ul class="pagination justify-content-center">
-                                                <li class="page-item">
-                                                    <% if(PageNum> 1) { %>
-                                                        <a class="page-link"
-                                                            href="/BackFosterManage/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=(PageNum-1) %>"
-                                                            aria-label="Previous">
-                                                            <span aria-hidden="true">&laquo;</span>
-                                                        </a>
-                                                        <% } %>
-                                                </li>
-                                                <% for(var a=1; a <=TotalPage ; a++) { %>
-                                                    <li class="page-item">
-                                                        <a class="page-link"
-                                                            href="/BackFosterManage/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=a %>">
-                                                            <%= a %>
-                                                        </a>
-                                                    </li>
-                                                    <% } %>
-                                                        <li class="page-item">
-                                                            <% if(PageNum < TotalPage) { %>
-                                                                <a class="page-link"
-                                                                    href="/BackFosterManage/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=(PageNum+1) %>"
-                                                                    aria-label="Next">
-                                                                    <span aria-hidden="true">&raquo;</span>
-                                                                </a>
-                                                                <% } %>
-                                                        </li>
-                                            </ul>
-                                        </nav>
-
-
-
+                            </tbody>
+                        </table>
                     </div>
+                    <!-- 頁碼 -->
+                    <nav aria-label="Page navigation example" class="text-right">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <% if(PageNum> 1) { %>
+                                    <a class="page-link"
+                                        href="/BackFosterManage/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=(PageNum-1) %>"
+                                        aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                    <% } %>
+                            </li>
+                            <% for(var a=1; a <=TotalPage ; a++) { %>
+                                <li class="page-item">
+                                    <a class="page-link"
+                                        href="/BackFosterManage/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=a %>">
+                                        <%= a %>
+                                    </a>
+                                </li>
+                                <% } %>
+                                    <li class="page-item">
+                                        <% if(PageNum < TotalPage) { %>
+                                            <a class="page-link"
+                                                href="/BackFosterManage/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=(PageNum+1) %>"
+                                                aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                            <% } %>
+                                    </li>
+                        </ul>
+                    </nav>
 
                 </div>
         </section>

@@ -357,3 +357,7 @@ padding-left: 5px;
 .UserFoster-title{
     margin-top: -50px;
 }
+
+pre.news{
+    font-size: 100%;
+}
