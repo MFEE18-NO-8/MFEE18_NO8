@@ -13,7 +13,7 @@ memberModifyMethod = new MemberModifyMethod();
 router.get('/register', function (req, res, next) {
   db.query('select * from Member where Email=?', [req.session.Email], function (err, results) {
     var memberData = results[0]; // 撈取是否有登入session
-    res.render('Register', {
+    res.render('register', {
       memberData: memberData || "",
     });
   });
