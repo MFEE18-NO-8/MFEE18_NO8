@@ -141,14 +141,16 @@
 
               <!-- 上一頁 -->
               <li class="">
-                <a class="" href="/UserManageList?pageNo=<%= (pageNo-1) %>" title="上一頁"" aria-label=" Previous">
+                <% if(pageNo > 1) { %>
+                <a class="" href="/BackUserManage/UserManageList?pageNo=<%= (pageNo-1) %>" title="上一頁"" aria-label=" Previous">
                   <span aria-hidden="true">&laquo;</span>
                 </a>
+                <% } %>
               </li>
 
               <!-- 頁碼 -->
               <% for(var i=1; i <=totalPage; i++) { %>
-                <li class="page-item"><a class="page-link" href="/UserManageList?pageNo=<%= i%>">
+                <li class="page-item"><a class="page-link" href="/BackUserManage/UserManageList?pageNo=<%= i%>">
                     <%= i%>
                   </a>
                 </li>
@@ -156,9 +158,11 @@
 
                   <!-- 下一頁 -->
                   <li class="">
-                    <a class="" href="/UserManageList?pageNo=<%= (pageNo+1) %>" title="下一頁" aria-label="Next">
+                    <% if(pageNo < totalPage) { %>
+                    <a class="" href="/BackUserManage/UserManageList?pageNo=<%= (pageNo+1) %>" title="下一頁" aria-label="Next">
                       <span aria-hidden="true">&raquo;</span>
                     </a>
+                    <% } %>
                   </li>
             </ul>
           </nav>

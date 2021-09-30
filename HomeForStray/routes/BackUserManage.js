@@ -19,9 +19,16 @@ router.get('/UserManageList', function (req, res, next) {
         var totalLine = results[0].cnt;  //資料總筆數
         var totalPage = Math.ceil(totalLine / linePerPage);  //總頁數
 
-        pool.query('select * from member order by MemberID desc limit ?, ?', [(pageNo - 1) * linePerPage, linePerPage], function (err, results) {  //根據目前頁數讀取資料
+        pool.query('select * from member order by MemberID desc limit ?, ?',
+         [(pageNo - 1) * linePerPage, linePerPage], 
+         function (err, results) {  //根據目前頁數讀取資料
             if (err) throw err;
-            res.render('UserManageList', { data: results, pageNo: pageNo, totalLine: totalLine, totalPage: totalPage, linePerPage: linePerPage });
+            res.render('UserManageList', { 
+                data: results, 
+                pageNo: pageNo, 
+                totalLine: totalLine, 
+                totalPage: totalPage, 
+                linePerPage: linePerPage });
         });
     });
 });
