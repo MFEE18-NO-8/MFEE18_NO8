@@ -24,6 +24,7 @@ router.get('/', function (req, res, next) {
             [(pageNo - 1) * linePerPage, linePerPage],
              function (err, results) {  //根據目前頁數讀取資料
                if (err) throw err;
+               console.log(results[1])
                res.render('KnowList', { 
                    data: results[0], 
                    hotdata: results[1],

@@ -172,7 +172,7 @@
 				<!-- 第一張圖 -->
 
 				<div class="carousel-item active pic" style="height:100%">
-					<img src="" class="d-block w-100 h-100  " alt="...">
+					<img src="../img/animals/dog04.jpeg" class="d-block w-100 h-100  " alt="...">
 					<div class="carousel-caption d-none d-md-block carousel-special-back">
 						<h5 class="text-white">
 							<%= hotdata[0].ArticleTitle %>
@@ -183,7 +183,7 @@
 						</p>
 					</div>
 					<div class=" carousel-special  ">
-						<a href="/KnowConent?id=<%= data[0].ArticleId %>&pageNo=<%= pageNo %>">
+						<a href="/KnowConent?id=<%= hotdata[0].ArticleId %>&pageNo=<%= pageNo %>">
 							<h4 class="text-white text-center">
 								<%= hotdata[0].ArticleTitle %>
 							</h4>
@@ -212,7 +212,7 @@
 						</p>
 					</div>
 					<div class="carousel-special">
-						<a href="/KnowConent?id=<%= data[1].ArticleId %>&pageNo=<%= pageNo %>">
+						<a href="/KnowConent?id=<%= hotdata[1].ArticleId %>&pageNo=<%= pageNo %>">
 							<h4 class="text-white text-center">
 								<%= hotdata[1].ArticleTitle %>
 							</h4>
@@ -239,7 +239,7 @@
 						</p>
 					</div>
 					<div class="carousel-special">
-						<a href="/KnowConent?id=<%= data[2].ArticleId %>&pageNo=<%= pageNo %>">
+						<a href="/KnowConent?id=<%= hotdata[2].ArticleId %>&pageNo=<%= pageNo %>">
 							<h4 class="text-white text-center">
 								<%= hotdata[2].ArticleTitle %>
 							</h4>
@@ -268,17 +268,17 @@
 				<% for(var i=0; i<3; i++) { %>
 					<li class="row ">
 						<div class="col-md-6 hot-article-imgbox">
-							<a href="/KnowConent?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>">
+							<a href="/KnowConent?id=<%= hotdata[i].ArticleId %>&pageNo=<%= pageNo %>">
 								<img class="hot-article-img" src="../img/animals/dog04.jpeg" alt="" />
 							</a>
 						</div>
 						<div class="col-md-6 hot-article-listbox">
-							<a href="/KnowConent?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>">
+							<a href="/KnowConent?id=<%= hotdata[i].ArticleId %>&pageNo=<%= pageNo %>">
 								<p class="hot-articleTitle">
-									<%= data[i].ArticleTitle %>
+									<%= hotdata[i].ArticleTitle %>
 								</p>
 								<p class="hot-articleDate">
-									<%= data[i].ArticleDate.toLocaleDateString() %>
+									<%= hotdata[i].ArticleDate.toLocaleDateString() %>
 								</p>
 							</a>
 						</div>
