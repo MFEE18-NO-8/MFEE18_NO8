@@ -8,42 +8,44 @@
 
         <!-- 查詢條件 -->
         <div class="col-xs-12">
-          <div class="search">
-            <!-- 標題 -->
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <div class="form-group">
-                <label>標題：</label>
-                <input type="text" name="NewsTitle" class="form-control" id="">
+          <form action="/BackKnowManage/KnowManageList" method="GET">
+            <div class="search">
+              <!-- 標題 -->
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="form-group">
+                  <label>標題：</label>
+                  <input type="text" name="ArticleTitle" class="form-control" id="">
 
+                </div>
               </div>
-            </div>
 
-            <!-- 換行 -->
-            <div class="clearfix"></div>
+              <!-- 換行 -->
+              <div class="clearfix"></div>
 
-            <!-- 發佈日期 -->
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <label>發佈日期：</label>
-            </div>
-            <div class="clearfix"></div>
-            <!-- 發佈日期 -->
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <div class="form-group">
-                <input name="ShowStartDate" type="date" class="form-control inputNotOutline" name="ShowEndDate">
+              <!-- 發佈日期 -->
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <label>發佈日期：</label>
               </div>
+              <div class="clearfix"></div>
+              <!-- 發佈日期 -->
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="form-group">
+                  <input name="ArticleDate" type="date" class="form-control inputNotOutline">
+                </div>
+              </div>
+
+              <!-- 換行 -->
+              <div class="clearfix"></div>
+
+              <!-- 查詢/清除 -->
+              <div class="col-xs-12 text-right">
+                <button type="submit" class="btn btn-primary">查詢</button>
+                <button type="button" class="btn btn-primary">清除</button>
+              </div>
+              <div class="clearfix"></div>
+
             </div>
-
-            <!-- 換行 -->
-            <div class="clearfix"></div>
-
-            <!-- 查詢/清除 -->
-            <div class="col-xs-12 text-right">
-              <button type="button" class="btn btn-primary">查詢</button>
-              <button type="button" class="btn btn-primary">清除</button>
-            </div>
-            <div class="clearfix"></div>
-
-          </div>
+          </form>
         </div>
 
         <!-- 新增 -->
@@ -74,7 +76,7 @@
                       <%= i+1 %>
                     </td>
                     <td>
-                      <%= data[i].ArticleTitle %>
+                      <%= (data[i].ArticleTitle) %>
                     </td>
                     <td>
                       <%= (data[i].ArticleDate).toLocaleDateString() %>
@@ -102,12 +104,12 @@
 
               <!-- 上一頁 -->
               <li class="">
-                <% if(pageNo > 1) { %>
-                <a class="" href="/BackKnowManage/KnowManageList?pageNo=<%= (pageNo-1) %>" title="上一頁"" aria-label="
-                  Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-                <% } %>
+                <% if(pageNo> 1) { %>
+                  <a class="" href="/BackKnowManage/KnowManageList?pageNo=<%= (pageNo-1) %>" title="上一頁"" aria-label="
+                    Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                  <% } %>
               </li>
 
               <!-- 頁碼 -->
@@ -120,11 +122,11 @@
                   <!-- 下一頁 -->
                   <li class="">
                     <% if(pageNo < totalPage) { %>
-                    <a class="" href="/BackKnowManage/KnowManageList?pageNo=<%= (pageNo+1) %>" title="下一頁"
-                      aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                    </a>
-                     <% } %>
+                      <a class="" href="/BackKnowManage/KnowManageList?pageNo=<%= (pageNo+1) %>" title="下一頁"
+                        aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                      <% } %>
                   </li>
             </ul>
           </nav>
