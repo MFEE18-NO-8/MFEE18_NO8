@@ -105,11 +105,10 @@
                                             <%= (data[i].AdoptDate).toLocaleDateString() %>
                                         </td>
                                         <td>
-                                            <% var statusStr='' ; %>
-                                                <% var status=data[i].AdoptState; %>
-                                                    <% (status==1) ? statusStr='已批准' : statusStr='未批准' ;
-                                                        //判斷status=1，則statusStr為已批准，反之為未批准 ; %>
-                                                        <%= statusStr %>
+
+
+                                            <%= (data[i].AdoptState==1 ) ? '已批准' : '未批准' ; %>
+
                                         </td>
 
 
