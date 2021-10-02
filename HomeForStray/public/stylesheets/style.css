@@ -859,17 +859,22 @@ div.adop-name {
 }
 /* 毛孩資訊 */
 .AdoptContent-block {
+	background: url(../img/新圖/book2.png);
+	width: 100%;
+	height:100%;
+	background-position: center;
+	background-size: cover;
 	margin-top: 80px;
 	margin-bottom: 150px;
 }
 .AdoptContent-left {
 	height: 700px;
-	background: var(--nileBlue);
+	/* background: var(--nileBlue); */
 	border-radius: 20px 0px 0px 20px;
 }
 .AdoptContent-right {
 	height: 700px;
-	background: var(--lightYellow);
+	/* background: var(--lightYellow); */
 	border-radius: 0px 20px 20px 0px;
 }
 /* 領養資訊-文字 */
@@ -888,12 +893,15 @@ div.adop-name {
 .AdoptContent-text > ul > li {
 	font-size: 25px;
 }
+/* 毛孩資訊-輪播 */
 .AdoptContent-pic {
+	width: 400px;
 	margin-top: 30px;
+	transform: translateX(30%);
 }
 .AdoptContent-carousel-item {
-	height: 400px;
-	padding: 0 20px;
+	height: 300px;
+	padding: 0 10px;
 }
 .AdoptContent-img {
 	height: 100%;
@@ -902,42 +910,43 @@ div.adop-name {
 }
 /* 領養資訊-聯絡人 */
 .AdoptContent-connection {
-	background: var(--BananaYellow);
-	padding: 20px 10px;
-	margin-top: 30px;
-	border-radius: 10px;
+    background: #f8e4ac91;
+    padding: 30px 10px;
+    margin-top: 10px;
+    border-radius: 30px;
+    transform: translateX(37%);
+    width: 400px;
 }
 .AdoptContent-connection > ul {
 	margin: auto 30px;
 }
 .AdoptContent-connection > ul > li {
-	font-size: 25px;
+	font-size: 23px;
 }
 .AdoptContent-title {
-	background: var(--BananaYellow);
 	padding: 20px 5px;
 	width: 200px;
 	margin-bottom: 0;
 	text-align: center;
 	border-radius: 10px 10px 0px 0px;
+	transform: translate3d(35%,-5%, 0px);
 }
 .share {
-	margin-top: 40px;
+	margin-top: 10px;
+	display: flex;
+	flex-direction:column;
 }
 .share-item {
 	display: flex;
-	background: rgba(255, 255, 255, 0.5);
-	padding: 5px;
+	/* background: rgba(255, 255, 255, 0.8); */
 	border-radius: 30px;
+	transform: translateX(37%);
 }
-/* .share-left,
-.share-right {
-	display: flex;
-	margin-top: 5px;
-} */
 .share-left {
 	display: flex;
-	margin: 0 100px;
+	/* align-items: center; */
+	margin: auto 50px;
+	margin-top:8px;
 }
 .share-img {
 	margin: auto 5px;
@@ -1016,4 +1025,439 @@ footer{
 }
 .memberInput:focus{
 	outline: none;
+}
+/* 毛孩資訊 */
+.AdoptContent-block {
+	background: url(../img/新圖/book2.png);
+	width: 100%;
+	height:100%;
+	background-position: center;
+	background-size: cover;
+	margin-top: 80px;
+	margin-bottom: 150px;
+}
+.AdoptContent-left {
+	height: 700px;
+	/* background: var(--nileBlue); */
+	border-radius: 20px 0px 0px 20px;
+}
+.AdoptContent-right {
+	height: 700px;
+	/* background: var(--lightYellow); */
+	border-radius: 0px 20px 20px 0px;
+}
+/* 領養資訊-文字 */
+.AdoptContent-text {
+	/* height: 550px; */
+	display: flex;
+	flex-direction: column;
+	padding: 20px 40px 20px 60px;
+}
+.AdoptName {
+	margin: 10px 0px 10px 0px;
+}
+.AdoptContent-text > ul {
+	margin: 20px 0px 40px 0px;
+}
+.AdoptContent-text > ul > li {
+	font-size: 25px;
+}
+/* 毛孩資訊-輪播 */
+.AdoptContent-pic {
+	width: 400px;
+	margin-top: 30px;
+	transform: translateX(30%);
+}
+.AdoptContent-carousel-item {
+	height: 300px;
+	padding: 0 10px;
+}
+.AdoptContent-img {
+	height: 100%;
+	object-fit: cover;
+	border-radius: 10px;
+}
+/* 領養資訊-聯絡人 */
+.AdoptContent-connection {
+    background: #f8e4ac91;
+    padding: 30px 10px;
+    margin-top: 10px;
+    border-radius: 30px;
+    transform: translateX(37%);
+    width: 400px;
+}
+.AdoptContent-connection > ul {
+	margin: auto 30px;
+}
+.AdoptContent-connection > ul > li {
+	font-size: 23px;
+}
+.AdoptContent-title {
+	padding: 20px 5px;
+	width: 200px;
+	margin-bottom: 0;
+	text-align: center;
+	border-radius: 10px 10px 0px 0px;
+	transform: translate3d(35%,-5%, 0px);
+}
+.share {
+	margin-top: 10px;
+	display: flex;
+	flex-direction:column;
+}
+.share-item {
+	display: flex;
+	/* background: rgba(255, 255, 255, 0.8); */
+	border-radius: 30px;
+	transform: translateX(37%);
+}
+.share-left {
+	display: flex;
+	/* align-items: center; */
+	margin: auto 50px;
+	margin-top:8px;
+}
+.share-img {
+	margin: auto 5px;
+	border-radius: 10px;
+	width: 40px;
+	height: 40px;
+}
+/* 分頁 */
+.pagination {
+	margin: 80px 0px;
+}
+.pagination > li > a {
+	background: none;
+	border: none;
+	color: var(--TextColor);
+}
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover {
+	color: #5a5a5a;
+	background-color: var(--BananaYellow);
+	border-radius: 50px;
+	outline: none;
+	border-color: transparent;
+	box-shadow: none;
+}
+/* footer */
+footer{
+    background-image:url(../img/新圖/footerother.png);
+    width: 100%;
+	height: 100%;
+	background-repeat:no-repeat;
+	background-size: cover;
+}
+.footer-top{
+    width: 100%;
+}
+.footer-logo{
+    width: 280px;
+    height: 90px;
+    margin-top: 90px;
+    margin-left: 100px;
+}
+.footer-link{
+    display: flex;
+}
+.footer-link>ul{
+    margin: 100px 10px 20px 0px;
+}
+.footer-link>ul>li>a{
+    margin: 15px 10px;
+    color: #605651;
+    font-size: 25px;
+    transition: .5s;
+}
+.footer-link>ul>li>a:hover{
+    color:#c9b6ac ;
+}
+.footer-text{
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+}
+.footer-text>div{
+	color: #605651;
+	font-size: 18px;
+}
+.copy{
+    margin: 10px 0px;
+}
+@media (max-width: 768px)  {
+    /* header */
+    .header{
+        padding: 0;
+    }
+    .logo {
+        height: auto;
+        width: 150px;
+    }
+    .logo-text {
+        height:auto;
+        width: 200px;
+    }
+    /* 漢堡盒展開樣式 */
+    .menu{
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 1s;
+        position: absolute;
+        z-index: 100;
+        top: 140px;
+        left:0;
+        right:-22px;
+        background: #e3f2fd;
+    }
+    .menu>li{
+        float: none; /*漢堡盒展開樣式直向*/
+        border-bottom: 2px dashed #aaa;
+    }
+    .menu>li:last-child{
+        border-bottom:none;
+    }
+    .menu>li>a{
+        padding: 10px 5px;
+        display: block;
+        transition: all 0.3s;
+        text-align: center;
+        font-size: 30px;
+    }
+    .menu>li>a:hover{
+        background: #afc2cb;
+        border-radius: 0;
+        color: #fff;
+    }
+    .burgar-menu{
+        display: block;
+        float: right;
+        margin-right: 1em;
+        line-height: 50px;
+    }
+    .ham {
+        display: block;
+        line-height: 50px;
+    }    
+    .hamBar {
+        margin-right: 20px;
+    }
+	.footer-logo{
+        width: 200px;
+        height: auto;
+        margin-top:30%;
+        margin-left: 100px;
+    }
+    .footer-link>ul>li>a{
+        margin: 10px 5px;
+        font-size: 20px;
+        transition: .5s;
+    }
+    .footer-text>div{
+        font-size: 13px;
+    }
+	.footer-text>.copy{
+		height: 160px;
+	}
+	.footer-text>content{
+		height: 100px;
+	}
+    /* 毛孩領養 */
+	.adopt-bg-dog,.adopt-bg-cat,.adopt-bg-other{
+		width: 80%;
+		background-position: center;
+		/* background-size:contain; */
+	}
+	/* 毛孩資訊 */
+	.AdoptContent-title{
+		transform: translate3d(25%,-5%, 0px)
+	}
+	.AdoptContent-block{
+		background: url(../img/新圖/adopt-content-ipad.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.AdoptContent-text > ul > li {
+		font-size:20px;
+	}
+	.adopt-item{
+		display: flex;
+		flex-direction: column;
+	}
+	.AdoptContent-text {
+		display: flex;
+		flex-direction: column;
+		padding: 50px 0px 100px 100px;
+	}
+	.AdoptContent-pic {
+		width:350px;
+		transform: translateX(10%);
+	}
+	.AdoptContent-connection { /*聯絡人*/
+		background: #f8e4ac91;
+		padding: 30px 10px;
+		margin-top: 10px;
+		border-radius: 30px;
+		position: absolute;
+		bottom: 10%;
+		right: -55%;
+		width: 250px;
+	}
+	.share-item { /*追蹤*/
+		position: absolute;
+    	top: 20%;
+    	right: -55%;
+	}
+	.Pet-text-Content{
+		position: absolute;
+		top:20%;
+		right: -30%;
+		font-size: 20px;
+	}
+	.Pet-text-Content>h5{
+		font-size: 20px;
+	}
+	.AdoptName{
+		font-size:40px;
+		margin: 0;
+	}
+}
+/* 手機版本以下*/
+@media (max-width: 767px){
+    /* header */
+    .logo {
+        height: auto;
+        width: 80px;
+    }
+    .logo-text {
+        height:auto;
+        width: 120px;
+    }
+    .hamBar-icon {
+        width: 30px;
+        height: 30px;
+    }
+    /* 漢堡盒展開樣式 */
+    .menu{
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 1s;
+        position: absolute;
+        z-index: 100;
+        top: 90px;
+        left:0;
+        right:-22px;
+        background: #e3f2fd;
+    }
+    .menu>li{
+        float: none; /*漢堡盒展開樣式直向*/
+        border-bottom: 2px dashed #aaa;
+    }
+    .menu>li:last-child{
+        border-bottom:none;
+    }
+    .menu>li>a{
+        padding:10px 5px;
+        display: block;
+        transition: all 0.3s;
+        text-align: center;
+        font-size: 25px;
+    }
+    .menu>li>a:hover{
+        background: #afc2cb;
+        border-radius: 0;
+        color: #fff;
+    }
+    .burgar-menu{
+        display: block;
+        float: right;
+        margin-right: 1em;
+        line-height: 50px;
+    }
+    .ham {
+        display: block;
+        line-height: 50px;
+    }    
+    .hamBar {
+        margin-right: 20px;
+    }
+	.footer-logo{
+        width: 200px;
+        height: auto;
+        margin-top: 100px;
+        margin-left: 85px;
+    }
+    .footer-link>ul>li>a{
+        margin: 10px 5px;
+        font-size: 18px;
+        transition: .5s;
+    }
+    .footer-text>div{
+        font-size: 13px;
+    }
+    footer{
+        height:650px;
+    }
+    .footer-link{
+		margin-top: -20%;
+        display: flex;
+        justify-content: center;
+    }
+	.footer-text>.copy {
+		height:20px;
+	}
+	/* 毛孩資訊 */
+	.AdoptContent-title{
+		transform: translate3d(45%,35%, 0px);
+	}
+	.AdoptContent-title>h3{
+		font-size: 30px;
+	}
+	.AdoptContent-block{
+		background: url(../img/新圖/list-iphone.png);
+		background-size: cover;
+		background-repeat: no-repeat;
+		height:1200px;
+		margin-top: 0px;
+	}
+	.AdoptContent-text > ul > li {
+		font-size:18px;
+	}
+	.adopt-item{
+		display: flex;
+		flex-direction: column;
+	}
+	.AdoptContent-text {
+		padding: 0px 0px 150px 50px;
+	}
+	.AdoptContent-pic {
+		width:350px;
+		transform: translateX(5%);
+	}
+	.AdoptContent-connection { /*聯絡人*/
+		background: #f8e4ac91;
+		padding: 30px 5px;
+		border-radius: 30px;
+		position: relative;
+		transform: translate3d(-175px,-40px,0px);
+    	width: 330px;
+	}
+	.share-item { /*追蹤*/
+		position: relative;
+		transform: translateX(-250px);
+	}
+	.Pet-text-Content{
+		position:relative;
+		font-size: 18px;
+		right: 0%;
+	}
+	.Pet-text-Content>h5{
+		font-size: 20px;
+	}
+	.AdoptName{
+		font-size:30px;
+		margin: 0;
+	}
 }
