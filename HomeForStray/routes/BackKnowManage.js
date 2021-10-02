@@ -2,53 +2,91 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');        //含入mysql套件
 var pool = require('./lib/db.js');   //含入資料庫連線
-var multer = require('multer');
-const fs = require('fs')
 
+// 毛孩知識後台清單
+var linePerPage = 5;  // 每頁資料筆數
+router.get('/KnowManageList', function (req, res) {
+    var ArticleTitle = req.query.ArticleTitle;
+    var ArticleDate = req.query.ArticleDate;
 
-var myStorage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, "./uploads/");    // 保存的路徑 (需先自己創建)
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + '-' + file.originalname);  // 自定義檔案名稱
+    if (ArticleTitle === undefined) {
+        ArticleTitle = ''
     }
-});
+    if (ArticleDate === undefined) {
+        ArticleDate = ''
+    }
 
-var upload = multer({
-    storage: myStorage  // 設置 storage
+    pool.query("select count(*) as cnt from articlenews WHERE (ArticleTitle=? OR ?='') AND (ArticleDate=? OR ?='') ",
+        [
+            ArticleTitle,
+            ArticleTitle,
+            ArticleDate,
+            ArticleDate,
+        ],
+        function (err, results) {  //讀取資料總筆數
+            if (err) throw err;
+           
+            var totalLine = results[0].cnt;  //資料總筆數
+            var totalPage = Math.ceil(totalLine / linePerPage);  //總頁數
+            var pageNo = parseInt(req.query.pageNo);  //取得傳送的目前頁數
+            if (isNaN(pageNo) || pageNo < 1) {  //如果沒有傳送參數,設目前頁數為第1頁
+                pageNo = 1;
+            }
+            pool.query("select * from articlenews WHERE (ArticleTitle=? OR ?='') AND (ArticleDate=? OR ?='')  order by ArticleDate DESC limit ?, ? ", // 選此資料表 用PetId排序
+                [   
+                    ArticleTitle,
+                    ArticleTitle,
+                    ArticleDate,
+                    ArticleDate,
+                    (pageNo - 1) * linePerPage, linePerPage
+                ],
+                function (err, results) {  //根據目前頁數讀取資料  )
+                    if (err) throw err;
+                    console.log(results)
+                    res.render('KnowManageList',  //丟到 ejs 模板上
+                        {
+                            data: results,
+                            pageNo: pageNo,
+                            req: req,
+                            totalLine: totalLine,
+                            totalPage: totalPage,
+                            linePerPage: linePerPage
+                        });
+                });
+        })
+
 });
 
 
 
 // 毛孩知識後台清單
-var linePerPage = 5;  // 每頁資料筆數
+// var linePerPage = 5;  // 每頁資料筆數
 
-router.get('/KnowManageList', function (req, res, next) {
-    var pageNo = parseInt(req.query.pageNo);  //取得傳送的目前頁數
-    if (isNaN(pageNo) || pageNo < 1) {  //如果沒有傳送參數,設目前頁數為第1頁
-        pageNo = 1;
-    }
+// router.get('/KnowManageList', function (req, res, next) {
+//     var pageNo = parseInt(req.query.pageNo);  //取得傳送的目前頁數
+//     if (isNaN(pageNo) || pageNo < 1) {  //如果沒有傳送參數,設目前頁數為第1頁
+//         pageNo = 1;
+//     }
 
-    pool.query('select count(*) as cnt from articlenews', function (err, results) {  //讀取資料總筆數
-        if (err) throw err;
-        var totalLine = results[0].cnt;  //資料總筆數
-        var totalPage = Math.ceil(totalLine / linePerPage);  //總頁數
+//     pool.query('select count(*) as cnt from articlenews', function (err, results) {  //讀取資料總筆數
+//         if (err) throw err;
+//         var totalLine = results[0].cnt;  //資料總筆數
+//         var totalPage = Math.ceil(totalLine / linePerPage);  //總頁數
 
-        pool.query('select * from articlenews order by ArticleId desc limit ?, ?;',
-            [(pageNo - 1) * linePerPage, linePerPage],
-            function (err, results) {  //根據目前頁數讀取資料
-                if (err) throw err;
-                res.render('KnowManageList', {
-                    data: results,
-                    pageNo: pageNo,
-                    totalLine: totalLine,
-                    totalPage: totalPage,
-                    linePerPage: linePerPage
-                });
-            });
-    });
-});
+//         pool.query('select * from articlenews order by ArticleId desc limit ?, ?;',
+//             [(pageNo - 1) * linePerPage, linePerPage],
+//             function (err, results) {  //根據目前頁數讀取資料
+//                 if (err) throw err;
+//                 res.render('KnowManageList', {
+//                     data: results,
+//                     pageNo: pageNo,
+//                     totalLine: totalLine,
+//                     totalPage: totalPage,
+//                     linePerPage: linePerPage
+//                 });
+//             });
+//     });
+// });
 
 
 // 毛孩知識後台新增
@@ -59,7 +97,7 @@ router.get('/KnowManageAdd', function (req, res, next) {
     res.render('KnowManageAdd', { pageNo: pageNo, message: message });
 });
 
-router.post('/KnowManageAdd', upload.single('uploadImg'),function (req, res, next) {
+router.post('/KnowManageAdd', function (req, res, next) {
     console.log(req.file);
     var pageNo = parseInt(req.query.pageNo);
     var articleTitle = req.body['articleTitle'];  //取得輸入的類型
@@ -93,24 +131,24 @@ router.get('/KnowManageDel', function (req, res, next) {
         var date = results[0].ArticleDate;
         // 改變日期格式
         const formatDate = (date) => {
-            if ( (parseInt(date.getMonth() + 1)) >= 10 && parseInt(date.getDate()) >=10 ){
-                let formatted_date1 =  date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+            if ((parseInt(date.getMonth() + 1)) >= 10 && parseInt(date.getDate()) >= 10) {
+                let formatted_date1 = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
                 return formatted_date1;
-            }else if( (parseInt(date.getMonth() + 1)) >= 10 && parseInt(date.getDate()) <= 10 ){
-                let formatted_date2 =  date.getFullYear() + "-" + (date.getMonth() + 1) + "-0" + date.getDate()
+            } else if ((parseInt(date.getMonth() + 1)) >= 10 && parseInt(date.getDate()) <= 10) {
+                let formatted_date2 = date.getFullYear() + "-" + (date.getMonth() + 1) + "-0" + date.getDate()
                 return formatted_date2;
-            }else if(  (parseInt(date.getMonth() + 1)) <= 10 && parseInt(date.getDate()) <= 10 ){
-                let formatted_date3 =  date.getFullYear() + "-0" + (date.getMonth() + 1) + "-0" + date.getDate()
+            } else if ((parseInt(date.getMonth() + 1)) <= 10 && parseInt(date.getDate()) <= 10) {
+                let formatted_date3 = date.getFullYear() + "-0" + (date.getMonth() + 1) + "-0" + date.getDate()
                 return formatted_date3;
             }
-            else{
-                let formatted_date4 =  date.getFullYear() + "-0" + (date.getMonth() + 1) + "-" + date.getDate()
+            else {
+                let formatted_date4 = date.getFullYear() + "-0" + (date.getMonth() + 1) + "-" + date.getDate()
                 return formatted_date4;
-            }       
+            }
         }
         // console.log(formatDate(date));
 
-        res.render('KnowManageDel', { data: results, pageNo: pageNo,date:formatDate(date) });
+        res.render('KnowManageDel', { data: results, pageNo: pageNo, date: formatDate(date) });
     });
 });
 
@@ -137,25 +175,25 @@ router.get('/KnowManageEdit', function (req, res, next) {
         var date = results[0].ArticleDate;
         // 改變日期格式
         const formatDate = (date) => {
-            if ( (parseInt(date.getMonth() + 1)) >= 10 && parseInt(date.getDate()) >=10 ){
-                let formatted_date1 =  date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+            if ((parseInt(date.getMonth() + 1)) >= 10 && parseInt(date.getDate()) >= 10) {
+                let formatted_date1 = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
                 return formatted_date1;
-            }else if( (parseInt(date.getMonth() + 1)) >= 10 && parseInt(date.getDate()) <= 10 ){
-                let formatted_date2 =  date.getFullYear() + "-" + (date.getMonth() + 1) + "-0" + date.getDate()
+            } else if ((parseInt(date.getMonth() + 1)) >= 10 && parseInt(date.getDate()) <= 10) {
+                let formatted_date2 = date.getFullYear() + "-" + (date.getMonth() + 1) + "-0" + date.getDate()
                 return formatted_date2;
-            }else if(  (parseInt(date.getMonth() + 1)) <= 10 && parseInt(date.getDate()) <= 10 ){
-                let formatted_date3 =  date.getFullYear() + "-0" + (date.getMonth() + 1) + "-0" + date.getDate()
+            } else if ((parseInt(date.getMonth() + 1)) <= 10 && parseInt(date.getDate()) <= 10) {
+                let formatted_date3 = date.getFullYear() + "-0" + (date.getMonth() + 1) + "-0" + date.getDate()
                 return formatted_date3;
             }
-            else{
-                let formatted_date4 =  date.getFullYear() + "-0" + (date.getMonth() + 1) + "-" + date.getDate()
+            else {
+                let formatted_date4 = date.getFullYear() + "-0" + (date.getMonth() + 1) + "-" + date.getDate()
                 return formatted_date4;
-            }       
+            }
         }
 
         res.render('KnowManageEdit', {
             data: results,
-            date:formatDate(date),
+            date: formatDate(date),
             pageNo: pageNo,
             categories: categories
         });
