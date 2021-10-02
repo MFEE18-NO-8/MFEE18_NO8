@@ -58,7 +58,7 @@ router.post('/NewsManageList', function (req, res) {
             if (isNaN(pageNo) || pageNo < 1) {  //如果沒有傳送參數,設目前頁數為第1頁
                 pageNo = 1;
             }
-            var sql2 = `select * from news WHERE (NewsTitle like '%${NewsTitle}%'  OR  ?='') AND (ShowStartDate=? OR ?=''AND ShowEndDate=? OR ?='')  order by NewsId DESC limit ?, ? `
+            var sql2 = `select * from news WHERE (NewsTitle like '%${NewsTitle}%'  OR  ?='') AND (ShowStartDate>=? OR ?='') AND (ShowEndDate<=? OR ?='')  order by NewsId DESC limit ?, ? `
             pool.query(sql2, // 選此資料表 用PetId排序
                 [
                     NewsTitle,
