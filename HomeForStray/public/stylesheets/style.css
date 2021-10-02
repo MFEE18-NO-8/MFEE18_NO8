@@ -620,13 +620,25 @@ textarea {
 	margin-top: 60px;
 	background: var(--lightRed);
 	width: 220px;
-	padding: 15px 20px;
+	text-align: center;
+	padding: 15px ;
 	border-radius: 50px;
 }
 .editText > img {
 	width: 30px;
 	height: 30px;
 }
+/* UserEdit 表格 */
+.editText > a >img {
+	width: 30px;
+	height: 30px;
+	margin: 10px;
+}
+.editText > a > p {
+	display: inline-block;
+	margin: 10px 5px;
+} 
+/* UserEdit 表格結束 */
 .edit-form {
 	margin-top: 80px;
 	margin-bottom: 50px;
@@ -996,4 +1008,12 @@ footer{
 }
 .copy{
     margin: 10px 0px;
+}
+/* 會員資料 */
+.memberInput{
+	border: none;
+	border-radius: 10px;
+}
+.memberInput:focus{
+	outline: none;
 }

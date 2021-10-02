@@ -92,6 +92,9 @@ app.use('/UserMsg', UserMsg)
 //引入 我的會員資料編輯
 var UserEdit = require('./routes/UserEdit');
 app.use('/UserEdit', UserEdit)
+//引入 我的會員資料編輯
+var UserEditPswd = require('./routes/UserEditPswd');
+app.use('/UserEditPswd', UserEditPswd)
 
 
 //引入 刊登送養
