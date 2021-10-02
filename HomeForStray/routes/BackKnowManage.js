@@ -3,11 +3,11 @@ var router = express.Router();
 var mysql = require('mysql');        //含入mysql套件
 var pool = require('./lib/db.js');   //含入資料庫連線
 
-// 毛孩知識後台清單
+// 毛孩知識後台清單 查詢
 var linePerPage = 5;  // 每頁資料筆數
-router.get('/KnowManageList', function (req, res) {
-    var ArticleTitle = req.query.ArticleTitle;
-    var ArticleDate = req.query.ArticleDate;
+router.post('/KnowManageList', function (req, res) {
+    var ArticleTitle = req.body.ArticleTitle;
+    var ArticleDate = req.body.ArticleDate;
 
     if (ArticleTitle === undefined) {
         ArticleTitle = ''
@@ -15,7 +15,6 @@ router.get('/KnowManageList', function (req, res) {
     if (ArticleDate === undefined) {
         ArticleDate = ''
     }
-
     pool.query("select count(*) as cnt from articlenews WHERE (ArticleTitle=? OR ?='') AND (ArticleDate=? OR ?='') ",
         [
             ArticleTitle,
@@ -25,16 +24,16 @@ router.get('/KnowManageList', function (req, res) {
         ],
         function (err, results) {  //讀取資料總筆數
             if (err) throw err;
-           
             var totalLine = results[0].cnt;  //資料總筆數
             var totalPage = Math.ceil(totalLine / linePerPage);  //總頁數
             var pageNo = parseInt(req.query.pageNo);  //取得傳送的目前頁數
             if (isNaN(pageNo) || pageNo < 1) {  //如果沒有傳送參數,設目前頁數為第1頁
                 pageNo = 1;
             }
-            pool.query("select * from articlenews WHERE (ArticleTitle=? OR ?='') AND (ArticleDate=? OR ?='')  order by ArticleDate DESC limit ?, ? ", // 選此資料表 用PetId排序
-                [   
-                    ArticleTitle,
+            var sql = `select * from articlenews WHERE (ArticleTitle like '%${ArticleTitle}%'  OR  ?='') AND (ArticleDate=? OR ?='')  order by ArticleDate DESC limit ?, ? `
+            pool.query(sql, // 選此資料表 用PetId排序
+                [
+                    //ArticleTitle,
                     ArticleTitle,
                     ArticleDate,
                     ArticleDate,
@@ -42,7 +41,6 @@ router.get('/KnowManageList', function (req, res) {
                 ],
                 function (err, results) {  //根據目前頁數讀取資料  )
                     if (err) throw err;
-                    console.log(results)
                     res.render('KnowManageList',  //丟到 ejs 模板上
                         {
                             data: results,
@@ -57,36 +55,34 @@ router.get('/KnowManageList', function (req, res) {
 
 });
 
+//毛孩知識後台清單
+var linePerPage = 5;  // 每頁資料筆數
 
+router.get('/KnowManageList', function (req, res, next) {
+    var pageNo = parseInt(req.query.pageNo);  //取得傳送的目前頁數
+    if (isNaN(pageNo) || pageNo < 1) {  //如果沒有傳送參數,設目前頁數為第1頁
+        pageNo = 1;
+    }
 
-// 毛孩知識後台清單
-// var linePerPage = 5;  // 每頁資料筆數
+    pool.query('select count(*) as cnt from articlenews', function (err, results) {  //讀取資料總筆數
+        if (err) throw err;
+        var totalLine = results[0].cnt;  //資料總筆數
+        var totalPage = Math.ceil(totalLine / linePerPage);  //總頁數
 
-// router.get('/KnowManageList', function (req, res, next) {
-//     var pageNo = parseInt(req.query.pageNo);  //取得傳送的目前頁數
-//     if (isNaN(pageNo) || pageNo < 1) {  //如果沒有傳送參數,設目前頁數為第1頁
-//         pageNo = 1;
-//     }
-
-//     pool.query('select count(*) as cnt from articlenews', function (err, results) {  //讀取資料總筆數
-//         if (err) throw err;
-//         var totalLine = results[0].cnt;  //資料總筆數
-//         var totalPage = Math.ceil(totalLine / linePerPage);  //總頁數
-
-//         pool.query('select * from articlenews order by ArticleId desc limit ?, ?;',
-//             [(pageNo - 1) * linePerPage, linePerPage],
-//             function (err, results) {  //根據目前頁數讀取資料
-//                 if (err) throw err;
-//                 res.render('KnowManageList', {
-//                     data: results,
-//                     pageNo: pageNo,
-//                     totalLine: totalLine,
-//                     totalPage: totalPage,
-//                     linePerPage: linePerPage
-//                 });
-//             });
-//     });
-// });
+        pool.query('select * from articlenews order by ArticleId desc limit ?, ?;',
+            [(pageNo - 1) * linePerPage, linePerPage],
+            function (err, results) {  //根據目前頁數讀取資料
+                if (err) throw err;
+                res.render('KnowManageList', {
+                    data: results,
+                    pageNo: pageNo,
+                    totalLine: totalLine,
+                    totalPage: totalPage,
+                    linePerPage: linePerPage
+                });
+            });
+    });
+});
 
 
 // 毛孩知識後台新增
