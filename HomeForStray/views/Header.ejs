@@ -13,13 +13,13 @@
             <% if ( memberData=="" ){ %>
               <li><a href="/member/login">登入</a></li>
               <li><a href="/member/register">註冊</a></li>
-              <% }else if( memberData.MemberName=="管理者" ){ %>
-    </ul>
-    <a href="#" class="hamBar burgar-menu">
-      <i>
-        <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
-      </i>
-    </a>
+            </ul>
+            <a href="#" class="hamBar burgar-menu">
+              <i>
+                <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
+              </i>
+            </a>
+            <% }else if( memberData.MemberName=="管理者" ){ %>
     <!-- navbar-user -->
     <div class="btn-group">
       <button class="btn  btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"

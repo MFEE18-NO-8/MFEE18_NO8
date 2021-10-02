@@ -27,8 +27,8 @@ input {
 	--nileBlue: rgba(75, 100, 84, 0.7); /*block-土耳其綠(領養資訊)*/
 	--ivory: #f5f5f5; /*block-象牙白(首頁區塊、毛孩領養區塊)*/
 	--beige: #f6f4e8; /* block-米白(登入介面、會員中心介面區塊)*/
-	--cornsilk: #f4f3ec; /* block-玉米鬚白(刊登送養 、麵包屑(50%半透) )*/
-	--cornsilkBreadcrumb: rgba(244, 243, 236, 0.7); /* block-玉米鬚白(刊登送養 、麵包屑(50%半透) )*/
+	--cornsilk: #f4f3ec; /* block-玉米鬚白(刊登送養)*/
+	--cornsilkBreadcrumb: rgba(244, 243, 236, 0.7); /* block-玉米鬚白(刊登送養)*/
 	--pearl: #dedccd; /* input-背景色 */
 	--seaFoam: #afc2cb; /*footer-background Color*/
 	--red: #ff0202;
