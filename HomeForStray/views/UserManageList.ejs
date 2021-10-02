@@ -8,68 +8,69 @@
 
         <!-- 查詢條件 -->
         <div class="col-xs-12">
-          <div class="search">
-            <!-- 標題 -->
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <div class="form-group">
-                <label>會員名稱：</label>
-                <input type="text" id="ListText" class="form-control" value="" name="MemberName">
+          <form action="/BackUserManage/UserManageList" method="POST">
+            <div class="search">
+              <!-- 標題 -->
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="form-group">
+                  <label>會員名稱：</label>
+                  <input type="text" id="ListText" class="form-control" value="" name="MemberName">
+                </div>
               </div>
-            </div>
 
-            <!-- 換行 -->
-            <div class="clearfix"></div>
+              <!-- 換行 -->
+              <div class="clearfix"></div>
 
-            <!-- 申請日期： -->
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <label>申請日期：</label>
-            </div>
-            <div class="clearfix"></div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <div class="form-group">
-                <input name="" type="date" class="form-control inputNotOutline">
+              <!-- 註冊日期： -->
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <label>註冊日期：</label>
               </div>
-            </div>
-
-            <!-- 換行 -->
-            <div class="clearfix"></div>
-
-            <!-- 申請通過日期： -->
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <label>申請通過日期：</label>
-            </div>
-            <div class="clearfix"></div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <div class="form-group">
-                <input name="" type="date" class="form-control inputNotOutline">
+              <div class="clearfix"></div>
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="form-group">
+                  <input name="RegistrationDate" type="date" class="form-control inputNotOutline">
+                </div>
               </div>
-            </div>
 
+              <!-- 換行 -->
+              <div class="clearfix"></div>
 
-            <!-- 換行 -->
-            <div class="clearfix"></div>
-
-            <!-- 狀態： -->
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <div class="form-group">
-                <label>狀態：</label>
-                <div class="clearfix"></div>
-                <input type="radio" name="NewsState" id="NewsState_1">
-                <label for="NewsState_1" class="MyListLabel ">使用中</label>
-                <input type="radio" name="NewsState" id="NewsState_0">
-                <label for="NewsState_0" class="MyListLabel">停權中</label>
+              <!-- 修改日期： -->
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <label>修改日期：</label>
               </div>
+              <div class="clearfix"></div>
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="form-group">
+                  <input name="ModifiedDate" type="date" class="form-control inputNotOutline">
+                </div>
+              </div>
+
+
+              <!-- 換行 -->
+              <div class="clearfix"></div>
+
+              <!-- 狀態： -->
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="form-group">
+                  <label>狀態：</label>
+                  <div class="clearfix"></div>
+                  <input type="radio" name="memberState" id="memberState_1"  value="1">
+                  <label for="memberState_1" class="MyListLabel">使用中</label>
+                  <input type="radio" name="memberState" id="memberState_0"  value="0">
+                  <label for="memberState_0" class="MyListLabel">停權中</label>
+                </div>
+              </div>
+
+
+              <!-- 查詢/清除 -->
+              <div class="col-xs-12 text-right">
+                <button type="submit" class="btn btn-primary">查詢</button>
+                <button type="button" class="btn btn-primary">清除</button>
+              </div>
+              <div class="clearfix"></div>
             </div>
-
-
-            <!-- 查詢/清除 -->
-            <div class="col-xs-12 text-right">
-              <button type="button" class="btn btn-primary">查詢</button>
-              <button type="button" class="btn btn-primary">清除</button>
-            </div>
-            <div class="clearfix"></div>
-
-          </div>
+          </form>
         </div>
 
         <!-- 新增 -->
@@ -141,11 +142,12 @@
 
               <!-- 上一頁 -->
               <li class="">
-                <% if(pageNo > 1) { %>
-                <a class="" href="/BackUserManage/UserManageList?pageNo=<%= (pageNo-1) %>" title="上一頁"" aria-label=" Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-                <% } %>
+                <% if(pageNo> 1) { %>
+                  <a class="" href="/BackUserManage/UserManageList?pageNo=<%= (pageNo-1) %>" title="上一頁"" aria-label="
+                    Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                  <% } %>
               </li>
 
               <!-- 頁碼 -->
@@ -159,10 +161,11 @@
                   <!-- 下一頁 -->
                   <li class="">
                     <% if(pageNo < totalPage) { %>
-                    <a class="" href="/BackUserManage/UserManageList?pageNo=<%= (pageNo+1) %>" title="下一頁" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                    </a>
-                    <% } %>
+                      <a class="" href="/BackUserManage/UserManageList?pageNo=<%= (pageNo+1) %>" title="下一頁"
+                        aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                      <% } %>
                   </li>
             </ul>
           </nav>

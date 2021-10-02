@@ -34,7 +34,7 @@ router.get('/KnowManageList', function (req, res, next) {
 
 
 // 毛孩知識後台清單 查詢
-  // 每頁資料筆數
+
 router.post('/KnowManageList', function (req, res) {
     var ArticleTitle = req.body.ArticleTitle;
     var ArticleDate = req.body.ArticleDate;
@@ -54,7 +54,7 @@ router.post('/KnowManageList', function (req, res) {
         ],
         function (err, results) {  //讀取資料總筆數
             if (err) throw err;
-            var linePerPage = 100;
+            var linePerPage = 100;   // 每頁資料筆數
             var totalLine = results[0].cnt;  //資料總筆數
             var totalPage = Math.ceil(totalLine / linePerPage);  //總頁數
             var pageNo = parseInt(req.query.pageNo);  //取得傳送的目前頁數
