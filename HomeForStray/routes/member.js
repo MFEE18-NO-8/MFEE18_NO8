@@ -18,6 +18,7 @@ router.get('/register', function (req, res, next) {
     });
   });
 });
+
 router.post('/register', memberModifyMethod.postRegister);
 
 
@@ -38,7 +39,6 @@ var messages = ""; //錯誤訊息
 router.post('/login', function (req, res, next) {
   db.query("select * from member where Email=?", [req.session.Email], function (err, results) {
     var memberData = results[0];
-
     var Email = req.body.Email;
     var Password = req.body.Password;
     // 加密
@@ -48,6 +48,7 @@ router.post('/login', function (req, res, next) {
 
     db.query("select * from member where Email=?", [Email], function (err, results) {  //根據帳號讀取資料
       if (err) throw err;
+      console.log(results)
       if (results.length == 0) {  //帳號不存在
         messages = "帳號不正確"
         res.render('login', { messages: messages, memberData: memberData || "", })
@@ -56,7 +57,12 @@ router.post('/login', function (req, res, next) {
         res.render('login', { messages: messages, memberData: memberData || "", })
       } else {  //帳號及密碼皆正確
         req.session.Email = req.body.Email;
-        res.redirect('/'); //跳轉首頁
+        if(results[0].memberState == 0){
+          messages = "會員停權中，如有問題請聯絡我們"
+          res.render('login', { messages: messages, memberData: memberData || "", })
+        }else{
+          res.redirect('/'); //跳轉首頁
+        }
       }
     });
   });
