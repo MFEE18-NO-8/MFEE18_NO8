@@ -34,47 +34,40 @@
 	<%- include Header %>
 
 		<div class="container form-block mx-auto edit-block">
-			<h2>會員資料</h2>
-			<div class="row editText">
-				<a href="/UserEditPswd">
-					<img src="../img/icon/edit.png" alt=" " class="mr-2" />
-					<p>修改密碼</p>
-				</a>
-			</div>
-			<form class="edit-form" method="POST">
+			<h2>變更密碼</h2>
+			<form class="edit-form">
 				<div class="row">
-					<label for="account" class="col-sm-2 col-form-label">
-						<p>帳號</p>
+					<label for="oldPswd" class="col-sm-2 col-form-label">
+						<p>舊密碼</p>
 					</label>
 					<div class="col-9">
-						<input type="text" class="memberInput" id="account" value="<%= UserData.Email  %>" disabled />
+						<input type="text" class="memberInput" id="oldPswd" name="oldPswd" />
 					</div>
-					<p style="margin: -40px 10px; color: darkgrey;">(無法修改)</p>
 				</div>
 				<div class="row">
-					<label for="inputPhone" class="col-sm-2 col-form-label">
-						<p>手機</p>
+					<label for="newPswd" class="col-sm-2 col-form-label">
+						<p>新密碼</p>
 					</label>
 					<div class="col-9">
-						<input type="text" class="memberInput" id="inputPhone" value="<%= UserData.CellPhone %>"
-							name="CellPhone" />
+						<input type="text" class="memberInput" id="newPswd" name="newPswd" />
 					</div>
 					<!-- <div class="col-1"><button class="check check-btn">驗證</button></div> -->
 				</div>
 				<div class="row">
-					<label for="inputEmail" class="col-sm-2 col-form-label">
-						<p>信箱</p>
+					<label for="newPswdConfirm" class="col-sm-2 col-form-label">
+						<p>再次輸入密碼</p>
 					</label>
 					<div class="col-9">
-						<input type="Email" class="memberInput" id="inputEmail" value="<%= UserData.Email %>"
-							name="Email" />
+						<input type="text" class="memberInput" id="newPswdConfirm" name="newPswdConfirm" />
 					</div>
 				</div>
-				<button type="submit" class="btnMd btn-green" id="editCheck">確定</button>
+
+				<button type="submit" class="btnMd btn-green" id="alertEdit">確定</button>
 			</form>
 		</div>
 		<!-- Footer -->
 		<% include Footer%>
+
 
 			<script>
 				// 漢堡選單
