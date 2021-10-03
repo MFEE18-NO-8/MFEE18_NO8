@@ -2,24 +2,33 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<!-- jquery -->
-	<!-- <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
-            integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=="crossorigin="anonymous"
-        ></script> -->
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
-	<script src="../Bootstrap/js/jquery.min.js"></script>
-	<script src="../Bootstrap/js/popper.min.js"></script>
-	<script src="../Bootstrap/js/bootstrap.min.js"></script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+		integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+		crossorigin="anonymous"></script>
+	<!-- 搜尋符號引用 -->
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
 		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
+	<!-- css -->
+	<link rel="stylesheet" href="stylesheets/minyustyle.css">
+	<link rel="stylesheet" href="stylesheets/style.css">
+	<title>浪浪有窩</title>
 	<style>
 		.pic .carousel-special {
 			position: absolute;
@@ -36,8 +45,6 @@
 
 		.pic:hover .carousel-special {
 			display: block;
-
-
 		}
 
 		.pic .carousel-special-back {
@@ -67,19 +74,16 @@
 
 		/* 熱門文章 */
 		.hot-article-box {
-
 			height: 450px;
 		}
 
 		.hot-article-imgbox {
-
 			float: left;
 			height: 150px;
 			padding: 10px;
 		}
 
 		.hot-article-listbox {
-
 			float: right;
 			height: 150px;
 			padding: 15px;
@@ -97,7 +101,6 @@
 			font-size: 18px;
 			font-weight: bold;
 			text-align: center;
-
 		}
 
 		.hot-articleDate {
@@ -105,7 +108,6 @@
 			color: lightslategray;
 			font-weight: lighter;
 			text-align: center;
-
 		}
 
 		/* 熱門文章全部 */
@@ -127,64 +129,38 @@
 		.multiline-ellipsis {
 			display: -webkit-box;
 			-webkit-box-orient: vertical;
-			-webkit-line-clamp: 1;
+			-webkit-line-clamp: 2;
 			overflow: hidden;
 		}
-	</style>
 
-	<!-- css -->
-	<link rel="stylesheet" href="stylesheets/minyustyle.css">
-	<link rel="stylesheet" href="stylesheets/style.css">
-	<title>浪浪有窩</title>
+		/* 全部文章 */
+		.all-articleBox {
+			padding: 20px 10px 10px 10px;
+		}
+
+		.all-articleTitle {
+			font-weight: bolder;
+		}
+
+		.all-articleTitle:hover {
+			text-decoration: underline;
+		}
+
+		/* 更多按鈕 */
+		.more {
+			text-align: right;
+		}
+
+		.more:hover {
+			text-decoration: underline;
+		}
+	</style>
 </head>
 
 <body>
 	<!--navbar-->
-	<div class="container-fluid header">
-		<a href="#" class="logoImg navbar-brand">
-			<img src="../img/Logo/改I2 2.png" alt="" class="logo">
-			<img src="../img/Logo/字.png" alt="" class="logo-text">
-		</a>
-		<div class="nav">
-			<!-- 漢堡選單 -->
-			<ul class="menu burgar-menu">
-				<li><a href="./X_index.html">首頁</a></li>
-				<li><a href="./AdopList.html">毛孩領養</a></li>
-				<li><a href="./Foster.html">刊登送養</a></li>
-				<li><a href="./KnowList.html">毛孩知識</a></li>
-			</ul>
-			<a href="#" class="hamBar burgar-menu">
-				<i>
-					<img src="../img/icon/square.png" class="ham hamBar-icon"></img>
-				</i>
-			</a>
-			<!-- navbar-user -->
-			<div class="btn-group">
-				<button class="btn  btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false">
-					<img src="../img/icon/user.png" alt="" class="user-icon">
-				</button>
-				<div class="dropdown-menu  user-menu dropdown-menu-right">
-					<ul>
-						<li><a href="./UserEdit.html">會員資料</a></li>
-						<li><a href="./UserFoster.html">我的送養文</a></li>
-						<li><a href="./UserFollow.html">追蹤的毛孩</a></li>
-						<li><a href="./UserMsg.html">通知</a></li>
-						<li><a href="./FindMe.html">登出</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- 頁籤 breadcrumb -->
-	<div class="breadcrumb-block">
-		<div class="container-fluid">
-			<ol class="breadcrumb pb-0">
-				<li class="breadcrumb-item "><a href="#">首頁</a></li>
-				<li class="breadcrumb-item active" aria-current="page">毛孩知識</li>
-			</ol>
-		</div>
-	</div>
+	<%- include Header %>
+
 	<!-- 輪播+文章選單  -->
 	<!--大面積狀態 2空白+5輪播+3文章+2空白=12 -->
 	<section class="row">
@@ -196,27 +172,29 @@
 				<!-- 第一張圖 -->
 
 				<div class="carousel-item active pic" style="height:100%">
-					<img src="../img/animals/dog02.jpeg" class="d-block w-100 h-100  " alt="...">
+					<img src="../img/animals/dog04.jpeg" class="d-block w-100 h-100  " alt="...">
 					<div class="carousel-caption d-none d-md-block carousel-special-back">
 						<h5 class="text-white">
-							<%= data[1].ArticleTitle %>
+							<%= hotdata[0].ArticleTitle %>
 						</h5>
 						<br>
 						<p class="text-white">
-							<%= data[1].ArticleDate.toLocaleDateString() %>
+							<%= hotdata[0].ArticleDate.toLocaleDateString() %>
 						</p>
 					</div>
 					<div class=" carousel-special  ">
-						<h4 class="text-white text-center">
-							<%= data[1].ArticleTitle %>
-						</h4>
-						<br>
-						<p class="text-white text-center multiline-ellipsis-head">
-							<%= data[1].ArticleCont %>
-						</p>
-						<p class="date text-white text-center">
-							<%= data[1].ArticleDate.toLocaleDateString() %>
-						</p>
+						<a href="/KnowConent?id=<%= hotdata[0].ArticleId %>&pageNo=<%= pageNo %>">
+							<h4 class="text-white text-center">
+								<%= hotdata[0].ArticleTitle %>
+							</h4>
+							<br>
+							<p class="text-white text-center multiline-ellipsis-head">
+								<%= hotdata[0].ArticleCont %>
+							</p>
+							<p class="date text-white text-center">
+								<%= hotdata[0].ArticleDate.toLocaleDateString() %>
+							</p>
+						</a>
 					</div>
 				</div>
 
@@ -225,25 +203,27 @@
 					<img src="../img/animals/dog04.jpeg" class="d-block w-100 h-100" alt="...">
 					<div class="carousel-caption d-none d-md-block carousel-special-back">
 						<h5 class="text-white">
-							<%= data[2].ArticleTitle %>
+							<%= hotdata[1].ArticleTitle %>
 						</h5>
 						<!-- 標題字數需要小於20個全形字元 -->
 						<br>
 						<p class="text-white">
-							<%= data[2].ArticleDate.toLocaleDateString() %>
+							<%= hotdata[1].ArticleDate.toLocaleDateString() %>
 						</p>
 					</div>
 					<div class="carousel-special">
-						<h4 class="text-white text-center">
-							<%= data[2].ArticleTitle %>
-						</h4>
-						<br>
-						<p class="text-white text-center multiline-ellipsis-head">
-							<%= data[2].ArticleCont %>
-						</p>
-						<p class="date text-white text-center">
-							<%= data[2].ArticleDate.toLocaleDateString() %>
-						</p>
+						<a href="/KnowConent?id=<%= hotdata[1].ArticleId %>&pageNo=<%= pageNo %>">
+							<h4 class="text-white text-center">
+								<%= hotdata[1].ArticleTitle %>
+							</h4>
+							<br>
+							<p class="text-white text-center multiline-ellipsis-head">
+								<%= hotdata[1].ArticleCont %>
+							</p>
+							<p class="date text-white text-center">
+								<%= hotdata[1].ArticleDate.toLocaleDateString() %>
+							</p>
+						</a>
 					</div>
 				</div>
 				<!-- 第三張圖 -->
@@ -251,24 +231,26 @@
 					<img src="../img/animals/cat01.jpg" class="d-block w-100 h-100" alt="...">
 					<div class="carousel-caption d-none d-md-block carousel-special-back">
 						<h5 class="text-white">
-							<%= data[1].ArticleTitle %>
+							<%= hotdata[2].ArticleTitle %>
 						</h5>
 						<br>
 						<p class="text-white">
-							<%= data[1].ArticleDate.toLocaleDateString() %>
+							<%= hotdata[2].ArticleDate.toLocaleDateString() %>
 						</p>
 					</div>
 					<div class="carousel-special">
-						<h4 class="text-white text-center">
-							<%= data[1].ArticleTitle %>
-						</h4>
-						<br>
-						<p class="text-white text-center multiline-ellipsis-head">
-							<%= data[1].ArticleCont %>
-						</p>
-						<p class="date text-white text-center">
-							<%= data[1].ArticleDate.toLocaleDateString() %>
-						</p>
+						<a href="/KnowConent?id=<%= hotdata[2].ArticleId %>&pageNo=<%= pageNo %>">
+							<h4 class="text-white text-center">
+								<%= hotdata[2].ArticleTitle %>
+							</h4>
+							<br>
+							<p class="text-white text-center multiline-ellipsis-head">
+								<%= hotdata[2].ArticleCont %>
+							</p>
+							<p class="date text-white text-center">
+								<%= hotdata[2].ArticleDate.toLocaleDateString() %>
+							</p>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -286,17 +268,17 @@
 				<% for(var i=0; i<3; i++) { %>
 					<li class="row ">
 						<div class="col-md-6 hot-article-imgbox">
-							<a href="">
-								<img class="hot-article-img" src="../img/animals/dog04.jpeg" alt="" />
+							<a href="/KnowConent?id=<%= hotdata[i].ArticleId %>&pageNo=<%= pageNo %>">
+								<img class="hot-article-img" src="https://placedog.net/300/280" alt="" />
 							</a>
 						</div>
 						<div class="col-md-6 hot-article-listbox">
-							<a href="">
+							<a href="/KnowConent?id=<%= hotdata[i].ArticleId %>&pageNo=<%= pageNo %>">
 								<p class="hot-articleTitle">
-									<%= data[i].ArticleTitle %>
+									<%= hotdata[i].ArticleTitle %>
 								</p>
 								<p class="hot-articleDate">
-									<%= data[i].ArticleDate.toLocaleDateString() %>
+									<%= hotdata[i].ArticleDate.toLocaleDateString() %>
 								</p>
 							</a>
 						</div>
@@ -311,12 +293,11 @@
 		<div class="col-md-2"></div>
 		<div class="col-md-8 row ">
 			<h4 class="ml-0">全部文章</h4>
-			<form class="form-inline my-2 my-lg-0 ml-auto ">
-				<input class="inputNotOutline" type="search" placeholder="  輸入關鍵字..."
+			<form class="form-inline my-2 my-lg-0 ml-auto " action="/KnowList"  novalidate method="POST">
+				<input class="inputNotOutline" type="search" placeholder="  輸入關鍵字..." name="search"
 					aria-label="Search through site content" size="10"
 					style="border: 1px solid black;border-radius: 40px;">
 				<button class="btn  my-2 my-sm-0 b" type="submit"><i class="fas fa-search"></i></button>
-
 			</form>
 		</div>
 		<div class="col-md-2"></div>
@@ -328,33 +309,36 @@
 		<div class="mb-3 line"></div>
 		<div class="col-md-2"></div>
 	</div>
-	<!-- （圖片用圓角）一整頁顯示五個文章 -->
+	<!-- （圖片用圓角） -->
 	<section class="row" style="margin-top: 80px;">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
 			<ul class="flex-column ">
-				<!-- 第一篇文 -->
+				<!-- 全部文章 -->
 				<% for(var i=0; i<data.length; i++) { %>
-					<li class="row d-inline-flex mb-4 articleBox">
-						<div class="col-md-4 col-sm-4 articleImg">
-							<img class="img-fluid rounded" src="../img/animals/dog04.jpeg" alt="" />
+					<li class="row d-inline-flex mb-4">
+						<div class="col-md-4 col-sm-4">
+							<img class="img-fluid rounded" src="https://placedog.net/<%= i+490 %>/280" alt="" />
 						</div>
-						<div class="col-md-8">
-							<a href="">
-								<h5>
+						<div class="col-md-8 col-sm-8 all-articleBox">
+							<a href="/KnowConent?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>">
+								<h5 class="all-articleTitle">
 									<%= data[i].ArticleTitle %>
 								</h5>
 							</a>
-							<p class="figure-caption">
-								<%= data[i].ArticleDate.toLocaleDateString() %>
-							</p>
 							<p class="multiline-ellipsis col-md-12">
 								<%= data[i].ArticleCont %>
 							</p>
-							<a href="/KnowConent?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>">More</a>
+							<p class="figure-caption all-articleDate">
+								<%= data[i].ArticleDate.toLocaleDateString() %>
+							</p>
+							<a href="/KnowConent?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>">
+								<p class="more">Read More</p>
+							</a>
 						</div>
 					</li>
 					<% } %>
+			</ul>
 		</div>
 		<div class="col-md-2"></div>
 	</section>
@@ -380,14 +364,7 @@
 		</ul>
 	</nav>
 	<!-- footer -->
-	<footer class="container-fluid footer">
-		<div class="row justify-content-center w-100 m-0">
-			<div class="col-10 col-md-10 copyright">
-				本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，僅就一般正常情理做審核，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。
-				<br>如有任何建議或合作請與我們聯絡 <br>© 2021 Copyright .tw By MFEE18-No.8
-			</div>
-		</div>
-	</footer>
+	<%- include footer%>
 </body>
 
 <script>
@@ -397,6 +374,7 @@
 			$('body').toggleClass('burgar-menu-show');
 		});
 	});
+
 
 </script>
 

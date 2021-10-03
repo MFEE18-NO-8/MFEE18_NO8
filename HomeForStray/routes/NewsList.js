@@ -11,15 +11,18 @@ router.get('/', function (req, res, next) {
     if (isNaN(pageNo) || pageNo < 1) {  //如果沒有傳送參數,設目前頁數為第1頁
         pageNo = 1;
     }
+    pool.query('select * from Member where Email=?', [req.session.Email], function (err, results) {
+        var memberData = results[0]; // 撈取是否有登入session
 
-    pool.query('select count(*) as cnt from News', function (err, results) {  //讀取資料總筆數
-        if (err) throw err;
-        var totalLine = results[0].cnt;  //資料總筆數
-        var totalPage = Math.ceil(totalLine / linePerPage);  //總頁數
-
-        pool.query('select * from News order by NewsId desc limit ?, ?', [(pageNo - 1) * linePerPage, linePerPage], function (err, results) {  //根據目前頁數讀取資料
+        pool.query('select count(*) as cnt from News', function (err, results) {  //讀取資料總筆數
             if (err) throw err;
-            res.render('NewsList', { data: results, pageNo: pageNo, totalLine: totalLine, totalPage: totalPage, linePerPage: linePerPage });
+            var totalLine = results[0].cnt;  //資料總筆數
+            var totalPage = Math.ceil(totalLine / linePerPage);  //總頁數
+
+            pool.query('select * from News order by NewsId desc limit ?, ?', [(pageNo - 1) * linePerPage, linePerPage], function (err, results) {  //根據目前頁數讀取資料
+                if (err) throw err;
+                res.render('NewsList', { data: results, pageNo: pageNo, totalLine: totalLine, totalPage: totalPage, linePerPage: linePerPage, memberData: memberData || "" });
+            });
         });
     });
 });
