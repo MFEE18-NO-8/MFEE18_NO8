@@ -112,23 +112,24 @@
     </div>
     <!-- 清單列表 -->
     <div class="container">
-      <div class="row adopList-group">
+      <div class="row adopList-group mt-20">
         <% for(var i=0; i < data.length; i++) { %>
           <%if(data[i].PetSpecies=='0' ){%>
-            <div class="col-12 col-md-5 adopt-bg-dog h-100">
+            <div class="col-12 col-md-12 col-lg-5 adopt-bg-dog h-100">
               <%}else if(data[i].PetSpecies=='1' ){%>
-                <div class="col-12 col-md-5 adopt-bg-cat h-100">
+                <div class="col-12 col-md-12 col-lg-5 adopt-bg-cat h-100">
                   <%}else{%>
-                    <div class="col-12 col-md-5 adopt-bg-other h-100">
+                    <div class="col-12 col-md-12 col-lg-5 adopt-bg-other h-100">
                       <%}%>
                         <div class="row adop-img justify-content-center">
                           <img src="<%=data[i].PetImgURL%>" class="img-fluid">
                         </div>
-                        <div class="row adop-text">
+		
+                        <div class="row adop-text justify-content-center">
                           <div class="col-12 adop-text-con adop-name">
                             <%= data[i].PetName %>
                           </div>
-                          <div class="col-4 adop-text-con"><img src="../img/icon/paw.png" alt="" class="adopitem-icon">
+                          <div class="col-3 col-md-3 col-lg-4 adop-text-con"><img src="../img/icon/paw.png" alt="" class="adopitem-icon">
                             <% var PS=data[i].PetSpecies; if(PS==0) { %>
                               <%= PS='狗' %>
                                 <% } else if(PS==1){ %>
@@ -138,10 +139,10 @@
                                         <% } %>
                           </div>
                           <!-- <div class="col-6 adop-text-con"><img src="../img/icon/品種.png" alt="" class="adopitem-icon"><%= data[i].PetBreed %></div> -->
-                          <div class="col-3 adop-text-con"><img src="../img/icon/sex1.png" alt="" class="adopitem-icon">
+                          <div class="col-3 col-md-2 col-lg-3 adop-text-con"><img src="../img/icon/sex1.png" alt="" class="adopitem-icon">
                             <%= (data[i].PetGender==1) ? '公' : '母' %>
                           </div>
-                          <div class="col-5 adop-text-con"><img src="../img/icon/地區.png" alt="" class="adopitem-icon">
+                          <div class="col-3 col-md-3 col-lg-5 adop-text-con"><img src="../img/icon/地區.png" alt="" class="adopitem-icon">
                             <!-- <%= (data[i].CityName) %> -->
                             <% var CI=data[i].CityId; if(CI==1) { %>
                               <%= CI='台北市' %>

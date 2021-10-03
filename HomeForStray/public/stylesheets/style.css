@@ -816,7 +816,6 @@ div.adop-name {
 }
 .adopList-group {
 	justify-content: space-around;
-	/* margin-top: 100px; */
 }
 /* 狗狗 */
 .adopt-bg-dog{
@@ -1142,6 +1141,26 @@ footer{
 		font-size:40px;
 		margin: 0;
 	}
+	/* 毛孩領養 */
+	.adopitem-icon {
+		width: 25px;
+		height: 25px;
+		/* margin-right: 10px; */
+		margin-bottom: 10px;
+		padding: 0;
+	}
+	div.adop-text-con {
+		font-size: 25px;
+		/* margin-top: 5px; */
+		margin-bottom: 15px;
+		padding: 0;
+	}
+	.adopitem-icon{
+		margin: 0 0 8px 0;
+	}
+	.adop-img{
+		margin-top: 10px;
+	}
 }
 /* 手機版本以下*/
 @media (max-width: 767px){
@@ -1229,7 +1248,7 @@ footer{
 	}
 	/* 毛孩資訊 */
 	.AdoptContent-title{
-		transform: translate3d(45%,35%, 0px);
+		transform: translate3d(35%,35%, 0px);
 	}
 	.AdoptContent-title>h3{
 		font-size: 30px;
@@ -1239,7 +1258,7 @@ footer{
 		background-size: cover;
 		background-repeat: no-repeat;
 		height:1200px;
-		margin-top: 0px;
+		margin-top:0px;
 	}
 	.AdoptContent-text > ul > li {
 		font-size:18px;
@@ -1252,20 +1271,20 @@ footer{
 		padding: 0px 0px 150px 50px;
 	}
 	.AdoptContent-pic {
-		width:350px;
-		transform: translateX(5%);
+		width:300px;
+		transform: translateX(6%);
 	}
 	.AdoptContent-connection { /*聯絡人*/
 		background: #f8e4ac91;
 		padding: 30px 5px;
 		border-radius: 30px;
 		position: relative;
-		transform: translate3d(-175px,-40px,0px);
-    	width: 330px;
+		transform: translate3d(-155px,-40px,0px);
+    	width: 300px;
 	}
 	.share-item { /*追蹤*/
 		position: relative;
-		transform: translateX(-250px);
+		transform: translateX(-220px);
 	}
 	.Pet-text-Content{
 		position:relative;
@@ -1278,5 +1297,54 @@ footer{
 	.AdoptName{
 		font-size:30px;
 		margin: 0;
+	}
+	/* 毛孩領養 */
+	.adopt-bg-dog,.adopt-bg-cat,.adopt-bg-other{
+		background-size:contain;
+	}
+	div.adop-img > img {
+		height:200px;
+		width:200px;
+		border-radius:20%;
+		margin-top: 50px;
+	}
+	.adopitem-icon {
+		width: 20px;
+		height: auto;
+		margin-right: 0px;
+		margin-bottom: 5px;
+	}
+	div.adop-text-con {
+		font-size: 20px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+}
+@media (min-width:400px){
+	.AdoptContent-pic {
+		width:350px;
+		transform: translateX(5%);
+	}
+	.AdoptContent-title{
+		transform: translate3d(45%,35%, 0px);
+	}
+}
+/* 小手機 */
+@media (max-width:320px){
+	/* 毛孩資訊 */
+	.AdoptContent-pic {
+		width:250px;
+		transform: translateX(6%);
+	}
+	.AdoptContent-title{
+		font-size:30px;
+		transform: translate3d(20%,25%, 0px);
+	}
+	.AdoptContent-connection {
+		transform: translate3d(-127px,-40px,0px);
+		width: 250px;
+	}
+	.share-item {
+		transform: translateX(-200px);
 	}
 }
