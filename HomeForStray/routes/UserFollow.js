@@ -46,12 +46,14 @@ router.get('/', function (req, res, next) {
 
 // 方法2.更改數值 - 模擬中
 // router.post('/UserFollow', function (req, res, next) {
-//     //我該怎麼接收前台傳出的指令？是下面這樣做嗎？
-//     var FollowButton = req.body.FollowButton
-//     var FollowButton = req.query.FollowButton
-//     var FollowButton = req.params.FollowButton
-
-//     pool.query('UPDATE UserFollow SET UserFollowState=0 WHERE UserFollow =?', [id], function (errr, results) {
+//     var UserFollowState = req.body.FollowState //透過在name設定FollowState作為標記 相同name的其value 會傳送到這裡  當我value=data[i].UserFollowState的時候 他會顯示1（追蹤中）
+//     var PetId = req.body.PetId 
+//     //所以我可以得証 我可以透過設定name標記 那顆按鈕
+//     var goooood = req.body.goooood
+//     //那我在name設立變數呢？
+//     var cancelfollow = req.body.data[i]
+//     //這樣是不是我網頁上面的每個取消追蹤都有自己的編號
+//     pool.query('UPDATE UserFollow SET UserFollowState= ? WHERE UserFollow.PetId =?', [UserFollowState, PetId], function (errr, results) {
 //         if (err) throw err;
 //         res.redirect('/UserFollow');
 //     });
