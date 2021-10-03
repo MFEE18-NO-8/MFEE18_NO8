@@ -15,13 +15,14 @@ router.get('/', function (req, res, next) {
         pool.query('SELECT * FROM `UserFollow` JOIN `member` ON(`member`.MemberID=`UserFollow`.`MemberID`) JOIN PostForAdopt ON (`PostForAdopt`.`Petid`=`UserFollow`.`Petid`) WHERE `UserFollowState` = 1 AND `Email`=?', [req.session.Email], function (err, results) {
             var FollowData = results; // 撈取是否有登入session
             console.log(FollowData)
-
+            console.log("[mysql error]",err);
             var TotalLine = FollowData.length; //資料總筆數 朱建輝 有兩筆追蹤資料
             var TotalPage = Math.ceil(TotalLine / LinePerPage); //資料總頁數＝總筆數/每頁顯示數  朱建輝資料總頁數 1 ，因為總共2筆/每頁顯示5筆資料
 
-            pool.query('SELECT * FROM `UserFollow` ORDER BY `FollowDate` DESC LIMIT ?,?', [(PageNo - 1) * LinePerPage, LinePerPage],
-                function (err, results) {
-                    if (err) throw err;
+            pool.query('SELECT * FROM `UserFollow`JOIN `member` ON(`member`.MemberID=`UserFollow`.`MemberID`) JOIN PostForAdopt ON (`PostForAdopt`.`Petid`=`UserFollow`.`Petid`) WHERE `UserFollowState` = 1 ORDER BY `FollowDate` DESC LIMIT ?,?', [(PageNo - 1) * LinePerPage, LinePerPage],function (err, results) {
+                var paggeData = results;
+                console.log(paggeData)   //這個答案用不到＝＝
+                if (err) throw err;
                     res.render('UserFollow', {
                         data: results,
                         FollowData: FollowData || "",
