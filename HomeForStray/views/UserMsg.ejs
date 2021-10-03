@@ -1,183 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>浪浪有窩</title>
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>通知</title>
+		<!-- css -->
+		<link rel="stylesheet" href="stylesheets/style.css" />
+		<title>浪浪有窩</title>
+	</head>
 
+	<body>
+		<!-- 引入header -->
+		<%- include Header %>
+		<div class="container">
+			<h2 class="title-lg">我的訊息通知</h2>
+		</div>
+		<div class="container">
+			<table class="table">
+				<thead>
+					<tr class="UserMsg-thead">
+						<th class="col-3">通知日期</th>
+						<th class="col-9">通知內容</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%var sn=1; //宣告sn=編號 %> <% for(var i=0; i < MsgData.length; i++) { %>
+					<tr>
+						<td><%= (MsgData[i].MsgDate).toLocaleDateString() %></td>
+						<td><%= (MsgData[i].Msg) %></td>
+					</tr>
+					<% sn++; %> <% } %>
+				</tbody>
+			</table>
+		</div>
 
-
-
-
-    <!-- bootstrap -->
-    <!-- 11. 透過CDN方式引用 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
-    <!-- 12. 透過本地檔案方式引用 -->
-    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css">
-    <script src="../Bootstrap/js/bootstrap.min.js"></script>
-    <script src="../Bootstrap/js/jquery.min.js"></script>
-    <script src="../Bootstrap/js/popper.min.js"></script>
-    <!-- css -->
-    <link rel="stylesheet" href="stylesheets/style.css">
-    <title>浪浪有窩</title>
-</head>
-
-<body>
-    <!--navbar-->
-    <div class="container-fluid header">
-        <a href="#" class="logoImg navbar-brand">
-          <img src="../img/Logo/改I2 2.png" alt="" class="logo">
-          <img src="../img/Logo/字.png" alt="" class="logo-text">
-        </a>
-        <div class="nav">
-        <!-- 漢堡選單 -->
-        <ul class="menu burgar-menu">
-            <li><a href="./X_index.html">首頁</a></li>
-            <li><a href="./AdopList.html">毛孩領養</a></li>
-            <li><a href="./Foster.html">刊登送養</a></li>
-            <li><a href="./KnowList.html">毛孩知識</a></li>
-          </ul>
-          <a href="#" class="hamBar burgar-menu">
-            <i>
-              <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
-            </i>
-          </a>
-          <!-- navbar-user -->
-          <div class="btn-group">
-            <button class="btn  btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="../img/icon/user.png" alt="" class="user-icon">
-            </button>
-            <div class="dropdown-menu dropdown-menu-right user-menu" >
-              <div class="user-img"></div>
-                <ul>
-                    <li>某某某</li>
-                    <li><a href="./UserEdit.html">會員資料</a></li>
-                    <li><a href="./UserFoster.html">我的送養文</a></li>
-                    <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
-                    <li><a href="./UserMsg.html">通知</a></li>
-                    <li><a href="./FindMe.html">聯絡我們</a></li>
-                    <li><a href="#">登出</a></li>
-                </ul>
-            </div>
-          </div>
-        </div>
-    </div> 
-    <!-- 麵包屑 -->
-    <div class="breadcrumb-block">
-      <div class="container-fluid ">
-          <ol class="breadcrumb pb-0 ">
-              <li class="breadcrumb-item "><a href="#">首頁</a></li>
-              <li class="breadcrumb-item active" aria-current="page">通知</li>
-          </ol>
-      </div> 
-    </div>
-
-    <!-- <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <h1>通知</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 col-sm-12 col-xs-12">
-                <img src="../img/profile.jpg" alt="">
-                <a href="./UserEdit.html">會員管理</a>
-                <a href="./UserFoster.html">我的送養文</a>
-                <a href="./UserFollow.html">我追蹤的毛孩</a>
-                <a href="./UserMsg.html">通知</a>
-                <a href="./FindMe.html">聯絡我們</a>
-                <a href="">登出</a>
-            </div>
-            <div class="col-md-8 col-sm-12 col-xs-12">
-                <table>
-                    <tr>
-                        <th>通知日期</th>
-                        <th>通知內容</th>
-                    </tr>
-                    <tr>
-                        <td>2021-10-16</td>
-                        <td>
-                            【刊登送養通知】寵物白白，刊登送養文已送出，待小幫手審核通過後，系統即自動刊登，敬請等候唷！
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2021-09-15 </td>
-                        <td>
-                            【系統通知】您已成功完成信箱認證！
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2021-09-15 </td>
-                        <td>
-                            【系統通知】註冊完成通知，歡迎您加入「浪浪有窩」。
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div> -->
-    <div class="container"><h2 class="title-lg">我的訊息通知</h2></div>
-    <div class="container">
-      <table class="table">
-          <thead>
-            <tr class="UserMsg-thead">
-              <th  class="col-3">通知日期</th>
-              <th  class="col-9">通知內容</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% for(var i=0; i<data.length; i++) { %>
-            <tr>
-                <td><%= (data[i].MsgDate).toLocaleDateString() %></td>
-                <td>
-                    <%= (data[i].Msg) %>
-                </td>
-            </tr>
-            <% } %>
-          </tbody>
-      </table>
-    </div>
-
-    <!-- 分頁 -->
-    <nav aria-label="Page navigation example ">
-        <ul class="pagination justify-content-center">
-        <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-            </a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">4</a></li>
-        <li class="page-item"><a class="page-link" href="#">5</a></li>
-        <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-            </a>
-        </li>
-        </ul>
-    </nav>
-    <!-- footer -->
-    <footer class="container-fluid footer">
-        <div class="row justify-content-center w-100 m-0">
-            <div class="col-10 col-md-10 copyright">
-            本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，僅就一般正常情理做審核，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。
-            <br>如有任何建議或合作請與我們聯絡 <br>© 2021 Copyright .tw By MFEE18-No.8
-            </div>
-        </div>
-    </footer>
-    <script>
-        // 漢堡選單
-        $(document).ready(function () {
-        $('.burgar-menu').on('click', function (e) {
-          $('body').toggleClass('burgar-menu-show');       
-        });
-      });
-    </script>
-</body>
-
+		<!-- 分頁 -->
+		<nav aria-label="Page navigation example ">
+			<ul class="pagination justify-content-center">
+				<li class="page-item">
+					<a class="page-link" href="/UserMsg?PageNo=<%= (PageNo-1) %>" title="上一頁" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+				</li>
+				<% for(var i=1; i <=TotalPage; i++) { %>
+				<li class="page-item">
+					<a class="page-link" href="/UserMsg?PageNo=<%= i%>"><%= i%></a>
+				</li>
+				<% } %>
+				<li class="page-item">
+					<a class="page-link" href="/UserMsg?PageNo=<%= (PageNo+1) %>" title="下一頁" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- footer -->
+		<% include Footer%>
+		<script>
+			// 漢堡選單
+			$(document).ready(function () {
+				$(".burgar-menu").on("click", function (e) {
+					$("body").toggleClass("burgar-menu-show");
+				});
+			});
+		</script>
+	</body>
 </html>
