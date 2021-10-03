@@ -2,104 +2,197 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>浪浪有窩</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浪浪有窩</title>
 
-  <!-- bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-    crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
-    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
-    crossorigin="anonymous"></script>
+    <!-- bootstrap -->
+    <!-- 11. 透過CDN方式引用 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <!-- 12. 透過本地檔案方式引用 -->
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css">
+    <script src="../Bootstrap/js/bootstrap.min.js"></script>
+    <script src="../Bootstrap/js/jquery.min.js"></script>
+    <script src="../Bootstrap/js/popper.min.js"></script>
 
-  <!-- 引用style.css -->
-  <link rel="stylesheet" href="/stylesheets/style.css">
-  <link rel="stylesheet" href="/stylesheets/annistyle.css">
-
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- 引用style.css -->
+    <link rel="stylesheet" type="text/css" href="../css/annistyle.css">
+    <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
 <body>
-  <!-- 引入header -->
-  <%- include Header %>
-
-
-
-    <div class="container form-block mx-auto">
-      <h2>加入會員</h2>
-      <form class="Register-block" method="POST" action="/member/register">
-        <div class="form-group row">
-          <label for="staticEmail" class="col-sm-2 col-form-label">帳號</label>
-          <div class="col-9">
-            <input type="email" class="form-control" id="email" name="Email" placeholder="請輸入email" required>
+    <!--navbar-->
+    <div class="container-fluid header">
+        <a href="#" class="logoImg navbar-brand">
+          <img src="../img/Logo/改I2 2.png" alt="" class="logo">
+          <img src="../img/Logo/字.png" alt="" class="logo-text">
+        </a>
+        <div class="nav">
+        <!-- 漢堡選單 -->
+        <ul class="menu burgar-menu">
+          <li><a href="./X_index.html">首頁</a></li>
+          <li><a href="./AdopList.html">毛孩領養</a></li>
+          <li><a href="./Foster.html">刊登送養</a></li>
+          <li><a href="./KnowList.html">毛孩知識</a></li>
+        </ul>
+        <a href="#" class="hamBar burgar-menu">
+          <i>
+            <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
+          </i>
+        </a>
+          <!-- navbar-user -->
+          <div class="btn-group">
+            <button class="btn  btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="../img/icon/user.png" alt="" class="user-icon">
+            </button>
+            <div class="dropdown-menu dropdown-menu-right user-menu" >
+              <div class="user-img"></div>
+                <ul>
+                    <li>某某某</li>
+                    <li><a href="./UserEdit.html">會員資料</a></li>
+                    <li><a href="./UserFoster.html">我的送養文</a></li>
+                    <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
+                    <li><a href="./UserMsg.html">通知</a></li>
+                    <li><a href="./FindMe.html">聯絡我們</a></li>
+                    <li><a href="#">登出</a></li>
+                </ul>
+            </div>
           </div>
         </div>
-        <div class="form-group row">
-          <label for="inputPassword" class="col-sm-2 col-form-label">密碼</label>
-          <div class="col-9">
-            <input type="password" class="form-control" id="password" name="Password" required>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputPassword" class="col-sm-2 col-form-label">密碼確認</label>
-          <div class="col-9">
-            <input type="password" class="form-control" id="PasswordConfirm" name="PasswordConfirm" required>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputPhone" class="col-sm-2 col-form-label">姓名</label>
-          <div class="col-9">
-            <input type="text" class="form-control" id="" name="MemberName" required>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputPassword" class="col-sm-2 col-form-label">手機</label>
-          <div class="col-9">
-            <input type="tel" class="form-control" id="CellPhone" pattern="[0-9]{4}[0-9]{3}[0-9]{3}" name="CellPhone"
-              required>
-          </div>
-          <!-- <div class="col-1"><button class="check check-btn">驗證</button></div> -->
-        </div>
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-          <label class="form-check-label" for="exampleCheck1">我已經閱讀 <a href="#"
-              style="color: blue; text-decoration:underline">服務條款</a>
-            並同意註冊為會員</label>
-        </div>
-        <input type="submit" class="btnMd btn-green" value="註冊">
-      </form>
+    </div> 
+    <!-- 麵包屑 -->
+    <div class="breadcrumb-block">
+        <div class="container-fluid">
+            <ol class="breadcrumb pb-0">
+                <li class="breadcrumb-item "><a href="#">首頁</a></li>
+                <li class="breadcrumb-item active" aria-current="page">會員註冊</li>
+            </ol>
+        </div> 
     </div>
 
+    <!-- 註冊區塊 -->
+
+    <!-- <div class="container">
+        <div class="box1">
+            <div class=" box2">
+
+                <h4>加入會員</h4>
+
+                <table>
+                    <tr>
+                        <td style="width: 20%;"> <span>帳號</span>
+                        </td>
+                        <td style="width: 80%;"> <input type="text">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>密碼</td>
+                        <td> <input type="password"></td>
+                    </tr>
+                    <tr>
+                        <td>密碼確認</td>
+                        <td> <input type="password"></td>
+                    </tr>
+                    <tr>
+                        <td>手機</td>
+                        <td> <input type="tel"><button class="check">驗證</button></td>
+                    </tr>
+                    <tr>
+                        <td> <span>信箱</span>
+                        </td>
+                        <td> <input type="email"><button class="check">驗證</button>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="box3">
+                    <div class="readnotice">
+                        <label for="notice" style="margin-bottom: 0; display:flex;   align-items: center;">
+                            <input type="checkbox" id="notice">已閱讀注意事項
+                        </label>
+                        <br>
+                    </div>
+                    <div>
+                        <button class="rigister btnMd btn-green">註冊</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div> -->
+    <div class="container form-block mx-auto">
+        <h2>加入會員</h2>
+        <form class="Register-block">
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">帳號</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="accountNumber">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">密碼</label>
+              <div class="col-9">
+                <input type="password" class="form-control" id="inputPassword">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">密碼確認</label>
+              <div class="col-9">
+                <input type="password" class="form-control" id="inputPassword">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPhone" class="col-sm-2 col-form-label">手機</label>
+              <div class="col-9">
+                <input type="phoneNumber" class="form-control" id="inputPassword">
+              </div>
+              <div class="col-1"><button class="check check-btn">驗證</button></div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">信箱</label>
+              <div class="col-9">
+                <input type="email" class="form-control" id="staticEmail">
+              </div>
+              <div class="col-1"><button class="check check-btn">驗證</button></div>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">已閱讀注意事項</label>
+            </div>
+            <button class="btnMd btn-green">註冊</button>  
+          </form>
+    </div>
     <!-- footer -->
-    <% include footer%>
-
-
-      <script>
-        $(document).ready(function () {
-          // 漢堡選單
-          $('.burgar-menu').on('click', function (e) {
-            $('body').toggleClass('burgar-menu-show');
-          });
-
-        });
-
-
-
-      </script>
-
-
+    <footer class="container-fluid footer">
+        <div class="row justify-content-center w-100 m-0">
+          <div class="col-10 col-md-10 copyright">
+              本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，僅就一般正常情理做審核，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。
+              <br>如有任何建議或合作請與我們聯絡 <br>© 2021 Copyright .tw By MFEE18-No.8
+          </div>
+        </div>
+    </footer>
+    <script>
+      // 漢堡選單
+      $(document).ready(function () {
+      $('.burgar-menu').on('click', function (e) {
+        $('body').toggleClass('burgar-menu-show');       
+      });
+    });
+    </script>   
 </body>
 
 </html>

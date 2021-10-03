@@ -19,8 +19,37 @@ router.get('/', function (req, res, next) {
 
         pool.query('select * from News order by NewsId desc limit ?, ?', [(pageNo - 1) * linePerPage, linePerPage], function (err, results) {  //根據目前頁數讀取資料
             if (err) throw err;
-            res.render('NewsList', { data: results, pageNo: pageNo, totalLine: totalLine, totalPage: totalPage, linePerPage: linePerPage });
+            res.render('NewsManageList', { data: results, pageNo: pageNo, totalLine: totalLine, totalPage: totalPage, linePerPage: linePerPage });
         });
+    });
+});
+// 
+// 查詢
+// 
+router.post('/s', function (req, res) {
+    var NewsTitle = req.body.NewsTitle;
+    var age = req.body.s_age;
+
+    var sql = "select * from News ";
+
+    if (NewsTitle) {
+        sql += " where NewsTitle like '%" + NewsTitle + "%' ";
+        //     if (age) {
+        //         sql += " and Age=" + age + " ";
+        //     }
+        // } else {
+        //     if (age) {
+        //         sql += " where Age=" + age + " ";
+        //     }
+    }
+    // sql = sql.replace("and","where");
+    pool.query(sql, function (err, rows) {
+        console.log(rows);
+        if (err) {
+            res.end("查詢失敗：", err)
+        } else {
+            res.render("NewsManageList", { title: 'Express', datas: rows, NewsTitle: NewsTitle, s_age: age });
+        }
     });
 });
 

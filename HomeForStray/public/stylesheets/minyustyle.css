@@ -464,13 +464,13 @@
      box-shadow:none;
     } */
     /* navbar */
-    /* .header {
+    .header {
         background: url(../img/background/header.PNG);
         background-repeat: no-repeat;
         background-size: cover;
         display: flex;
         justify-content: space-between;
-    } */
+    }
     .logoImg {
         margin: 5px 15px;
     }
@@ -588,9 +588,9 @@
         background-color: #afc2cb;
         border-radius: 50%;
     }
-    /* .user-menu >ul> li:first-of-type {
+    .user-menu >ul> li:first-of-type {
         text-align: center;
-    } */
+    }
     .user-menu >ul> li {
         margin: 10px 30px;
     }
@@ -682,13 +682,3 @@
     .inputNotOutline:focus{
         outline : 0; 
     }
-
-    /* 發布日期格式 */
-    .dateStyle{
-        text-align: left;
-        padding-left:50px;
-    }
-
-    #PetDeleInput {
-      display: none; 
-    } 

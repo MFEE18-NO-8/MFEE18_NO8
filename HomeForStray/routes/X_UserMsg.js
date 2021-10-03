@@ -19,7 +19,7 @@ router.get('/', function (req, res, next) {
         var TotalLine = results[0].cnt;  //資料總筆數=第七行結果 的 筆數
         var TotalPage = Math.ceil(TotalLine / LinePerPage);  //資料總頁數＝總筆數/每頁顯示數
         //從UserMsg讀取資料 並依照MsgID做反向排序(最新的排最上方)，由(pageNo-1)＊5開始取得 5 筆資料記錄
-        pool.query('SELECT * FROM UserMsg JOIN register ON(register.MemberID=UserMsg.MemberID) WHERE UserMsg.MemberID=1', [(pageNo - 1) * LinePerPage, LinePerPage], function (err, results) {  
+        pool.query('select * from UserMsg where MemberID=?', [(pageNo - 1) * LinePerPage, LinePerPage], function (err, results) {  
             if (err) throw err;
             //後續處理程式碼
             // 將取得的資料記錄以「data,pageNo,TotaLine,TotalPage,LinePerPage」等參數傳送給 <UserMsg.ejs> 模版
@@ -40,8 +40,3 @@ module.exports = router;
 
 // 參數值也可超過一個，參數值以逗點「,」分隔，例如由第 5 筆資料開始取得 3 筆資料記錄 (即第 5、6、7 筆資料記錄)：
 // pool.query('select * from newscenter limit ?, ?', [4,3] 
-// 以下測試失敗
-
-// 以下測試成功
-// SELECT * FROM UserMsg JOIN register ON(register.MemberID=UserMsg.MemberID) WHERE UserMsg.MemberID=1
-// SELECT * FROM UserMsg,register WHERE register.MemberID=UserMsg.MemberID AND UserMsg.MemberID=1

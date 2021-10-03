@@ -1,164 +1,229 @@
-<%- include("./Back/Foster.txt") %>
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- 內頁 -->
-    <div class="content-wrapper">
-        <section class="content">
-            <h3 class="title">刊登送養審核</h3>
-            <div class="row">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FosterManageList</title>
 
-                <!-- 查詢條件 -->
-                <div class="col-xs-12">
-                    <form action="/BackFosterManage/FosterManageList" method="GET">
-                        <div class="search">
-                            <!-- 標題 -->
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="form-group">
-                                    <label>寵物暱稱：</label>
-                                    <input type="text" name="PetName" class="form-control" id="">
-                                </div>
-                            </div>
+    <!-- jquery -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
+        integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=='
+        crossorigin='anonymous'></script>
+    <!-- Bootstrap CSS -->
+    <!-- 連結方式建議使用cdn 嘗試一下未來工作的情況 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+    <script src="../Bootstrap/js/jquery.min.js"></script>
+    <script src="../Bootstrap/js/popper.min.js"></script>
+    <script src="../Bootstrap/js/bootstrap.min.js"></script>
 
-                            <!-- 換行 -->
-                            <div class="clearfix"></div>
+    <!-- css -->
+    <link rel="stylesheet" href="stylesheets/minyustyle.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <title>浪浪有窩</title>
 
-                            <!-- 送審日期 -->
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <label>送審日期：</label>
-                            </div>
-                            <div class="clearfix"></div>
-                            <!-- 送審日期(起) -->
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="form-group">
-                                    <input name="FosterDateStart" type="date" class="form-control inputNotOutline">
-                                </div>
-                            </div>
-                            <!-- 送審日期~ -->
-                            <label class="s-Elab">～</label>
-                            <!-- 送審日期(迄) -->
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="form-group">
-                                    <input name="FosterDateEnd" type="date" class="form-control inputNotOutline">
-                                </div>
-                            </div>
+</head>
 
-                            <!-- 換行 -->
-                            <div class="clearfix"></div>
+<body>
 
-                            <!-- 狀態： -->
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="form-group">
-                                    <label>狀態：</label>
-                                    <div class="clearfix"></div>
-                                    <input type="radio" name="AdoptState" value="1">
-                                    <label for="html" class="MyListLabel">已批准</label>
-                                    <input type="radio" name="AdoptState" value="0" checked>
-                                    <label for="html" class="MyListLabel">未批准
-                                    </label>
-                                </div>
-                            </div>
-
-
-                            <!-- 查詢/清除 -->
-                            <div class="col-xs-12 text-right">
-                                <button type="submit" class="btn btn-primary">查詢</button>
-                                <button type="button" class="btn btn-primary">清除</button>
-                            </div>
-                            <div class="clearfix"></div>
-
-                        </div>
-                    </form>
-                </div>
-
-
-
-                <div class="clearfix"></div>
-                <!-- 查詢結果 -->
-                <div class="col-xs-12">
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr class="serchlist">
-                                    <th width="10%">編號</th>
-                                    <th width="10%">會員名稱</th>
-                                    <th width="10%">寵物暱稱</th>
-                                    <th width="10%">送審日期</th>
-                                    <!-- <th>審核通過時間</th> -->
-
-                                    <th width="10%">狀態</th>
-                                    <th width="10%">管理</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% for(var i=0; i < data.length ; i++) { %>
-
-                                    <tr>
-                                        <td>
-                                            <%= i+1 %>
-                                        </td>
-                                        <td>
-                                            <%= data[i].ContactPerson %>
-                                        </td>
-                                        <td>
-                                            <%= data[i].PetName %>
-                                        </td>
-                                        <td>
-                                            <%= (data[i].AdoptDate).toLocaleDateString() %>
-                                        </td>
-                                        <td>
-
-
-                                            <%= (data[i].AdoptState==1 ) ? '已批准' : '未批准' ; %>
-
-                                        </td>
-
-
-                                        <td>
-                                            <a href="/BackFosterManage/FosterManageEdit?PetId=<%= data[i].PetId %>">
-                                                <button class="btn btn-primary" name="EditAdopt"
-                                                    value="">編輯</button></a>
-                                            <!-- <a href="/BackFosterManage/FosterManageDele?PetId=<%= data[i].PetId %>">
-                                                <button class="ListButtonDele" name="DeleAdopt" value="">刪除</button></a> -->
-                                        </td>
-                                    </tr>
-
-                                    <% } %>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- 頁碼 -->
-                    <nav aria-label="Page navigation example" class="text-right">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item">
-                                <% if(PageNum> 1) { %>
-                                    <a class="page-link"
-                                        href="/BackFosterManage/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=(PageNum-1) %>"
-                                        aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                    <% } %>
-                            </li>
-                            <% for(var a=1; a <=TotalPage ; a++) { %>
-                                <li class="page-item">
-                                    <a class="page-link"
-                                        href="/BackFosterManage/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=a %>">
-                                        <%= a %>
-                                    </a>
-                                </li>
-                                <% } %>
-                                    <li class="page-item">
-                                        <% if(PageNum < TotalPage) { %>
-                                            <a class="page-link"
-                                                href="/BackFosterManage/FosterManageList?PetName=<%=req.query.PetName%>&FosterDateStart=<%=req.query.FosterDateStart%>&FosterDateEnd=<%=req.query.FosterDateEnd%>&AdoptState=<%=req.query.AdoptState%>&PageNum=<%=(PageNum+1) %>"
-                                                aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                            <% } %>
-                                    </li>
+    <body>
+        <!--navbar-->
+        <div class="container-fluid header">
+            <a href="./X_index.html" class="logoImg navbar-brand">
+                <img src="../img/Logo/改I2 2.png" alt="" class="logo">
+                <img src="../img/Logo/字.png" alt="" class="logo-text">
+            </a>
+            <div class="nav">
+                <!-- 漢堡選單 -->
+                <ul class="menu burgar-menu">
+                    <li><a href="./X_index.html">首頁</a></li>
+                    <li><a href="./AdopList.html">毛孩領養</a></li>
+                    <li><a href="./Foster.html">刊登送養</a></li>
+                    <li><a href="./KnowList.html">毛孩知識</a></li>
+                </ul>
+                <a href="#" class="hamBar burgar-menu">
+                    <i>
+                        <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
+                    </i>
+                </a>
+                <!-- navbar-user -->
+                <div class="btn-group">
+                    <button class="btn  btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <img src="../img/icon/user.png" alt="" class="user-icon">
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right user-menu">
+                        <div class="user-img"></div>
+                        <ul>
+                            <li>某某某</li>
+                            <li><a href="./UserEdit.html">會員資料</a></li>
+                            <li><a href="./UserFoster.html">我的送養文</a></li>
+                            <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
+                            <li><a href="./UserMsg.html">通知</a></li>
+                            <li><a href="./FindMe.html">登出</a></li>
                         </ul>
-                    </nav>
-
+                    </div>
                 </div>
-        </section>
-    </div>
 
-    <%- include("./Back/Foot.txt") %>
+            </div>
+        </div>
+
+        <div class="breadcrumb-block">
+            <div class="container-fluid ">
+                <ol class="breadcrumb pb-0 ">
+                    <li class="breadcrumb-item "><a href="./X_index.html">首頁</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">後臺管理</li>
+                    <li class="breadcrumb-item active" aria-current="page">刊登送養審核</li>
+                    <li class="breadcrumb-item active" aria-current="page">查詢</li>
+                </ol>
+            </div>
+        </div>
+
+
+        <div id="MyDivTitleList" class="container">
+            <h2 class="title-lg">刊登送養審核</h2>
+        </div>
+
+        <div id="ListDiv" class="container">
+
+            <form action="/FosterManageList" method="POST">
+                <table id="MyListTable" style="border-collapse:separate; border-spacing:10px 10px;">
+                    <tr class="MyListTr">
+                        <td>寵物暱稱：</td>
+                        <td colspan="3"><input type="text" id="ListText" class="inputNotOutline" name="PetName"
+                                value="">
+                        </td>
+                    </tr>
+
+                    <tr class="MyListTr">
+                        <td>送審日期(起)：</td>
+                        <td><input type="date" name="FosterDateStart" class="inputNotOutline"></td>
+                    </tr>
+                    <tr class="MyListTr">
+                        <td>送審日期(迄)：</td>
+                        <td><input type="date" name="FosterDateEnd" class="inputNotOutline"></td>
+                    </tr>
+
+                    <tr class="MyListTr">
+                        <td>狀態：</td>
+                        <td>
+                            <input type="radio" name="AdoptState" value="1" checked>
+                            <label for="html" class="MyListLabel">已批准</label>
+                            <input type="radio" name="AdoptState" value="0">
+                            <label for="html" class="MyListLabel">未批准
+                            </label>
+                        </td>
+                    </tr>
+
+                    <tr class="MyListTr">
+                        <td colspan="4">
+                            <input type="submit" class="ListSubmit" value="查詢">
+                            <button type="submit" class="ListSubmit" value="">清除</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+        <div id="MyblueTable" class="container">
+            <a href="/FosterManageAdd"><button class="btnLg btn-lightOrange btnAdd">新增</button></a>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr class="UserFoster-thead">
+                        <th>序號</th>
+                        <th>寵物暱稱</th>
+                        <th>送審日期</th>
+                        <!-- <th>審核通過時間</th> -->
+                        <th>狀態</th>
+                        <th>管理</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i=0; i < data.length ; i++) { %>
+                        <form action="" method="POST">
+                            <tr>
+                                <th scope="row">
+                                    <%= i+1 %>
+                                </th>
+                                <td>
+                                    <%= data[i].PetName %>
+                                </td>
+                                <td>
+                                    <%= (data[i].AdoptDate).toLocaleDateString() %>
+                                </td>
+
+                                <!-- <td>
+                               
+                            </td> -->
+                                <td>
+                                    <%= data[i].AdoptState %>
+                                </td>
+
+                                <td><input type="button" class="ListButtonEdit" name="EditAdopt" value="編輯">
+                                    <input type="submit" class="ListButtonDele" name="DeleAdopt" value="刪除">
+                                </td>
+                            </tr>
+                        </form>
+                        <% } %>
+
+                            <!-- <tr>
+                        <td>02</td>
+                        <td>可可</td>
+                        <td>2021-10-18</td>
+                        <td>2021-10-19</td>
+                        <td>已批准</td>
+                        <td><input type="button" class="ListButtonEdit" value="編輯">
+                            <input type="button" class="ListButtonDele" value="刪除">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>03</td>
+                        <td>黑黑</td>
+                        <td>2021-10-19</td>
+                        <td>2021-10-20</td>
+                        <td>已批准</td>
+                        <td><input type="button" class="ListButtonEdit" value="編輯">
+                            <input type="button" class="ListButtonDele" value="刪除">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>04</td>
+                        <td>白白</td>
+                        <td>2021-10-21 </td>
+                        <td></td>
+                        <td>未批准</td>
+                        <td><input type="button" class="ListButtonEdit" value="編輯">
+                            <input type="button" class="ListButtonDele" value="刪除">
+                        </td>
+                    </tr> -->
+                </tbody>
+                </tr>
+            </table>
+        </div>
+
+        <!-- footer -->
+        <footer class="container-fluid footer">
+            <div class="row justify-content-center w-100 m-0">
+                <div class="col-10 col-md-10 copyright">
+                    本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，僅就一般正常情理做審核，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。
+                    <br>如有任何建議或合作請與我們聯絡 <br>© 2021 Copyright .tw By MFEE18-No.8
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // 漢堡選單
+            $(document).ready(function () {
+                $('.burgar-menu').on('click', function (e) {
+                    $('body').toggleClass('burgar-menu-show');
+                });
+            });
+        </script>
+
+
+    </body>
+
+</html>

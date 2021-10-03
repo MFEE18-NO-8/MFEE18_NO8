@@ -40,7 +40,7 @@ router.post('/', function (req, res) {
 
             if (err) throw err;
 
-            res.redirect('/index');
+            res.redirect('/FosterManageList');
         });
 
 

@@ -6,6 +6,7 @@ var pool = require('./lib/db.js');   //含入資料庫連線
 var linePerPage = 5;  // 每頁資料筆數
 
 /* GET home page. */
+
 router.get('/', function (req, res, next) {
     var pageNo = parseInt(req.query.pageNo);  //取得傳送的目前頁數
     if (isNaN(pageNo) || pageNo < 1) {  //如果沒有傳送參數,設目前頁數為第1頁
@@ -17,19 +18,24 @@ router.get('/', function (req, res, next) {
         var totalLine = results[0].cnt;  //資料總筆數
         var totalPage = Math.ceil(totalLine / linePerPage);  //總頁數
 
-        pool.query('select * from articlenews order by ArticleId desc limit ?, ?',
-         [(pageNo - 1) * linePerPage, linePerPage],
-          function (err, results) {  //根據目前頁數讀取資料
-            if (err) throw err;
-            res.render('KnowList', { 
-                data: results, 
-                pageNo: pageNo, 
-                totalLine: totalLine, 
-                totalPage: totalPage, 
-                linePerPage: linePerPage });
-        });
+        pool.query('select * from articlenews order by ArticleId desc limit ?, ?;',
+            [(pageNo - 1) * linePerPage, linePerPage],
+            function (err, results) {  //根據目前頁數讀取資料
+                if (err) throw err;
+                res.render('KnowManageList', {
+                    data: results,
+                    pageNo: pageNo,
+                    totalLine: totalLine,
+                    totalPage: totalPage,
+                    linePerPage: linePerPage
+                });
+            });
     });
 });
 
 module.exports = router;
+
+
+
+
 

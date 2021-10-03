@@ -1,267 +1,259 @@
-<%- include("./Back/Foster.txt") %>
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- 內頁 -->
-    <div class="content-wrapper">
-        <section class="content">
-            <h3 class="title">會員資料管理</h3>
-            <form action="" id="News" name="News" method="POST" class="table-responsive">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FosterManageEdit</title>
 
+    <!-- jquery -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
+        integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=='
+        crossorigin='anonymous'></script>
+    <!-- Bootstrap CSS -->
+    <!-- 連結方式建議使用cdn 嘗試一下未來工作的情況 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+    <script src="../Bootstrap/js/jquery.min.js"></script>
+    <script src="../Bootstrap/js/popper.min.js"></script>
+    <script src="../Bootstrap/js/bootstrap.min.js"></script>
 
-                <!-- 不可編輯區 -->
-                <table class=" table table-striped">
-                    <!-- 刊登資訊 -->
-                    <tr class="">
-                        <th scope="col" class="table-title"
-                            style="vertical-align: middle; background-color:#79ABD1 ;  ;" colspan="4">
-                            刊登資訊
-                        </th>
-
-                    </tr>
-                    <!-- 會員刊登日期 -->
-                    <tr class="">
-                        <th scope="col" style="vertical-align: middle;">
-                            刊登日期
-                        </th>
-                        <td colspan="3">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <%= (data[0].AdoptDate).toLocaleDateString() %>
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- 毛孩資訊 -->
-                    <tr class="">
-                        <th scope="col" class="table-title" style="vertical-align: middle;" colspan="4">
-                            毛孩資訊
-                        </th>
-
-                    </tr>
-                    <!-- 寵物暱稱 -->
-                    <tr class="">
-                        <th scope="col" style="vertical-align: middle;">
-                            寵物暱稱 </th>
-                        <td>
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <div class="form-group">
-                                    <%= data[0].PetName %>
-                                </div>
-                            </div>
-                        </td>
-                        <!-- 種類 -->
-                        <th scope="col" style="vertical-align: middle;">
-                            種類 </th>
-                        <td>
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <%= data[0].PetBreed %>
-                            </div>
-                        </td>
-
-                    </tr>
+    <!-- css -->
+    <link rel="stylesheet" href="stylesheets/minyustyle.css">
+    <title>浪浪有窩</title>
 
 
-                    <!-- 品種 -->
-                    <tr class="">
-                        <th scope="col" style="vertical-align: middle;">
-                            品種
-                        </th>
-                        <td>
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <%= data[0].BodyType %>
-                            </div>
-                        </td>
+</head>
 
-                        <!--  體型 -->
-                        <th scope="col" style="vertical-align: middle;">
-                            體型
-                        </th>
-                        <td>
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <%= data[0].PetFur %>
-                            </div>
-                        </td>
-                    </tr>
+<body>
 
-                    <!-- 毛色 -->
-                    <tr class="">
-                        <th scope="col" style="vertical-align: middle;">
-                            毛色
-                        </th>
-                        <td>
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <%= data[0].PetAge %>
-                            </div>
-                        </td>
-                        <!--  年紀 -->
-                        <th scope="col" style="vertical-align: middle;">
-                            年紀
-                        </th>
-                        <td>
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <%= data[0].PetGender %>
-                            </div>
-
-                        </td>
-                    </tr>
-                    <tr class="">
-                        <th scope="col" style="vertical-align: middle;">
-                            性別
-                        </th>
-                        <td>
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <%= data[0].Neuter %>
-                            </div>
-                        </td>
-                        <!-- 結紮狀況 -->
-                        <th scope="col" style="vertical-align: middle;">
-                            結紮狀況
-                        </th>
-                        <td>
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <%= data[0].Neuter %>
-                            </div>
-                        </td>
-
-
-                    </tr>
-
-                    <!-- 是否有晶片 -->
-                    <tr class="">
-                        <th scope="col" style="vertical-align: middle;">
-                            是否有晶片
-                        </th>
-                        <td>
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <%= data[0].Microchip %>
-                            </div>
-                        </td>
-                        <!-- 照片 -->
-                        <th scope="col" style="vertical-align: middle;" rowspan="4">
-                            照片 </th>
-                        <td rowspan="4">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <!-- 隱藏img -->
-                                <img src="" alt="" id="outputImg" height="100" style="display:none">
-                                <!-- 隱藏img end -->
-
-                                <!-- <label for="uploadImg" class="TitleButton uploadImg">
-                    <input type="file" style="display:none;" accept=".jpg, .jpeg, .png" id="uploadImg"
-                        name="uploadImg" onchange="openFile(event)">上傳圖片
-                </label>
-                <input type="button" class="TitleButton" value="刪除圖片" id="deleteImg"> -->
-                            </div>
-                        </td>
-                    </tr>
-
-
-                    <!-- 寵物描述 -->
-                    <tr class="">
-                        <th scope="col" style="vertical-align: middle;">
-                            寵物描述
-                        </th>
-                        <td>
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <%= data[0].PetDes %>
-                            </div>
-                        </td>
-
-                    </tr>
-
-
-                    <!-- 縣市 -->
-                    <tr class="">
-                        <th scope="col" style="vertical-align: middle;">
-                            縣市
-                        </th>
-                        <td>
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <%= data[0].CityId %>
-                            </div>
-                    </tr>
-                    <!-- 刊登資訊 -->
-                    <tr class="">
-                        <th scope="col" class="table-title" style="vertical-align: middle;" colspan="4">
-                            聯絡資訊
-                        </th>
-
-                    </tr>
-                    <!-- 聯絡人 -->
-                    <tr class="">
-                        <th scope="col" style="vertical-align: middle;">
-                            聯絡人
-                        </th>
-                        <td>
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <%= data[0].ContactPerson %>
-                            </div>
-                        </td>
-                        <!-- 聯絡電話 -->
-                        <th scope="col" style="vertical-align: middle;">
-                            聯絡電話
-                        </th>
-                        <td>
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <%= data[0].ContactPhone %>
-                            </div>
-                        </td>
-                    </tr>
-
-
-
-
-
-                </table>
-
-
-                <div class="col-xs-12">
-                    <div class="search">
-
-                        <!-- 審核結果 -->
-                        <div class=" col-xs-12 col-sm-6 col-md-3">
-                            <div class="form-group">
-                                <label>審核結果</label>
-                                <div class="clearfix"></div>
-
-                                <label for="memberState_1">
-                                    <input type="radio" id="memberState_1" name="AdoptState" value="1"
-                                        <%=(data[0].AdoptState==1 ) ? 'checked' : '' ; %> >已批准
-                                    <input type="radio" id="memberState_1" name="AdoptState" value="0"
-                                        <%=(data[0].AdoptState==1 ) ? '' : 'checked' ; %> >未批准
-
-                                </label>
-                            </div>
-                        </div>
-
-
-                        <!-- 確認修改/返回 -->
-
-                        <div class="col-xs-12 text-right">
-                            <input type="submit" class="btn btn-primary" value="審核">
-                            <input type="text" style="display: none;" id="PetDeleInput" name="PetId" value="<%= data[0].PetId
-                                %>">
-
-                            <!-- <button type="submit" class="btn btn-primary" name="PetId"
-                                value="<%= data[0].PetId %>">審核</button> -->
-
-                            <a href="/BackFosterManage/FosterManageList">
-                                <button type="button" class="btn btn-primary">返回</button>
-                            </a>
-                        </div>
-                        <div class="clearfix"></div>
-
-
+    <body>
+        <!-- navbar-->
+        <div class="container-fluid header">
+            <a href="./X_index.html" class="logoImg navbar-brand">
+                <img src="../img/Logo/改I2 2.png" alt="" class="logo">
+                <img src="../img/Logo/字.png" alt="" class="logo-text">
+            </a>
+            <div class="nav">
+                <!-- 漢堡選單 -->
+                <ul class="menu burgar-menu">
+                    <li><a href="./X_index.html">首頁</a></li>
+                    <li><a href="./AdopList.html">毛孩領養</a></li>
+                    <li><a href="./Foster.html">刊登送養</a></li>
+                    <li><a href="./KnowList.html">毛孩知識</a></li>
+                </ul>
+                <a href="#" class="hamBar burgar-menu">
+                    <i>
+                        <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
+                    </i>
+                </a>
+                <!-- navbar-user -->
+                <div class="btn-group">
+                    <button class="btn  btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <img src="../img/icon/user.png" alt="" class="user-icon">
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right user-menu">
+                        <div class="user-img"></div>
+                        <ul>
+                            <li>某某某</li>
+                            <li><a href="./UserEdit.html">會員資料</a></li>
+                            <li><a href="./UserFoster.html">我的送養文</a></li>
+                            <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
+                            <li><a href="./UserMsg.html">通知</a></li>
+                            <li><a href="./FindMe.html">登出</a></li>
+                        </ul>
                     </div>
                 </div>
 
+            </div>
+        </div>
+
+        <div class="breadcrumb-block">
+            <div class="container-fluid ">
+                <ol class="breadcrumb pb-0 ">
+                    <li class="breadcrumb-item "><a href="./X_index.html">首頁</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">後臺管理</li>
+                    <li class="breadcrumb-item active" aria-current="page">刊登送養審核</li>
+                    <li class="breadcrumb-item active" aria-current="page">檢視</li>
+                </ol>
+            </div>
+        </div>
 
 
+        <div id="MyDivTitle" class="container">
+            <h2 class="title-lg">刊登送養審核</h2>
+        </div>
 
 
+        <div id="MyDivView" class="container">
+            <table>
+                <tr>
+                    <td class="ViewTitle">寵物暱稱
+                    </td>
+                    <td class="ContentView"><label for="html" id="MyLabel">
+                            <%= data[0].PetName %>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ViewTitle">會員編號
+                    </td>
+                    <td class="ContentView"><label for="html" id="MyLabel">
+                            <%= data[0].MemberId %>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ViewTitle">會員刊登日期
+                    </td>
+                    <td class="ContentView"><label for="html" id="MyLabel">
+                            <%= (data[0].AdoptDate).toLocaleDateString() %>
+                        </label></td>
+                </tr>
+                <tr>
+                    <td class="ViewTitle">內容</td>
+                    <td class="ContentView">
+                        <table id="FosterTable" border="1">
+                            <tr>
+                                <td>種類</td>
+                                <td>
+                                    <%= data[0].PetSpecies %>
+                                </td>
+                            </tr>
+                            <tr class="FosterTr">
+                                <td>品種</td>
+                                <td>
+                                    <%= data[0].PetBreed %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>體型</td>
+                                <td>
+                                    <%= data[0].BodyType %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>毛色</td>
+                                <td>
+                                    <%= data[0].PetFur %>
+                                </td>
+                            </tr>
+                            <tr></tr>
+                            <td>年紀</td>
+                            <td>
+                                <%= data[0].PetAge %>
+                            </td>
+                </tr>
+                <tr>
+                    <td>性別</td>
+                    <td>
+                        <%= data[0].PetGender %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>結紮狀況</td>
+                    <td>
+                        <%= data[0].Neuter %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>是否有晶片</td>
+                    <td>
+                        <%= data[0].Microchip %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>縣市</td>
+                    <td>
+                        <%= data[0].CityId %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>連絡人</td>
+                    <td>
+                        <%= data[0].ContactPerson %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>連絡電話</td>
+                    <td>
+                        <%= data[0].ContactPhone %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>寵物描述</td>
+                    <td>
+                        <%= data[0].PetDes %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>領養狀態</td>
+                    <td>
+                        <input type="radio" name="AdoptState" value="">
+                        <label for="">已通過</label>
+                        <input type="radio" name="AdoptState" value="">
+                        <label for="">未通過</label>
+                    </td>
+                </tr>
+            </table>
+            </td>
+            </tr>
 
 
-            </form>
-        </section>
-    </div>
-    </div>
+            <td class="Title">照片</td>
+            <td colspan="5" class="Content">
+                <img src="">
+                <div id="TitleButtonDiv">
+                    <!-- 隱藏img -->
+                    <img src="" alt="" id="outputImg" height="100" style="display:none">
+                    <!-- 隱藏img end -->
 
+                    <label for="uploadImg" class="TitleButton uploadImg">
+                        <input type="file" style="display:none;" accept=".jpg, .jpeg, .png" id="uploadImg"
+                            name="uploadImg" onchange="openFile(event)">上傳圖片
+                    </label>
+                    <input type="button" class="TitleButton" value="刪除圖片" id="deleteImg">
+                </div>
+            </td>
+            <tr>
+                <td class="ViewTitle">狀態</td>
+                <td class="ContentView">
+                    <label for="html" id="MyLabel">
+                        <%= data[0].AuditId %>
+                    </label>
+                </td>
+            </tr>
 
+            <tr>
+                <td colspan="2" id="MySubmitId">
+                    <input type="submit" class="MySubmitSent" value="修改">
+                    <input type="submit" class="MySubmitCancel" value="取消">
+                </td>
+            </tr>
+            </table>
+        </div>
 
-    <%- include("./Back/Foot.txt") %>
+        <!-- footer -->
+        <footer class="container-fluid footer">
+            <div class="row justify-content-center w-100 m-0">
+                <div class="col-10 col-md-10 copyright">
+                    本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，僅就一般正常情理做審核，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。
+                    <br>如有任何建議或合作請與我們聯絡 <br>© 2021 Copyright .tw By MFEE18-No.8
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // 漢堡選單
+            $(document).ready(function () {
+                $('.burgar-menu').on('click', function (e) {
+                    $('body').toggleClass('burgar-menu-show');
+                });
+            });
+        </script>
+
+    </body>
+
+</html>
