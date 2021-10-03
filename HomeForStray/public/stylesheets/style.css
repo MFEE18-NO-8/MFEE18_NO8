@@ -1453,7 +1453,7 @@ footer{
 	}
 	.AdoptContent-pic {
 		width:300px;
-		transform: translateX(6%);
+		transform: translateX(5%);
 	}
 	.AdoptContent-connection { /*聯絡人*/
 		background: #f8e4ac91;
@@ -1501,13 +1501,13 @@ footer{
 		margin-bottom: 5px;
 	}
 }
-@media (min-width:400px){
+@media (max-width:480px){
 	.AdoptContent-pic {
-		width:350px;
-		transform: translateX(5%);
+		width:300px;
+		transform: translateX(7%);
 	}
 	.AdoptContent-title{
-		transform: translate3d(45%,35%, 0px);
+		transform: translate3d(35%,35%, 0px);
 	}
 }
 /* 小手機 */
