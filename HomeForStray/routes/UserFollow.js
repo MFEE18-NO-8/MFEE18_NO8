@@ -15,13 +15,14 @@ router.get('/', function (req, res, next) {
         pool.query('SELECT * FROM `UserFollow` JOIN `member` ON(`member`.MemberID=`UserFollow`.`MemberID`) JOIN PostForAdopt ON (`PostForAdopt`.`Petid`=`UserFollow`.`Petid`) WHERE `UserFollowState` = 1 AND `Email`=?', [req.session.Email], function (err, results) {
             var FollowData = results; // 撈取是否有登入session
             console.log(FollowData)
-
+            console.log("[mysql error]",err);
             var TotalLine = FollowData.length; //資料總筆數 朱建輝 有兩筆追蹤資料
             var TotalPage = Math.ceil(TotalLine / LinePerPage); //資料總頁數＝總筆數/每頁顯示數  朱建輝資料總頁數 1 ，因為總共2筆/每頁顯示5筆資料
 
-            pool.query('SELECT * FROM `UserFollow` ORDER BY `FollowDate` DESC LIMIT ?,?', [(PageNo - 1) * LinePerPage, LinePerPage],
-                function (err, results) {
-                    if (err) throw err;
+            pool.query('SELECT * FROM `UserFollow`JOIN `member` ON(`member`.MemberID=`UserFollow`.`MemberID`) JOIN PostForAdopt ON (`PostForAdopt`.`Petid`=`UserFollow`.`Petid`) WHERE `UserFollowState` = 1 ORDER BY `FollowDate` DESC LIMIT ?,?', [(PageNo - 1) * LinePerPage, LinePerPage],function (err, results) {
+                var paggeData = results;
+                console.log(paggeData)   //這個答案用不到＝＝
+                if (err) throw err;
                     res.render('UserFollow', {
                         data: results,
                         FollowData: FollowData || "",
@@ -46,12 +47,14 @@ router.get('/', function (req, res, next) {
 
 // 方法2.更改數值 - 模擬中
 // router.post('/UserFollow', function (req, res, next) {
-//     //我該怎麼接收前台傳出的指令？是下面這樣做嗎？
-//     var FollowButton = req.body.FollowButton
-//     var FollowButton = req.query.FollowButton
-//     var FollowButton = req.params.FollowButton
-
-//     pool.query('UPDATE UserFollow SET UserFollowState=0 WHERE UserFollow =?', [id], function (errr, results) {
+//     var UserFollowState = req.body.FollowState //透過在name設定FollowState作為標記 相同name的其value 會傳送到這裡  當我value=data[i].UserFollowState的時候 他會顯示1（追蹤中）
+//     var PetId = req.body.PetId 
+//     //所以我可以得証 我可以透過設定name標記 那顆按鈕
+//     var goooood = req.body.goooood
+//     //那我在name設立變數呢？
+//     var cancelfollow = req.body.data[i]
+//     //這樣是不是我網頁上面的每個取消追蹤都有自己的編號
+//     pool.query('UPDATE UserFollow SET UserFollowState= ? WHERE UserFollow.PetId =?', [UserFollowState, PetId], function (errr, results) {
 //         if (err) throw err;
 //         res.redirect('/UserFollow');
 //     });
