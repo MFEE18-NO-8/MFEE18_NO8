@@ -12,15 +12,6 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
-		<!-- scrollify -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.js" integrity="sha512-2rSKyHme2mrplfIGsA8bFYAYddQ66qR+Dh71OrNZsZOtMdCYa8V1lJvl2mr/qzwcMIs20ddYz4JLiBmwS2K7Iw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-		<script>
-			$(function () {
-				$.scrollify({
-					section: ".MainStyle",
-				});
-			});
-		</script>
 		<!-- css -->
 		<link rel="stylesheet" href="stylesheets/lynnstyle.css" />
 		<title>浪浪有窩</title>
@@ -30,7 +21,7 @@
 		<!-- 引入header -->
 		<%- include Header %>
 
-		<section class="MainStyle">
+		<section class="OhMyGod" data-section-name="one">
 			<div class="container-fluid body-content">
 				<div class="row w-100">
 					<div class="col-12 col-md body-content-img">
@@ -46,7 +37,7 @@
 			</div>
 		</section>
 		<!-- 關於我們 -->
-		<section class="MainStyle">
+		<section class="OhMyGod" data-section-name="two">
 			<div class="container about-block">
 				<div class="row w-100">
 					<div class="col-12 col-md-6 about-logo">
@@ -72,7 +63,7 @@
 		</section>
 
 		<!-- 連結區塊 -->
-		<section class="MainStyle">
+		<section class="OhMyGod" data-section-name="three">
 			<div class="container link-block-adopt">
 				<img src="../img/新圖/adopt.png" alt="" class="adopt-right-img" />
 				<div class="adopt-right w-100">
@@ -88,7 +79,7 @@
 			</div>
 		</section>
 
-		<section class="MainStyle">
+		<section class="OhMyGod" data-section-name="four">
 			<div class="container link-block-adopt">
 				<div class="foster-left">
 					<img src="../img/新圖/cloud-1.png" alt="" />
@@ -106,7 +97,7 @@
 			</div>
 		</section>
 
-		<section class="MainStyle">
+		<section class="OhMyGod" data-section-name="five">
 			<div class="container link-block-adopt">
 				<img src="../img/新圖/毛孩知識.png" alt="" class="adopt-right-img" />
 				<div class="know-right w-100">
@@ -123,7 +114,7 @@
 		</section>
 
 		<!-- 最新消息 -->
-		<section class="MainStyle">
+		<section class="OhMyGod" data-section-name="six">
 			<div class="container-fluid fly-new w-100">
 				<div class="fly-new-img"></div>
 				<!-- <img src="../img/新圖/未命名-1.png" alt="" class="fly-new-img w-100"> -->
@@ -147,7 +138,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="MainStyle">
+		<section class="OhMyGod" data-section-name="seven">
 			<!-- 造景 -->
 			<div class="w-100 view"></div>
 			<!-- 河流 -->
@@ -168,7 +159,7 @@
 		</section>
 
 		<!-- footer -->
-		<section class="MainStyle">
+		<section class="OhMyGod">
 			<footer class="container-fluid p-0">
 				<div class="container">
 					<div class="row">
@@ -230,6 +221,15 @@
 				$(".adopt-right").mouseout(function () {
 					$(".adopt-text").show();
 					$(".adopt-title").hide();
+				});
+			});
+		</script>
+		scrollify
+		<script src="../public/plugins/Scrollify-master/jquery.scrollify.js"></script>
+		<script>
+			$(function () {
+				$.scrollify({
+					section: ".OhMyGod",
 				});
 			});
 		</script>
