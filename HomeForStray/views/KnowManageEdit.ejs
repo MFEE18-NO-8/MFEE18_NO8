@@ -14,7 +14,7 @@
             <td>
               <div class="col-xs-12 col-sm-6 col-md-3">
                 <input type=" text" id="TitleText" class="form-control" value="<%= data[0].ArticleTitle %>"
-                  name="articleTitle" required>
+                  name="ArticleTitle" required>
               </div>
             </td>
           </tr>
@@ -27,7 +27,7 @@
               <!-- 發佈日期str -->
               <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="form-group">
-                  <input name="articleDate" type="date" class="form-control inputNotOutline" id="articleId"
+                  <input name="ArticleDate" type="date" class="form-control inputNotOutline" id="articleId"
                     value="<%= date %>" required>
                 </div>
               </div>
@@ -40,7 +40,7 @@
             </th>
             <td style="vertical-align: middle;">
               <div class="col-xs-12 col-sm-12 col-md-12">
-                <textarea name="articleContent" id="textArea" class="form-control" cols="40" rows="15"
+                <textarea name="ArticleContent" id="textArea" class="form-control" cols="40" rows="15"
                   required><%= data[0].ArticleCont %></textarea>
               </div>
             </td>
