@@ -207,6 +207,11 @@ div.dropdown-menu::before{
     transform: rotate(1deg);
 }
 /* 連結區塊 */
+.more{
+    font-family: 'Shadows Into Light', cursive;
+    color: #92d8f1;
+    font-size: 25px;
+}
 .link-block-adopt{
     display: flex;
     margin-top: 150px;
@@ -298,13 +303,13 @@ div.dropdown-menu::before{
         transform: translateY(-50px);
     }
     25%{
-        transform: translateY(-30px);
+        transform: translateY(-80px);
     }
     50%{
         transform: translateY(-50px);
     }
     100%{
-        transform: translateY(-30px);
+        transform: translateY(-80px);
     }
 }
 @keyframes flyNewText {
@@ -312,13 +317,13 @@ div.dropdown-menu::before{
         transform: translateY(-50px);
     }
     25%{
-        transform: translateY(-30px);
+        transform: translateY(-80px);
     }
     50%{
         transform: translateY(-50px);
     }
     100%{
-        transform: translateY(-30px);
+        transform: translateY(-80px);
     }
 }
 .new-block-title>h3{
