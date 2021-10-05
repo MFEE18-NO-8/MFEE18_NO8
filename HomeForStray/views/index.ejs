@@ -58,6 +58,18 @@
 	</script>
 
 
+	<!-- stellar -->
+	<script src="../public/plugins/stellar.js-master/jquery.stellar.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js"
+		integrity="sha512-PNXCBnFH9wShbV+mYnrfo0Gf3iSREgBWmYAoMIfc+Z83vVq3Nu4yxBk6j+BZ40ZIhtW3WlTQdBvW3AYLAnlgpA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script>
+		$(document).ready(function () {
+			$.stellar();
+		});
+	</script>
+
 
 </head>
 
@@ -192,21 +204,21 @@
 		</section>
 		<section class="OhMyGod" data-section-name="seven">
 			<!-- 造景 -->
-			<div class="w-100 view container-fluid"></div>
+			<div class="w-100 view container-fluid" data-stellar-ratio="0.8"></div>
 			<!-- 河流 -->
 			<div class="container-fluid river w-100">
-				<img src="../img/新圖/river-line01.png" alt="" class="river-line" />
-				<img src="../img/新圖/river-line01.png" alt="" class="river-line2" />
+				<img src="../img/新圖/river-line01.png" alt="" class="river-line" data-stellar-ratio="0.9" />
+				<img src="../img/新圖/river-line01.png" alt="" class="river-line2" data-stellar-ratio="0.9" />
 			</div>
 			<!-- 草原 -->
 			<div class="container-fluid footer-top p-0 w-100">
 				<!-- <img src="../img/新圖/footer-top-2.png" alt="" class="footer-top"> -->
-				<img src="../img/新圖/grass.png" alt="" class="grass-1" />
-				<img src="../img/新圖/doggies.png" alt="" class="dog-1" />
-				<img src="../img/新圖/doggies 2.png" alt="" class="dog-2" />
-				<img src="../img/新圖/doggies 3.png" alt="" class="dog-3" />
-				<img src="../img/新圖/grass.png" alt="" class="grass-2" />
-				<img src="../img/新圖/smallgrass.png" alt="" class="grass-3" />
+				<img src="../img/新圖/grass.png" alt="" class="grass-1" data-stellar-ratio="1" />
+				<img src="../img/新圖/doggies.png" alt="" class="dog-1" data-stellar-ratio="0.8" />
+				<img src="../img/新圖/doggies 2.png" alt="" class="dog-2" data-stellar-ratio="0.9" />
+				<img src="../img/新圖/doggies 3.png" alt="" class="dog-3" data-stellar-ratio="0.8" />
+				<img src="../img/新圖/grass.png" alt="" class="grass-2" data-stellar-ratio="1" />
+				<img src="../img/新圖/smallgrass.png" alt="" class="grass-3" data-stellar-ratio="0.9" />
 			</div>
 
 
@@ -278,8 +290,6 @@
 				});
 			});
 		</script>
-
-
 
 
 </body>
