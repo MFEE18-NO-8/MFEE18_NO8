@@ -1504,10 +1504,11 @@ footer{
 @media (max-width:480px){
 	.AdoptContent-pic {
 		width:300px;
-		transform: translateX(7%);
+		transform: translateX(6%);
+		margin-left: 20px;
 	}
 	.AdoptContent-title{
-		transform: translate3d(35%,35%, 0px);
+		transform: translate3d(44%,35%, 0px);
 	}
 }
 /* 小手機 */
