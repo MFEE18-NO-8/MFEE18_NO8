@@ -41,7 +41,7 @@ module.exports = class Member {
                 })
             })
         }
-        res.redirect('/member/login');
+        res.redirect('/member/login')
     }
 }
 
