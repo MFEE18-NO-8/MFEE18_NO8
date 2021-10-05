@@ -180,7 +180,8 @@ div.dropdown-menu::before{
 }
 /* 關於我們 */
 .about-block {
-    margin-top: 120px;
+    margin-top:120px;
+    transform: translateY(15%);
 }
 .about-logo > img {
     width: 600px;
@@ -291,7 +292,7 @@ div.dropdown-menu::before{
   /* width: 100%; */
   height: 650px;
   background-size: cover;
-  transform: translateX(-50px);
+  transform: translateX(40px);
   animation-name: flyNew;
   animation-duration: 4s;
   animation-direction: alternate;
@@ -300,30 +301,30 @@ div.dropdown-menu::before{
 }
 @keyframes flyNew {
     0%{
-        transform: translateY(-50px);
+        transform: translateY(40px);
     }
     25%{
-        transform: translateY(-80px);
+        transform: translateY(70px);
     }
     50%{
-        transform: translateY(-50px);
+        transform: translateY(40px);
     }
     100%{
-        transform: translateY(-80px);
+        transform: translateY(70px);
     }
 }
 @keyframes flyNewText {
     0%{
-        transform: translateY(-50px);
+        transform: translateY(40px);
     }
     25%{
-        transform: translateY(-80px);
+        transform: translateY(70px);
     }
     50%{
-        transform: translateY(-50px);
+        transform: translateY(40px);
     }
     100%{
-        transform: translateY(-80px);
+        transform: translateY(70px);
     }
 }
 .new-block-title>h3{
@@ -854,6 +855,7 @@ footer{
         padding: 0;
     }
     .about-logo > img {
+        margin-top: 0;
         width: 400px;
     }
     .about-text>.about-text-content{
@@ -861,15 +863,16 @@ footer{
         width: 100%;
         padding: 0;
         margin: 0 15px;
-        line-height: 2;
+        line-height:1.5;
         text-align: center;
     }
     .about-title{
         width: 180px;
-        height: 90px;
+        height:90px;
         background-size: cover;
         margin-left: 30px;
         transform: rotate(5deg);
+        margin-bottom: 20px;
     }
     .about-title>h4{
         padding-top: 25px;
@@ -877,6 +880,10 @@ footer{
     }
     .about-text{
         padding: 0;
+    }
+    .about-block{
+        transform: translateY(0);
+        margin-top: 0;
     }
     /* 區塊連結 */
     .foster-left{
@@ -889,52 +896,55 @@ footer{
         padding: 50px 0px;
     }
     .adopt-right-img{
-        width: 250px;
+        width: 350px;
         height: auto;
-        transform: translate3d(10%,5%,0px);
+        transform: translate3d(10%,35%,0px);
     }
     .adopt-text{
         position: absolute;
         text-align: center;
-        top:90px;
-        left:48px;
+        top:92%;
+        left:-25%;
         font-size: 15px;
         z-index: 1;
     }
     .foster-text{
         position: absolute;
         text-align: center;
-        top:105px;
-        left:83px;
-        font-size: 15px;
+        top:80%;
+        left:27%;
+        /* font-size: 18px; */
         z-index: 1;
     }
     .know-text{
         position: absolute;
         text-align: center;
-        top:120px;
-        left:12px;
-        font-size: 15px;
+        top:101%;
+        left:-36%;
+        font-size: 18px;
         z-index: 1;
     }
     .know-title,.foster-title,.adopt-title{
         display:none;
         position: absolute;
         text-align: center;
-        top:105px;
-        left:100px;
-        font-size: 25px;
+        top:105%;
+        left:-20%;
+        font-size: 40px;
         z-index: 1;
     }
     /* 雲 */
-    .adopt-right>img,.foster-left>img,.know-right>img{
-        width: 300px;
-        height: 200px;
+    /* .adopt-right>img,.foster-left>img,.know-right>img{
+        width: 350px;
+        height: auto;
         background-size: cover;
         transform: translate3d(-10%,20%,0px);
+    } */
+    .know-right>img{
+        transform: translate3d(-50%,80%,0px);
     }
     .foster-left>img{
-        transform: translate3d(5%,25%,0px);
+        transform: translate3d(-3%,55%,0px);
     }
     .foster-left{
         position: relative;
@@ -943,7 +953,7 @@ footer{
     }
     .foster-right-img{
         position: relative;
-        transform: translate3d(-65%,-0%,0px);
+        transform: translate3d(-100%,20%,0px);
     }
     /* 最新消息 */
     .fly-new{
@@ -1065,4 +1075,106 @@ footer{
     }
 }
 /* 小 size 的 iPhone */
-@media(max-width: 414px){}
+@media(max-width: 480px){
+    .logo{
+        margin-top: 20px;
+    }
+    /* 區塊連結 */
+    .foster-left{
+        position: relative;
+        transform: translate3d(5%,-10%,0px);
+    }
+    .link-block-adopt{
+        display: flex;
+        margin-top: 100px;
+        padding: 50px 0px;
+    }
+    .adopt-right-img{
+        width: 350px;
+        height: auto;
+        transform: translate3d(5%,22%,0px);
+    }
+    .adopt-text{
+        position: absolute;
+        text-align: center;
+        top:78%;
+        left:-30%;
+        font-size: 18px;
+        z-index: 1;
+    }
+    .foster-text{
+        position: absolute;
+        text-align: center;
+        top:123%;
+        left:25%;
+        font-size: 18px;
+        z-index: 1;
+    }
+    .know-text{
+        position: absolute;
+        text-align: center;
+        top:84%;
+        left:-39%;
+        font-size: 18px;
+        z-index: 1;
+    }
+    .know-title{
+        display:none;
+        position: absolute;
+        text-align: center;
+        top:85%;
+        left:-25%;
+        font-size: 40px;
+        z-index: 1;
+    }
+    .adopt-title{
+        display:none;
+        position: absolute;
+        text-align: center;
+        top:90%;
+        left:-26%;
+        font-size: 40px;
+        z-index: 1;
+    }
+    .foster-title{
+        display:none;
+        position: absolute;
+        text-align: center;
+        top:133%;
+        left:27%;
+        font-size: 40px;
+        z-index: 1;
+    }
+    /* 雲 */
+    .adopt-right>img{
+        width: 350px;
+        height: auto;
+        background-size: cover;
+        transform: translate3d(-55%,65%,0px);
+    }
+    .know-right>img{
+        transform: translate3d(-53%,45%,0px);
+        width: 350px;
+    }
+    .foster-left>img{
+        transform: translate3d(-1%,95%,0px);
+    }
+    .foster-left{
+        position: relative;
+        transform: translate3d(5%,5%,0px);
+        z-index: 1;
+    }
+    .foster-right-img{
+        position: relative;
+        transform: translate3d(-100%,20%,0px);
+    }
+    .adopt-right:click{
+        transform: translate3d(-43%,40%,0px);
+    }
+    .know-right:click{
+        transform: translate3d(-43%,40%,0px);
+    }
+    .foster-left:click{
+        transform: translate3d(-1%,95%,0px);
+    }
+}
