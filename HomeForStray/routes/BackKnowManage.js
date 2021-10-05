@@ -104,18 +104,18 @@ router.post('/KnowManageAdd', function (req, res, next) {
     // 上傳圖片
     if (!req.files)
         return res.status(400).send('No files were uploaded.');
-    
+
     var file = req.files.uploadImg;
     // 將圖片重新命名
     var img_name = Date.now() + '-' + file.name;
-    console.log(req.files.uploadImg);
+    
     // 限定圖片格式
     if (file.mimetype == "image/jpeg" || file.mimetype == "image/png" || file.mimetype == "image/jpg") {
-    // 圖片儲存路徑
+        // 圖片儲存路徑
         file.mv('public/images/upload_images/' + img_name, function (err) {
 
             if (err) { return res.status(500).send(err); }
-    // 存入資料庫
+            // 存入資料庫
             else {
                 pool.query('insert into articlenews set ?', [{//新增資料
                     ArticleTitle: articleTitle,
@@ -215,24 +215,41 @@ router.get('/KnowManageEdit', function (req, res, next) {
     });
 });
 
+
 router.post('/KnowManageEdit', function (req, res, next) {
     var pageNo = parseInt(req.query.pageNo);
     var articleTitle = req.body['ArticleTitle'];  //取得輸入的類型
     var articleDate = req.body['ArticleDate'];
     var articleContent = req.body['ArticleContent'];
+   
+    // 上傳圖片
+    // if (!req.files)
+    //     return res.status(400).send('No files were uploaded.');
+        
+    var file = req.files.uploadImgEdit;
+    // 將圖片重新命名
+    var img_name = Date.now() + '-' + file.name;
+    // 限定圖片格式
+    if (file.mimetype == "image/jpeg" || file.mimetype == "image/png" || file.mimetype == "image/jpg") {
+        // 圖片儲存路徑
+        file.mv('public/images/upload_images/' + img_name, function (err) {
 
-
-    pool.query('update articlenews set ? where ArticleId=?', [{  //更新資料
-        ArticleTitle: articleTitle,
-        ArticleDate: articleDate,
-        ArticleCont: articleContent,
-    }, id], function (err, results) {
-        if (err) throw err;
-        res.redirect('/backKnowManage/KnowManageList');  //回到原來頁數的管理頁面
-    });
+            if (err) { return res.status(500).send(err); }
+            // 存入資料庫
+            else {
+                pool.query('update articlenews set ? where ArticleId=?', [{  //更新資料
+                    ArticleTitle: articleTitle,
+                    ArticleDate: articleDate,
+                    ArticleCont: articleContent,
+                    ArticleImg: img_name,
+                }, id], function (err, results) {
+                    if (err) throw err;
+                    res.redirect('/backKnowManage/KnowManageList');  //回到原來頁數的管理頁面
+                });
+            }
+        });
+    }
 });
-
-
 
 
 

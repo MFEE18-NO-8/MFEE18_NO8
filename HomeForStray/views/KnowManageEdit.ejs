@@ -4,7 +4,7 @@
   <div class="content-wrapper">
     <section class="content">
       <h3 class="title">毛孩知識管理</h3>
-      <form action="" id="News" name="News" method="POST" class="table-responsive">
+      <form action="" method="POST" class="table-responsive" enctype="multipart/form-data">
         <table class=" table table-striped">
           <!-- 標題 -->
           <tr class="">
@@ -54,13 +54,14 @@
               <img src="">
               <div id="TitleButtonDiv">
                 <!-- 資料庫抓出的檔案 -->
-                <img id="outputImg2" src="/images/upload_images/<%= data[0].ArticleImg %>" height="100" alt="">
+                <img id="outputImg2" src="/images/upload_images/<%= data[0].ArticleImg %>" height="100" alt=""
+                  name="uploadImg2">
 
                 <!-- 隱藏img -->
                 <img src="" alt="" id="outputImg" height="100" style="display:none">
                 <!-- 隱藏img end -->
-                <label for="uploadImg" class="btn btn-success">
-                  <input type="file" style="display:none;" accept=".jpg, .jpeg, .png" id="uploadImg" name="uploadImg"
+                <label for="uploadImgEdit" class="btn btn-success">
+                  <input type="file" style="display:none;" accept=".jpg, .jpeg, .png" id="uploadImgEdit" name="uploadImgEdit"
                     onchange="openFile(event)">上傳圖片
                 </label>
                 <input type="button" value="刪除圖片" id="deleteImg" class="btn btn-danger" onclick="delFile(event)">
