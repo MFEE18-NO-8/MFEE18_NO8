@@ -22,40 +22,41 @@
     crossorigin="anonymous"></script>
   
   <!-- css -->
-  <link rel="stylesheet" href="stylesheets/minyustyle.css">
+  <!-- <link rel="stylesheet" href="../HomeForStray/public/stylesheets/minyustyle.css"> -->
   <link rel="stylesheet" href="stylesheets/style.css">
   <title>浪浪有窩</title>
   <style>
     /* 熱門文章 */
-    .hot-article-box {
+    /* .hot-article-box {
       height: 450px;
-    }
+    } */
 
     .hot-article-imgbox {
       float: left;
-      height: 150px;
+      /* height: 150px; */
       padding: 10px;
     }
 
     .hot-article-listbox {
       float: right;
-      height: 150px;
       padding: 10px;
     }
 
-    .hot-article-img {
+    .hot-article-img { /*熱門文章縮圖*/
       border-radius: 5px;
-      width: 100%;
-      height: 100%;
+      width:70px;
+      height:70px;
       object-fit: cover;
     }
 
     .hot-articleTitle {
-      font-size: 20px;
+      font-size: 18px;
+      margin-bottom:0px;
     }
 
-    .hot-articleDate {
-      text-align: center;
+    .hot-articleDate{
+      text-align: left;
+      font-size: 16px;
     }
 
     /* 文章區塊 */
@@ -66,8 +67,8 @@
     }
 
     .articleDate {
-      text-align: right;
-      padding: 0 20px;
+      text-align:left;
+      padding:5px 20px;
     }
 
     .titleStyle {
@@ -77,9 +78,27 @@
     }
 
     .contentStyle {
+        font-size: 22px;
+        line-height: 2;
       text-align: left;
       /* 使用CSS的white-space 屬性保留空白符序列，但是正常地進行換行。 */
       white-space: pre-wrap;
+    }
+    .hot-block{
+        margin-top: 100px;
+    }
+    .line{
+        background-color: #fff;
+        padding: 0.1rem; 
+        border-radius: 40px; 
+        width: 65%;
+        margin-bottom: 20px;
+    }
+    .line2{
+        background-color: #aaa;
+        padding: 0.05rem; 
+        border-radius: 40px; 
+        margin-bottom: 50px;
     }
   </style>
 </head>
@@ -88,49 +107,49 @@
   <%- include Header %>
 
     <!-- 主要內容 -->
-    <div class="row col-12">
-      <div class="col-md-1"></div>
-      <div class="col-md-7 articleBox">
+    <div class="container">
+      <div class="row col-12">
+      <div class="col-md-8 articleBox">
+          <div class="article-title-box">
+            <h3 class="titleStyle">
+                <%= data.ArticleTitle %>
+            </h3>
+            <p class="figure-caption articleDate">
+                <%= data.ArticleDate.toLocaleDateString() %>
+            </p>
+          </div>
+          <div class="line2"></div>
         <div class="article-img-box">
           <img class="img-fluid article-img" src="/images/upload_images/<%= data.ArticleImg %>" alt="" />
-        </div>
-        <div class="article-title-box">
-          <h4 class="titleStyle">
-            <%= data.ArticleTitle %>
-          </h4>
-          <p class="figure-caption articleDate">
-            <%= data.ArticleDate.toLocaleDateString() %>
-          </p>
         </div>
         <div class="article-content-box">
           <p class="contentStyle">
             <%= data.ArticleCont %>
-          </p>
-          <p class="figure-caption" style="text-align: right;">
-            點擊次數：<%= data.ArticleHits %>
-          </p>
+            </p>
+            <p class="figure-caption" style="text-align: right;">
+                點擊次數：<%= data.ArticleHits %>
+              </p>
         </div>
       </div>
 
       <!-- 熱門文章 -->
-      <div class="col-md-3"
-        style="background-color: var(--BananaYellow); height: 550px; border-radius: 40px; overflow: hidden;">
+      <div class="col-md-4 hot-block">
         <div
-          style="display: flex; flex-direction: column; align-items: center; padding-top: 20px; justify-content: space-around;">
-          <p class="h3">熱門文章</p>
+          style="display: flex; flex-direction: column; align-items:left; padding-top: 20px; justify-content: space-around;">
+          <h5 class="">熱門文章</h5>
           <!-- 分界線 -->
-          <div class="" style="background-color: #fff; padding: 0.15rem; border-radius: 40px; width: 65%"></div>
+          <div class="line"></div>
         </div>
         <ul class="col-md-12 hot-article-box">
           <!-- 熱門文章內容 -->
           <% for(var i=0; i<3; i++) { %>
             <li class="row ">
-              <div class="col-md-6 hot-article-imgbox">
+              <div class="col-md-3 hot-article-imgbox">
                 <a href="/KnowConent?id=<%= hotdata[i].ArticleId %>&pageNo=<%= pageNo %>">
                   <img class="hot-article-img" src="/images/upload_images/<%= hotdata[i].ArticleImg %>" alt="" />
                 </a>
               </div>
-              <div class="col-md-6 hot-article-listbox">
+              <div class="col-md-9 hot-article-listbox">
                 <a href="/KnowConent?id=<%= hotdata[i].ArticleId %>&pageNo=<%= pageNo %>">
                   <p class="hot-articleTitle">
                     <%= hotdata[i].ArticleTitle %>
@@ -144,8 +163,9 @@
             <% } %>
         </ul>
       </div>
+    </div>  
     </div>
-      <div class="col-md-1"></div>
+    
 
     <!-- footer -->
     <%- include footer%>
