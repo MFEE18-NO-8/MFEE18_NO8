@@ -92,19 +92,22 @@
       <div class="col-md-1"></div>
       <div class="col-md-7 articleBox">
         <div class="article-img-box">
-          <img class="img-fluid article-img" src="https://placedog.net/<%= 490 %>/280" alt="" />
+          <img class="img-fluid article-img" src="/images/upload_images/<%= data.ArticleImg %>" alt="" />
         </div>
         <div class="article-title-box">
           <h4 class="titleStyle">
-            <%= data[0].ArticleTitle %>
+            <%= data.ArticleTitle %>
           </h4>
           <p class="figure-caption articleDate">
-            <%= data[0].ArticleDate.toLocaleDateString() %>
+            <%= data.ArticleDate.toLocaleDateString() %>
           </p>
         </div>
         <div class="article-content-box">
           <p class="contentStyle">
-            <%= data[0].ArticleCont %>
+            <%= data.ArticleCont %>
+          </p>
+          <p class="figure-caption" style="text-align: right;">
+            點擊次數：<%= data.ArticleHits %>
           </p>
         </div>
       </div>
@@ -124,7 +127,7 @@
             <li class="row ">
               <div class="col-md-6 hot-article-imgbox">
                 <a href="/KnowConent?id=<%= hotdata[i].ArticleId %>&pageNo=<%= pageNo %>">
-                  <img class="hot-article-img" src="../img/animals/dog04.jpeg" alt="" />
+                  <img class="hot-article-img" src="/images/upload_images/<%= hotdata[i].ArticleImg %>" alt="" />
                 </a>
               </div>
               <div class="col-md-6 hot-article-listbox">

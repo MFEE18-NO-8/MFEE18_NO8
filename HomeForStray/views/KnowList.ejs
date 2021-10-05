@@ -172,7 +172,7 @@
 				<!-- 第一張圖 -->
 
 				<div class="carousel-item active pic" style="height:100%">
-					<img src="../img/animals/dog04.jpeg" class="d-block w-100 h-100  " alt="...">
+					<img src="/images/upload_images/<%= hotdata[0].ArticleImg %>" class="d-block w-100 h-100  " alt="...">
 					<div class="carousel-caption d-none d-md-block carousel-special-back">
 						<h5 class="text-white">
 							<%= hotdata[0].ArticleTitle %>
@@ -200,7 +200,7 @@
 
 				<!-- 第二張圖 -->
 				<div class="carousel-item pic " style="height:100%">
-					<img src="../img/animals/dog04.jpeg" class="d-block w-100 h-100" alt="...">
+					<img src="/images/upload_images/<%= hotdata[1].ArticleImg %>" class="d-block w-100 h-100" alt="...">
 					<div class="carousel-caption d-none d-md-block carousel-special-back">
 						<h5 class="text-white">
 							<%= hotdata[1].ArticleTitle %>
@@ -228,7 +228,7 @@
 				</div>
 				<!-- 第三張圖 -->
 				<div class="carousel-item pic " style="height:100%">
-					<img src="../img/animals/cat01.jpg" class="d-block w-100 h-100" alt="...">
+					<img src="/images/upload_images/<%= hotdata[2].ArticleImg %>" class="d-block w-100 h-100" alt="...">
 					<div class="carousel-caption d-none d-md-block carousel-special-back">
 						<h5 class="text-white">
 							<%= hotdata[2].ArticleTitle %>
@@ -269,7 +269,7 @@
 					<li class="row ">
 						<div class="col-md-6 hot-article-imgbox">
 							<a href="/KnowConent?id=<%= hotdata[i].ArticleId %>&pageNo=<%= pageNo %>">
-								<img class="hot-article-img" src="https://placedog.net/300/280" alt="" />
+								<img class="hot-article-img" src="/images/upload_images/<%= hotdata[i].ArticleImg %>" alt="" />
 							</a>
 						</div>
 						<div class="col-md-6 hot-article-listbox">
@@ -318,7 +318,7 @@
 				<% for(var i=0; i<data.length; i++) { %>
 					<li class="row d-inline-flex mb-4">
 						<div class="col-md-4 col-sm-4">
-							<img class="img-fluid rounded" src="https://placedog.net/<%= i+490 %>/280" alt="" />
+							<img class="img-fluid rounded" src="/images/upload_images/<%= data[i].ArticleImg %>" alt="" />
 						</div>
 						<div class="col-md-8 col-sm-8 all-articleBox">
 							<a href="/KnowConent?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>">
@@ -329,9 +329,10 @@
 							<p class="multiline-ellipsis col-md-12">
 								<%= data[i].ArticleCont %>
 							</p>
-							<p class="figure-caption all-articleDate">
+							<p class="figure-caption">
 								<%= data[i].ArticleDate.toLocaleDateString() %>
 							</p>
+							<p style="text-align: right;" class="figure-caption">點擊次數：<%= data[i].ArticleHits %></p>
 							<a href="/KnowConent?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>">
 								<p class="more">Read More</p>
 							</a>
