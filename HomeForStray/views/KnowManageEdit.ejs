@@ -53,6 +53,9 @@
             <td style="vertical-align: middle;">
               <img src="">
               <div id="TitleButtonDiv">
+                <!-- 資料庫抓出的檔案 -->
+                <img id="outputImg2" src="/images/upload_images/<%= data[0].ArticleImg %>" height="100" alt="">
+
                 <!-- 隱藏img -->
                 <img src="" alt="" id="outputImg" height="100" style="display:none">
                 <!-- 隱藏img end -->
@@ -60,7 +63,7 @@
                   <input type="file" style="display:none;" accept=".jpg, .jpeg, .png" id="uploadImg" name="uploadImg"
                     onchange="openFile(event)">上傳圖片
                 </label>
-                <input type="button" value="刪除圖片" id="deleteImg" class="btn btn-danger">
+                <input type="button" value="刪除圖片" id="deleteImg" class="btn btn-danger" onclick="delFile(event)">
               </div>
             </td>
 
@@ -80,6 +83,24 @@
     </section>
   </div>
 
+  <script>
+    // 顯示 outputImg
+    function openFile(event) {
+      var input = event.target; //取得上傳檔案
+      var reader = new FileReader(); //建立FileReader物件
+
+      reader.readAsDataURL(input.files[0]); //以.readAsDataURL將上傳檔案轉換為base64字串
+
+      reader.onload = function () { //FileReader取得上傳檔案後執行以下內容
+        var dataURL = reader.result; //設定變數dataURL為上傳圖檔的base64字串
+        $('#outputImg').attr('src', dataURL).show(); //將img的src設定為dataURL並顯示
+      };
+    }
+    // 刪除圖片
+    function delFile(event) {
+      $('#outputImg,#outputImg2').removeAttr('src'); //將img的src設定為dataURL並顯示
+    }
+  </script>
 
 
 

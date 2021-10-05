@@ -58,7 +58,7 @@
                   <input type="file" style="display:none;" accept=".jpg, .jpeg, .png" id="uploadImg" name="uploadImg"
                     onchange="openFile(event)">上傳圖片
                 </label>
-                <input type="button" value="刪除圖片" id="deleteImg" class="btn btn-danger">
+                <input type="button" value="刪除圖片" id="deleteImg" class="btn btn-danger" onclick="delFile(event)" >
               </div>
             </td>
 
@@ -99,6 +99,10 @@
         var dataURL = reader.result; //設定變數dataURL為上傳圖檔的base64字串
         $('#outputImg').attr('src', dataURL).show(); //將img的src設定為dataURL並顯示
       };
+    }
+    // 刪除圖片
+    function delFile(event){
+      $('#outputImg').removeAttr('src'); //將img的src設定為dataURL並顯示
     }
   </script>
 
