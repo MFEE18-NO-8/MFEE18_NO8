@@ -20,11 +20,10 @@ router.get('/', function (req, res, next) {
         pool.query('select * from Member where Email=?', [req.session.Email], function (err, results) {
             var memberData = results[0]; // 撈取是否有登入session
 
-            pool.query('select * from articlenews order by ArticleId desc limit ?, ?;select * from articlenews order by ArticleId desc limit 0, 3',
+            pool.query('select * from articlenews order by ArticleId desc limit ?, ?;select * from articlenews order by ArticleHits desc limit 0, 3',
                 [(pageNo - 1) * linePerPage, linePerPage],
                 function (err, results) {  //根據目前頁數讀取資料
                     if (err) throw err;
-                    console.log(results[1])
                     res.render('KnowList', {
                         data: results[0],
                         hotdata: results[1],

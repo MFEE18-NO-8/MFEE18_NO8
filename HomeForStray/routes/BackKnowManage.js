@@ -95,21 +95,42 @@ router.get('/KnowManageAdd', function (req, res, next) {
 });
 
 router.post('/KnowManageAdd', function (req, res, next) {
-    console.log(req.file);
+
     var pageNo = parseInt(req.query.pageNo);
     var articleTitle = req.body['ArticleTitle'];  //取得輸入的類型
     var articleDate = req.body['ArticleDate'];
     var articleContent = req.body['ArticleContent'];
 
-    pool.query('insert into articlenews set ?', [{//新增資料
-        ArticleTitle: articleTitle,
-        ArticleDate: articleDate,
-        ArticleCont: articleContent,
+    // 上傳圖片
+    if (!req.files)
+        return res.status(400).send('No files were uploaded.');
+    
+    var file = req.files.uploadImg;
+    // 將圖片重新命名
+    var img_name = Date.now() + '-' + file.name;
+    console.log(req.files.uploadImg);
+    // 限定圖片格式
+    if (file.mimetype == "image/jpeg" || file.mimetype == "image/png" || file.mimetype == "image/jpg") {
+    // 圖片儲存路徑
+        file.mv('public/images/upload_images/' + img_name, function (err) {
 
-    }], function (err, results) {
-        if (err) throw err;
-        res.redirect('/backKnowManage/KnowManageList');
-    });
+            if (err) { return res.status(500).send(err); }
+    // 存入資料庫
+            else {
+                pool.query('insert into articlenews set ?', [{//新增資料
+                    ArticleTitle: articleTitle,
+                    ArticleDate: articleDate,
+                    ArticleCont: articleContent,
+                    ArticleImg: img_name,
+                    ArticleHits: 0, //點擊次數
+
+                }], function (err, results) {
+                    if (err) throw err;
+                    res.redirect('/backKnowManage/KnowManageList');
+                });
+            }
+        })
+    }
 });
 
 

@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const fileUpload = require('express-fileupload');
 //上述列 含入套件
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -34,6 +35,8 @@ app.use('/users', usersRouter);
 
 //引入multer
 const multer = require('multer');
+
+app.use(fileUpload());
 
 // 會員路由
 var member = require('./routes/member');

@@ -10,16 +10,31 @@ router.get('/', function (req, res, next) {
     var memberData = results[0]; // 撈取是否有登入session
 
 
-    pool.query('select * from articlenews where ArticleId=?;select * from articlenews order by ArticleId desc limit 0, 3', [id], function (err, results) {  //根據id讀取資料
+    pool.query('select * from articlenews where ArticleId=?', [id], function (err, results) {  //根據id讀取資料
       if (err) throw err;
-      
-      res.render('KnowConent', 
-      { data: results[0], 
-        memberData : memberData || "" ,
-        pageNo: pageNo, 
-        hotdata: results[1], });  //傳送pageNo給返回首頁使用(回到原來頁面)
+
+      var oneArticles = results[0];
+      pool.query('select * from articlenews order by ArticleHits desc limit 0, 3', [id], function (err, results) {
+        console.log(results);
+        res.render('KnowConent',
+          {
+            data: oneArticles,
+            memberData: memberData || "",
+            pageNo: pageNo,
+            hotdata: results,
+            
+          });  //傳送pageNo給返回首頁使用(回到原來頁面)
+          
+          setTimeout(function () { //讀取資料庫動作需時間,故延遲1秒才更新資料庫
+          hits = results[0].ArticleHits + 1;  //將原來點擊數加1
+          console.log(results[0].ArticleHits)
+
+          pool.query('update articlenews set ? where ArticleId=?', [{ ArticleHits: hits }, id], function (err, results) {  //ejs語法,更新資料庫
+            if (err) throw err;
+          });
+        }, 1000);
+      });
     });
   });
 });
-
 module.exports = router;

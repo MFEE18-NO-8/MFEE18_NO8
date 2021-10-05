@@ -56,20 +56,13 @@ module.exports = function register(memberData) {
                         result.status = "註冊成功。"
                         result.registerMember = memberData;
                         resolve(result);
-                        db.query(`INSERT INTO usermsg (MemberID,MsgDate,Msg) VALUES  (LAST_INSERT_ID(),'${onTime()}','【系統通知】註冊完成通知，歡迎您加入「浪浪有窩」。' )`,[], function (err, rows) {
-                                // 若資料庫部分出現問題，則回傳給client端「伺服器錯誤，請稍後再試！」的結果。
-                                if (err) {
-                                    console.log(err);
-                                    result.status = "註冊失敗。";
-                                    result.err = "伺服器錯誤，請稍後在試！";
-                                    reject(result);
-                                    return;
-                                }
-                                // 若寫入資料庫成功，則回傳給clinet端下：
-                                result.status = "註冊成功。"
-                                result.registerMember = memberData;
-                                resolve(result);
-                            })
+                        // 註冊成功通知訊息寫入資料庫
+                        db.query(`INSERT INTO usermsg (MemberID,MsgDate,Msg) VALUES (LAST_INSERT_ID(),'${onTime()}','【系統通知】註冊完成通知，歡迎您加入「浪浪有窩」。' )`, [], function (err, rows) {
+                            if (err) {
+                                console.log(err);
+                                return;
+                            }
+                        })
                     })
             }
         })
