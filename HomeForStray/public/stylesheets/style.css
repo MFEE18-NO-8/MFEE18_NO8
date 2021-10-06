@@ -13,7 +13,7 @@ input {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	font-family: "jf-openhuninn-1.1"; /* 字體使用粉圓體 */
+	font-family: "jf-openhuninn" !important;
 	font-size: 22px;
 	box-sizing: border-box;
 	scroll-behavior: smooth;
@@ -464,7 +464,7 @@ div.dropdown-menu::before{
     border-left: 50px solid transparent;
     border-right: 30px solid transparent;
     position: absolute;
-    top: -15%;
+    top: -13%;
     right:0px;
 }
 .user-menu > ul>li:last-of-type {
@@ -1365,7 +1365,7 @@ footer{
         transition: max-height 1s;
         position: absolute;
         z-index: 100;
-        top: 90px;
+        top: 86px;
         left:0;
         right:-22px;
         background: #e3f2fd;
@@ -1502,6 +1502,15 @@ footer{
 	}
 }
 @media (max-width:480px){
+	div.dropdown-menu::before{
+		top: -6%;
+	}
+	textarea {
+		width: 200px;
+	}
+	.foster-block > .row > .col > .btn-modal {
+		margin: 4px 0px 0px 66px;
+	}
 	.AdoptContent-pic {
 		width:300px;
 		transform: translateX(6%);
