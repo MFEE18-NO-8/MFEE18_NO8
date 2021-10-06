@@ -17,8 +17,13 @@ router.get('/register', function (req, res, next) {
     res.render('register', {
       memberData: memberData || "",
       isLogin: false,
-      notRegister : false,
-      err : "",
+      notRegister: false,
+      err: "",
+      EmailVal: req.body.Email || "",  // 保留輸入的值
+      PasswordVal: req.body.Password || "",  // 保留輸入的值
+      PasswordConfirmVal: req.body.PasswordConfirm || "",  // 保留輸入的值
+      MemberNameVal: req.body.MemberName || "",  // 保留輸入的值
+      CellPhoneVal: req.body.CellPhone || "",  // 保留輸入的值
     });
   });
 });
@@ -35,7 +40,10 @@ router.get('/login', function (req, res, next) {
       {
         messages: '',
         memberData: memberData || "",
+        okLogin: false,
         notLogin: false,
+        EmailVal: req.body.Email || "", // 保留輸入的值
+        PasswordVal: req.body.Password || "", // 保留輸入的值
       });
   });
 });
@@ -55,20 +63,46 @@ router.post('/login', function (req, res, next) {
       if (err) throw err;
       console.log(results)
       if (results.length == 0) {  //帳號不存在
-        messages = "帳號不存在，請先註冊"
-        res.render('login', { messages: messages, memberData: memberData || "", notLogin: true,})
+        messages = "帳號不存在"
+        res.render('login', {
+          messages: messages,
+          memberData: memberData || "",
+          okLogin: false,
+          notLogin: true,
+          EmailVal: req.body.Email || "", // 保留輸入的值
+          PasswordVal: req.body.Password || "", // 保留輸入的值
+        })
       } else if (results[0].Password != rePassword && results[0].Password != req.body.Password) {  //密碼不正確
         messages = "密碼不正確"
-        res.render('login', { messages: messages, memberData: memberData || "", notLogin: true, })
+        res.render('login', {
+          messages: messages,
+          memberData: memberData || "",
+          okLogin: false,
+          notLogin: true,
+          EmailVal: req.body.Email || "", // 保留輸入的值
+          PasswordVal: req.body.Password || "", // 保留輸入的值
+        })
       } else {  //帳號及密碼皆正確
         req.session.Email = req.body.Email;
         // 被停權
-        if(results[0].memberState == 0){
+        if (results[0].memberState == 0) {
           messages = "會員停權中，如有問題請聯絡我們"
-          res.render('login', { messages: messages, memberData: memberData || "", notLogin: true,})
-        }else{
-          messages = true,
-          res.render('login',{ messages : messages , memberData : memberData || "", notLogin: true,}); //跳轉首頁
+          res.render('login', {
+            messages: messages,
+            memberData: memberData || "",
+            okLogin: false,
+            notLogin: true,
+            EmailVal: req.body.Email || "", // 保留輸入的值
+            PasswordVal: req.body.Password || "", // 保留輸入的值
+          })
+        } else {
+          res.render('login', {
+            okLogin: true,
+            memberData: memberData || "",
+            notLogin: false,
+            EmailVal: req.body.Email || "", // 保留輸入的值
+            PasswordVal: req.body.Password || "", // 保留輸入的值
+          }); //跳轉首頁
         }
       }
     });

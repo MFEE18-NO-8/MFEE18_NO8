@@ -42,33 +42,33 @@
 					<label for="staticEmail" class="col-sm-2 col-form-label">帳號</label>
 					<div class="col-9">
 						<input type="email" class="form-control" id="email" name="Email" placeholder="請輸入email"
-							required />
+							required value="<%= EmailVal %>"/>
 					</div>
 				</div>
 				<div class="form-group row">
 					<label for="inputPassword" class="col-sm-2 col-form-label">密碼</label>
 					<div class="col-9">
-						<input type="password" class="form-control" id="password" name="Password" required />
+						<input type="password" class="form-control" id="password" name="Password" required value="<%= PasswordVal %>"/>
 					</div>
 				</div>
 				<div class="form-group row">
 					<label for="inputPassword" class="col-sm-2 col-form-label">密碼確認</label>
 					<div class="col-9">
 						<input type="password" class="form-control" id="passwordConfirm" name="PasswordConfirm"
-							required />
+							required value="<%= PasswordConfirmVal %>"/>
 					</div>
 				</div>
 				<div class="form-group row">
 					<label for="inputPhone" class="col-sm-2 col-form-label">姓名</label>
 					<div class="col-9">
-						<input type="text" class="form-control" id="memberName" name="MemberName" required />
+						<input type="text" class="form-control" id="memberName" name="MemberName" required value="<%= MemberNameVal %>"/>
 					</div>
 				</div>
 				<div class="form-group row">
 					<label for="inputPassword" class="col-sm-2 col-form-label">手機</label>
 					<div class="col-9">
 						<input type="tel" class="form-control" id="CellPhone" name="CellPhone" placeholder="0912333444"
-							required />
+							required value="<%= CellPhoneVal %>"/>
 					</div>
 					<!-- <div class="col-1"><button class="check check-btn">驗證</button></div> -->
 				</div>
