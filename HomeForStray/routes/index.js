@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
       if (err) throw err;
       res.render('index', {
         data: results,
-        memberData: memberData || ""
+        memberData: memberData || "",
       });
     });
   });

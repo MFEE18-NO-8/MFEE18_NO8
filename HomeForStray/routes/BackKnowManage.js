@@ -101,9 +101,9 @@ router.post('/KnowManageAdd', function (req, res, next) {
     var articleDate = req.body['ArticleDate'];
     var articleContent = req.body['ArticleContent'];
 
-    // 上傳圖片
-    if (!req.files)
-        return res.status(400).send('No files were uploaded.');
+    // // 上傳圖片
+    // if (!req.files)
+    //     return res.status(400).send('No files were uploaded.');
 
     var file = req.files.uploadImg;
     // 將圖片重新命名

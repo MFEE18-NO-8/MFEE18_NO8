@@ -1,5 +1,6 @@
 const toRegister = require('../models/register_model');
 const Check = require('../service/member_check');
+const Swal = require('sweetalert2');
 
 check = new Check();
 
@@ -31,17 +32,17 @@ module.exports = class Member {
             // 將資料寫入資料庫
             toRegister(memberData).then(result => {
                 // 若寫入成功則回傳
-                res.json({
-                    result: result
-                })
+                // res.json({
+                //     result: result
+                // })
+
+                res.render('Register',{ isLogin : true , memberData : "",notRegister: ""})
             }, (err) => {
-                // 若寫入失敗則回傳
-                res.json({
-                    err: err
-                })
+                //若寫入失敗則回傳
+                res.render('Register',{ notRegister : true , memberData : "", err : err , isLogin : ""})
             })
         }
-        res.redirect('/member/login')
+        //res.redirect('/member/login')
     }
 }
 

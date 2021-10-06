@@ -13,8 +13,12 @@ memberModifyMethod = new MemberModifyMethod();
 router.get('/register', function (req, res, next) {
   db.query('select * from Member where Email=?', [req.session.Email], function (err, results) {
     var memberData = results[0]; // 撈取是否有登入session
+
     res.render('register', {
       memberData: memberData || "",
+      isLogin: false,
+      notRegister : false,
+      err : "",
     });
   });
 });
@@ -31,6 +35,7 @@ router.get('/login', function (req, res, next) {
       {
         messages: '',
         memberData: memberData || "",
+        notLogin: false,
       });
   });
 });
@@ -50,18 +55,20 @@ router.post('/login', function (req, res, next) {
       if (err) throw err;
       console.log(results)
       if (results.length == 0) {  //帳號不存在
-        messages = "帳號不正確"
-        res.render('login', { messages: messages, memberData: memberData || "", })
+        messages = "帳號不存在，請先註冊"
+        res.render('login', { messages: messages, memberData: memberData || "", notLogin: true,})
       } else if (results[0].Password != rePassword && results[0].Password != req.body.Password) {  //密碼不正確
         messages = "密碼不正確"
-        res.render('login', { messages: messages, memberData: memberData || "", })
+        res.render('login', { messages: messages, memberData: memberData || "", notLogin: true, })
       } else {  //帳號及密碼皆正確
         req.session.Email = req.body.Email;
+        // 被停權
         if(results[0].memberState == 0){
           messages = "會員停權中，如有問題請聯絡我們"
-          res.render('login', { messages: messages, memberData: memberData || "", })
+          res.render('login', { messages: messages, memberData: memberData || "", notLogin: true,})
         }else{
-          res.redirect('/'); //跳轉首頁
+          messages = true,
+          res.render('login',{ messages : messages , memberData : memberData || "", notLogin: true,}); //跳轉首頁
         }
       }
     });
