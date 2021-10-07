@@ -157,6 +157,10 @@
 		.more:hover {
 			text-decoration: underline;
 		}
+
+		.hitFontSize{
+			font-size: 15px;
+		}
 	</style>
 </head>
 
@@ -173,29 +177,28 @@
 			style="padding:0px; ">
 			<div class="carousel-inner" style="border-radius: 40px 0px 0px 40px;height:100%;width: 100%;">
 				<!-- 第一張圖 -->
-
 				<div class="carousel-item active pic" style="height:100%">
-					<img src="/images/upload_images/<%= hotdata[0].ArticleImg %>" class="d-block w-100 h-100  " alt="...">
+					<img src="/images/upload_images/<%= hotdata[3].ArticleImg %>" class="d-block w-100 h-100  " alt="...">
 					<div class="carousel-caption d-none d-md-block carousel-special-back">
 						<h5 class="text-white">
-							<%= hotdata[0].ArticleTitle %>
+							<%= hotdata[3].ArticleTitle %>
 						</h5>
 						<br>
 						<p class="text-white">
-							<%= hotdata[0].ArticleDate.toLocaleDateString() %>
+							<%= hotdata[3].ArticleDate.toLocaleDateString() %>
 						</p>
 					</div>
 					<div class=" carousel-special  ">
-						<a href="/KnowConent?id=<%= hotdata[0].ArticleId %>&pageNo=<%= pageNo %>">
+						<a href="/KnowConent?id=<%= hotdata[3].ArticleId %>&pageNo=<%= pageNo %>">
 							<h4 class="text-white text-center">
-								<%= hotdata[0].ArticleTitle %>
+								<%= hotdata[3].ArticleTitle %>
 							</h4>
 							<br>
 							<p class="text-white text-center multiline-ellipsis-head">
-								<%= hotdata[0].ArticleCont %>
+								<%= hotdata[3].ArticleCont %>
 							</p>
 							<p class="date text-white text-center">
-								<%= hotdata[0].ArticleDate.toLocaleDateString() %>
+								<%= hotdata[3].ArticleDate.toLocaleDateString() %>
 							</p>
 						</a>
 					</div>
@@ -203,55 +206,55 @@
 
 				<!-- 第二張圖 -->
 				<div class="carousel-item pic " style="height:100%">
-					<img src="/images/upload_images/<%= hotdata[1].ArticleImg %>" class="d-block w-100 h-100" alt="...">
+					<img src="/images/upload_images/<%= hotdata[4].ArticleImg %>" class="d-block w-100 h-100" alt="...">
 					<div class="carousel-caption d-none d-md-block carousel-special-back">
 						<h5 class="text-white">
-							<%= hotdata[1].ArticleTitle %>
+							<%= hotdata[4].ArticleTitle %>
 						</h5>
 						<!-- 標題字數需要小於20個全形字元 -->
 						<br>
 						<p class="text-white">
-							<%= hotdata[1].ArticleDate.toLocaleDateString() %>
+							<%= hotdata[4].ArticleDate.toLocaleDateString() %>
 						</p>
 					</div>
 					<div class="carousel-special">
-						<a href="/KnowConent?id=<%= hotdata[1].ArticleId %>&pageNo=<%= pageNo %>">
+						<a href="/KnowConent?id=<%= hotdata[4].ArticleId %>&pageNo=<%= pageNo %>">
 							<h4 class="text-white text-center">
-								<%= hotdata[1].ArticleTitle %>
+								<%= hotdata[4].ArticleTitle %>
 							</h4>
 							<br>
 							<p class="text-white text-center multiline-ellipsis-head">
-								<%= hotdata[1].ArticleCont %>
+								<%= hotdata[4].ArticleCont %>
 							</p>
 							<p class="date text-white text-center">
-								<%= hotdata[1].ArticleDate.toLocaleDateString() %>
+								<%= hotdata[4].ArticleDate.toLocaleDateString() %>
 							</p>
 						</a>
 					</div>
 				</div>
 				<!-- 第三張圖 -->
 				<div class="carousel-item pic " style="height:100%">
-					<img src="/images/upload_images/<%= hotdata[2].ArticleImg %>" class="d-block w-100 h-100" alt="...">
+					<img src="/images/upload_images/<%= hotdata[5].ArticleImg %>" class="d-block w-100 h-100" alt="...">
 					<div class="carousel-caption d-none d-md-block carousel-special-back">
 						<h5 class="text-white">
-							<%= hotdata[2].ArticleTitle %>
+							<%= hotdata[5].ArticleTitle %>
 						</h5>
 						<br>
 						<p class="text-white">
-							<%= hotdata[2].ArticleDate.toLocaleDateString() %>
+							<%= hotdata[5].ArticleDate.toLocaleDateString() %>
 						</p>
 					</div>
 					<div class="carousel-special">
-						<a href="/KnowConent?id=<%= hotdata[2].ArticleId %>&pageNo=<%= pageNo %>">
+						<a href="/KnowConent?id=<%= hotdata[5].ArticleId %>&pageNo=<%= pageNo %>">
 							<h4 class="text-white text-center">
-								<%= hotdata[2].ArticleTitle %>
+								<%= hotdata[5].ArticleTitle %>
 							</h4>
 							<br>
 							<p class="text-white text-center multiline-ellipsis-head">
-								<%= hotdata[2].ArticleCont %>
+								<%= hotdata[5].ArticleCont %>
 							</p>
 							<p class="date text-white text-center">
-								<%= hotdata[2].ArticleDate.toLocaleDateString() %>
+								<%= hotdata[5].ArticleDate.toLocaleDateString() %>
 							</p>
 						</a>
 					</div>
@@ -335,7 +338,7 @@
 							<p class="figure-caption">
 								<%= data[i].ArticleDate.toLocaleDateString() %>
 							</p>
-							<p style="text-align: right;" class="figure-caption">點擊次數：<%= data[i].ArticleHits %></p>
+							<p style="text-align: right;" class="figure-caption hitFontSize">點閱次數：<%= data[i].ArticleHits %></p>
 							<a href="/KnowConent?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>">
 								<p class="more">Read More</p>
 							</a>

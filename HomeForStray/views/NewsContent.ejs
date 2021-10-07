@@ -29,7 +29,15 @@
   <link rel="stylesheet" href="stylesheets/style.css">
   <link rel="stylesheet" href="stylesheets/annistyle.css">
 
-
+  <style>
+    .contentStyle {
+      font-size: 22px;
+      line-height: 2;
+      text-align: left;
+      /* 使用CSS的white-space 屬性保留空白符序列，但是正常地進行換行。 */
+      white-space: pre-wrap;
+    }
+  </style>
 </head>
 
 <body>
@@ -59,7 +67,7 @@
         </div>
         <div class="row NewsContentText ">
           <div class="col-sm-12 col-md-12  ">
-            <pre class="news"><%= data[0].NewsContent %></pre>
+            <pre class="news contentStyle"><%= data[0].NewsContent %></pre>
 
           </div>
         </div>

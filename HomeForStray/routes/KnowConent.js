@@ -14,8 +14,7 @@ router.get('/', function (req, res, next) {
       if (err) throw err;
 
       var oneArticles = results[0];
-      pool.query('select * from articlenews order by ArticleHits desc limit 0, 3', [id], function (err, results) {
-        console.log(results);
+      pool.query('select * from articlenews order by ArticleHits desc limit 0, 6', [id], function (err, results) {
         res.render('KnowConent',
           {
             data: oneArticles,
@@ -27,8 +26,6 @@ router.get('/', function (req, res, next) {
           
           setTimeout(function () { //讀取資料庫動作需時間,故延遲1秒才更新資料庫
           hits = results[0].ArticleHits + 1;  //將原來點擊數加1
-          console.log(results[0].ArticleHits)
-
           pool.query('update articlenews set ? where ArticleId=?', [{ ArticleHits: hits }, id], function (err, results) {  //ejs語法,更新資料庫
             if (err) throw err;
           });
