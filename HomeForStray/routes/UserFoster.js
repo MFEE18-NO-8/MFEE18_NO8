@@ -20,24 +20,26 @@ router.get('/', function (req, res, next) {
         pool.query('SELECT * FROM `PostForAdopt` JOIN `member` ON(`member`.MemberID=`PostForAdopt`.MemberID) JOIN `AuditData` ON(`AuditData`.PetId=`PostForAdopt`.PetId) WHERE `Email`=?', [req.session.Email], function (err, results) {
             var FosterData = results; // 把所有資料都抓出來
             console.log(FosterData)
-            console.log("[mysql error]",err);
+            console.log("[mysql error]", err);
             var TotalLine = FosterData.length; //資料總筆數 
             var TotalPage = Math.ceil(TotalLine / LinePerPage); //資料總頁數＝總筆數/每頁顯示數  
 
-            pool.query('SELECT * FROM `PostForAdopt`  JOIN `member` ON(`member`.MemberID=`PostForAdopt`.MemberID) JOIN `AuditData` ON(`AuditData`.PetId=`PostForAdopt`.PetId)ORDER BY `AdoptDate` DESC LIMIT ?,?', [(PageNo - 1) * LinePerPage, LinePerPage],function (err, results) {
-                var pageData =  results;   //針對撈出來的資料做排序
+            pool.query('SELECT * FROM `PostForAdopt`  JOIN `member` ON(`member`.MemberID=`PostForAdopt`.MemberID) JOIN `AuditData` ON(`AuditData`.PetId=`PostForAdopt`.PetId)ORDER BY `AdoptDate` DESC LIMIT ?,?', [(PageNo - 1) * LinePerPage, LinePerPage], function (err, results) {
+                var pageData = results;   //針對撈出來的資料做排序
                 console.log(pageData)
                 if (err) throw err;
-                    res.render('UserFoster', {
-                        pageData: results,
-                        FosterData: FosterData || "",
-                        PageNo: PageNo,         //目前頁數 1
-                        TotalLine: TotalLine,   //總筆數  100
-                        TotalPage: TotalPage,   //資料總頁數  20
-                        LinePerPage: LinePerPage, //每頁顯示數  5
-                        memberData: memberData || "",//會員資料
-                    });
+                res.render('UserFoster', {
+                    pageData: results,
+                    FosterData: FosterData || "",
+                    PageNo: PageNo,         //目前頁數 1
+                    TotalLine: TotalLine,   //總筆數  100
+                    TotalPage: TotalPage,   //資料總頁數  20
+                    LinePerPage: LinePerPage, //每頁顯示數  5
+                    memberData: memberData || "",//會員資料
+                    isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+
                 });
+            });
         });
     });
 });

@@ -12,7 +12,13 @@ router.get('/', function (req, res, next) {
     var pageNo = parseInt(req.query.pageNo);  //取得傳送的目前頁數
     pool.query('select * from News where NewsId=?', [id], function (err, results) {  //根據id讀取資料
         if (err) throw err;
-        res.render('NewsContent', { data: results, pageNo: pageNo,memberData: memberData || "", });  //傳送pageNo給返回首頁使用(回到原來頁面)
+        res.render('NewsContent', { 
+            data: results, 
+            pageNo: pageNo,
+            memberData: memberData || "", 
+            isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+
+        });  //傳送pageNo給返回首頁使用(回到原來頁面)
 
     });
 });

@@ -14,6 +14,7 @@ router.get('/', function (req, res, next) {
       res.render('index', {
         data: results,
         memberData: memberData || "",
+        isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
       });
     });
   });

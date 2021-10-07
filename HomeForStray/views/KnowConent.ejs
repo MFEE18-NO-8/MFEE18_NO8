@@ -20,7 +20,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
     integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
     crossorigin="anonymous"></script>
-  
+  <!-- sweetalert2 -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <!-- css -->
   <!-- <link rel="stylesheet" href="../HomeForStray/public/stylesheets/minyustyle.css"> -->
   <link rel="stylesheet" href="stylesheets/style.css">
@@ -42,19 +44,20 @@
       padding: 10px;
     }
 
-    .hot-article-img { /*熱門文章縮圖*/
+    .hot-article-img {
+      /*熱門文章縮圖*/
       border-radius: 5px;
-      width:70px;
-      height:70px;
+      width: 70px;
+      height: 70px;
       object-fit: cover;
     }
 
     .hot-articleTitle {
       font-size: 18px;
-      margin-bottom:0px;
+      margin-bottom: 0px;
     }
 
-    .hot-articleDate{
+    .hot-articleDate {
       text-align: left;
       font-size: 16px;
     }
@@ -67,8 +70,8 @@
     }
 
     .articleDate {
-      text-align:left;
-      padding:5px 20px;
+      text-align: left;
+      padding: 5px 20px;
     }
 
     .titleStyle {
@@ -78,27 +81,30 @@
     }
 
     .contentStyle {
-        font-size: 22px;
-        line-height: 2;
+      font-size: 22px;
+      line-height: 2;
       text-align: left;
       /* 使用CSS的white-space 屬性保留空白符序列，但是正常地進行換行。 */
       white-space: pre-wrap;
     }
-    .hot-block{
-        margin-top: 100px;
+
+    .hot-block {
+      margin-top: 100px;
     }
-    .line{
-        background-color: #fff;
-        padding: 0.1rem; 
-        border-radius: 40px; 
-        width: 65%;
-        margin-bottom: 20px;
+
+    .line {
+      background-color: #fff;
+      padding: 0.1rem;
+      border-radius: 40px;
+      width: 65%;
+      margin-bottom: 20px;
     }
-    .line2{
-        background-color: #aaa;
-        padding: 0.05rem; 
-        border-radius: 40px; 
-        margin-bottom: 50px;
+
+    .line2 {
+      background-color: #aaa;
+      padding: 0.05rem;
+      border-radius: 40px;
+      margin-bottom: 50px;
     }
   </style>
 </head>
@@ -109,63 +115,63 @@
     <!-- 主要內容 -->
     <div class="container">
       <div class="row col-12">
-      <div class="col-md-8 articleBox">
+        <div class="col-md-8 articleBox">
           <div class="article-title-box">
             <h3 class="titleStyle">
-                <%= data.ArticleTitle %>
+              <%= data.ArticleTitle %>
             </h3>
             <p class="figure-caption articleDate">
-                <%= data.ArticleDate.toLocaleDateString() %>
+              <%= data.ArticleDate.toLocaleDateString() %>
             </p>
           </div>
           <div class="line2"></div>
-        <div class="article-img-box">
-          <img class="img-fluid article-img" src="/images/upload_images/<%= data.ArticleImg %>" alt="" />
-        </div>
-        <div class="article-content-box">
-          <p class="contentStyle">
-            <%= data.ArticleCont %>
+          <div class="article-img-box">
+            <img class="img-fluid article-img" src="/images/upload_images/<%= data.ArticleImg %>" alt="" />
+          </div>
+          <div class="article-content-box">
+            <p class="contentStyle">
+              <%= data.ArticleCont %>
             </p>
             <p class="figure-caption" style="text-align: right;">
-                點擊次數：<%= data.ArticleHits %>
-              </p>
+              點擊次數：<%= data.ArticleHits %>
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- 熱門文章 -->
-      <div class="col-md-4 hot-block">
-        <div
-          style="display: flex; flex-direction: column; align-items:left; padding-top: 20px; justify-content: space-around;">
-          <h5 class="">熱門文章</h5>
-          <!-- 分界線 -->
-          <div class="line"></div>
+        <!-- 熱門文章 -->
+        <div class="col-md-4 hot-block">
+          <div
+            style="display: flex; flex-direction: column; align-items:left; padding-top: 20px; justify-content: space-around;">
+            <h5 class="">熱門文章</h5>
+            <!-- 分界線 -->
+            <div class="line"></div>
+          </div>
+          <ul class="col-md-12 hot-article-box">
+            <!-- 熱門文章內容 -->
+            <% for(var i=0; i<3; i++) { %>
+              <li class="row ">
+                <div class="col-md-3 hot-article-imgbox">
+                  <a href="/KnowConent?id=<%= hotdata[i].ArticleId %>&pageNo=<%= pageNo %>">
+                    <img class="hot-article-img" src="/images/upload_images/<%= hotdata[i].ArticleImg %>" alt="" />
+                  </a>
+                </div>
+                <div class="col-md-9 hot-article-listbox">
+                  <a href="/KnowConent?id=<%= hotdata[i].ArticleId %>&pageNo=<%= pageNo %>">
+                    <p class="hot-articleTitle">
+                      <%= hotdata[i].ArticleTitle %>
+                    </p>
+                    <p class="figure-caption hot-articleDate">
+                      <%= hotdata[i].ArticleDate.toLocaleDateString() %>
+                    </p>
+                  </a>
+                </div>
+              </li>
+              <% } %>
+          </ul>
         </div>
-        <ul class="col-md-12 hot-article-box">
-          <!-- 熱門文章內容 -->
-          <% for(var i=0; i<3; i++) { %>
-            <li class="row ">
-              <div class="col-md-3 hot-article-imgbox">
-                <a href="/KnowConent?id=<%= hotdata[i].ArticleId %>&pageNo=<%= pageNo %>">
-                  <img class="hot-article-img" src="/images/upload_images/<%= hotdata[i].ArticleImg %>" alt="" />
-                </a>
-              </div>
-              <div class="col-md-9 hot-article-listbox">
-                <a href="/KnowConent?id=<%= hotdata[i].ArticleId %>&pageNo=<%= pageNo %>">
-                  <p class="hot-articleTitle">
-                    <%= hotdata[i].ArticleTitle %>
-                  </p>
-                  <p class="figure-caption hot-articleDate">
-                    <%= hotdata[i].ArticleDate.toLocaleDateString() %>
-                  </p>
-                </a>
-              </div>
-            </li>
-            <% } %>
-        </ul>
       </div>
-    </div>  
     </div>
-    
+
 
     <!-- footer -->
     <%- include footer%>
@@ -180,7 +186,7 @@
   });
 
 
- 
+
 </script>
 
 </html>

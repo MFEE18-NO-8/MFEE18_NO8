@@ -24,6 +24,8 @@ router.get('/register', function (req, res, next) {
       PasswordConfirmVal: req.body.PasswordConfirm || "",  // 保留輸入的值
       MemberNameVal: req.body.MemberName || "",  // 保留輸入的值
       CellPhoneVal: req.body.CellPhone || "",  // 保留輸入的值
+      isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+
     });
   });
 });
@@ -44,6 +46,8 @@ router.get('/login', function (req, res, next) {
         notLogin: false,
         EmailVal: req.body.Email || "", // 保留輸入的值
         PasswordVal: req.body.Password || "", // 保留輸入的值
+        isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+
       });
   });
 });
@@ -71,6 +75,8 @@ router.post('/login', function (req, res, next) {
           notLogin: true,
           EmailVal: req.body.Email || "", // 保留輸入的值
           PasswordVal: req.body.Password || "", // 保留輸入的值
+          isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+
         })
       } else if (results[0].Password != rePassword && results[0].Password != req.body.Password) {  //密碼不正確
         messages = "密碼不正確"
@@ -81,6 +87,8 @@ router.post('/login', function (req, res, next) {
           notLogin: true,
           EmailVal: req.body.Email || "", // 保留輸入的值
           PasswordVal: req.body.Password || "", // 保留輸入的值
+          isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+
         })
       } else {  //帳號及密碼皆正確
         req.session.Email = req.body.Email;
@@ -94,6 +102,8 @@ router.post('/login', function (req, res, next) {
             notLogin: true,
             EmailVal: req.body.Email || "", // 保留輸入的值
             PasswordVal: req.body.Password || "", // 保留輸入的值
+            isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+
           })
         } else {
           res.render('login', {
@@ -102,6 +112,8 @@ router.post('/login', function (req, res, next) {
             notLogin: false,
             EmailVal: req.body.Email || "", // 保留輸入的值
             PasswordVal: req.body.Password || "", // 保留輸入的值
+            isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+
           }); //跳轉首頁
         }
       }

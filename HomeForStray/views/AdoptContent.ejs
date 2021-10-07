@@ -22,7 +22,9 @@
         integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
         crossorigin="anonymous"></script>
 
-
+    <!-- sweetalert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <!-- css -->
     <link rel="stylesheet" href="stylesheets/style.css">
     <title>浪浪有窩</title>
@@ -50,13 +52,13 @@
                                 <div class="carousel-inner">
                                     <div class="carousel-item AdoptContent-carousel-item active"
                                         data-bs-interval="10000">
-                                        <img src="<%=data[0].PetImgURL%>" class="d-block w-100 AdoptContent-img img-fluid"
-                                            alt="...">
+                                        <img src="<%=data[0].PetImgURL%>"
+                                            class="d-block w-100 AdoptContent-img img-fluid" alt="...">
                                     </div>
                                     <% for(var i=0; i<data.length; i++) { %>
                                         <div class="carousel-item AdoptContent-carousel-item">
-                                            <img src="<%=data[i].PetImgURL%>" class="d-block w-100 AdoptContent-img img-fluid"
-                                                alt="...">
+                                            <img src="<%=data[i].PetImgURL%>"
+                                                class="d-block w-100 AdoptContent-img img-fluid" alt="...">
                                         </div>
                                         <%}%>
                                 </div>

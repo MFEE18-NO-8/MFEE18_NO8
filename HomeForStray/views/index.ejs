@@ -25,6 +25,8 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet" />
+	<!-- sweetalert2 -->
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	<!-- css -->
 	<link rel="stylesheet" href="stylesheets/lynnstyle.css" />
@@ -232,8 +234,13 @@
 								<li><a href="/KnowList">毛孩知識</a></li>
 							</ul>
 							<ul>
-								<li><a href="/Foster">刊登送養</a></li>
-								<li><a href="/UserEdit">會員專區</a></li>
+								<% if ( memberData=="" ){ %>
+									<li><a href="javascript:link()">刊登送養</a></li>
+									<li><a href="javascript:link()">會員專區</a></li>
+									<% }else{ %>
+										<li><a href="/Foster">刊登送養</a></li>
+										<li><a href="/UserEdit">會員專區</a></li>
+										<% } %>
 							</ul>
 							<ul>
 								<li><a href="/NewsList">最新消息</a></li>
@@ -249,7 +256,18 @@
 				</div>
 			</footer>
 		</section>
-
+		<% if (isGuest) { %>
+			<script>
+				function link() {
+					Swal.fire({
+						text: '請先登入',
+						icon: 'info',
+					}).then(function () {
+						window.location.href = "/member/login"
+					})
+				}
+			</script>
+			<% } %>
 				<!-- JS -->
 				<script>
 					// 漢堡選單

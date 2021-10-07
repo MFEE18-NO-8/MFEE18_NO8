@@ -16,6 +16,8 @@ router.get('/', function (req, res, next) {
             memberData: memberData || "",
             messages: messages,
             alert: alert,
+            isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+
         });
     });
 });
@@ -44,6 +46,8 @@ router.post('/', function (req, res, next) {
                 messages: messages,
                 memberData: memberData || "",
                 alert: true,
+                isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+
             })
             return;
             // 輸入的新密碼 != 輸入的確認密碼
@@ -53,6 +57,8 @@ router.post('/', function (req, res, next) {
                 memberData: memberData || "",
                 alert: true,
                 messages: messages,
+                isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+
             })
             return;
             // 資料庫密碼 = 輸入的新密碼
@@ -62,6 +68,8 @@ router.post('/', function (req, res, next) {
                 memberData: memberData || "",
                 alert: true,
                 messages: messages,
+                isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+
             })
             return;
         } else if (memberData.Password.length < 6 || memberData.Password.length > 12) {
@@ -70,6 +78,8 @@ router.post('/', function (req, res, next) {
                 memberData: memberData || "",
                 alert: true,
                 messages: messages,
+                isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+
             })
             return;
         }
@@ -90,6 +100,8 @@ router.post('/', function (req, res, next) {
                 messages: messages,
                 alert: false,
                 memberData: memberData || "",
+                isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+
             });
         });
     });

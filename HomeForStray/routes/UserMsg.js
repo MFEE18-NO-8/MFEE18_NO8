@@ -13,8 +13,8 @@ router.get('/', function (req, res, next) {
     }
     pool.query('select * from Member where Email=?', [req.session.Email], function (err, results) {
         var memberData = results[0]; // 撈取是否有登入session
-       
-       
+
+
         //對資料庫進行存取
         //從"使用者通知"那資料庫裏，抓資料(總筆數)，如果資料庫操作命令執行結果有傳回值，傳回值會儲存於「results」參數中。
         pool.query('SELECT * FROM UserMsg JOIN member ON(member.MemberID=UserMsg.MemberID)  where Email=?', [req.session.Email], function (err, results) {
@@ -37,6 +37,8 @@ router.get('/', function (req, res, next) {
                         TotalPage: TotalPage,
                         LinePerPage: LinePerPage,
                         memberData: memberData || "",
+                        isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+
                     });
                 });
         });

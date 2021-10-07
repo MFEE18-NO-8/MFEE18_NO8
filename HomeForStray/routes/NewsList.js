@@ -21,7 +21,15 @@ router.get('/', function (req, res, next) {
 
             pool.query('select * from News order by NewsId desc limit ?, ?', [(pageNo - 1) * linePerPage, linePerPage], function (err, results) {  //根據目前頁數讀取資料
                 if (err) throw err;
-                res.render('NewsList', { data: results, pageNo: pageNo, totalLine: totalLine, totalPage: totalPage, linePerPage: linePerPage, memberData: memberData || "" });
+                res.render('NewsList', { 
+                    data: results, 
+                    pageNo: pageNo, 
+                    totalLine: totalLine, 
+                    totalPage: totalPage, 
+                    linePerPage: linePerPage, 
+                    memberData: memberData || "" ,
+                    isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+                });
             });
         });
     });

@@ -13,7 +13,12 @@ router.get('/', function (req, res, next) {
 
         pool.query('SELECT * FROM PostForAdopt,CityDatas,PetImgDatas WHERE PostForAdopt.CityId=CityDatas.CityId AND PostForAdopt.PetId=PetImgDatas.PetId and  PostForAdopt.PetId=?', [id], function (err, results) {  //根據id讀取資料
             if (err) throw err;
-            res.render('AdoptContent', { data: results, pageNo: pageNo, memberData: memberData || "", });  //傳送pageNo給返回首頁使用(回到原來頁面)
+            res.render('AdoptContent', { 
+                data: results, 
+                pageNo: pageNo, 
+                memberData: memberData || "",
+                isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+             });  //傳送pageNo給返回首頁使用(回到原來頁面)
         });
     });
 });

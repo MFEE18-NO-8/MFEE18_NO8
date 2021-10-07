@@ -10,7 +10,10 @@ router.get('/', function (req, res, next) {
         if (memberData == undefined) {  // 沒登入狀態
             res.redirect('/member/login')
           } else { 
-            res.render('Foster',{ memberData: memberData,});
+            res.render('Foster',{ 
+                memberData: memberData,
+                isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+                });
           }
     });
 });

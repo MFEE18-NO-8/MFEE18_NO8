@@ -68,7 +68,8 @@ router.get('/', function (req, res) {
                                 req: req,
                                 TotalLine: TotalLine,
                                 TotalPage: TotalPage,
-                                LinePage: LinePage
+                                LinePage: LinePage,
+                                isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
                             });
                     });
             })

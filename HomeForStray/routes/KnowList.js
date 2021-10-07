@@ -31,7 +31,9 @@ router.get('/', function (req, res, next) {
                         pageNo: pageNo,
                         totalLine: totalLine,
                         totalPage: totalPage,
-                        linePerPage: linePerPage
+                        linePerPage: linePerPage,
+                isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+
                     });
                 });
         })

@@ -22,7 +22,7 @@ router.get('/', function (req, res, next) {
             memberData: memberData || "",
             pageNo: pageNo,
             hotdata: results,
-            
+            isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
           });  //傳送pageNo給返回首頁使用(回到原來頁面)
           
           setTimeout(function () { //讀取資料庫動作需時間,故延遲1秒才更新資料庫
