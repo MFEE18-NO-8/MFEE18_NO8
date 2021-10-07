@@ -46,7 +46,7 @@ router.get('/', function (req, res) {
 
 
                 // pool.query(" select * from postforadopt, CityDatas, PetImgDatas WHERE ((PostForAdopt.CityId=CityDatas.CityId)=? OR ?='') AND (PetGender=? OR ?='' ) AND (PetSpecies=? OR ?='') order by  AdoptDate DESC  limit ?, ? ", // 選此資料表 用PetId排序
-                pool.query(" select * from postforadopt WHERE (CityId=? OR ?='') AND (PetGender=? OR ?='' ) AND (PetSpecies=? OR ?='') order by  AdoptDate DESC  limit ?, ? ", // 選此資料表 用PetId排序
+                pool.query(" select * from postforadopt INNER JOIN CityDatas ON PostForAdopt.CityId = CityDatas.CityId INNER JOIN PetImgDatas ON PostForAdopt.PetId = PetImgDatas.PetId WHERE (PostForAdopt.CityId=? OR ?='') AND (PetGender=? OR ?='' ) AND (PetSpecies=? OR ?='') order by  AdoptDate DESC  limit ?, ? ", // 選此資料表 用PetId排序
                     [
                         CityId,
                         CityId,
