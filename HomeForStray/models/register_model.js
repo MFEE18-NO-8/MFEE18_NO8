@@ -9,7 +9,6 @@ module.exports = function register(memberData) {
         db.query('SELECT Email FROM member WHERE Email = ?', memberData.Email, function (err, rows) {
             // 若資料庫部分出現問題，則回傳給client端「伺服器錯誤，請稍後再試！」的結果。
             if (err) {
-                console.log(err);
                 result.status = "註冊失敗。"
                 result.err = "伺服器錯誤，請稍後在試！"
                 reject(result);
@@ -20,19 +19,26 @@ module.exports = function register(memberData) {
                 result.status = "註冊失敗。"
                 result.err = "已有重複的Email。"
                 reject(result);
-            } else if (memberData.Password !== memberData.PasswordConfirm) {
+            } else if (memberData.Password.length < 6 || memberData.Password.length > 12) {
+                console.log(memberData.Password.length)
                 result.status = "註冊失敗。"
-                result.err = "密碼錯誤。"
-                console.log(memberData.Password)
-                console.log(memberData.PasswordConfirm)
+                result.err = "請輸入6~12為密碼"
                 reject(result);
                 return;
-            } else {
-
+            } else if (memberData.Password !== memberData.PasswordConfirm) {
+                result.status = "註冊失敗。"
+                result.err = "密碼不一致。"
+                reject(result);
+                return;
+            } else if (memberData.CellPhone.length < 10 ) {
+                result.status = "註冊失敗。"
+                result.err = "請輸入正確格式的手機號碼"
+                reject(result);
+                return;
+            }else {
                 let hashPassword = crypto.createHash('sha1');
                 hashPassword.update(memberData.Password);
                 const rePassword = hashPassword.digest('hex');
-
                 // 將資料寫入資料庫
                 db.query('INSERT INTO member SET ?;',
                     {
@@ -46,7 +52,6 @@ module.exports = function register(memberData) {
                     }, function (err, rows) {
                         // 若資料庫部分出現問題，則回傳給client端「伺服器錯誤，請稍後再試！」的結果。
                         if (err) {
-                            console.log(err);
                             result.status = "註冊失敗。";
                             result.err = "伺服器錯誤，請稍後在試！";
                             reject(result);

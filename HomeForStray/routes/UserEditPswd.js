@@ -64,6 +64,14 @@ router.post('/', function (req, res, next) {
                 messages: messages,
             })
             return;
+        } else if (memberData.Password.length < 6 || memberData.Password.length > 12) {
+            messages = "請輸入6~12為密碼",
+            res.render('UserEditPswd', {
+                memberData: memberData || "",
+                alert: true,
+                messages: messages,
+            })
+            return;
         }
 
         // 新密碼加密
