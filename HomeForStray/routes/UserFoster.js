@@ -17,7 +17,7 @@ router.get('/', function (req, res, next) {
         var memberData = results[0]; // 撈取是否有登入session
         console.log(memberData)
         //編號 寵物膩稱 刊登日期 狀態(以批准) 認養狀態(開放認養)  功能(編輯)
-        pool.query('SELECT * FROM `PostForAdopt` JOIN `member` ON(`member`.MemberID=`PostForAdopt`.MemberID) JOIN `AuditData` ON(`AuditData`.PetId=`PostForAdopt`.PetId) WHERE `Email`=?', [req.session.Email], function (err, results) {
+        pool.query('SELECT * FROM `PostForAdopt` JOIN `member` ON(`member`.MemberID=`PostForAdopt`.MemberID)  WHERE `Email`=?', [req.session.Email], function (err, results) {
             var FosterData = results; // 把所有資料都抓出來
             console.log(FosterData)
             console.log("[mysql error]", err);

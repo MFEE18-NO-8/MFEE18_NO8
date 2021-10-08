@@ -106,6 +106,12 @@
       border-radius: 40px;
       margin-bottom: 50px;
     }
+    .textRight{
+      text-align: right;
+    }
+    .hitFontSize{
+      font-size: 16px;
+    }
   </style>
 </head>
 
@@ -120,7 +126,7 @@
             <h3 class="titleStyle">
               <%= data.ArticleTitle %>
             </h3>
-            <p class="figure-caption articleDate">
+            <p class="figure-caption articleDate textRight">
               <%= data.ArticleDate.toLocaleDateString() %>
             </p>
           </div>
@@ -132,8 +138,8 @@
             <p class="contentStyle">
               <%= data.ArticleCont %>
             </p>
-            <p class="figure-caption" style="text-align: right;">
-              點擊次數：<%= data.ArticleHits %>
+            <p class="figure-caption textRight hitFontSize">
+              點閱次數：<%= data.ArticleHits %>
             </p>
           </div>
         </div>
@@ -148,7 +154,7 @@
           </div>
           <ul class="col-md-12 hot-article-box">
             <!-- 熱門文章內容 -->
-            <% for(var i=0; i<3; i++) { %>
+            <% for(var i=0; i<6; i++) { %>
               <li class="row ">
                 <div class="col-md-3 hot-article-imgbox">
                   <a href="/KnowConent?id=<%= hotdata[i].ArticleId %>&pageNo=<%= pageNo %>">

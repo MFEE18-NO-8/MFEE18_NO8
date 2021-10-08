@@ -24,7 +24,7 @@
 
     <!-- sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+
     <!-- css -->
     <link rel="stylesheet" href="stylesheets/style.css">
     <title>浪浪有窩</title>
@@ -76,10 +76,22 @@
                     </div>
                     <div class="row share justify-content-center">
                         <div class="share-item">
+
                             <div class="share-left">
-                                <a href="#"><img src="../img/icon/heart.png" alt="" class="share-img"></a>
-                                <h4>追蹤</h4>
+                                <% if ( memberData=="" ){ %>
+                                    <a href="javascript:link()"><img src="../img/icon/heart.png" alt=""
+                                            class="share-img"></a>
+                                    <h4>追蹤</h4>
+                                    <% }else{ %>
+                                        <form action="" method="POST" id="formFol"  name="formFol">
+                                            <a href="javascript:document.formFol.submit()">
+                                                <img src="../img/icon/heart.png" alt="" class="share-img">
+                                            </a>
+                                            <h4>追蹤</h4>
+                                        </form>
+                                        <% } %>
                             </div>
+
                             <!-- <div class="share-right">
                             <a href="#"><img src="../img/icon/facebook.png" alt="" class="share-img"></a>
                             <a href="#"><img src="../img/icon/line.png" alt="" class="share-img"></a>
