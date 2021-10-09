@@ -37,30 +37,42 @@ router.get('/UserManageList', function (req, res, next) {
 // 毛孩知識後台清單 查詢
 router.post('/UserManageList', function (req, res) {
     var MemberName = req.body.MemberName;
-    var RegistrationDate = req.body.RegistrationDate;
-    var ModifiedDate = req.body.ModifiedDate;
+    var RegistrationDateStart = req.body.RegistrationDateStart;
+    var RegistrationDateEnd = req.body.RegistrationDateEnd;
+    var ModifiedDateStart = req.body.ModifiedDateStart;
+    var ModifiedDateEnd = req.body.ModifiedDateEnd;
     var memberState = req.body.memberState;
 
     if (MemberName === undefined) {
         MemberName = ''
     }
-    if (RegistrationDate === undefined) {
-        RegistrationDate = ''
+    if (RegistrationDateStart === undefined) {
+        RegistrationDateStart = ''
+    } 
+    if (RegistrationDateEnd === undefined) {
+        RegistrationDateEnd = ''
     }
-    if (ModifiedDate === undefined) {
-        ModifiedDate = ''
+    if (ModifiedDateStart === undefined) {
+        ModifiedDateStart = ''
+    }
+    if (ModifiedDateEnd === undefined) {
+        ModifiedDateEnd = ''
     }
     if (memberState === undefined) {
         memberState = ''
     }
-    var sql1 = `select count(*) as cnt from member WHERE (MemberName like '%${MemberName}%' OR ?='') AND (RegistrationDate=? OR ?='')  AND (ModifiedDate=? OR ?='') AND (memberState=? OR ?='')`
+    var sql1 = `select count(*) as cnt from member WHERE (MemberName like '%${MemberName}%' OR ?='') AND (RegistrationDate>=? OR ?='') AND (RegistrationDate<=? OR ?='') AND (ModifiedDate>=? OR ?='') AND (ModifiedDate<=? OR ?='') AND (memberState=? OR ?='')`
     pool.query(sql1,
         [
             MemberName,
-            RegistrationDate,
-            RegistrationDate,
-            ModifiedDate,
-            ModifiedDate,
+            RegistrationDateStart,
+            RegistrationDateStart,
+            RegistrationDateEnd,
+            RegistrationDateEnd,
+            ModifiedDateStart,
+            ModifiedDateStart,
+            ModifiedDateEnd,
+            ModifiedDateEnd,
             memberState,
             memberState,
         ],
@@ -73,14 +85,18 @@ router.post('/UserManageList', function (req, res) {
             if (isNaN(pageNo) || pageNo < 1) {  //如果沒有傳送參數,設目前頁數為第1頁
                 pageNo = 1;
             }
-            var sql2 = `select * from member WHERE (MemberName like '%${MemberName}%' OR ?='') AND (RegistrationDate=? OR ?='')  AND (ModifiedDate=? OR ?='') AND (memberState=? OR ?='')  order by MemberID DESC limit ?, ?`
+            var sql2 = `select * from member WHERE (MemberName like '%${MemberName}%' OR ?='') AND (RegistrationDate>=? OR ?='') AND (RegistrationDate<=? OR ?='') AND (ModifiedDate>=? OR ?='') AND (ModifiedDate<=? OR ?='') AND (memberState=? OR ?='')  order by MemberID DESC limit ?, ?`
             pool.query(sql2, // 選此資料表 用PetId排序
                 [
                     MemberName,
-                    RegistrationDate,
-                    RegistrationDate,
-                    ModifiedDate,
-                    ModifiedDate,
+                    RegistrationDateStart,
+                    RegistrationDateStart,
+                    RegistrationDateEnd,
+                    RegistrationDateEnd,
+                    ModifiedDateStart,
+                    ModifiedDateStart,
+                    ModifiedDateEnd,
+                    ModifiedDateEnd,
                     memberState,
                     memberState,
                     (pageNo - 1) * linePerPage, linePerPage

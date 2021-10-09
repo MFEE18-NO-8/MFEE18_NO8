@@ -25,6 +25,9 @@
     $(function () {
       $("#datepicker03").datepicker();
     });
+    function ResetBtn() {
+    document.getElementById("searchForm").reset();
+    }
 
   </script>
 

@@ -37,20 +37,26 @@ router.get('/KnowManageList', function (req, res, next) {
 
 router.post('/KnowManageList', function (req, res) {
     var ArticleTitle = req.body.ArticleTitle;
-    var ArticleDate = req.body.ArticleDate;
+    var ArticleDateStart = req.body.ArticleDateStart;
+    var ArticleDateEnd = req.body.ArticleDateEnd;
 
     if (ArticleTitle === undefined) {
         ArticleTitle = ''
     }
-    if (ArticleDate === undefined) {
-        ArticleDate = ''
+    if (ArticleDateStart === undefined) {
+        ArticleDateStart = ''
     }
-    var sql1 = `select count(*) as cnt from articlenews WHERE (ArticleTitle like '%${ArticleTitle}%' OR ?='') AND (ArticleDate=? OR ?='') `
+    if (ArticleDateEnd === undefined) {
+        ArticleDateEnd = ''
+    }
+    var sql1 = `select count(*) as cnt from articlenews WHERE (ArticleTitle like '%${ArticleTitle}%' OR ?='') AND (ArticleDate>=? OR ?='' ) AND (ArticleDate<=? OR ?='' )`
     pool.query(sql1,
         [
             ArticleTitle,
-            ArticleDate,
-            ArticleDate,
+            ArticleDateStart,
+            ArticleDateStart,
+            ArticleDateEnd,
+            ArticleDateEnd,
         ],
         function (err, results) {  //讀取資料總筆數
             if (err) throw err;
@@ -61,12 +67,14 @@ router.post('/KnowManageList', function (req, res) {
             if (isNaN(pageNo) || pageNo < 1) {  //如果沒有傳送參數,設目前頁數為第1頁
                 pageNo = 1;
             }
-            var sql2 = `select * from articlenews WHERE (ArticleTitle like '%${ArticleTitle}%'  OR  ?='') AND (ArticleDate=? OR ?='')  order by ArticleDate DESC limit ?, ? `
+            var sql2 = `select * from articlenews WHERE (ArticleTitle like '%${ArticleTitle}%'  OR  ?='') AND  (ArticleDate>=? OR ?='' ) AND (ArticleDate<=? OR ?='' )  order by ArticleDate DESC limit ?, ? `
             pool.query(sql2, // 選此資料表 用PetId排序
                 [
                     ArticleTitle,
-                    ArticleDate,
-                    ArticleDate,
+                    ArticleDateStart,
+                    ArticleDateStart,
+                    ArticleDateEnd,
+                    ArticleDateEnd,
                     (pageNo - 1) * linePerPage, linePerPage
                 ],
                 function (err, results) {  //根據目前頁數讀取資料  )

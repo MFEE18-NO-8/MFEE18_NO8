@@ -7,7 +7,7 @@
       <div class="row">
         <!-- 查詢條件 -->
         <div class="col-xs-12">
-          <form action="/BackNewsManage/NewsManageList" method="POST">
+          <form action="/BackNewsManage/NewsManageList" method="POST" id="searchForm">
           <div class="search">
             <!-- 標題 -->
             <div class="col-xs-12 col-sm-6 col-md-3">
@@ -59,7 +59,7 @@
             <!-- 查詢/清除 -->
             <div class="col-xs-12 text-right">
               <button type="submit" class="btn btn-primary">查詢</button>
-              <button type="button" class="btn btn-primary">清除</button>
+              <button type="reset" class="btn btn-primary onclick="ResetBtn()"">清除</button>
             </div>
             <div class="clearfix"></div>
             </form>
