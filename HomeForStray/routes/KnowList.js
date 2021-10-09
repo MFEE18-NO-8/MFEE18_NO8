@@ -32,7 +32,7 @@ router.get('/', function (req, res, next) {
                         totalLine: totalLine,
                         totalPage: totalPage,
                         linePerPage: linePerPage,
-                isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+                        isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
 
                     });
                 });
@@ -64,7 +64,7 @@ router.post('/', function (req, res) {
             pool.query('select * from Member where Email=?', [req.session.Email], function (err, results) {
                 var memberData = results[0]; // 撈取是否有登入session
 
-                var sql2 = `select * from articlenews WHERE (ArticleTitle like '%${search}%'  OR  ?='') order by ArticleId DESC limit ?, ? ;select * from articlenews order by ArticleId desc limit 0, 3`
+                var sql2 = `select * from articlenews WHERE (ArticleTitle like '%${search}%'  OR  ?='') order by ArticleId DESC limit ?, ? ;select * from articlenews order by ArticleHits desc limit 0, 6`
                 pool.query(sql2, // 選此資料表 用PetId排序
                     [
                         search,
@@ -80,7 +80,8 @@ router.post('/', function (req, res) {
                                 pageNo: pageNo,
                                 totalLine: totalLine,
                                 totalPage: totalPage,
-                                linePerPage: linePerPage
+                                linePerPage: linePerPage,
+                                isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
                             });
                     });
             });

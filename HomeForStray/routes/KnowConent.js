@@ -23,13 +23,14 @@ router.get('/', function (req, res, next) {
             hotdata: results,
             isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
           });  //傳送pageNo給返回首頁使用(回到原來頁面)
+          console.log(oneArticles)
           
           setTimeout(function () { //讀取資料庫動作需時間,故延遲1秒才更新資料庫
-          hits = results[0].ArticleHits + 1;  //將原來點擊數加1
+          var hits = oneArticles.ArticleHits + 1;  //將原來點擊數加1
           pool.query('update articlenews set ? where ArticleId=?', [{ ArticleHits: hits }, id], function (err, results) {  //ejs語法,更新資料庫
             if (err) throw err;
           });
-        }, 1000);
+        }, 500);
       });
     });
   });
