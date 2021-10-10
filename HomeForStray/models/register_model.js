@@ -28,6 +28,7 @@ module.exports = function register(memberData) {
             } else if (memberData.Password !== memberData.PasswordConfirm) {
                 result.status = "註冊失敗。"
                 result.err = "密碼不一致。"
+                console.log(result)
                 reject(result);
                 return;
             } else if (memberData.CellPhone.length < 10 ) {
