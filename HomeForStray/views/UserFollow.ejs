@@ -72,15 +72,22 @@
 								<!-- 取消追蹤 -->
 								<td>
 									<!-- 方法一 -->
-									<!-- <form action="" method="POST">
-										<input class="btnLg btn-lightRed" name="變數(FollowData[i].PetID)變數  " type="submit" value="取消追蹤" required  />
-									</form> -->
+									<form action="" method="POST">
+										<!-- <input class="btnLg btn-lightRed" name=" (FollowData[i].FollowID)  " type="submit" value="取消追蹤" required  /> -->
+										<input class="btnLg btn-lightRed" name="unfollowbutton" type="submit" value="<%= FollowData[i].FollowID%>" required  />
+										
+										<!-- 可以有兩個input -->
+										<!-- 不需要寫js 事件-->
+										<!-- 要寫判斷式 -->
+										<!-- val研究一下 -->
+
+									</form>
 									<!-- 方法二 -->
 									<!-- <button  class="btnLg btn-lightRed" name="變數(FollowData[i].PetID) 變數" type="button" id="unfollow" data-following="false" >取消追蹤</button> -->
 									<!-- 方法三 -->
 									<!-- <button class="btnLg btn-lightRed"  name="變數(FollowData[i].PetID) 變數" type="submit" formmethod="post" >取消追蹤</button> -->
 									<!-- 方法四 -->
-									<div class="btnLg btn-lightRed" id="XDDDD">取消追蹤</div>
+									<!-- <div class="btnLg btn-lightRed" id="XDDDD">取消追蹤</div> -->
 								</td>
 							</tr>
 							<% sn++; %>

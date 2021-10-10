@@ -13,12 +13,12 @@ router.get('/', function (req, res, next) {
         var memberData = results[0]; // 撈取是否有登入session
         pool.query('SELECT * FROM `UserFollow` JOIN `member` ON(`member`.MemberID=`UserFollow`.`MemberID`) JOIN PostForAdopt ON (`PostForAdopt`.`Petid`=`UserFollow`.`Petid`) WHERE `UserFollowState` = 1 AND `Email`=?', [req.session.Email], function (err, results) {
             var FollowData = results; // 抓取 登入後的資料
-            console.log(FollowData);
-            console.log("[mysql error]", err);
+            // console.log(FollowData);
+            // console.log("[mysql error]", err);
             var TotalLine = FollowData.length; //資料總筆數 
-            console.log(TotalLine);
+            // console.log(TotalLine);
             var TotalPage = Math.ceil(TotalLine / LinePerPage); //資料總頁數＝總筆數/每頁顯示數 
-            console.log(TotalPage);
+            // console.log(TotalPage);
                 if (err) throw err;
                 res.render('UserFollow', {
                     FollowData: FollowData || "",
@@ -36,19 +36,13 @@ router.get('/', function (req, res, next) {
 // 更改數值 
 //目標  我需要每一個按鈕都有各自的代號 他們每個按鈕按下去 會更新各自的資料庫(條件：寵物編號 使用者編號  當這兩個與數據資料庫相同時 才會進行將資料庫修正)   
 //目前遇到的問題：
-//1. 每一個按鈕都有各自的代號
-//2. 按鈕按下的事件
-//3. 不知道怎麼抓單筆資料
-router.post('/UserFollow', function (req, res, next) {    
-    var cancelfollow1 = req.body['1']
-    // var cancelfollow2 = req.body['2']
-    // var cancelfollow3 = req.body['3']
-    // var cancelfollow4 = req.body['4']
-    var cancelfollow5 = req.body['5']
-    // var cancelfollow6 = req.body['6']
-    var cancelfollow7 = req.body['7']
-
-    pool.query('UPDATE UserFollow SET UserFollowState= 0 WHERE PetId =? AND MemberID=? ' , [PetId,req.session.MemberId], function (errr, results) {
+//1. 每一個按鈕都有各自的代號  =>使用name
+//2. 按鈕按下的事件  =>不需要
+//3. 不知道怎麼抓單筆資料  
+router.post('/', function (req, res, next) {    
+    var unfollowbutton = req.body.unfollowbutton
+    console.log(unfollowbutton)
+    pool.query('UPDATE UserFollow SET UserFollowState= 0 WHERE FollowID =? ' , [unfollowbutton], function (err, results) {
         if (err) throw err;
         console.log('我成功了')
         res.redirect('/UserFollow');
