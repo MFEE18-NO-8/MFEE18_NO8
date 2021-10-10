@@ -45,6 +45,7 @@ module.exports = class Member {
                     PasswordConfirmVal: req.body.PasswordConfirm || "",  // 保留輸入的值
                     MemberNameVal: req.body.MemberName || "",  // 保留輸入的值
                     CellPhoneVal: req.body.CellPhone || "",  // 保留輸入的值
+                    isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
                 })
             }, (err) => {
                 //若寫入失敗則回傳
@@ -58,6 +59,7 @@ module.exports = class Member {
                     PasswordConfirmVal: req.body.PasswordConfirm || "",  // 保留輸入的值
                     MemberNameVal: req.body.MemberName || "",  // 保留輸入的值
                     CellPhoneVal: req.body.CellPhone || "",  // 保留輸入的值
+                    isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
                 })
             })
         }

@@ -17,6 +17,9 @@ router.get('/', function (req, res, next) {
             messages: messages,
             alert: alert,
             isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+            oldPswdVal: req.body.oldPswd || "",                  // 保留輸入的值
+            newPswdVal: req.body.newPswd || "",                   // 保留輸入的值
+            newPswdConfirmVal: req.body.newPswdConfirm || "",    // 保留輸入的值
 
         });
     });
@@ -47,7 +50,9 @@ router.post('/', function (req, res, next) {
                 memberData: memberData || "",
                 alert: true,
                 isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
-
+                oldPswdVal: req.body.oldPswd,                  // 保留輸入的值
+                newPswdVal: req.body.newPswd,                   // 保留輸入的值
+                newPswdConfirmVal: req.body.newPswdConfirm,    // 保留輸入的值
             })
             return;
             // 輸入的新密碼 != 輸入的確認密碼
@@ -58,7 +63,9 @@ router.post('/', function (req, res, next) {
                 alert: true,
                 messages: messages,
                 isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
-
+                oldPswdVal: req.body.oldPswd,                  // 保留輸入的值
+                newPswdVal: req.body.newPswd,                   // 保留輸入的值
+                newPswdConfirmVal: req.body.newPswdConfirm,    // 保留輸入的值
             })
             return;
             // 資料庫密碼 = 輸入的新密碼
@@ -69,18 +76,23 @@ router.post('/', function (req, res, next) {
                 alert: true,
                 messages: messages,
                 isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
-
+                oldPswdVal: req.body.oldPswd,                  // 保留輸入的值
+                newPswdVal: req.body.newPswd,                   // 保留輸入的值
+                newPswdConfirmVal: req.body.newPswdConfirm,    // 保留輸入的值
             })
             return;
-        } else if (memberData.Password.length < 6 || memberData.Password.length > 12) {
+            // 新密碼 < 6 或  新密碼 > 12
+        } else if (newPswd.length < 6 || newPswd.length > 12) {
             messages = "請輸入6~12為密碼",
-            res.render('UserEditPswd', {
-                memberData: memberData || "",
-                alert: true,
-                messages: messages,
-                isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
-
-            })
+                res.render('UserEditPswd', {
+                    memberData: memberData || "",
+                    alert: true,
+                    messages: messages,
+                    isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+                    oldPswdVal: req.body.oldPswd,                  // 保留輸入的值
+                    newPswdVal: req.body.newPswd,                   // 保留輸入的值
+                    newPswdConfirmVal: req.body.newPswdConfirm,    // 保留輸入的值
+                })
             return;
         }
 
@@ -101,7 +113,9 @@ router.post('/', function (req, res, next) {
                 alert: false,
                 memberData: memberData || "",
                 isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
-
+                oldPswdVal: req.body.oldPswd,                  // 保留輸入的值
+                newPswdVal: req.body.newPswd,                   // 保留輸入的值
+                newPswdConfirmVal: req.body.newPswdConfirm,    // 保留輸入的值
             });
         });
     });

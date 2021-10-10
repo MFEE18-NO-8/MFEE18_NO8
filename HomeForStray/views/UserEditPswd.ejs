@@ -42,7 +42,7 @@
 						<p>舊密碼</p>
 					</label>
 					<div class="col-9">
-						<input type="password" class="memberInput" id="oldPswd" name="oldPswd" />
+						<input type="password" class="memberInput" id="oldPswd" name="oldPswd" value="<%= oldPswdVal %>"/>
 					</div>
 				</div>
 				<div class="row">
@@ -50,7 +50,7 @@
 						<p>新密碼</p>
 					</label>
 					<div class="col-9">
-						<input type="password" class="memberInput" id="newPswd" name="newPswd" />
+						<input type="password" class="memberInput" id="newPswd" name="newPswd" value="<%= newPswdVal %>"/>
 					</div>
 					<!-- <div class="col-1"><button class="check check-btn">驗證</button></div> -->
 				</div>
@@ -59,7 +59,7 @@
 						<p>再次輸入密碼</p>
 					</label>
 					<div class="col-9">
-						<input type="password" class="memberInput" id="newPswdConfirm" name="newPswdConfirm" />
+						<input type="password" class="memberInput" id="newPswdConfirm" name="newPswdConfirm" value="<%= newPswdConfirmVal %>" />
 					</div>
 				</div>
 				<!-- <p style="color: indianred;">
@@ -90,6 +90,7 @@
 						Swal.fire({
 							icon: "success",
 							title: messages,
+							text:"請重新用新密碼登入"
 						}).then(function () {
 							window.location.href = "/member/logout"
 						});
