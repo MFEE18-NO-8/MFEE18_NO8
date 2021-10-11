@@ -72,16 +72,11 @@
 								<!-- 取消追蹤 -->
 								<td>
 									<!-- 方法一 -->
+									<!-- 可以有兩個input -->
+									<!-- 不需要寫js 事件-->
 									<form action="" method="POST">
-										<!-- <input class="btnLg btn-lightRed" name=" (FollowData[i].FollowID)  " type="submit" value="取消追蹤" required  /> -->
-										<input class="btnLg btn-lightRed" name="unfollowbutton" type="submit" value="<%= FollowData[i].FollowID%>" required  />
-										
-										<!-- 可以有兩個input -->
-										<!-- 不需要寫js 事件-->
-										<!-- 要寫判斷式 -->
-										<!-- val研究一下 -->
-										<!-- 追蹤也要寫 -->
-
+										<input class="btnLg btn-lightRed" name="unfollowbutton" type="hidden" value="<%= FollowData[i].FollowID%>" required  />
+										<input class="btnLg btn-lightRed" name="unfollowbutton" type="submit" value="取消追蹤" required  />	
 									</form>
 									<!-- 方法二 -->
 									<!-- <button  class="btnLg btn-lightRed" name="變數(FollowData[i].PetID) 變數" type="button" id="unfollow" data-following="false" >取消追蹤</button> -->
