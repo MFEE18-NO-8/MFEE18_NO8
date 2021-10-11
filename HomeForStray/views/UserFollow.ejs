@@ -8,13 +8,13 @@
 	<title>追蹤清單</title>
 
 	<!-- bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
 		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-		crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
 		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
@@ -64,26 +64,26 @@
 									<%= (FollowData[i].FollowDate).toLocaleDateString() %>
 								</td>
 								<td>
-									<!--這裡要放查看按鈕  這個會連到相關AdoptList  之後透過PetId去連到寵物頁面-->
+									<!--查看-->
 									<button class="btnMd-back btn-green">
 										<a href="/AdoptContent?id=<%= FollowData[i].PetId%>">查看</a>
 									</button>
 								</td>
-								<!--這裡要放取消追蹤按鈕  這個會改變狀態 -->
+								<!-- 取消追蹤 -->
 								<td>
-									<a href=""></a>
+									<!-- 方法一 -->
+									<!-- 可以有兩個input -->
+									<!-- 不需要寫js 事件-->
 									<form action="" method="POST">
-										<input type="submit" value="取消追蹤" id="CancelFollow" class="btnMd-back btn-green"
-											style="width: 150px" />
-										<!-- 暫時先用上面 下面還在開發中 -->
-										<!-- <input type="submit" value="<%= data[i].UserFollowState %>" name="FollowState" class="btnMd-back btn-green "   />
-								<input type="text"  value="<%=  data[i]          %>" name="PetId" class="btnMd-back btn-green " >
-								<input type="text"  value=""  name="goooood">
-								<input type="text" value=" " name=" <%  data[i]  %>  "> -->
-										<!-- 感覺上面都不對 考慮使用購物車的方式  但我不會購物車 -->
+										<input class="btnLg btn-lightRed" name="unfollowbutton" type="hidden" value="<%= FollowData[i].FollowID%>" required  />
+										<input class="btnLg btn-lightRed" name="unfollowbutton" type="submit" value="取消追蹤" required  />	
 									</form>
-
-									<!-- <button class="btnLg btn-lightRed" type="submit" formmethod="post" value="">取消追蹤</button> -->
+									<!-- 方法二 -->
+									<!-- <button  class="btnLg btn-lightRed" name="變數(FollowData[i].PetID) 變數" type="button" id="unfollow" data-following="false" >取消追蹤</button> -->
+									<!-- 方法三 -->
+									<!-- <button class="btnLg btn-lightRed"  name="變數(FollowData[i].PetID) 變數" type="submit" formmethod="post" >取消追蹤</button> -->
+									<!-- 方法四 -->
+									<!-- <div class="btnLg btn-lightRed" id="XDDDD">取消追蹤</div> -->
 								</td>
 							</tr>
 							<% sn++; %>
@@ -124,7 +124,34 @@
 						$("body").toggleClass("burgar-menu-show");
 					});
 				});
+				//取消追蹤按鈕 一 
+				// $("#unfollow").click(function(){
+				// 	if($(this).attr('data-following') == 'false'){
+				// 		$(this).attr('data-following','ture');
+				// 		$(this).text('已取消追蹤');
+				// 	}else if ($(this).attr('data-following')== 'true'){
+				// 		$(this).attr('data-following','false');
+				// 		$(this).text('Follow');
+				// 	}
+				// });
+				//取消追蹤按鈕 二 替代方案
+				window.onload = function (){
+					var oSc = document.getElementById('XDDDD');
+					var onOff = true;
+					
+					oSc.onclick = function (){
+						if(onOff){
+							oSc.innerHTML = '<i class=""></i>'+'已取消追蹤';
+							onOff = false;    
+						}else{
+							oSc.innerHTML = '已重新追蹤';
+							onOff = true;
+						}
+					};
+				}
 			</script>
+
+		
 </body>
 
 </html>
