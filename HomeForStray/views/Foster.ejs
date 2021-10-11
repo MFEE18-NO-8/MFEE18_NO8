@@ -131,7 +131,7 @@
 
       </div>
     </div>
-    <form class="foster-form" action="" method="POST">
+    <form class="foster-form" action="" enctype="multipart/form-data" method="POST">
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">寵物暱稱</label>
         <div class="col-9">
@@ -301,15 +301,21 @@
         </div>
       </div>
       <!-- 檔案上傳 -->
-      <!-- <div class="form-group row">
-              <label for="staticEmail" class="col-sm-2 col-form-label">照片</label>
-              <div class="col-9">
-                <div class="form-group">
-                  <label for="exampleFormControlFile1">Example file input</label>
-                  <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                </div>              
-              </div>
-            </div> -->
+
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">照片</label>
+        <div class="col-9">
+          <div class="form-group">
+            <label for="exampleFormControlFile1">Example file input</label>
+            <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+            <!-- <input type="submit" value="上傳"> -->
+            <% if(typeof(image) !=='undefined' && image){ %>
+              <img src=" <%=image%> ">
+              <%}%>
+          </div>
+        </div>
+      </div>
+
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">照片</label>
         <div class="col-9">
@@ -382,9 +388,8 @@
     </form>
   </div>
   <!-- footer -->
-  <% include Footer%>
 
-
+  <% include Footer %>
     <script>
       // 漢堡選單
       $(document).ready(function () {
