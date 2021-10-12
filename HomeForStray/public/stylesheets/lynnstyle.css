@@ -117,7 +117,7 @@ div.dropdown-menu::before{
     border-left: 50px solid transparent;
     border-right: 30px solid transparent;
     position: absolute;
-    top: -15%;
+    top: -2.5%;
     right:0px;
 }
 .user-menu > ul>li:last-of-type {
