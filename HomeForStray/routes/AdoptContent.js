@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
 
         if (!memberData) {
             // 非會員
-            pool.query('SELECT * FROM PostForAdopt,CityDatas,PetImgDatas WHERE PostForAdopt.CityId=CityDatas.CityId AND PostForAdopt.PetId=PetImgDatas.PetId and  PostForAdopt.PetId=?', [id], function (err, results) {  //根據id讀取資料
+            pool.query('SELECT * FROM PostForAdopt,CityDatas,PetImgDatas WHERE PostForAdopt.CityId=CityDatas.CityId AND PostForAdopt.PetId=PetImgDatas.PetImgId and  PostForAdopt.PetId=?', [id], function (err, results) {  //根據id讀取資料
                 if (err) throw err;
                 res.render('AdoptContent', {
                     data: results,
@@ -21,8 +21,8 @@ router.get('/', function (req, res, next) {
                     memberData: memberData || "",
                     isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
                     UserFollowState: "",
-                    isFollow : false, // 追蹤訊息框
-                    isUnFollow : false, // 追蹤訊息框
+                    isFollow: false, // 追蹤訊息框
+                    isUnFollow: false, // 追蹤訊息框
                 });  //傳送pageNo給返回首頁使用(回到原來頁面)
             });
 
@@ -33,7 +33,7 @@ router.get('/', function (req, res, next) {
         } else {
             var memberDataJSON = JSON.parse(JSON.stringify(memberData));  //解析RowDataPacket
             var MemberID = memberDataJSON.MemberID;  // 撈出會員ID
-            pool.query('SELECT * FROM PostForAdopt,CityDatas,PetImgDatas WHERE PostForAdopt.CityId=CityDatas.CityId AND PostForAdopt.PetId=PetImgDatas.PetId and  PostForAdopt.PetId=?', [id], function (err, results) {  //根據id讀取資料
+            pool.query('SELECT * FROM PostForAdopt,CityDatas,PetImgDatas WHERE PostForAdopt.CityId=CityDatas.CityId AND PostForAdopt.PetId=PetImgDatas.PetImgId and  PostForAdopt.PetId=?', [id], function (err, results) {  //根據id讀取資料
                 if (err) throw err;
                 var resPetData = results; // 將原本撈出results設一個變數，可以render到頁面
 
@@ -47,8 +47,8 @@ router.get('/', function (req, res, next) {
                             memberData: memberData || "",
                             isGuest: true, // footer 刊登送養 會員專區 判斷是否登入 
                             UserFollowState: "",
-                            isFollow : false, // 追蹤訊息框
-                            isUnFollow : false, // 追蹤訊息框
+                            isFollow: false, // 追蹤訊息框
+                            isUnFollow: false, // 追蹤訊息框
                         });
                     } else {
                         var resultUserfollowJSON = JSON.parse(JSON.stringify(resultUserfollow));  //解析RowDataPacket
@@ -59,8 +59,8 @@ router.get('/', function (req, res, next) {
                             memberData: memberData || "",
                             isGuest: true, // footer 刊登送養 會員專區 判斷是否登入 
                             UserFollowState: UserFollowState,
-                            isFollow : false, // 追蹤訊息框
-                            isUnFollow : false, // 追蹤訊息框
+                            isFollow: false, // 追蹤訊息框
+                            isUnFollow: false, // 追蹤訊息框
                         });  //傳送pageNo給返回首頁使用(回到原來頁面)
                     }
                 });
@@ -79,13 +79,13 @@ router.post('/', function (req, res, next) {
         var memberDataJSON = JSON.parse(JSON.stringify(memberData));  //解析RowDataPacket
         var MemberID = memberDataJSON.MemberID;  // 撈出會員ID
 
-        pool.query('SELECT * FROM PostForAdopt,CityDatas,PetImgDatas WHERE PostForAdopt.CityId=CityDatas.CityId AND PostForAdopt.PetId=PetImgDatas.PetId and  PostForAdopt.PetId=?', [id], function (err, results) {  //根據id讀取資料
+        pool.query('SELECT * FROM PostForAdopt,CityDatas,PetImgDatas WHERE PostForAdopt.CityId=CityDatas.CityId AND PostForAdopt.PetId=PetImgDatas.PetImgId and  PostForAdopt.PetId=?', [id], function (err, results) {  //根據id讀取資料
             if (err) throw err;
             var resPetData = results; // 將原本撈出results設一個變數，可以render到頁面
             var PetData = results[0];
             var PetDataJSON = JSON.parse(JSON.stringify(PetData));  //解析RowDataPacket
             var PetName = PetDataJSON.PetName;  // 撈出寵物名字
-
+            console.log(resPetData)
             pool.query('SELECT * FROM userfollow WHERE PetId=? AND MemberID=?', [id, MemberID], function (err, results) {  //根據id讀取資料
                 var resultUserfollow = results[0] // 撈出是否有追蹤結果
 
@@ -108,8 +108,8 @@ router.post('/', function (req, res, next) {
                             memberData: memberData || "",
                             isGuest: true, // footer 刊登送養 會員專區 判斷是否登入 
                             UserFollowState: UserFollowState,
-                            isFollow : true, // 追蹤訊息框
-                            isUnFollow : true, // 追蹤訊息框
+                            isFollow: true, // 追蹤訊息框
+                            isUnFollow: true, // 追蹤訊息框
                         });
                         // 寫入 通知訊息
                         pool.query(`INSERT INTO usermsg (MemberID,MsgDate,Msg) VALUES ('${MemberID}' , '${onTime()}','【系統通知】寵物${PetName}，已成功追蹤~~' )`, [], function (err, results) {
@@ -147,8 +147,8 @@ router.post('/', function (req, res, next) {
                                     memberData: memberData || "", // 是否會員
                                     isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
                                     UserFollowState: UserFollowState, // 是否追蹤的狀態
-                                    isFollow : false, // 追蹤訊息框
-                                    isUnFollow : true, // 追蹤訊息框
+                                    isFollow: false, // 追蹤訊息框
+                                    isUnFollow: true, // 追蹤訊息框
                                 });
                                 // 寫入 通知訊息
                                 pool.query(`INSERT INTO usermsg (MemberID,MsgDate,Msg) VALUES ('${MemberID}' , '${onTime()}','【系統通知】寵物${PetName}，已取消追蹤!' )`, [], function (err, results) {
@@ -177,8 +177,8 @@ router.post('/', function (req, res, next) {
                                     memberData: memberData || "", // 是否會員
                                     isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
                                     UserFollowState: UserFollowState, // 是否追蹤的狀態
-                                    isFollow : true, // 追蹤訊息框
-                                    isUnFollow : false, // 追蹤訊息框
+                                    isFollow: true, // 追蹤訊息框
+                                    isUnFollow: false, // 追蹤訊息框
                                 });
                                 pool.query(`INSERT INTO usermsg (MemberID,MsgDate,Msg) VALUES ('${MemberID}' , '${onTime()}','【系統通知】寵物${PetName}，已成功追蹤~~' )`, [], function (err, results) {
                                     if (err) {
