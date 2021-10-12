@@ -13,7 +13,9 @@ router.get('/', function (req, res, next) {
 
         if (!memberData) {
             // 非會員
+
             pool.query('SELECT * FROM PostForAdopt,CityDatas,PetImgDatas WHERE PostForAdopt.CityId=CityDatas.CityId AND PostForAdopt.PetImgId=PetImgDatas.PetImgId and  PostForAdopt.PetId=?', [id], function (err, results) {  //根據id讀取資料
+
                 if (err) throw err;
                 res.render('AdoptContent', {
                     data: results,
@@ -33,7 +35,11 @@ router.get('/', function (req, res, next) {
         } else {
             var memberDataJSON = JSON.parse(JSON.stringify(memberData));  //解析RowDataPacket
             var MemberID = memberDataJSON.MemberID;  // 撈出會員ID
+<<<<<<< HEAD
             pool.query('SELECT * FROM PostForAdopt,CityDatas,PetImgDatas WHERE PostForAdopt.CityId=CityDatas.CityId AND PostForAdopt.PetImgId=PetImgDatas.PetImgId and  PostForAdopt.PetId=?', [id], function (err, results) {  //根據id讀取資料
+=======
+            pool.query('SELECT * FROM PostForAdopt,CityDatas,PetImgDatas WHERE PostForAdopt.CityId=CityDatas.CityId AND PostForAdopt.PetId=PetImgDatas.PetImgId and  PostForAdopt.PetId=?', [id], function (err, results) {  //根據id讀取資料
+>>>>>>> 08ad5c3e5b571d673de78ad3828a9ddb856135d0
                 if (err) throw err;
                 var resPetData = results; // 將原本撈出results設一個變數，可以render到頁面
 
@@ -79,13 +85,13 @@ router.post('/', function (req, res, next) {
         var memberDataJSON = JSON.parse(JSON.stringify(memberData));  //解析RowDataPacket
         var MemberID = memberDataJSON.MemberID;  // 撈出會員ID
 
-        pool.query('SELECT * FROM PostForAdopt,CityDatas,PetImgDatas WHERE PostForAdopt.CityId=CityDatas.CityId AND PostForAdopt.PetId=PetImgDatas.PetId and  PostForAdopt.PetId=?', [id], function (err, results) {  //根據id讀取資料
+        pool.query('SELECT * FROM PostForAdopt,CityDatas,PetImgDatas WHERE PostForAdopt.CityId=CityDatas.CityId AND PostForAdopt.PetId=PetImgDatas.PetImgId and  PostForAdopt.PetId=?', [id], function (err, results) {  //根據id讀取資料
             if (err) throw err;
             var resPetData = results; // 將原本撈出results設一個變數，可以render到頁面
             var PetData = results[0];
             var PetDataJSON = JSON.parse(JSON.stringify(PetData));  //解析RowDataPacket
             var PetName = PetDataJSON.PetName;  // 撈出寵物名字
-
+            console.log(resPetData)
             pool.query('SELECT * FROM userfollow WHERE PetId=? AND MemberID=?', [id, MemberID], function (err, results) {  //根據id讀取資料
                 var resultUserfollow = results[0] // 撈出是否有追蹤結果
 

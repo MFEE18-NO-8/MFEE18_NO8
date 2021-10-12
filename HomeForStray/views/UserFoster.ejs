@@ -72,7 +72,8 @@
 									<%= (FosterData[i].AuditState)//審核狀態 %>
 								</td>
 								<td>
-									<%= (FosterData[i].AdoptState)//認養狀態 %>
+									<!-- <%= (FosterData[i].AdoptState)//認養狀態 %> -->
+									<%= (FosterData[i].AdoptState==1 ) ? '已批准' : '未批准' ; %>
 								</td>
 								<td>
 									<button class="btnMd-back btn-green">
