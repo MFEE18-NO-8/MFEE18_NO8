@@ -13,25 +13,22 @@ router.get('/', function (req, res, next) {
     }
     pool.query('select * from Member where Email=?', [req.session.Email], function (err, results) {
         var memberData = results[0]; // 撈取是否有登入session
+        var memberDataJSON = JSON.parse(JSON.stringify(memberData));  //解析RowDataPacket
+        var MemberID = memberDataJSON.MemberID;  // 撈出會員ID
 
 
-        //對資料庫進行存取
-        //從"使用者通知"那資料庫裏，抓資料(總筆數)，如果資料庫操作命令執行結果有傳回值，傳回值會儲存於「results」參數中。
-        pool.query('SELECT * FROM UserMsg JOIN member ON(member.MemberID=UserMsg.MemberID)  where Email=?', [req.session.Email], function (err, results) {
-            var MsgData = results; // 撈取是否有登入session
-            console.log(MsgData)
-
-            var TotalLine = MsgData.length;  // 資料總筆數 會員1只有兩筆
+        pool.query('SELECT * from UserMsg where MemberID=?', [MemberID], function (err, results) {
+            var MsgData = results; 
+            var TotalLine = MsgData.length;  // 資料總筆數 
             var TotalPage = Math.ceil(TotalLine / LinePerPage);  //資料總頁數＝總筆數/每頁顯示數
-            pool.query('SELECT * from UserMsg order by MsgID DESC limit ?, ?',
-                [(PageNo - 1) * LinePerPage, LinePerPage],
-                // pool.query('SELECT * FROM UserMsg JOIN member ON(member.MemberID=UserMsg.MemberID) where Email= ? order by MsgID desc limit ?, ?',
-                // [req.session.Email,(PageNo - 1) * LinePerPage, LinePerPage],
+            
+            pool.query('SELECT * from UserMsg where MemberID=? order by MsgID DESC limit ?, ?',
+                [ MemberID , (PageNo - 1) * LinePerPage, LinePerPage],
+
                 function (err, results) {  //根據目前頁數讀取資料
                     if (err) throw err;
                     res.render('UserMsg', {
-                        data: results, //全部筆數
-                        MsgData: MsgData || "",
+                        data: results || "", //全部筆數
                         PageNo: PageNo,
                         TotalLine: TotalLine,
                         TotalPage: TotalPage,
