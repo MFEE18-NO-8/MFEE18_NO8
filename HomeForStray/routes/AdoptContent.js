@@ -21,6 +21,8 @@ router.get('/', function (req, res, next) {
                     memberData: memberData || "",
                     isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
                     UserFollowState: "",
+                    isFollow : false, // 追蹤訊息框
+                    isUnFollow : false, // 追蹤訊息框
                 });  //傳送pageNo給返回首頁使用(回到原來頁面)
             });
 
@@ -45,6 +47,8 @@ router.get('/', function (req, res, next) {
                             memberData: memberData || "",
                             isGuest: true, // footer 刊登送養 會員專區 判斷是否登入 
                             UserFollowState: "",
+                            isFollow : false, // 追蹤訊息框
+                            isUnFollow : false, // 追蹤訊息框
                         });
                     } else {
                         var resultUserfollowJSON = JSON.parse(JSON.stringify(resultUserfollow));  //解析RowDataPacket
@@ -55,6 +59,8 @@ router.get('/', function (req, res, next) {
                             memberData: memberData || "",
                             isGuest: true, // footer 刊登送養 會員專區 判斷是否登入 
                             UserFollowState: UserFollowState,
+                            isFollow : false, // 追蹤訊息框
+                            isUnFollow : false, // 追蹤訊息框
                         });  //傳送pageNo給返回首頁使用(回到原來頁面)
                     }
                 });
@@ -102,6 +108,8 @@ router.post('/', function (req, res, next) {
                             memberData: memberData || "",
                             isGuest: true, // footer 刊登送養 會員專區 判斷是否登入 
                             UserFollowState: UserFollowState,
+                            isFollow : true, // 追蹤訊息框
+                            isUnFollow : true, // 追蹤訊息框
                         });
                         // 寫入 通知訊息
                         pool.query(`INSERT INTO usermsg (MemberID,MsgDate,Msg) VALUES ('${MemberID}' , '${onTime()}','【系統通知】寵物${PetName}，已成功追蹤~~' )`, [], function (err, results) {
@@ -139,6 +147,8 @@ router.post('/', function (req, res, next) {
                                     memberData: memberData || "", // 是否會員
                                     isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
                                     UserFollowState: UserFollowState, // 是否追蹤的狀態
+                                    isFollow : false, // 追蹤訊息框
+                                    isUnFollow : true, // 追蹤訊息框
                                 });
                                 // 寫入 通知訊息
                                 pool.query(`INSERT INTO usermsg (MemberID,MsgDate,Msg) VALUES ('${MemberID}' , '${onTime()}','【系統通知】寵物${PetName}，已取消追蹤!' )`, [], function (err, results) {
@@ -167,6 +177,8 @@ router.post('/', function (req, res, next) {
                                     memberData: memberData || "", // 是否會員
                                     isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
                                     UserFollowState: UserFollowState, // 是否追蹤的狀態
+                                    isFollow : true, // 追蹤訊息框
+                                    isUnFollow : false, // 追蹤訊息框
                                 });
                                 pool.query(`INSERT INTO usermsg (MemberID,MsgDate,Msg) VALUES ('${MemberID}' , '${onTime()}','【系統通知】寵物${PetName}，已成功追蹤~~' )`, [], function (err, results) {
                                     if (err) {
