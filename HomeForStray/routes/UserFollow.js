@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql'); //含入mysql套件
 var pool = require('./lib/db.js') //含入資料庫連線
-var LinePerPage = 5;//設定網頁 每頁資料筆數
+//設定網頁 每頁資料筆數
+var LinePerPage = 5;
 
 router.get('/', function (req, res, next) {
     var PageNo = parseInt(req.query.PageNo);  //取得傳送的目前頁數
@@ -11,16 +12,17 @@ router.get('/', function (req, res, next) {
     }
     pool.query('select * from `Member` where `Email`=?', [req.session.Email], function (err, results) {
         var memberData = results[0]; // 撈取是否有登入session
+
         pool.query('SELECT * FROM `UserFollow` JOIN `member` ON(`member`.MemberID=`UserFollow`.`MemberID`) JOIN PostForAdopt ON (`PostForAdopt`.`Petid`=`UserFollow`.`Petid`) WHERE `UserFollowState` = 1 AND `Email`=?', [req.session.Email], function (err, results) {
-            var FollowData = results; // 抓取 登入後的資料
-            // console.log(FollowData);
-            // console.log("[mysql error]", err);
-            var TotalLine = FollowData.length; //資料總筆數 
-            // console.log(TotalLine);
-            var TotalPage = Math.ceil(TotalLine / LinePerPage); //資料總頁數＝總筆數/每頁顯示數 
-            // console.log(TotalPage);
+            var FollowData = results;
+            var TotalLine = FollowData.length; //資料總筆數 朱建輝 有兩筆追蹤資料
+            var TotalPage = Math.ceil(TotalLine / LinePerPage); //資料總頁數＝總筆數/每頁顯示數  朱建輝資料總頁數 1 ，因為總共2筆/每頁顯示5筆資料
+
+            pool.query('SELECT * FROM `UserFollow`JOIN `member` ON(`member`.MemberID=`UserFollow`.`MemberID`) JOIN PostForAdopt ON (`PostForAdopt`.`Petid`=`UserFollow`.`Petid`) WHERE `UserFollowState` = 1 ORDER BY `FollowDate` DESC LIMIT ?,?', [(PageNo - 1) * LinePerPage, LinePerPage], function (err, results) {
+
                 if (err) throw err;
                 res.render('UserFollow', {
+                    data: results,
                     FollowData: FollowData || "",
                     PageNo: PageNo,
                     TotalLine: TotalLine,
@@ -28,25 +30,66 @@ router.get('/', function (req, res, next) {
                     LinePerPage: LinePerPage,
                     memberData: memberData || "",
                     isGuest: true, // footer 刊登送養 會員專區 判斷是否登入
+
+                });
             });
         });
     });
 });
 
-// 更改數值 
-//目標  我需要每一個按鈕都有各自的代號 他們每個按鈕按下去 會更新各自的資料庫(條件：寵物編號 使用者編號  當這兩個與數據資料庫相同時 才會進行將資料庫修正)   
-//目前遇到的問題：
-//1. 每一個按鈕都有各自的代號  =>使用name
-//2. 按鈕按下的事件  =>不需要
-//3. 不知道怎麼抓單筆資料  
-router.post('/', function (req, res, next) {    
-    var unfollowbutton = req.body.unfollowbutton
-    console.log(unfollowbutton)
-    pool.query('UPDATE UserFollow SET UserFollowState= 0 WHERE FollowID =? ' , [unfollowbutton], function (err, results) {
-        if (err) throw err;
-        console.log('我成功了')
-        res.redirect('/UserFollow');
+
+router.post('/', function (req, res, next) {
+    var PageNo = parseInt(req.query.PageNo);  //取得傳送的目前頁數
+    if (isNaN(PageNo) || PageNo < 1) {  //如果沒有傳送參數,設目前頁數為第1頁
+        PageNo = 1;
+    }
+
+    pool.query('select * from `Member` where `Email`=?', [req.session.Email], function (err, results) {
+        var memberData = results[0]; // 撈取是否有登入session
+        var memberDataJSON = JSON.parse(JSON.stringify(memberData));  //解析RowDataPacket
+        var MemberID = memberDataJSON.MemberID;  // 撈出會員ID
+
+
+        pool.query('SELECT * FROM `UserFollow`JOIN `member` ON(`member`.MemberID=`UserFollow`.`MemberID`) JOIN PostForAdopt ON (`PostForAdopt`.`Petid`=`UserFollow`.`Petid`) WHERE `UserFollowState` = 1 ORDER BY `FollowDate` DESC LIMIT ?,?', [(PageNo - 1) * LinePerPage, LinePerPage], function (err, results) {
+            var FollowData = results[0];
+            var FollowDataJSON = JSON.parse(JSON.stringify(FollowData));  //解析RowDataPacket
+            var PetName = FollowDataJSON.PetName;  // 撈出寵物名字
+
+            // 接收前台name的值，取出FollowID，再將UserFollowState設置為0
+            pool.query('UPDATE userfollow set UserFollowState = 0 where FollowID=?', [
+                req.body.FollowID
+            ], function (err, results) {
+                if (err) throw err;
+                res.redirect('/UserFollow') // 重新倒回這頁，才會再重新載入 
+
+                // 寫入 通知訊息
+                pool.query(`INSERT INTO usermsg (MemberID,MsgDate,Msg) VALUES ('${MemberID}' , '${onTime()}','【系統通知】寵物${PetName}，已取消追蹤!' )`, [], function (err, results) {
+                    if (err) {
+                        console.log(err);
+                        return;
+                    }
+                });
+            });
+
+        });
+
     });
 });
-
 module.exports = router;
+
+const onTime = () => {
+    const date = new Date();
+    const mm = date.getMonth() + 1;
+    const dd = date.getDate();
+    const hh = date.getHours();
+    const mi = date.getMinutes();
+    const ss = date.getSeconds();
+
+    return [date.getFullYear(), "-" +
+        (mm > 9 ? '' : '0') + mm, "-" +
+        (dd > 9 ? '' : '0') + dd, " " +
+        (hh > 9 ? '' : '0') + hh, ":" +
+        (mi > 9 ? '' : '0') + mi, ":" +
+        (ss > 9 ? '' : '0') + ss
+    ].join('');
+}
