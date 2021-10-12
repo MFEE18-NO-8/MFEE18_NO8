@@ -85,7 +85,7 @@
                                     <h4>追蹤</h4>
                                     <% }else{ %>
                                         <!-- 會員 -->
-                                        <% if ( UserFollowState == 1 ){ %>
+                                        <% if ( UserFollowState==1 ){ %>
                                             <form action="" method="POST" id="formFol" name="formFol">
                                                 <a href="javascript:document.formFol.submit()">
                                                     <img src="../img/icon/heart.png" alt="" class="share-img">
@@ -95,7 +95,7 @@
                                             <% }else{ %>
                                                 <form action="" method="POST" id="formFol" name="formFol">
                                                     <a href="javascript:document.formFol.submit()">
-                                                        <img src="../img/icon/heart.png" alt="" class="share-img"> 
+                                                        <img src="../img/icon/heart.png" alt="" class="share-img">
                                                     </a>
                                                 </form>
                                                 <h4 style="display: inline; ">追蹤</h4>
@@ -188,7 +188,26 @@
                         $('body').toggleClass('burgar-menu-show');
                     });
                 });
+
             </script>
+            <!-- 追蹤成功 -->
+            <% if ( isFollow ) { %>
+                <script>
+                    Swal.fire({
+                        title: '追蹤成功',
+                        icon: 'success',
+                    })
+                </script>
+                <% } %>
+                    <!-- 追蹤失敗 -->
+                    <% if ( isUnFollow ) { %>
+                        <script>
+                            Swal.fire({
+                                title: '取消追蹤',
+                                icon: 'success',
+                            })
+                        </script>
+                        <% } %>
 </body>
 
 </html>
