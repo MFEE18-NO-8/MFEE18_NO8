@@ -113,7 +113,7 @@ router.post('/', function (req, res, next) {
                             isGuest: true, // footer 刊登送養 會員專區 判斷是否登入 
                             UserFollowState: UserFollowState,
                             isFollow: true, // 追蹤訊息框
-                            isUnFollow: true, // 追蹤訊息框
+                            isUnFollow: false, // 追蹤訊息框
                         });
                         // 寫入 通知訊息
                         pool.query(`INSERT INTO usermsg (MemberID,MsgDate,Msg) VALUES ('${MemberID}' , '${onTime()}','【系統通知】寵物${PetName}，已成功追蹤~~' )`, [], function (err, results) {
