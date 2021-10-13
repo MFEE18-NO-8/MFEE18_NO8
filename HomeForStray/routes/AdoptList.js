@@ -22,7 +22,7 @@ router.get('/', function (req, res) {
         var memberData = results[0]; // 撈取是否有登入session
 
         // pool.query(" select  count(*) as cnt  from postforadopt, CityDatas, PetImgDatas WHERE ((PostForAdopt.CityId=CityDatas.CityId)=? OR ?='') AND (PetGender=? OR ?='' ) AND (PetSpecies=? OR ?='') ",
-        pool.query(" select  count(*) as cnt  from postforadopt WHERE (CityId=? OR ?='') AND (PetGender=? OR ?='' ) AND (PetSpecies=? OR ?='') ",
+        pool.query(" select  count(*) as cnt  from postforadopt WHERE (CityId=? OR ?='') AND (PetGender=? OR ?='' ) AND (PetSpecies=? OR ?='') AND AdoptState=1 ",
             [
                 CityId,
                 CityId,
@@ -42,11 +42,7 @@ router.get('/', function (req, res) {
                     PageNum = 1;
                 }
 
-
-
-
-                // pool.query(" select * from postforadopt, CityDatas, PetImgDatas WHERE ((PostForAdopt.CityId=CityDatas.CityId)=? OR ?='') AND (PetGender=? OR ?='' ) AND (PetSpecies=? OR ?='') order by  AdoptDate DESC  limit ?, ? ", // 選此資料表 用PetId排序
-                pool.query(" select * from postforadopt INNER JOIN CityDatas ON PostForAdopt.CityId = CityDatas.CityId INNER JOIN PetImgDatas ON PostForAdopt.PetImgId = PetImgDatas.PetImgId WHERE (PostForAdopt.CityId=? OR ?='') AND (PetGender=? OR ?='' ) AND (PetSpecies=? OR ?='') order by  AdoptDate DESC  limit ?, ? ", // 選此資料表 用PetId排序
+                pool.query(" select * from postforadopt INNER JOIN CityDatas ON PostForAdopt.CityId = CityDatas.CityId INNER JOIN PetImgDatas ON PostForAdopt.PetImgId = PetImgDatas.PetImgId WHERE (PostForAdopt.CityId=? OR ?='') AND (PetGender=? OR ?='' ) AND (PetSpecies=? OR ?='')  AND AdoptState=1  order by  AdoptDate DESC  limit ?, ? ",
                     [
                         CityId,
                         CityId,
